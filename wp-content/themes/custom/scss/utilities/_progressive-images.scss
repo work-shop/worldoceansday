@@ -1,0 +1,37 @@
+.progressive,.progressive-projects{
+	overflow: hidden;
+
+	img.preview {
+		filter: blur(.25vw);
+
+		&.progressive-hidden{
+			opacity: 0;
+		}
+
+	}
+
+	img.reveal {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 0;
+		will-change: transform, opacity;
+		animation: reveal .5s ease-out;
+
+		&.static{
+			//position: static;
+		}
+
+		&.revealed{
+
+			//position: static;
+		}
+	}
+}
+
+
+@keyframes reveal {
+	0% { opacity: 0;}
+	100% { opacity: 1;}
+}

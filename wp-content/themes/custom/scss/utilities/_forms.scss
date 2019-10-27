@@ -1,0 +1,162 @@
+
+//FORM FIELDS
+
+input,textarea,select{
+	@include transition(all .125s);
+	padding: 4px 10px;
+	border: none;
+	border: 1px solid $medium;
+	border-radius: 3px;
+	background: none;
+	outline: none;
+	width: 100%;
+	//max-width: 300px;
+	color: $dark;
+	@extend .font-main;
+	font-size: 19px;
+
+	&:focus{
+		outline: none;
+		border-radius: 6px;
+		border: 2px solid $brand;
+	}
+
+	&[type="submit"]{
+		border: none;
+		max-width: 300px;
+		margin: 0 auto;
+		transition: all .1s;
+		border: 2px solid $dark;
+		padding: 7px 15px;
+		
+		
+		background-image: none;
+		color: $dark;
+		background: white;
+		//border-radius: 20px;
+
+		&:hover{
+			background-image: none;
+			background: $brand;
+			color: white;
+		}
+	}
+
+
+
+	&[type="checkbox"]{
+		max-width: 30px;
+		display: inline;
+	}
+
+}
+
+select{
+	height: 37px;
+	font-size: 16px;
+}
+
+
+//LABELS
+
+label{
+	display: block;
+	margin-bottom: 4px;
+	font-size: 15px;
+}
+
+.gfield_label_before_complex{
+	@extend .bold;
+	color: $medium;
+	@extend .uppercase;
+	@extend .tracked-less;
+}
+
+
+//GRAVITY FORMS
+
+.gform_wrapper{
+
+	.gfield{
+		margin-bottom: 1.5em;
+	}
+
+	.ginput_complex{
+		@extend .clearfix;
+		input,select{
+			margin-bottom: 1.1em;
+		}
+	}
+
+	.gfield.gform_validation_container{
+		display: none;
+	}
+
+	.validation_error{
+		font-size: 18px;
+		padding: 15px;
+		margin-bottom: 2em;
+		color: darken($error,25%);
+		background: lighten($error,15%);
+		border-radius: 5px;
+	}
+
+	.gfield_error{
+		//max-width: 300px;
+	}
+
+	.validation_message{
+		font-weight: bold;
+		font-size: 12px;
+		padding: 5px 0;
+		color: $error;
+		//max-width: 300px;
+	}
+
+	.gfield_checkbox{
+		label{
+			display: inline;
+			max-width: none;
+		}
+
+		li{
+			margin-bottom: 5px;
+		}
+	}
+
+	.gfield_required{
+		color: $error;
+		margin-left: 5px;
+	}
+
+	.medium{
+		color: $dark;
+	}
+
+	.field_description_below .gfield_description{
+		padding-top: 2px !important;
+		@extend .italic;
+		font-style: italic;
+	}
+
+	.gfield_visibility_{
+		display: none;
+	}
+
+	.gfield_description{
+		font-size: 14px;
+	}
+
+}
+
+.gform_confirmation_message{
+	@extend .h2;
+	color: $dark;
+	padding: 25px;
+	background: $ultra-light;
+	//border-bottom: 3px solid $yellow;
+}
+
+img.gform_ajax_spinner {
+	display: none !important;
+}

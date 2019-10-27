@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "admin-bundle.css",
+	"sources": [
+		"../scss/admin.scss",
+		"../scss/definitions/_variables.scss"
+	],
+	"names": [],
+	"mappings": "ACCA,eAAe;;AAuBf,AAAA,KAAK,CAAA;EACJ,OAAO,CAAA,QAAC;EACR,iBAAiB,CAAA,MAAC;EAClB,MAAM,CAAA,SAAC;EACP,OAAO,CAAA,SAAC;EACR,QAAQ,CAAA,SAAC;CACT"
+}

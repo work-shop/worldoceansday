@@ -1,0 +1,82 @@
+
+#sitewide-alert{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $sitewide-alert-height;
+	z-index: 10;
+	background: $brand;
+	overflow: hidden;
+
+	a{
+		display: block;
+		height:  $sitewide-alert-height;
+	}
+}
+
+#sitewide-alert-close{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	display: block;
+	width: $sitewide-alert-height;
+	height: $sitewide-alert-height;
+	padding-top: 5px;
+
+	.icon:before{
+		color: white;
+		font-size: 42px;
+		top: 0px;
+		left: 10px;
+
+		@media screen and (max-width: $sm) {
+			font-size: 30px;
+			top: 6px;
+			left: 15px;
+		}
+	}
+}
+
+.sitewide-alert-message{
+	color: white;
+	@extend .bold;
+	display: block;
+	height: $sitewide-alert-height;
+	text-align: center;
+	font-size: 16px;
+	@extend .d-flex;
+	@extend .align-items-center;
+	@extend .justify-content-center;
+	position: relative;
+	top: 2px;
+
+	@media screen and (max-width: $lg) {
+		font-size: 15px;
+	}
+
+	@media screen and (max-width: $md) {
+		font-size: 13px;
+	}
+
+	@media screen and (max-width: $sm) {
+		font-size: 12px;
+		line-height: 1.1;
+	}
+}
+
+.sitewide-alert-on{
+	padding-top: $sitewide-alert-height;
+
+	#nav{
+		top: $sitewide-alert-height;
+	}
+	&.nav-after{
+	}
+
+	.hamburger{
+		top: 50px;
+	}
+}
+
+
