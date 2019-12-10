@@ -257,6 +257,11 @@
     margin-right: 10px;
 }
 
+.m-t-0 {
+    margin: 0;
+    padding: 0;
+}
+
 .m-t-10 {
     margin-top: 10px;
 }
@@ -307,11 +312,15 @@
 }
 
 .wpms_width_80 {
-    width: 80% !important;
+    width: 80%;
 }
 
 .wpms_width_70 {
     width: 70%;
+}
+
+.wpms_width_60 {
+    width: 60%;
 }
 
 .wpms_width_50 {
@@ -322,8 +331,40 @@
     width: 49%;
 }
 
+.wpms_width_45 {
+    width: 45%;
+}
+
+.wpms_width_40 {
+    width: 40%;
+}
+
+.wpms_width_35 {
+    width: 35%;
+}
+
+.wpms_width_30 {
+    width: 30%;
+}
+
+.wpms_width_25 {
+    width: 25%;
+}
+
+.wpms_width_20 {
+    width: 20%;
+}
+
+.wpms_width_15 {
+    width: 15%;
+}
+
 .wpms_width_10 {
     width: 10%;
+}
+
+.wpms_width_5 {
+    width: 5%;
 }
 
 .wpms-no-shadow {
@@ -514,6 +555,9 @@
     line-height: normal;
     letter-spacing: 1.4px;
     color: #568095;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .wpms-form-table .wp-list-table tr,

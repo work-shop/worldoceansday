@@ -26,6 +26,14 @@ $tabs_data[] = array(
     'icon'  => 'directions'
 );
 
+if (is_plugin_active(WPMSEO_ADDON_FILENAME)) {
+    $tabs_data[] = array(
+        'id'    => 'search_console',
+        'title' => __('Search Console', 'wp-meta-seo'),
+        'icon'  => 'extension'
+    );
+}
+
 $tabs_data[] = array(
     'id'    => 'breadcrumb',
     'title' => __('Breadcrumb', 'wp-meta-seo'),

@@ -38,7 +38,7 @@ defined('ABSPATH') || die('No direct script access allowed!');
         <p class="ju-description text_left p_warning">
             <?php esc_html_e('Your PHP version is ', 'wp-meta-seo'); ?>
             <?php echo esc_html(PHP_VERSION) ?>
-            <?php esc_html_e('. For performance and security reasons it better to run PHP 7.2+. Comparing to previous versions the execution time of PHP 7.X is more than twice as fast and has 30 percent lower memory consumption', 'wp-meta-seo'); ?>
+            <?php esc_html_e('. For performance and security reasons it better to run PHP 7.3+. Comparing to previous versions the execution time of PHP 7.X is more than twice as fast and has 30 percent lower memory consumption', 'wp-meta-seo'); ?>
         </p>
     <?php else : ?>
         <p class="ju-description text_center">

@@ -31,7 +31,7 @@
 		'event_manager_time_format',
 		'event_manager_submit_event_form_page_id',
 		'event_manager_event_dashboard_page_id',
-		'event_manager_events_page_id',		'wp_event_manager_version'
+		'event_manager_events_page_id',
 );foreach ( $options as $option ) {
 	delete_option( $option );
 }

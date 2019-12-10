@@ -383,6 +383,15 @@ class WPMSEOMetabox extends WPMSEOMeta
             $cached_replacement_vars[$var] = $value;
         }
 
+        $check_connected = false;
+        if (is_plugin_active(WPMSEO_ADDON_FILENAME)) {
+        // get domain
+            $option = get_option(WPMS_GSC, array('profile' => ''));
+            if (!empty($option['profile'])) {
+                $check_connected = true;
+            }
+        }
+
         $cached_replacement_vars['sitename'] = get_option('blogname');
         $plugin_active                       = json_encode(get_option('active_plugins'));
         $array_keyword                       = array(
@@ -398,7 +407,10 @@ class WPMSEOMetabox extends WPMSEOMeta
             'wpmseo_keyword_suggest_nonce' => wp_create_nonce('wpmseo-get-suggest'),
             'wpmseo_replace_vars_nonce'    => wp_create_nonce('wpmseo-replace-vars'),
             'no_parent_text'               => esc_html__('(no parent)', 'wp-meta-seo'),
-            'show_keywords'                => 0
+            'show_keywords'                => 0,
+            'image_loader'                 => esc_url(WPMETASEO_PLUGIN_URL . '/assets/images/ajax-loader1.gif'),
+            'keyword_filter_return'        => esc_html__('No search queries are currently indexed in the search console... Try typing custom keywords.', 'wp-meta-seo'),
+            'keyword_console_connected'    => ($check_connected) ? 1 : 0
         );
         $settings                            = get_option('_metaseo_settings');
         if (isset($settings['metaseo_showkeywords']) && (int) $settings['metaseo_showkeywords'] === 1) {

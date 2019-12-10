@@ -2854,15 +2854,19 @@ class MetaSeoAdmin
                 null
             );
 
-            $submenu_pages[] = array(
-                'metaseo_dashboard',
-                esc_html__('Search Console', 'wp-meta-seo'),
-                esc_html__('Search Console', 'wp-meta-seo'),
-                $manage_options_cap,
-                'metaseo_console',
-                array($metaseo_addon->admin_features['metaseo_gsc'], 'display'),
-                null
-            );
+            // REMOVE SEARCH CONSOLE TAB, WAIT NEW API FROM GOOGLE GUYS
+            //
+            //
+            //
+//            $submenu_pages[] = array(
+//                'metaseo_dashboard',
+//                esc_html__('Search Console', 'wp-meta-seo'),
+//                esc_html__('Search Console', 'wp-meta-seo'),
+//                $manage_options_cap,
+//                'metaseo_console',
+//                array($metaseo_addon->admin_features['metaseo_gsc'], 'display'),
+//                null
+//            );
         }
 
         $submenu_pages[] = array(
@@ -3326,6 +3330,8 @@ class MetaSeoAdmin
                     }
                     $countrys            = apply_filters('wpms_get_countryList', array());
                     $local_business_html = apply_filters('wpmsaddon_local_business', '', $local_business, $countrys);
+
+                    $search_console_html = apply_filters('wpmsaddon_search_console', '');
 
                     $default_settings = wpmsGetDefaultSettings();
                     $settings         = get_option('_metaseo_settings');

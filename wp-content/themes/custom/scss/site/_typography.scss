@@ -2,13 +2,14 @@
 
 body{
 	font-family: $font-main;
-	font-weight: normal;
+	font-weight: 800;
 	@include text-size($text-h4);
 	color: $dark;
 }
 
 *{
 	font-family: $font-main;
+	font-weight: 500;
 }
 
 .font-main{
@@ -126,7 +127,7 @@ p{
 
 .bold,strong{
 	font-family: $font-bold;
-	font-weight: bold;
+	font-weight: 800;
 }
 
 .italic,em{

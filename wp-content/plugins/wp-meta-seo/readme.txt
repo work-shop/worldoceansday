@@ -2,8 +2,8 @@
 Contributors: JoomUnited
 Tags: google, webmaster tools, keywords, meta, meta description, meta keywords, meta title, robots meta, search engine optimization, seo, wordpress seo, yahoo, image optimization, image resize, custom post seo, redirect, redirection, 301, broken link
 Requires at least: 4.0
-Tested up to: 5.2.3
-Stable tag: 4.0.11
+Tested up to: 5.2.4
+Stable tag: 4.0.13
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -257,6 +257,13 @@ Yes WP Meta SEO is compatible with Gutenberg editor since 3.7 version.
 1. Google Analytics integration with all main information and view selection
 
 == Changelog ==
+
+= 4.0.13 =
+ * Fix : JS error when edit a post
+ * Fix : Exclude external link and replicate the custom link in sitemap
+
+= 4.0.12 =
+ * Add : Compatibility with Google Search Console integration
 
 = 4.0.11 =
  * Fix : Material fonts missing

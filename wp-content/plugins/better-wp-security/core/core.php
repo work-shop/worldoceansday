@@ -24,7 +24,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 		 *
 		 * @access private
 		 */
-		private $plugin_build = 4114;
+		private $plugin_build = 4115;
 
 		/**
 		 * Used to distinguish between a user modifying settings and the API modifying settings (such as from Sync
@@ -318,6 +318,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 			ITSEC_Modules::register_module( 'database-prefix', "$path/modules/database-prefix", 'always-active' );
 			ITSEC_Modules::register_module( 'backup', "$path/modules/backup", 'default-active' );
 			ITSEC_Modules::register_module( 'core', "$path/modules/core", 'always-active' );
+			ITSEC_Modules::register_module( 'email-confirmation', "$path/modules/email-confirmation", 'always-active' );
 			ITSEC_Modules::register_module( 'file-change', "$path/modules/file-change" );
 			ITSEC_Modules::register_module( 'file-permissions', "$path/modules/file-permissions", 'always-active' );
 			ITSEC_Modules::register_module( 'hide-backend', "$path/modules/hide-backend", 'always-active' );

@@ -2,19 +2,23 @@
 /* Variables */
 
 //brand colors
-$brand: #2B446C;
-$brand-secondary: darken($brand, 40%);
+$brand: #164579; //dark blue
+$brand-secondary: #19BAE3; //light blue
+$interactive: $brand-secondary;
+$pink: #FFB5D8;
+$orange: #F9A619;
+$pinka: transparentize($pink, .3);
+$orangea: transparentize($orange, .15);
+$interactivea: transparentize($interactive, .25);
 
 
 //grays
-$dark: #2a3f46;
-$ultra-light: #F5F5F5;
-$light: lighten($brand,45%);
-$light: desaturate($light, 30%);
-$medium-light: #9B9B9B;
-$medium: lighten($dark, 34%);
-$medium: desaturate($medium, 12%);
-$medium-dark: #555555;
+$dark: #1B334D;
+$ultra-light: #FAFBFC;
+$light: #E7E8EA;
+$medium-light: #697B90;
+$medium: #364F6A;
+$medium-dark: #364F6A;
 $tan: #F7F5F2;
 
 
@@ -25,6 +29,11 @@ $error: lighten(#ea4444,5%);
 :root{
 	--brand: #{$brand};
 	--brand-secondary: #{$brand-secondary};
+	--orange: #{$orange};
+	--pink: #{$pink};
+	--pink-tint: #{$pinka};
+	--orange-tint: #{$orangea};
+	--brand-secondary-tint: #{$interactivea};
 	--dark:  #{$dark};
 	--light:  #{$light};
 	--medium:  #{$medium};
@@ -61,12 +70,12 @@ $xl: 1379px;
 //site
 $body-background-color: white;
 
-$font-main: 'UntitledSansWeb-Regular', Helvetica, Arial, Sans-serif;
-$font-italic: 'UntitledSansWeb-RegularItalic', Helvetica, Arial, Sans-serif;
-$font-bold: 'UntitledSansWeb-Bold', Helvetica, Arial, Sans-serif;
-$font-bold-italic: 'UntitledSansWeb-BoldItalic', Helvetica, Arial, Sans-serif;
-$font-light: 'Untitled Sans Test', Helvetica, Arial, Sans-serif;
-$font-light-italic: 'Untitled Sans Test', Helvetica, Arial, Sans-serif;
+$font-main: 'HCo Gotham SSm', Helvetica, Arial, Sans-serif;
+$font-italic: 'HCo Gotham SSm', Helvetica, Arial, Sans-serif;
+$font-bold: 'HCo Gotham SSm', Helvetica, Arial, Sans-serif;
+$font-bold-italic: 'HCo Gotham SSm', Helvetica, Arial, Sans-serif;
+$font-light: 'HCo Gotham SSm', Helvetica, Arial, Sans-serif;
+$font-light-italic: 'HCo Gotham SSm', Helvetica, Arial, Sans-serif;
 $font-secondary: 'raisonne-demibold', Georgia, Times New Roman, Serif;
 $font-secondary-italic: 'raisonne-demibold-italic', Georgia, Times New Roman, Serif;
 $font-secondary-bold: 'raisonne-demibold', Georgia, Times New Roman, Serif;

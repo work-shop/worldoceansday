@@ -33,7 +33,7 @@ if( $section_id == NULL || $section_id == false ){
 		<?php if( $gallery ): ?>
 			<?php if( $gallery_title ): ?>
 				<div class="fc-gallery-title">
-					<h4 class="centered bold" <?php echo $section_text_color_string; ?>>
+					<h4 class="bold centered" <?php echo $section_text_color_string; ?>>
 						<?php echo $gallery_title; ?>
 					</h4>
 				</div>

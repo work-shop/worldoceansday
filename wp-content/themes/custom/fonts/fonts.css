@@ -9,66 +9,118 @@
 	font-style: normal;
 }
 
-/*@font-face {
-    font-family: 'raisonne-demibold';
-    src: url('raisonne-demibold.eot');
-    src: url('raisonne-demibold.eot?#iefix') format('embedded-opentype'),
-         url('raisonne-demibold.woff') format('woff'),
-         url('raisonne-demibold.woff2') format('woff2'),
-         url('raisonne-demibold.ttf') format('truetype');
-    font-weight: normal;
+
+
+
+@font-face {
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-XLight_Web.woff2') format('woff2'),
+        url('GothamSSm-XLight_Web.woff') format('woff');
+    font-weight: 200;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'raisonne-demibold-italic';
-    src: url('raisonne-demibold-italic.eot');
-    src: url('raisonne-demibold-italic.eot?#iefix') format('embedded-opentype'),
-         url('raisonne-demibold-italic.woff') format('woff'),
-         url('raisonne-demibold-italic.woff2') format('woff2'),
-         url('raisonne-demibold-italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-XLightItalic_Web.woff2') format('woff2'),
+        url('GothamSSm-XLightItalic_Web.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
 }
 
-
 @font-face {
-    font-family: 'UntitledSansWeb-Regular';
-    src: url('UntitledSansWeb-Regular.eot');
-    src: url('UntitledSansWeb-Regular.eot?#iefix') format('embedded-opentype'),
-         url('UntitledSansWeb-Regular.woff') format('woff'),
-         url('UntitledSansWeb-Regular.woff2') format('woff2');
-    font-weight: normal;
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-Light_Web.woff2') format('woff2'),
+        url('GothamSSm-Light_Web.woff') format('woff');
+    font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'UntitledSansWeb-RegularItalic';
-    src: url('UntitledSansWeb-RegularItalic.eot');
-    src: url('UntitledSansWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
-         url('UntitledSansWeb-RegularItalic.woff') format('woff'),
-         url('UntitledSansWeb-RegularItalic.woff2') format('woff2');
-    font-weight: normal;
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-LightItalic_Web.woff2') format('woff2'),
+        url('GothamSSm-LightItalic_Web.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-Book_Web.woff2') format('woff2'),
+        url('GothamSSm-Book_Web.woff') format('woff');
+    font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'UntitledSansWeb-Bold';
-    src: url('UntitledSansWeb-Bold.eot');
-    src: url('UntitledSansWeb-Bold.eot?#iefix') format('embedded-opentype'),
-         url('UntitledSansWeb-Bold.woff') format('woff'),
-         url('UntitledSansWeb-Bold.woff2') format('woff2');
-    font-weight: normal;
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-BookItalic_Web.woff2') format('woff2'),
+        url('GothamSSm-BookItalic_Web.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-Medium_Web.woff2') format('woff2'),
+        url('GothamSSm-Medium_Web.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'UntitledSansWeb-BoldItalic';
-    src: url('UntitledSansWeb-BoldItalic.eot');
-    src: url('UntitledSansWeb-BoldItalic.eot?#iefix') format('embedded-opentype'),
-         url('UntitledSansWeb-BoldItalic.woff') format('woff'),
-         url('UntitledSansWeb-BoldItalic.woff2') format('woff2');
-    font-weight: normal;
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-MediumItalic_Web.woff2') format('woff2'),
+        url('GothamSSm-MediumItalic_Web.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-Bold_Web.woff2') format('woff2'),
+        url('GothamSSm-Bold_Web.woff') format('woff');
+    font-weight: 700;
     font-style: normal;
-}*/
+}
+
+@font-face {
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-BoldItalic_Web.woff2') format('woff2'),
+        url('GothamSSm-BoldItalic_Web.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-Black_Web.woff2') format('woff2'),
+        url('GothamSSm-Black_Web.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HCo Gotham SSm';
+    src:url('GothamSSm-BlackItalic_Web.woff2') format('woff2'),
+        url('GothamSSm-BlackItalic_Web.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+
+/*
+    Copyright (C) Hoefler & Co.
+    This software is the property of Hoefler & Co. (H&Co).
+    Your right to access and use this software is subject to the
+    applicable License Agreement, or Terms of Service, that exists
+    between you and H&Co. If no such agreement exists, you may not
+    access or use this software for any purpose.
+    This software may only be hosted at the locations specified in
+    the applicable License Agreement or Terms of Service, and only
+    for the purposes expressly set forth therein. You may not copy,
+    modify, convert, create derivative works from or distribute this
+    software in any way, or make it accessible to any third party,
+    without first obtaining the written permission of H&Co.
+    For more information, please visit us at http://typography.com.
+*/
 

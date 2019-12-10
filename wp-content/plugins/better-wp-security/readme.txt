@@ -2,9 +2,9 @@
 Contributors: ithemes, chrisjean, mattdanner, timothyblynjacobs
 Tags: security, security plugin, malware, hack, secure, block, SSL, admin, htaccess, lockdown, login, protect, protection, anti virus, attack, injection, login security, maintenance, permissions, prevention, authentication, administration, password, brute force, ban, permissions, bots, user agents, xml rpc, security log
 Requires at least: 4.7
-Tested up to: 5.2.2
-Stable tag: 7.4.1
-Requires PHP: 5.2
+Tested up to: 5.3.0
+Stable tag: 7.5.0
+Requires PHP: 5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -188,6 +188,19 @@ Free support may be available with the help of the community in the <a href="htt
 5. Free malware scan powered by Sucuri SiteCheck.
 
 == Changelog ==
+
+= 7.5.0 =
+* Breaking Change: iThemes Security requires PHP 5.4 or later.
+* Enhancement: New Lockout Template screen.
+* Enhancement: Add confirmation button to Login Interstitial Async Actions when on a different device.
+* Enhancement: Add filter to "Lookup IP" link.
+* Developer Note: There were significant changes to the internals of the iThemes Security Lockout API in this release. If you are using the ITSEC_Lockout class directly, all the API functions will continue to work, but will emit deprecation notices when legacy behavior is being used. Please update any integrations.
+* Bug Fix: Brute Force module reporting invalid logins using an email address incorrectly.
+* Bug Fix: Improve lockout compatibility with caching plugins.
+* Bug Fix: Fix admin notice not being dismissed due to a REST API route that was more narrowly defined than necessary.
+* Bug Fix: Admin Notices list did not refresh after dismissing a notice.
+* Bug Fix: Strong Passwords zxcvbn Library was not evaluating penalty strings correctly.
+* Bug Fix: Fix PHP warning if there are multiple detected proxy headers.
 
 = 7.4.1 =
 * Enhancement: New iThemes Sync Verb support for File Change.
@@ -547,5 +560,5 @@ Free support may be available with the help of the community in the <a href="htt
 
 == Upgrade Notice ==
 
-= 7.4.1 =
-Version 7.4.1 contains important improvements. It is recommended for all users.
+= 7.5.0 =
+Version 7.5.0 contains new features and bug fixes. It is recommended for all users.

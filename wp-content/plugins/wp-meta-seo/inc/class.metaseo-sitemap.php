@@ -571,6 +571,71 @@ class MetaSeoSitemap
     }
 
     /**
+     * Check external link
+     *
+     * @param string $link Link to check
+     *
+     * @return boolean
+     */
+    public function checkExternalLink($link)
+    {
+        if (empty($link)) {
+            return true;
+        }
+
+        $parseLink = parse_url($link);
+
+        if (empty($parseLink['host'])) {
+            // Maybe is an internal link
+            return false;
+        }
+
+        if ($parseLink['host'] === $_SERVER['HTTP_HOST']) {
+            // Is an internal link
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Check custom link
+     *
+     * @param string $link Link to check
+     *
+     * @return string
+     */
+    public function customLink($link)
+    {
+        if (empty($link)) {
+            return $link;
+        }
+
+        if (preg_match('#http(s?)://#i', $link)) {
+            return $link;
+        }
+
+        $parseHome = parse_url(home_url());
+
+        $http = (is_ssl()) ? 'https:' : 'http:';
+        $host = (!empty($parseHome['host']) ? $parseHome['host'] : '');
+        $host .= (!empty($parseHome['path']) ? $parseHome['path'] : '');
+
+        if (substr($link, 0, 2) === '//') {
+            return $http . $link;
+        }
+
+        // Force the path become relative.
+        if (substr($link, 0, 1) === '/') {
+            if (!empty($host)) {
+                return $http . '//' . $host . $link;
+            }
+        }
+
+        return $link;
+    }
+
+    /**
      * Create sitemap
      *
      * @param string $sitemap_xml_name Sitemap file name
@@ -635,6 +700,15 @@ class MetaSeoSitemap
                                 // Check anchor links
                                 $permalink = strstr($permalink, '#', true);
                             }
+
+                            // Filter full link with custom link
+                            $permalink = $this->customLink($permalink);
+
+                            // Check to exclude external link
+                            if ($this->checkExternalLink($permalink)) {
+                                continue;
+                            }
+
                             if (!in_array($permalink, $list_links)) {
                                 $list_links[] = $permalink;
                                 if ($type !== 'taxonomy') {
@@ -711,6 +785,15 @@ class MetaSeoSitemap
                             // Check anchor links
                             $permalink = strstr($permalink, '#', true);
                         }
+
+                        // Filter full link with custom link
+                        $permalink = $this->customLink($permalink);
+
+                        // Check to exclude external link
+                        if ($this->checkExternalLink($permalink)) {
+                            continue;
+                        }
+
                         if (!in_array($permalink, $list_links)) {
                             $list_links[] = $permalink;
                             if ($type === 'taxonomy') {
@@ -767,6 +850,15 @@ class MetaSeoSitemap
                     // Check anchor links
                     $permalink = strstr($permalink, '#', true);
                 }
+
+                // Filter full link with custom link
+                $permalink = $this->customLink($permalink);
+
+                // Check to exclude external link
+                if ($this->checkExternalLink($permalink)) {
+                    continue;
+                }
+
                 if (!in_array($permalink, $list_links)) {
                     $list_links[] = $permalink;
                     $gglstmp_url  = $gglstmp_urlset->appendChild($xml->createElement('url'));
@@ -838,6 +930,15 @@ class MetaSeoSitemap
                                 // Check anchor links
                                 $permalink = strstr($permalink, '#', true);
                             }
+
+                            // Filter full link with custom link
+                            $permalink = $this->customLink($permalink);
+
+                            // Check to exclude external link
+                            if ($this->checkExternalLink($permalink)) {
+                                continue;
+                            }
+
                             if (!in_array($permalink, $list_links)) {
                                 $list_links[] = $permalink;
                                 $gglstmp_url  = $gglstmp_urlset->appendChild($xml->createElement('url'));
@@ -893,6 +994,15 @@ class MetaSeoSitemap
                             // Check anchor links
                             $listUrls[$key]['link'] = strstr($listUrls[$key]['link'], '#', true);
                         }
+
+                        // Filter full link with custom link
+                        $listUrls[$key]['link'] = $this->customLink($listUrls[$key]['link']);
+
+                        // Check to exclude external link
+                        if ($this->checkExternalLink($listUrls[$key]['link'])) {
+                            continue;
+                        }
+
                         if (!in_array($listUrls[$key]['link'], $list_links)) {
                             $list_links[] = $listUrls[$key]['link'];
                             $gglstmp_url  = $gglstmp_urlset->appendChild($xml->createElement('url'));
@@ -935,6 +1045,15 @@ class MetaSeoSitemap
                     // Check anchor links
                     $permalink = strstr($permalink, '#', true);
                 }
+
+                // Filter full link with custom link
+                $permalink = $this->customLink($permalink);
+
+                // Check to exclude external link
+                if ($this->checkExternalLink($permalink)) {
+                    continue;
+                }
+
                 if (!in_array($permalink, $list_links)) {
                     $list_links[] = $permalink;
                     $gglstmp_url  = $gglstmp_urlset->appendChild($xml->createElement('url'));
@@ -984,6 +1103,15 @@ class MetaSeoSitemap
                             // Check anchor links
                             $permalink = strstr($permalink, '#', true);
                         }
+
+                        // Filter full link with custom link
+                        $permalink = $this->customLink($permalink);
+
+                        // Check to exclude external link
+                        if ($this->checkExternalLink($permalink)) {
+                            continue;
+                        }
+
                         if (!in_array($permalink, $list_links)) {
                             $list_links[] = $permalink;
                             $gglstmp_url  = $gglstmp_urlset->appendChild($xml->createElement('url'));
@@ -1194,7 +1322,7 @@ class MetaSeoSitemap
                 while (have_posts()) {
                     the_post();
                     if ((get_post_meta(get_the_ID(), '_yoast_wpseo_meta-robots-noindex', true) === '1'
-                         && get_post_meta(get_the_ID(), '_yoast_wpseo_sitemap-include', true) !== 'always')
+                            && get_post_meta(get_the_ID(), '_yoast_wpseo_sitemap-include', true) !== 'always')
                         || (get_post_meta(get_the_ID(), '_yoast_wpseo_sitemap-include', true) === 'never')
                         || (get_post_meta(get_the_ID(), '_yoast_wpms_redirect', true) !== '')) {
                         continue;
@@ -1237,7 +1365,7 @@ class MetaSeoSitemap
                 if (isset($this->settings_sitemap['wpms_html_sitemap_page'])
                     && (int) $page->ID !== (int) $this->settings_sitemap['wpms_html_sitemap_page']) {
                     if ((get_post_meta($page->ID, '_yoast_wpseo_meta-robots-noindex', true) === '1'
-                         && get_post_meta($page->ID, '_yoast_wpseo_sitemap-include', true) !== 'always')
+                            && get_post_meta($page->ID, '_yoast_wpseo_sitemap-include', true) !== 'always')
                         || (get_post_meta($page->ID, '_yoast_wpseo_sitemap-include', true) === 'never')
                         || (get_post_meta($page->ID, '_yoast_wpms_redirect', true) !== '')) {
                         continue;
@@ -1549,13 +1677,6 @@ ORDER BY p.post_date DESC', array('publish', $post_type, $taxo, $cat->slug)));
             $html = $this->sitemapThemeDefault();
         } elseif ($theme === 'tab') {
             wp_enqueue_script(
-                'wpms_materialize_js',
-                plugins_url('assets/js/materialize/materialize.min.js', dirname(__FILE__)),
-                array('jquery'),
-                WPMSEO_VERSION,
-                true
-            );
-            wp_enqueue_script(
                 'wpms_tabs_js',
                 plugins_url('assets/js/wpms-tabs.js', dirname(__FILE__)),
                 array('jquery'),
@@ -1608,13 +1729,6 @@ ORDER BY p.post_date DESC', array('publish', $post_type, $taxo, $cat->slug)));
             }
             echo '</div>';
         } elseif ($theme === 'accordions') {
-            wp_enqueue_script(
-                'wpms_materialize_js',
-                plugins_url('assets/js/materialize/materialize.min.js', dirname(__FILE__)),
-                array('jquery'),
-                WPMSEO_VERSION,
-                true
-            );
             wp_enqueue_style(
                 'wpms_materialize_style',
                 plugins_url('assets/css/materialize/materialize_frontend_accordions_theme.css', dirname(__FILE__)),

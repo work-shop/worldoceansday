@@ -16,10 +16,10 @@ $text-nav: (
 	padding-right: 25px;
 	z-index: 7;
 	transition: background 1s;
-	background: white;
+	background: $brand;
 	display: grid;
 	grid-template-columns: 450px auto;
-	border-bottom: 1px solid $ultra-light;
+	//border-bottom: 1px solid $ultra-light;
 
 	&:hover{
 
@@ -42,11 +42,10 @@ $text-nav: (
 		padding-left: 10px;
 		padding-right: 10px;
 		overflow: hidden;
-	//	height: 100%;
-	display: block;
-}
+		display: block;
+	}
 
-.nav-left{
+	.nav-left{
 		//border: 1px solid blue;
 		height: 100%;
 		display: grid;
@@ -73,6 +72,7 @@ $text-nav: (
 
 			a{
 				font-weight: bold;
+				color: white;
 
 				@media screen and (max-width: $xl) {
 					font-size: 15px;
@@ -97,7 +97,6 @@ $text-nav: (
 				padding: 6px;
 				font-size: 19px;
 				border: 1px solid $brand;
-				font-weight: bold;
 
 				@media screen and (max-width: $xl) {
 					font-size: 15px;
@@ -125,10 +124,10 @@ $text-nav: (
 					font-size: 12px;
 					text-transform: uppercase;
 					padding: 4px 10px 3px 10px;
-					border: 1px solid $brand;
+					border: 1px solid white;
 					border-radius: 2px;
-					font-weight: bold;
 					@extend .tracked;
+					color: white;
 
 					@media screen and (max-width: $lg) {
 						font-size: 11px;
@@ -157,7 +156,7 @@ $text-nav: (
 					font-size: 19px;
 					padding: 10px 0 10px 15px;
 					padding-right: 0;
-					font-weight: bold;
+					color: white;
 
 					@media screen and (max-width: $xl) {
 						font-size: 17px;

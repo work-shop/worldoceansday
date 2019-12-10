@@ -13,12 +13,12 @@
 }
 
 .wpms_dashboard_widgets_left{
-    width: 60%;
+    width: 80%;
     float: left;
 }
 
 .wpms_dashboard_widgets_right{
-    width: 37%;
+    width: 17%;
     float: left;
     height: 60px;
 }

@@ -265,7 +265,7 @@ final class ITSEC_Global_Settings_Page extends ITSEC_Module_Settings_Page {
 			<td>
 				<?php if ( $proxy_header ) : ?>
 					<p class="description">
-						<?php printf( esc_html__( 'Security Check Pro has automatically determined the correct header, %s.', 'better-wp-security' ), '<code>' . esc_attr( $proxy_header ) . '</code>' ); ?>
+						<?php printf( esc_html__( 'Security Check Pro has automatically determined the correct header, %s.', 'better-wp-security' ), '<code>' . esc_html( is_array( $proxy_header ) ? implode( ', ', $proxy_header ) : $proxy_header ) . '</code>' ); ?>
 					</p>
 				<?php else: ?>
 					<?php $form->add_select( 'proxy', $proxy ); ?>

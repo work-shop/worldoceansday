@@ -2,31 +2,72 @@
 	<div class="container-fluid">
 		<div class="row mb4">
 			<div class="col-lg-3 footer-col">
-				<h3 class="footer-heading mb2">Take Action</h3>
+				<h3 class="footer-heading mb2"><?php the_field('footer_column_1_heading','option'); ?></h3>
 				<ul class="footer-list">
-					<li>
-						<a href="/take-action">Take Action</a>
-					</li>
+					<?php if( have_rows('footer_column_1_links','option') ): ?>
+						<?php  while ( have_rows('footer_column_1_links','option') ) : the_row(); ?>
+							<li>
+								<?php $link = get_sub_field('link'); ?>
+								<?php if( $link ): ?>
+									<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
+										<?php echo $link['title']; ?>
+									</a>
+								<?php endif; ?>
+							</li>
+						<?php endwhile; ?>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<div class="col-lg-3 footer-col">
-				<h3 class="footer-heading mb2">Youth</h3>
+				<h3 class="footer-heading mb2"><?php the_field('footer_column_2_heading','option'); ?></h3>
 				<ul class="footer-list">
-					<li>
-						<a href="/youth">Youth</a>
-					</li>
+					<?php if( have_rows('footer_column_2_links','option') ): ?>
+						<?php  while ( have_rows('footer_column_2_links','option') ) : the_row(); ?>
+							<li>
+								<?php $link = get_sub_field('link'); ?>
+								<?php if( $link ): ?>
+									<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
+										<?php echo $link['title']; ?>
+									</a>
+								<?php endif; ?>
+							</li>
+						<?php endwhile; ?>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<div class="col-lg-3 footer-col">
-				<h3 class="footer-heading mb2">About</h3>
+				<h3 class="footer-heading mb2"><?php the_field('footer_column_3_heading','option'); ?></h3>
 				<ul class="footer-list">
-					<li>
-						<a href="/about">Mission and History</a>
-					</li>
+					<?php if( have_rows('footer_column_3_links','option') ): ?>
+						<?php  while ( have_rows('footer_column_3_links','option') ) : the_row(); ?>
+							<li>
+								<?php $link = get_sub_field('link'); ?>
+								<?php if( $link ): ?>
+									<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>">
+										<?php echo $link['title']; ?>
+									</a>
+								<?php endif; ?>
+							</li>
+						<?php endwhile; ?>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<div class="col-lg-3 footer-col">
-				<h3 class="footer-heading mb2">Connect</h3>
+				<h3 class="footer-heading mb2"><?php the_field('footer_column_4_heading','option'); ?></h3>					
+				<ul>
+					<li class="footer-social-items">
+						<a href="<?php the_field('facebook_link','option'); ?>" target="_blank">
+							<img src="<?php bloginfo( 'template_directory' );?>/images/fb.png" class="social-icon fb">
+						</a> 
+						<a href="<?php the_field('twitter_link','option'); ?>" target="_blank">
+							<img src="<?php bloginfo( 'template_directory' );?>/images/tw.png" class="social-icon tw">
+						</a>
+						<a href="<?php the_field('instagram_link','option'); ?>" target="_blank">
+							<img src="<?php bloginfo( 'template_directory' );?>/images/ig.png" class="social-icon ig">
+						</a>
+					</li>
+
+				</ul>
 			</div>
 		</div>
 	</div>
