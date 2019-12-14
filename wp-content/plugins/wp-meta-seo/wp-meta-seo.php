@@ -4,7 +4,7 @@
  * Plugin Name: WP Meta SEO
  * Plugin URI: http://www.joomunited.com/wordpress-products/wp-meta-seo
  * Description: WP Meta SEO is a plugin for WordPress to fill meta for content, images and main SEO info in a single view.
- * Version: 4.0.13
+ * Version: 4.1.0
  * Text Domain: wp-meta-seo
  * Domain Path: /languages
  * Author: JoomUnited
@@ -132,7 +132,7 @@ if (!defined('WPMSEO_VERSION')) {
     /**
      * Plugin version
      */
-    define('WPMSEO_VERSION', '4.0.13');
+    define('WPMSEO_VERSION', '4.1.0');
 }
 
 if (!defined('WPMS_CLIENTID')) {
@@ -226,7 +226,8 @@ function wpmsGetDefaultSettings()
         'metaseo_metatitle_tab'  => 1,
         'metaseo_follow'         => 0,
         'metaseo_index'          => 0,
-        'metaseo_overridemeta'   => 1
+        'metaseo_overridemeta'   => 1,
+        'metaseo_canonical' => 0
     );
 }
 
@@ -470,6 +471,8 @@ if (is_admin()) {
     require_once(WPMETASEO_PLUGIN_DIR . 'inc/class.metaseo-opengraph.php');
 
     add_action('wpmsseo_head', 'wpmsopengraph', 30);
+    // Remove actions that we will handle through our wpseo_head call, and probably change the output of.
+    remove_action('wp_head', 'rel_canonical');
     /**
      * Render graph meta tag
      *
@@ -547,7 +550,7 @@ if (is_admin()) {
         $meta_fbimage = $images[0];
         $meta_twimage = $images[1];
 
-        $current_url      = $opengraph->getCurentUrl();
+        $current_url      = $opengraph->getCurentUrl($settings, $id);
         $type             = $opengraph->getType();
         $home_meta_active = wpmsGetOption('home_meta_active');
         // check homepage is latest post
@@ -587,6 +590,9 @@ if (is_admin()) {
             $meta_desc_esc     = $metas['desc'];
             $meta_fbdesc       = $metas['desc'];
             $meta_twdesc       = $metas['desc'];
+            if (!empty($metas['canonical'])) {
+                $current_url = $metas['canonical'];
+            }
             $page_follow       = 'follow';
         }
 
@@ -596,6 +602,13 @@ if (is_admin()) {
 
         if (empty($page_follow)) {
             $page_follow = 'follow';
+        }
+
+        // Create canonical meta link
+        $canonical_meta = $opengraph->getCanonical($id, $settings, $current_url, $page_index);
+        if (!empty($canonical_meta)) {
+            // phpcs:ignore WordPress.Security.EscapeOutput -- Content escaped in some method in class MetaSeoOpenGraph
+            echo $canonical_meta;
         }
 
         $patterns = $opengraph->getPatterns(

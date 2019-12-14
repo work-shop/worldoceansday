@@ -89,9 +89,9 @@ if (!class_exists("WD_ASP_Autocomplete_Handler")) {
             }
 
             do_action('asp_after_autocomplete', $s, $keyword);
+			ASP_Helpers::prepareAjaxHeaders();;
             print $keyword;
             die();
-
         }
 
         // ------------------------------------------------------------

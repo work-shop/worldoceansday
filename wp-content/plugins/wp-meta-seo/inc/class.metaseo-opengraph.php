@@ -462,6 +462,7 @@ class MetaSeoOpenGraph
     {
         $term              = $wp_query->get_queried_object();
         $meta_keywords_esc = '';
+        $meta_canonical = '';
         if (is_object($term) && !empty($term)) {
             if (function_exists('get_term_meta')) {
                 $cat_metatitle = get_term_meta($term->term_id, 'wpms_category_metatitle', true);
@@ -477,6 +478,15 @@ class MetaSeoOpenGraph
                 } else {
                     $meta_keywords_esc = get_metadata('term', $term->term_id, 'wpms_category_metakeywords', true);
                 }
+            }
+
+            if (isset($settings['metaseo_canonical']) && (int) $settings['metaseo_canonical'] === 1) {
+                if (function_exists('get_term_meta')) {
+                    $meta_canonical = get_term_meta($term->term_id, 'wpms_category_canonical', true);
+                } else {
+                    $meta_canonical = get_metadata('term', $term->term_id, 'wpms_category_canonical', true);
+                }
+                $meta_canonical = MetaSeoAdmin::convertCanonicalUrlToDisplay($meta_canonical);
             }
 
             if (isset($cat_metatitle) && $cat_metatitle !== '') {
@@ -498,7 +508,8 @@ class MetaSeoOpenGraph
         return array(
             'title'   => esc_attr($title),
             'desc'    => esc_attr($desc),
-            'keyword' => esc_attr($meta_keywords_esc)
+            'keyword' => esc_attr($meta_keywords_esc),
+            'canonical' => esc_url($meta_canonical)
         );
     }
 
@@ -540,9 +551,12 @@ class MetaSeoOpenGraph
     /**
      * Get current URL
      *
+     * @param array   $settings Global settings
+     * @param integer $id       Id of post
+     *
      * @return mixed|string
      */
-    public function getCurentUrl()
+    public function getCurentUrl($settings, $id)
     {
         if (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS'])) {
             $http = 'https';
@@ -550,6 +564,20 @@ class MetaSeoOpenGraph
             $http = 'http';
         }
         $current_url = $http . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+        if (!empty($id)) {
+            $canonical = get_post_meta($id, '_metaseo_metametaseo_canonical', true);
+
+            if (!empty($canonical)) {
+                $canonical = MetaSeoAdmin::convertCanonicalUrlToDisplay($canonical);
+
+                if (isset($settings['metaseo_canonical']) && !empty($settings['metaseo_canonical'])) {
+                    $current_url = $canonical;
+                }
+            }
+        }
+
+
         $current_url = esc_url($current_url);
         return $current_url;
     }
@@ -795,5 +823,32 @@ class MetaSeoOpenGraph
         }
 
         return $patterns;
+    }
+
+    /**
+     * Render Canonical
+     *
+     * @param integer $id          Id of post
+     * @param array   $settings    Meta seo settings
+     * @param string  $current_url Current url
+     * @param string  $page_index  Page index
+     *
+     * @return string|boolean
+     */
+    public function getCanonical($id, $settings, $current_url, $page_index)
+    {
+        // Noindex current page
+        if (isset($settings['metaseo_index']) && !empty($settings['metaseo_index'])) {
+            if (strpos($page_index, 'noindex') !== false) {
+                return false;
+            }
+        }
+
+        // Echo canonical link
+        if (isset($settings['metaseo_canonical']) && !empty($settings['metaseo_canonical']) && !empty($current_url)) {
+            return '<link rel="canonical" href="' . esc_url($current_url) . '" />' . "\n";
+        }
+
+        return false;
     }
 }

@@ -59,8 +59,12 @@ defined('ABSPATH') || die('No direct script access allowed!');
 
         <?php
         foreach ($setting_switch_fields as $setting_switch_name => $setting_switch_details) :
+            $height_size = 'height_160';
+            if ($setting_switch_name === 'metaseo_canonical') {
+                $height_size = 'height_auto';
+            }
             ?>
-            <div class="ju-settings-option height_160 p-lrb-20">
+            <div class="ju-settings-option <?php echo esc_attr($height_size) ?> p-lrb-20">
                 <div class="wpms_row_full">
                     <input type="hidden" name="_metaseo_settings[<?php echo esc_html($setting_switch_name) ?>]"
                            value="0">

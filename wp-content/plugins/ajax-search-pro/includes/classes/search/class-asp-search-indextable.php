@@ -446,7 +446,7 @@ if (!class_exists('ASP_Search_INDEX')) {
 			}
 
 			/*---------------------- Post CPT IDs ---------------------------*/
-			if ( $sd['search_in_ids'] ) {
+			if ( in_array("ids", $args['post_fields']) ) {
 				$queries[]  = str_replace( array('{like_query}', '{rmod}', '{limit}'), array("asp_index.doc LIKE '$s'", 1, $this->get_pool_size()), $this->query );
 			}
 			/*---------------------------------------------------------------*/

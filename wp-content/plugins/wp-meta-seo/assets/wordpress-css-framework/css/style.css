@@ -89,56 +89,6 @@
     background-color: #ff8726;
 }
 
-.waves-effect {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    vertical-align: middle;
-    z-index: 1;
-    will-change: opacity, transform;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-.waves-effect .waves-ripple {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    margin-top: 10px;
-    margin-left: -10px;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.2);
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    -webkit-transition: all 0.7s ease-out;
-    -moz-transition: all 0.7s ease-out;
-    -ms-transition: all 0.7s ease-out;
-    -o-transition: all 0.7s ease-out;
-    transition: all 0.7s ease-out;
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -ms-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0);
-}
-
-.waves-effect.waves-light .waves-ripple {
-    background-color: rgba(255, 255, 255, 0.45);
-}
-
-.waves-effect.waves-dark .waves-ripple {
-    background-color: rgba(140, 140, 140, 0.45);
-}
-
 .ju-button {
     background-color: transparent;
     color: #000;
@@ -152,6 +102,7 @@
     text-align: center;
     letter-spacing: 2px;
     transition: all ease 0.5s;
+    vertical-align: middle;
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
     border-radius: 40px;
@@ -251,6 +202,21 @@ input.ju-input.minicolors .minicolors-grid .minicolors-picker > div {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
+}
+
+select.ju-select {
+    padding: 0 15px;
+    height: 50px;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+select.ju-select:focus {
+    border: 1px solid #ff8726;
+    box-shadow: none;
+    outline: none;
 }
 
 input.ju-checkbox:checked {
@@ -371,11 +337,16 @@ input.ju-radiobox:focus {
     transform: translateX(20px);
 }
 
+.settings-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex: auto;
+}
+
 .ju-settings-option {
-    float: left;
     width: 48%;
     margin-bottom: 20px;
-    margin-right: 15px;
+    margin-right: 2%;
     background-color: #fff;
     -webkit-box-shadow: 0 10px 30px 0 rgba(160, 166, 190, 0.08);
     -moz-box-shadow: 0 10px 30px 0 rgba(160, 166, 190, 0.08);
@@ -438,6 +409,7 @@ input.ju-radiobox:focus {
     background-image: linear-gradient(to bottom, #6465e2, #60c3ef);
     position: fixed;
     overflow: auto;
+    z-index: 15;
     -webkit-box-shadow: 10px 20px 20px 0 rgba(186, 192, 213, 0.1);
     -moz-box-shadow: 10px 20px 20px 0 rgba(186, 192, 213, 0.1);
     box-shadow: 10px 20px 20px 0 rgba(186, 192, 213, 0.1);
@@ -591,6 +563,13 @@ input.ju-radiobox:focus {
     background-color: #f3f6fa;
 }
 
+.ju-main-wrapper .ju-right-panel:before {
+    content: '';
+    display: block;
+    clear: both;
+    padding: 1px 0 0 0;
+}
+
 .ju-main-wrapper .ju-right-panel .ju-top-tabs-wrapper {
     background-color: #fff;
     margin: auto -20px;
@@ -631,11 +610,122 @@ input.ju-radiobox:focus {
     z-index: 10;
 }
 
+.ju-main-wrapper .ju-left-panel-toggle {
+    display: none;
+    position: fixed;
+    top: 120px;
+    left: 35px;
+    cursor: pointer;
+    background-color: #fff;
+    width: auto;
+    height: auto;
+    padding: 25px 5px;
+    border: 1px solid #ddd;
+    opacity: 0.5;
+    z-index: 15;
+    -webkit-border-radius: 0 25px 25px 0;
+    -moz-border-radius: 0 25px 25px 0;
+    border-radius: 0 25px 25px 0;
+}
+
+.ju-main-wrapper .ju-left-panel-toggle:hover, .ju-main-wrapper .ju-left-panel-toggle:focus {
+    opacity: 1;
+}
+
+.ju-main-wrapper .ju-left-panel-toggle .ju-left-panel-toggle-icon {
+    color: #ff8726;
+}
+
 .search-result {
     outline: 1px solid #ff8726;
     -webkit-box-shadow: 1px 1px 12px #ccc;
     -moz-box-shadow: 1px 1px 12px #ccc;
     box-shadow: 1px 1px 12px #ccc;
+}
+
+.rtl .ju-main-wrapper {
+    margin-left: 0;
+    margin-right: -20px;
+}
+
+.rtl .ju-main-wrapper .ju-left-panel .tabs.ju-menu-tabs li.tab {
+    text-align: inherit;
+}
+
+.rtl .ju-main-wrapper .ju-right-panel {
+    margin-left: 0;
+    margin-right: 300px;
+}
+
+.rtl .ju-main-wrapper .ju-left-panel-toggle {
+    left: unset;
+    right: 35px;
+    -webkit-border-radius: 25px 0 0 25px;
+    -moz-border-radius: 25px 0 0 25px;
+    border-radius: 25px 0 0 25px;
+}
+
+.rtl .ju-setting-label {
+    float: right;
+}
+
+.rtl .ju-switch-button {
+    float: left;
+}
+
+@media screen and (max-width: 960px) {
+    .ju-main-wrapper .ju-left-panel {
+        display: none;
+    }
+
+    .ju-main-wrapper .ju-right-panel {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .ju-main-wrapper .ju-right-panel .tabs.ju-top-tabs {
+        width: 100% !important;
+        flex-wrap: wrap;
+    }
+
+    .ju-main-wrapper .ju-right-panel .tabs.ju-top-tabs li.tab {
+        flex: 0 0 100%;
+    }
+
+    .ju-main-wrapper .ju-right-panel .tabs.ju-top-tabs li.tab a.link-tab.active {
+        background-color: #ff8726;
+        color: #fff;
+    }
+
+    .ju-main-wrapper .ju-right-panel .tabs.ju-top-tabs li.tab a.link-tab.active:before {
+        display: none;
+    }
+
+    .ju-main-wrapper .ju-right-panel .tabs.ju-top-tabs .indicator {
+        display: none;
+    }
+
+    .ju-main-wrapper .ju-left-panel-toggle {
+        display: block;
+    }
+
+    .rtl .ju-main-wrapper .ju-right-panel {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .ju-main-wrapper .ju-left-panel-toggle {
+        left: 0;
+    }
+
+    .ju-settings-option {
+        width: 98%;
+    }
+
+    .rtl .ju-main-wrapper .ju-left-panel-toggle {
+        right: 0;
+    }
 }
 
 /*# sourceMappingURL=style.css.map */

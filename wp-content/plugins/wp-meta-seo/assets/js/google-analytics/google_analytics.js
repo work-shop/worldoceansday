@@ -1044,28 +1044,6 @@ jQuery(document).ready(function () {
         });
     });
 
-    jQuery(document).on("click", "#wpmsga_dash_userapi", function () {
-        if(jQuery(this).is(':checked')){
-            var userapi = 1;
-        }else{
-            userapi = 0;
-        }
-        jQuery.ajax({
-            url: ajaxurl,
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                action: 'wpms',
-                task: 'ga_update_option',
-                userapi: userapi,
-                wpms_nonce: wpms_localize.wpms_nonce
-            },
-            success: function () {
-                window.location.assign(document.URL);
-            }
-        });
-    });
-
     jQuery('.metaseo_tool').qtip({
         content: {
             attr: 'data-alt'

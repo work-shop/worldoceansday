@@ -13637,8 +13637,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var global_config = {
-    navHeight: 80,
-    mobileNavHeight: 60,
+    navHeight: 110,
+    mobileNavHeight: 80,
     navPadding: 100,
     transitionDuration: 1000,
     mobileBreakpoint: 768
@@ -14140,9 +14140,9 @@ function jumpLinks(config) {
 			var offset = 0;
 
 			if ($(window).width() > config.mobileBreakpoint) {
-				offset = config.navHeight - 15;
+				offset = config.navHeight;
 			} else {
-				offset = config.mobileNavHeight - 15;
+				offset = config.mobileNavHeight;
 			}
 
 			//offset = 0; //override for landing page

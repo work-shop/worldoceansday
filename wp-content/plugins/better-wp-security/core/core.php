@@ -24,7 +24,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 		 *
 		 * @access private
 		 */
-		private $plugin_build = 4115;
+		private $plugin_build = 4116;
 
 		/**
 		 * Used to distinguish between a user modifying settings and the API modifying settings (such as from Sync
@@ -297,6 +297,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 		 */
 		public function register_events( $scheduler ) {
 			$scheduler->schedule( ITSEC_Scheduler::S_DAILY, 'clear-locks' );
+			$scheduler->schedule( ITSEC_Scheduler::S_DAILY, 'health-check' );
 		}
 
 		/**
@@ -342,6 +343,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 			ITSEC_Modules::register_module( 'file-writing', "$path/modules/file-writing", 'always-active' );
 			ITSEC_Modules::register_module( 'malware', "$path/modules/malware", 'always-active' );
 			ITSEC_Modules::register_module( 'feature-flags', "$path/modules/feature-flags", 'always-active' );
+			ITSEC_Modules::register_module( 'security-check-pro', "$path/modules/security-check-pro", self::is_pro() ? 'always-active' : 'default-inactive' );
 
 			if ( ! ITSEC_Core::is_pro() ) {
 				ITSEC_Modules::register_module( 'pro-module-upsells', "$path/modules/pro", 'always-active' );

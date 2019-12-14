@@ -27,7 +27,7 @@
 			</div>
 			<div class="nav-menu-lower">
 				<ul class="nav-menus-list">
-					<li class="has-sub-menu closed nav-menu-primary-item">
+					<li class="has-sub-menu closed nav-menu-primary-item nav-take-action-item">
 						<a href="<?php echo bloginfo('url'); ?>/take-action" class="nav-primary-link dropdown-link closed mobile-closed <?php if( Helpers::is_tree(14) ): echo ' nav-current '; endif; ?>" id="nav-link-take-action" data-dropdown-target="take-action">
 							Take Action
 						</a>

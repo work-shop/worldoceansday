@@ -169,23 +169,6 @@ defined('ABSPATH') or die("You can't access this file directly.");
         },
         "settings": {
             "autoHide": <?php echo $style['settings_overflow_autohide']; ?>
-        },
-        "classNames": {
-            "contentEl": "asp_simplebar-content",
-            "contentWrapper": "asp_simplebar-content-wrapper",
-            "offset": "asp_simplebar-offset",
-            "mask": "asp_simplebar-mask",
-            "wrapper": "asp_simplebar-wrapper",
-            "placeholder": "asp_simplebar-placeholder",
-            "scrollbar": "asp_simplebar-scrollbar",
-            "track": "asp_simplebar-track",
-            "heightAutoObserverWrapperEl": "asp_simplebar-height-auto-observer-wrapper",
-            "heightAutoObserverEl": "asp_simplebar-height-auto-observer",
-            "visible": "asp_simplebar-visible",
-            "horizontal": "asp_simplebar-horizontal",
-            "vertical": "asp_simplebar-vertical",
-            "hover": "asp_simplebar-hover",
-            "dragging": "asp_simplebar-dragging"
         }
     },
     "preventBodyScroll": <?php echo wd_asp()->o['asp_compatibility']['js_prevent_body_scroll']; ?>,

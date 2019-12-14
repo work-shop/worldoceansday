@@ -109,6 +109,12 @@ class WPMSEOMetabox extends WPMSEOMeta
                         $data = $_POST[self::$form_prefix . $key];
                     }
                 }
+
+                if ('metaseo_canonical' === $meta_box['type']) {
+                    // Convert data of canonical
+                    $data = MetaSeoAdmin::convertCanonicalUrlToSave($data);
+                }
+
                 if (isset($data)) {
                     self::setValue($key, $data, $post_id);
                 }
@@ -151,6 +157,14 @@ class WPMSEOMetabox extends WPMSEOMeta
              displayed in search engine results (meta keywords).', 'wp-meta-seo');
         } else {
             unset(self::$meta_fields['general']['keywords']);
+        }
+
+        if (isset($settings['metaseo_canonical']) && (int) $settings['metaseo_canonical'] === 1) {
+            self::$meta_fields['general']['metaseo_canonical']['title'] = esc_html__('Canonical URL', 'wp-meta-seo');
+            self::$meta_fields['general']['metaseo_canonical']['description'] = '';
+            self::$meta_fields['general']['metaseo_canonical']['help']  = esc_attr__('Put the canonical URL which this page should point to. By default, it\'s the permalink', 'wp-meta-seo');
+        } else {
+            unset(self::$meta_fields['general']['metaseo_canonical']);
         }
 
 
@@ -227,7 +241,7 @@ class WPMSEOMetabox extends WPMSEOMeta
             );
             wp_enqueue_script(
                 'wpms_ju_waves_js',
-                plugins_url('assets/wordpress-css-framework/js/waves.js', dirname(__FILE__)),
+                plugins_url('assets/wordpress-css-framework/js/waves.min.js', dirname(__FILE__)),
                 array(),
                 WPMSEO_VERSION
             );
@@ -651,7 +665,19 @@ class WPMSEOMetabox extends WPMSEOMeta
             case 'snippetpreview':
                 $content .= $this->snippet();
                 break;
+            case 'metaseo_canonical':
+                $placeholder = ' placeholder="'.esc_html__('Put canonical URL in field', 'wp-meta-seo') . '"';
+                $ac = '';
+                if (isset($meta_field_def['autocomplete']) && $meta_field_def['autocomplete'] === false) {
+                    $ac = 'autocomplete="off" ';
+                }
+                // Set link to field
+                $meta_value = MetaSeoAdmin::convertCanonicalUrlToDisplay($meta_value);
 
+                $content .= '<input type="text"' . $placeholder . ' id="' . esc_attr($esc_form_key) . '" ' . $ac . '
+                name="' . esc_attr($esc_form_key) . '" value="' . esc_attr($meta_value) . '"
+                 class="' . esc_attr('large-text' . $class) . '"/>';
+                break;
             case 'text':
                 $ac = '';
                 if (isset($meta_field_def['autocomplete']) && $meta_field_def['autocomplete'] === false) {

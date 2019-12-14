@@ -7,6 +7,45 @@
     });
 
     $(document).ready(function ( $ ) {
+        // Toggle left panel on small screen
+        $('.ju-left-panel-toggle').unbind('click').click(function () {
+            var leftPanel = $('.ju-left-panel');
+            var wpLeftPanel = $('#adminmenuwrap');
+            var rtl = $('body').hasClass('rtl');
+
+            if (leftPanel.is(':visible')) {
+                if (wpLeftPanel.is(':visible')) {
+                    if (!rtl) {
+                        $(this).css('left', 35);
+                    } else {
+                        $(this).css('right', 35);
+                    }
+                } else {
+                    if (!rtl) {
+                        $(this).css('left', 0);
+                    } else {
+                        $(this).css('right', 0);
+                    }
+                }
+            } else {
+                if (wpLeftPanel.is(':visible')) {
+                    if (!rtl) {
+                        $(this).css('left', 335);
+                    } else {
+                        $(this).css('right', 335);
+                    }
+                } else {
+                    if (!rtl) {
+                        $(this).css('left', 290);
+                    } else {
+                        $(this).css('right', 290);
+                    }
+                }
+            }
+
+            leftPanel.toggle()
+        });
+
         // Function for searching menus
         $('.ju-menu-search-input').on('input', function () {
             $('.ju-right-panel .ju-settings-option').removeClass('search-result');
@@ -24,6 +63,7 @@
             var tabID = [], subID = [];
 
             searchResult.addClass('search-result');
+
             searchParent.each(function () {
                 tabID.push($(this).attr('id'));
             });
@@ -103,10 +143,10 @@
 
         // Not show expand icon if this tab has no sub menus
         $('.ju-menu-tabs li.tab').each(function () {
-            if ($(this).find('.ju-submenu-tabs').length < 1) {
-                $(this).find('a.link-tab').addClass('no-submenus');
-            } else {
+            if ($(this).find('.ju-submenu-tabs').length > 0) {
                 var linkTab = $(this).find('a.link-tab');
+
+                linkTab.addClass('with-submenus');
                 if (linkTab.hasClass('active')) {
                     linkTab.addClass('expanded');
                 }
@@ -117,5 +157,8 @@
         $('.ju-notice-close').click(function () {
             $(this).closest('.ju-notice-msg').slideUp();
         });
+
+        Waves.attach('.waves-effect');
+        Waves.init();
     })
 })(jQuery);

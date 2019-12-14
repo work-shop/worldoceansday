@@ -19,7 +19,7 @@ if (!class_exists("WD_ASP_IndexTable_Handler")) {
          * This function handles the index table ajax requests
          */
         public function handle() {
-
+			ASP_Helpers::prepareAjaxHeaders();
             if (isset($_POST['data'])) {
                 if ( is_array($_POST['data']) )
                     $options = $_POST['data'];

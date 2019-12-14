@@ -128,7 +128,7 @@ a:active {
 .wpms-open-html-sitemap {
     height: 45px;
     border-radius: 0 4px 4px 0 !important;
-    width: 15%;
+    width: 20%;
 }
 
 #wpms_sitemap_link,
@@ -136,7 +136,7 @@ a:active {
     background-color: #fff;
     border-right: 0;
     border-radius: 4px 0 0 4px;
-    width: 85%;
+    width: 80%;
 }
 
 .wpms_row_record {
@@ -216,9 +216,80 @@ a:active {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 782px) {
     .ju-settings-option {
         width: 100% !important;
         margin-right: 0 !important;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap ul.wpmstabs {
+        width: 100% !important;
+        flex-wrap: wrap;
+    }
+    .wp-meta-seo_page_metaseo_google_sitemap ul.wpmstabs li.wpmstab {
+        flex: 0 0 100%;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap ul.wpmstabs li.wpmstab a.active{
+        background-color: #ff8726 !important;
+        color: #fff !important;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap ul.wpmstabs .indicator {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .wp-meta-seo_page_metaseo_google_sitemap .wrap_sitemap_option .pure-checkbox label.ju-setting-label {
+        width: 100%;
+        min-width: unset !important;
+        max-width: unset !important;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .wp-meta-seo_page_metaseo_google_sitemap .pure-checkbox {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap a.wpms-open-html-sitemap,
+    .wp-meta-seo_page_metaseo_google_sitemap a.wpms-open-xml-sitemap
+    {
+        width: 100%;
+        line-height: 2;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap .ju-setting-label.sitemap-link-check-left {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap .sitemap-link-check-right
+    {
+        width: 100%;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap .sitemap-link-check-right a {
+        width: calc(100% - 20px);
+        margin: 0 10px;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap #wpms_sitemap_link,
+    .wp-meta-seo_page_metaseo_google_sitemap #wpms_html_sitemap_page{
+        width: 100%;
+        margin-bottom: 5px !important;
+        border-right: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .wp-meta-seo_page_metaseo_google_sitemap .wpms-open-xml-sitemap,
+    .wp-meta-seo_page_metaseo_google_sitemap .wpms-open-html-sitemap{
+        width: 30%;
+        border-radius: 4px !important;
+        border-left: 1px solid #ddd;
     }
 }

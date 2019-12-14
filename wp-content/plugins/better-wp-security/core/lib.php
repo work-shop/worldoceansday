@@ -160,6 +160,8 @@ final class ITSEC_Lib {
 	 *
 	 * @since 4.0.0
 	 *
+	 * @param bool $use_cache Whether to check the cache, or force the retrieval of a new value.
+	 *
 	 * @return  String The IP address of the user
 	 */
 	public static function get_ip( $use_cache = true ) {
@@ -172,82 +174,23 @@ final class ITSEC_Lib {
 		if ( false !== $ip ) {
 			$ip = filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE );
 
-			if ( ! empty( $ip ) ) {
+			if ( $ip ) {
 				$GLOBALS['__itsec_remote_ip'] = $ip;
 
 				return $ip;
 			}
 		}
 
-		unset( $ip );
+		self::load( 'ip-detector' );
+		$ip = ITSEC_Lib_IP_Detector::build()->get();
 
-		$headers = array(
-			'HTTP_CF_CONNECTING_IP', // CloudFlare
-			'HTTP_X_FORWARDED_FOR',  // Squid and most other forward and reverse proxies
-			'REMOTE_ADDR',           // Default source of remote IP
-		);
-
-		$headers = (array) apply_filters( 'itsec_filter_remote_addr_headers', $headers );
-		$proxy   = ITSEC_Modules::get_setting( 'global', 'proxy' );
-
-		switch ( $proxy ) {
-			case 'disabled':
-				return $GLOBALS['__itsec_remote_ip'] = $_SERVER['REMOTE_ADDR'];
-			case 'manual':
-				$header = ITSEC_Modules::get_setting( 'global', 'proxy_header' );
-
-				if ( in_array( $header, $headers, true ) ) {
-					$headers = array( $header );
-				}
-				break;
-		}
-
-		if ( ! in_array( 'REMOTE_ADDR', $headers, true ) ) {
-			$headers[] = 'REMOTE_ADDR';
-		}
-
-		// Loop through twice. The first run won't accept a reserved or private range IP. If an acceptable IP is not
-		// found, try again while accepting reserved or private range IPs.
-		for ( $x = 0; $x < 2; $x ++ ) {
-			foreach ( $headers as $header ) {
-				if ( ! isset( $_SERVER[ $header ] ) ) {
-					continue;
-				}
-
-				$ip = trim( $_SERVER[ $header ] );
-
-				if ( empty( $ip ) ) {
-					continue;
-				}
-
-				if ( false !== ( $comma_index = strpos( $_SERVER[ $header ], ',' ) ) ) {
-					$ip = substr( $ip, 0, $comma_index );
-				}
-
-				if ( 0 === $x ) {
-					// First run through. Only accept an IP not in the reserved or private range.
-					$ip = filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE | FILTER_FLAG_NO_PRIV_RANGE );
-				} else {
-					$ip = filter_var( $ip, FILTER_VALIDATE_IP );
-				}
-
-				if ( ! empty( $ip ) ) {
-					break;
-				}
-			}
-
-			if ( ! empty( $ip ) ) {
-				break;
-			}
-		}
-
-		if ( empty( $ip ) ) {
+		if ( ! $ip ) {
 			// If an IP is not found, force it to a localhost IP that would not be blacklisted as this typically
 			// indicates a local request that does not provide the localhost IP.
 			$ip = '127.0.0.1';
 		}
 
-		$GLOBALS['__itsec_remote_ip'] = (string) $ip;
+		$GLOBALS['__itsec_remote_ip'] = $ip;
 
 		return $GLOBALS['__itsec_remote_ip'];
 	}
@@ -1881,5 +1824,20 @@ final class ITSEC_Lib {
 		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
 			define( 'DONOTCACHEPAGE', true );
 		}
+	}
+
+	/**
+	 * Get the WordPress branch version.
+	 *
+	 * @example 5.2.4 => 5.2
+	 *
+	 * @return string
+	 */
+	public static function get_wp_branch() {
+		$version = get_bloginfo( 'version' );
+
+		list( $major, $minor ) = explode( '.', $version );
+
+		return $major . '.' . $minor;
 	}
 }

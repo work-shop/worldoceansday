@@ -98,6 +98,7 @@ if (!class_exists("wd_UserSelect")) {
             $data = json_decode(base64_decode($_POST['wd_args']), true);
             $user_query = new WP_User_Query( array( 'search' => "*" . $phrase . "*", "number" => 100 ) );
 
+			ASP_Helpers::prepareAjaxHeaders();
             if ( $data['show_all_users_option'] == 1 )
                 echo '<li class="ui-state-default termlevel-0"  user_id="-1">' . __('All users', 'ajax-search-pro') . '</b><a class="deleteIcon"></a></li>';
             echo '<li class="ui-state-default"  user_id="0">' . __('Anonymous user (no user)', 'ajax-search-pro') . '</b><a class="deleteIcon"></a></li>

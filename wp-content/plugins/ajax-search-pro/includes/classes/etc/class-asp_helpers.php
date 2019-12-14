@@ -90,6 +90,17 @@ if (!class_exists("ASP_Helpers")) {
     class ASP_Helpers {
 
         /**
+         * Prepares the headers for the ajax request
+         *
+         * @param string $content_type
+         */
+        public static function prepareAjaxHeaders($content_type = 'text/plain') {
+            if ( !headers_sent() ) {
+                header('Content-Type: ' . $content_type);
+            }
+        }
+
+        /**
          * Performs a safe sanitation and escape for strings and numeric values in LIKE type queries.
          * This is not to be used on whole queries, only values.
          *
@@ -275,7 +286,15 @@ if (!class_exists("ASP_Helpers")) {
             return implode($replace, explode($find, $subject, 2));
         }
 
-        public static function resolveBracketSyntax( $content, $fields = array(), $empty_on_missing = false ) {
+        /**
+         * Resolves content with bracket syntax (such as no results fields etc..)
+         *
+         * @param $content
+         * @param array $fields fieldN=>contentN keypairs for replacements
+         * @param bool $empty_on_missing if any of the field contents is empty, leave the whole expression empty
+         * @return string
+         */
+        public static function resolveBracketSyntax($content, $fields = array(), $empty_on_missing = false ) {
 
             if ( empty($fields) )
                 return $content;

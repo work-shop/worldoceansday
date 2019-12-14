@@ -3,16 +3,24 @@
 		<?php  while ( have_rows('menus','option') ) : the_row(); ?>
 			<menu id="menu-<?php the_sub_field('menu_slug'); ?>" class="menu menu-dropdown off" data-dropdown="<?php the_sub_field('menu_slug'); ?>" >
 				<div class="menu-title">
-					<a href="#" class="menu-title-link">
-						<?php the_sub_field('menu_title'); ?>
-					</a>
+					<?php $link = get_sub_field('menu_title'); ?>
+					<?php if( $link ): ?>
+						<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-title-link">
+							<?php echo $link['title']; ?>
+						</a>
+					<?php endif; ?>
 				</div>
 				<div class="menu-left">
 					<div class="row">
 						<div class="menu-col menu-column-1 col-lg-6">
 							<div class="menu-heading mb2">
 								<h3 class="">
-									<?php the_sub_field('menu_column_1_heading'); ?>
+									<?php $link = get_sub_field('menu_column_1_heading'); ?>
+									<?php if( $link ): ?>
+										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-title-link">
+											<?php echo $link['title']; ?>
+										</a>
+									<?php endif; ?>
 								</h3>
 							</div>
 							<div class="menu-links">
@@ -37,7 +45,12 @@
 						<div class="menu-col menu-column-2 col-lg-6">
 							<div class="menu-heading mb2">
 								<h3 class="">
-									<?php the_sub_field('menu_column_2_heading'); ?>
+									<?php $link = get_sub_field('menu_column_2_heading'); ?>
+									<?php if( $link ): ?>
+										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-title-link">
+											<?php echo $link['title']; ?>
+										</a>
+									<?php endif; ?>
 								</h3>
 							</div>
 							<div class="menu-links">

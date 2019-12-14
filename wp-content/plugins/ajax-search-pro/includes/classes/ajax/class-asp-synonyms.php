@@ -48,6 +48,7 @@ if (!class_exists("WD_ASP_Synonyms_Handler")) {
             else
                 $ret = -1;
             print '!!!ASP_SYN_START!!!';
+			ASP_Helpers::prepareAjaxHeaders();
             print_r(json_encode($ret));
             print '!!!ASP_SYN_END!!!';
             die();
@@ -59,6 +60,7 @@ if (!class_exists("WD_ASP_Synonyms_Handler")) {
                 $ret = $syn->update($_POST['keyword'], $_POST['synonyms'], $_POST['lang'], $_POST['overwrite_existing']);
             else
                 $ret = -1;
+			ASP_Helpers::prepareAjaxHeaders();
             print
                 '!!!ASP_SYN_START!!!'.
                 $ret.
@@ -72,6 +74,7 @@ if (!class_exists("WD_ASP_Synonyms_Handler")) {
                 $ret = $syn->deleteByID($_POST['id']);
             else
                 $ret = -1;
+			ASP_Helpers::prepareAjaxHeaders();
             print
                 '!!!ASP_SYN_START!!!'.
                 $ret.
@@ -82,6 +85,7 @@ if (!class_exists("WD_ASP_Synonyms_Handler")) {
         private function wipe() {
             $syn = ASP_Synonyms::getInstance();
             $syn->wipe();
+			ASP_Helpers::prepareAjaxHeaders();
             print
                 '!!!ASP_SYN_START!!!0!!!ASP_SYN_END!!!';
             die();
@@ -89,6 +93,7 @@ if (!class_exists("WD_ASP_Synonyms_Handler")) {
 
         private function export() {
             $syn = ASP_Synonyms::getInstance();
+			ASP_Helpers::prepareAjaxHeaders();
             print
                 '!!!ASP_SYN_START!!!'.$syn->export().'!!!ASP_SYN_END!!!';
             die();
@@ -100,6 +105,7 @@ if (!class_exists("WD_ASP_Synonyms_Handler")) {
                 $ret = -1;
             else
                 $ret = $syn->import($_POST['path']);
+			ASP_Helpers::prepareAjaxHeaders();
             print
                 '!!!ASP_SYN_START!!!'.$ret.'!!!ASP_SYN_END!!!';
             die();

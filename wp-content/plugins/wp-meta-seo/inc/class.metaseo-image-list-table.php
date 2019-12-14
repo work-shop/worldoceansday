@@ -926,9 +926,11 @@ class MetaSeoImageListTable extends WP_List_Table
     private static function checkBlocks($postId, $linkUrl, $value)
     {
         global $wp_version;
+        // phpcs:disable Generic.PHP.LowerCaseConstant.Found -- In special case the block returns NULL
         $allowed_blocks = array(
             // Classic blocks have their blockName set to null.
             null,
+            NULL,
             'core/media-text',
             'core/image',
             'core/gallery',
@@ -941,7 +943,9 @@ class MetaSeoImageListTable extends WP_List_Table
             'core/pullquote',
             'core/columns',
             'core/column',
+            'core/table',
         );
+        // phpcs:enable
         $output = true;
         if (version_compare($wp_version, '5.0', '>=')) {
             if (function_exists('has_blocks')) {
@@ -2020,9 +2024,11 @@ class MetaSeoImageListTable extends WP_List_Table
     public static function gutenbergImgUpdateContent($post_content, $meta_order, $meta_type, $meta_value, $img_link)
     {
         $blocks = parse_blocks($post_content);
+        // phpcs:disable Generic.PHP.LowerCaseConstant.Found -- In special case the block returns NULL
         $allowed_blocks = array(
             // Classic blocks have their blockName set to null.
             null,
+            NULL,
             'core/media-text',
             'core/image',
             'core/gallery',
@@ -2035,8 +2041,9 @@ class MetaSeoImageListTable extends WP_List_Table
             'core/pullquote',
             'core/columns',
             'core/column',
+            'core/table'
         );
-
+        // phpcs:enable
         foreach ($blocks as $block) {
             // Gutenberg block
             if (in_array($block['blockName'], $allowed_blocks, true)) {

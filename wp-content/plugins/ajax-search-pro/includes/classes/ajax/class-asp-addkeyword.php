@@ -23,6 +23,7 @@ if (!class_exists("WD_ASP_AddKeyword_Handler")) {
                 echo (asp_statistics::addKeyword($_POST['id'] + 0, $_POST['keyword']) === true) ? 1 : 0;
                 exit;
             }
+            ASP_Helpers::prepareAjaxHeaders();
             echo 0;
             exit;
         }

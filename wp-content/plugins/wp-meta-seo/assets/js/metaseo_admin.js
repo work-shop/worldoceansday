@@ -1085,7 +1085,7 @@ jQuery(document).ready(function ($) {
         $(this).prop('checked', true);
     });
 
-    $('[name="post_type_filter"], .wpms_duplicate_meta, .wpms_lang_list').on('change', function () {
+    $('[name="post_type_filter"], .wpms_duplicate_meta, .wpms_lang_list, .wpms_post_visibility').on('change', function () {
         $('#wp-seo-meta-form').submit()
     });
 
@@ -1193,6 +1193,15 @@ jQuery(document).ready(function ($) {
     $('.wpms_duplicate_meta').bind('change', function () {
         var value = $(this).val();
         $('.wpms_duplicate_meta').each(function (i, e) {
+            if ($(e).val() !== value) {
+                $(e).val(value);
+            }
+        });
+    });
+
+    $('.wpms_post_visibility').bind('change', function () {
+        var value = $(this).val();
+        $('.wpms_post_visibility').each(function (i, e) {
             if ($(e).val() !== value) {
                 $(e).val(value);
             }

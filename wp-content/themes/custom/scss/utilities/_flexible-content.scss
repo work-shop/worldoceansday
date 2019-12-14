@@ -244,8 +244,37 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 //most of the rich text styles are in wysiwyg.scss
 
 .fc-rich-text{
-}
 
+	.fc-sidebar{
+		border: 1px solid $light;
+		border-radius: 10px;
+
+		.fc-sidebar-inner{
+			padding: 30px 20px;
+		}
+
+		.fc-sidebar-heading{
+			margin-bottom: 1em;
+		}
+
+		.fc-sidebar-text{
+			margin-bottom: 1em;
+		}
+
+		.fc-sidebar-button{
+			background: $brand;
+			display: block;
+			text-align: center;
+			color: white;
+			padding: 10px 0;
+			border-radius: 0px 0px 10px 10px;
+			@extend .bold;
+			@extend .uppercase;
+			@extend .tracked-less;
+			font-size: 15px;
+		}
+	}
+}
 
 
 //BACKGROUND
@@ -304,7 +333,11 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 }
 
 .fc-background-heading,.fc-background-subheading,.fc-background-link{
-	width: 69%;
+	width: 61%;
+
+	@media screen and (max-width: $lg) {
+		width: 69%;
+	}
 
 	@media screen and (max-width: $sm) {
 		width: 90%;
@@ -334,6 +367,73 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 			color: auto;
 		}
 	}
+}
+
+
+//multi-column
+.fc-background-multi-column-container{
+	display: grid;
+	height: inherit;
+	
+	&.image-left{
+		&.image-33{
+			grid-template-columns: 40% 60%;
+		}
+		&.image-50{
+			grid-template-columns: 50% 50%;
+		}
+		&.image-66{
+			grid-template-columns: 60% 40%;
+		}		
+
+		@media screen and (max-width: $sm) {
+			display: block;
+
+			.fc-background-multi-column-1{
+				//height: 61vh;
+			}
+		}
+
+	}
+
+	&.image-right{
+		&.image-33{
+			grid-template-columns: 60% 40%;
+		}
+		&.image-50{
+			grid-template-columns: 50% 50%;
+		}
+		&.image-66{
+			grid-template-columns: 40% 60%;
+		}		
+
+		@media screen and (max-width: $sm) {
+			display: block;
+
+			.fc-background-multi-column-2{
+				//height: 61vh;
+			}
+		}
+
+	}
+
+	@media screen and (max-width: $md) {
+		&.image-left,&.image-right{
+			&.image-33,&.image-50,&.image-66{
+				grid-template-columns: 50% 50%;
+			}
+		}
+	}
+
+	.fc-background-heading,.fc-background-subheading,.fc-background-link{
+		width: 100%;
+	}
+
+}
+
+.fc-background-multi-column-1,.fc-background-multi-column-2{
+	position: relative;
+	padding: 12vh 4vw;
 }
 
 
@@ -418,11 +518,76 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 }
 
 
+//OVERVIEW BLOCKS
+
+.fc-overview-blocks{
+
+	.fc-overview-block{
+		margin-bottom: 14vh;
+		position: relative;
+		width: 83%;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		@extend .align-items-stretch;
+
+		&:nth-child(even){
+			.overview-block-image{
+				order: 1;
+				margin-left: 0;
+			}
+			.overview-block-text{
+				order: 2;
+				margin-left: -20%;
+			}
+		}
+	}
+
+	.overview-block-image{
+		width: 55%;
+		margin-left: -20%;
+		display: block;
+		position: relative;
+		flex: 1 0 auto;
+		border-radius: 8px;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.overview-block-text{
+		width: 70%;
+		padding: 10vh 0px;
+		position: relative;
+		z-index: 3;
+
+		.overview-block-text-inner{
+			@extend .shadowed;
+			border-radius: 8px;
+			padding: 60px;
+		}
+
+		.block-heading{
+			@extend .bold;
+			margin-bottom: 1em;	
+		}
+
+		.block-text{
+			width: 80%;
+		}
+
+		.block-link{
+			@extend .bold;
+		}
+	}
+}
+
+
 //GALLERY
 
 .fc-gallery{
 
 	.slick-arrow{
+		//border: 10px solid yellow;
 		&:after{
 			text-shadow: 0px 0px 6px black;
 			text-align: center;		
@@ -434,6 +599,7 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 
 	.slick-dots{
 		bottom: auto;
+		//border: 1px solid red;
 		left: auto;
 		width: 66%;
 		top: 0px;
@@ -445,7 +611,7 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 		transform: none;
 		width: 100%;
 		text-align: center;
-		margin-top: 1em;
+		//margin-top: 1em;
 
 		@media screen and (max-width: $sm) {
 			position: static;

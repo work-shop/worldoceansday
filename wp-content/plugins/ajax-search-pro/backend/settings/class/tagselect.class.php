@@ -229,6 +229,7 @@ if (!class_exists("wpdreamsSelectTags")) {
                 }
             else
                 $ret = "No tags found for this phrase";
+			ASP_Helpers::prepareAjaxHeaders();
             print "!!WDSTART!!" . $ret . "!!WDEND!!";
             die();
         }

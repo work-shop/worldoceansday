@@ -9,6 +9,9 @@ $section_heading = $fc_row['section_settings']['section_heading'];
 $section_type = $fc_row['section_style']['section_type'];
 $section_background_color = $fc_row['section_style']['section_background_color'];
 $section_text_color = $fc_row['section_style']['section_text_color'];
+if($section_text_color == false){
+	$section_text_color = ' #222';
+}
 $section_text_color_string = 'style="color: ' . $section_text_color . ';"';
 $section_text_color_background_string = 'style="background-color: ' . $section_text_color . ';"';
 
@@ -30,7 +33,7 @@ if( $section_type === 'collapsible'){
 
 ?>
 
-<section class="block flexible-content fc <?php echo $section_class; ?>" style="background-color: <?php echo $section_background_color; ?>;" id="fc-<?php echo $section_id; ?>">
+<section class="block flexible-content fc <?php echo $section_class; ?>" style="background-color: <?php echo $section_background_color; ?>;" id="<?php echo $section_id; ?>">
 	<div class="container-fc">
 		
 		<?php if( $section_heading ): ?>
@@ -104,7 +107,7 @@ if( $section_type === 'collapsible'){
 								</a>
 							</div>
 						<?php endif; ?>
-						<?php if ( $element !== end($list_item) ): ?>
+						<?php if ( $list_item !== end($list_item) ): ?>
 							<div class="fc-repeating-paragraphs-separator" <?php echo $section_text_color_background_string; ?>></div>				
 						<?php endif; ?>
 					</div>

@@ -27,24 +27,8 @@ $authUrl = $client->createAuthUrl();
     <div class="wizard-header">
         <div class="title font-size-35"><?php esc_html_e('Google Analytics', 'wp-meta-seo'); ?></div>
         <p class="ju-description"><?php esc_html_e('Enable Google Analytics tracking and reports using a Google Analytics direct connection. It require a Google Analytics account creation first', 'wp-meta-seo') ?></p>
-        <a target="_blank" href="<?php echo esc_url($authUrl) ?>"
-           class="ju-button orange-button no-background generate-access-code m-tb-20"><?php esc_html_e('Generate access code', 'wp-meta-seo'); ?></a>
     </div>
     <div class="wizard-content">
-        <div class="ju-settings-option  wpms_width_100 p-d-20">
-            <div class="wpms_row_full p-d-20">
-                <div class="ju-settings-option wpms-no-shadow wpms_width_100 wpms-no-shadow">
-                    <label class="wpms_width_100 p-b-20 wpms_left text label_text">
-                        <?php esc_html_e('Access Code', 'wp-meta-seo'); ?>
-                    </label>
-
-                    <label>
-                        <input type="text" class="wpms_ga_code wpms_width_100 text_field" name="wpms_ga_code">
-                    </label>
-                </div>
-            </div>
-        </div>
-
         <div class="ju-settings-option  wpms_width_100 p-d-20">
             <div class="wpms_row_full">
                 <label class="ju-setting-label text">

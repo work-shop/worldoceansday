@@ -29,6 +29,7 @@ if (!class_exists("WD_ASP_Deletecache_Handler")) {
             $count = $count + wpd_TextCache::clearDBCache();
 
             if ( $exit !== false ) {
+                ASP_Helpers::prepareAjaxHeaders();
                 print $count;
                 die();
             }

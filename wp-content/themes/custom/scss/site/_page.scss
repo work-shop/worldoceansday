@@ -1,5 +1,77 @@
 
 .page-hero{
+	display: flex;
+	@extend .align-items-end;
+
+	&.page-hero-with-image{
+		height: 45vh;
+		.subpage-title{
+			color: white;
+		}
+		.page-hero-title{
+			color: white;
+		}
+	}
+
+	.page-title-container{
+		padding-top: 10vh;
+		padding-bottom: 6vh;
+	}
+
+	.subpage-title{
+		color: $brand;
+		@extend .uppercase;
+		@extend .bold;
+		@extend .tracked-less;
+		margin-bottom: 0;
+	}
+
+	.page-hero-title{
+		color: $brand;
+		@extend .bold;
+	}
+
 
 }
+
+.page-introduction{
+	background: $light-blue;
+	padding: 5vh 0;
+
+	h2{
+		font-weight: 400;
+		@extend .h3;
+		width: 75%;
+		color: $brand;
+	}
+}
+
+.page-nav{
+	background: white;
+	padding: 12px 0;
+	border-bottom: 1px solid $light;
+
+	li{
+		display: inline-block;
+		margin-right: 20px;
+		height: inherit;
+
+		a{
+			font-size: 13px;
+			text-transform: uppercase;
+			font-weight: 700;
+			color: $medium-light;
+			height: inherit;
+			padding: 0px 7px;
+			letter-spacing: .001em;
+
+			&:first-child{
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+
+
 

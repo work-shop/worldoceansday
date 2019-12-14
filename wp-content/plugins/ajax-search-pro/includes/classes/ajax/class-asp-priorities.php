@@ -32,7 +32,6 @@ if (!class_exists("WD_ASP_Priorities_Handler")) {
                     WD_ASP_Priorities::ajax_set_priorities();
             }
             die();
-
         }
 
         // ------------------------------------------------------------

@@ -133,6 +133,7 @@ class MetaSeoAdmin
             add_action('edit_term', array($this, 'saveCategoryMeta'), 10, 3);
         }
         add_action('wp_ajax_wpms', array($this, 'startProcess'));
+        add_action('wp_ajax_wpms_ga_save_information', array($this, 'wpmsGASaveInformation'));
         add_filter('wpms_the_content', array($this, 'wpmsTheContent'), 10, 2);
     }
 
@@ -271,6 +272,17 @@ class MetaSeoAdmin
             <div class="cat-desc-len"><?php echo esc_html(MPMSCAT_DESC_LENGTH); ?></div>
         </div>
         <?php
+        if (isset($settings['metaseo_canonical']) && (int) $settings['metaseo_canonical'] === 1) : ?>
+            <div class="form-field" style="margin-top: 20px;margin-bottom: 20px;">
+                <label class="wpms_custom_cat_field"
+                       data-alt="<?php esc_attr_e('Put the canonical URL which this page should point to. By default, it\'s the permalink', 'wp-meta-seo') ?>">
+                    <?php esc_html_e('Canonical URL', 'wp-meta-seo'); ?>
+                </label>
+                <label>
+                    <textarea name="wpms_category_canonical" class="wpms_category_canonical"></textarea><br/>
+                </label>
+            </div>
+        <?php endif;
     }
 
     /**
@@ -303,6 +315,15 @@ class MetaSeoAdmin
                 if (isset($settings['metaseo_showkeywords']) && (int) $settings['metaseo_showkeywords'] === 1) {
                     if (isset($_POST['wpms_category_metakeywords'])) {
                         update_term_meta($term_id, 'wpms_category_metakeywords', $_POST['wpms_category_metakeywords']);
+                    }
+                }
+
+                if (isset($settings['metaseo_canonical']) && (int) $settings['metaseo_canonical'] === 1) {
+                    if (isset($_POST['wpms_category_canonical'])) {
+                        // Set link to field
+                        $canonical = self::convertCanonicalUrlToSave($_POST['wpms_category_canonical']);
+
+                        update_term_meta($term_id, 'wpms_category_canonical', $canonical);
                     }
                 }
             }
@@ -339,6 +360,8 @@ class MetaSeoAdmin
         $metatitle    = get_term_meta($t_id, 'wpms_category_metatitle', true);
         $metadesc     = get_term_meta($t_id, 'wpms_category_metadesc', true);
         $metakeywords = get_term_meta($t_id, 'wpms_category_metakeywords', true);
+        $metacanonical = get_term_meta($t_id, 'wpms_category_canonical', true);
+        $metacanonical = self::convertCanonicalUrlToDisplay($metacanonical);
         ?>
         <tr class="form-field">
             <th scope="row" valign="top">
@@ -426,6 +449,28 @@ class MetaSeoAdmin
             </td>
         </tr>
         <?php
+        if (isset($settings['metaseo_canonical']) && (int) $settings['metaseo_canonical'] === 1) : ?>
+            <tr class="form-field">
+                <th scope="row" valign="top">
+                    <label for="extra1" class="wpms_custom_cat_field"
+                           data-alt="<?php esc_attr_e('Put the canonical URL which this page should point to. By default, it\'s the permalink', 'wp-meta-seo') ?>">
+                        <?php esc_html_e('Canonical URL', 'wp-meta-seo'); ?>
+                    </label>
+                </th>
+                <td>
+                    <label>
+                        <?php if ((!empty($metacanonical))) : ?>
+                            <textarea name="wpms_category_canonical"
+                                      class="wpms_category_canonical"><?php echo esc_textarea($metacanonical); ?></textarea>
+                        <?php else : ?>
+                            <textarea name="wpms_category_canonical"
+                                      class="wpms_category_canonical"></textarea>
+                        <?php endif; ?>
+                        <br/>
+                    </label>
+                </td>
+            </tr>
+        <?php endif;
     }
 
     /**
@@ -1663,9 +1708,11 @@ class MetaSeoAdmin
     public function gutenbergUpdateContent($post_content, $link_detail, $title)
     {
         $blocks = parse_blocks($post_content);
+        // phpcs:disable Generic.PHP.LowerCaseConstant.Found -- In special case the block returns NULL
         $allowed_blocks = array(
             // Classic blocks have their blockName set to null.
             null,
+            NULL,
             'core/button',
             'core/paragraph',
             'core/heading',
@@ -1679,7 +1726,7 @@ class MetaSeoAdmin
             'core/table',
             'core/media-text'
         );
-
+        // phpcs:enable
         foreach ($blocks as $block) {
             // Gutenberg block
             if (in_array($block['blockName'], $allowed_blocks, true)) {
@@ -2272,6 +2319,13 @@ class MetaSeoAdmin
                 WPMSEO_VERSION
             );
 
+            wp_enqueue_style(
+                'wpms_ju_waves_css',
+                plugins_url('assets/wordpress-css-framework/css/waves.min.css', dirname(__FILE__)),
+                array(),
+                WPMSEO_VERSION
+            );
+
             wp_enqueue_script(
                 'wpms-magnific-popup-script',
                 plugins_url('assets/js/jquery.magnific-popup.min.js', dirname(__FILE__)),
@@ -2281,7 +2335,7 @@ class MetaSeoAdmin
 
             wp_enqueue_style(
                 'wpms_ju_framework_styles',
-                plugins_url('assets/wordpress-css-framework/css/style.css', dirname(__FILE__)),
+                plugins_url('assets/wordpress-css-framework/css/style.min.css', dirname(__FILE__)),
                 array(),
                 WPMSEO_VERSION
             );
@@ -2294,7 +2348,7 @@ class MetaSeoAdmin
             );
             wp_enqueue_script(
                 'wpms_ju_waves_js',
-                plugins_url('assets/wordpress-css-framework/js/waves.js', dirname(__FILE__)),
+                plugins_url('assets/wordpress-css-framework/js/waves.min.js', dirname(__FILE__)),
                 array(),
                 WPMSEO_VERSION
             );
@@ -2319,13 +2373,6 @@ class MetaSeoAdmin
                     plugins_url('assets/css/materialize/materialize.css', dirname(__FILE__)),
                     array(),
                     WPMSEO_VERSION
-                );
-                wp_enqueue_script(
-                    'wpms_materialize_js',
-                    plugins_url('assets/js/materialize/materialize.min.js', dirname(__FILE__)),
-                    array('jquery'),
-                    WPMSEO_VERSION,
-                    true
                 );
             } else {
                 // Register CSS
@@ -2690,6 +2737,13 @@ class MetaSeoAdmin
                     'scope'           => 'admin-widgets',
                     'admin_url'       => admin_url()
                 )
+            );
+
+            wp_enqueue_script(
+                'wpms-cookie',
+                plugins_url('assets/js/jquery.cookie.js', dirname(__FILE__)),
+                array(),
+                '1.4.1'
             );
         }
 
@@ -3201,13 +3255,7 @@ class MetaSeoAdmin
  You should set <strong>Tracking Options</strong> to <strong>Enabled</strong>
  ', 'wp-meta-seo') . '.</p></div>';
                             }
-
-                            if (isset($this->google_alanytics['wpmsga_dash_userapi'])
-                                && (int) $this->google_alanytics['wpmsga_dash_userapi'] === 1) {
-                                require_once(WPMETASEO_PLUGIN_DIR . 'inc/pages/google-analytics/form-connect.php');
-                            } else {
-                                require_once(WPMETASEO_PLUGIN_DIR . 'inc/pages/google-analytics/google-analytics.php');
-                            }
+                            require_once(WPMETASEO_PLUGIN_DIR . 'inc/pages/google-analytics/google-analytics.php');
                         }
                     }
 
@@ -3693,6 +3741,45 @@ class MetaSeoAdmin
         wp_send_json(false);
     }
 
+
+    /**
+     * Ajax save ga information
+     *
+     * @return void
+     */
+    public function wpmsGASaveInformation()
+    {
+        check_ajax_referer('wpms_nonce', 'wpms_nonce');
+
+        $google_alanytics = array(
+            'wpmsga_dash_clientid' => isset($_POST['wpmsga_dash_clientid']) ? trim($_POST['wpmsga_dash_clientid']) : '',
+            'wpmsga_dash_clientsecret' => isset($_POST['wpmsga_dash_clientsecret']) ? trim($_POST['wpmsga_dash_clientsecret']) : ''
+        );
+
+        update_option('wpms_google_alanytics', $google_alanytics);
+
+        require_once WPMETASEO_PLUGIN_DIR . 'inc/google_analytics/wpmstools.php';
+        require_once WPMETASEO_PLUGIN_DIR . 'inc/google_analytics/wpmsgapi.php';
+        require_once WPMETASEO_PLUGIN_DIR . 'inc/autoload.php';
+        $config = new Google_Config();
+        $config->setCacheClass('Google_Cache_Null');
+        $client = new Google_Client($config);
+        $client->setScopes('https://www.googleapis.com/auth/analytics.readonly');
+        $client->setAccessType('offline');
+        $client->setApplicationName('WP Meta SEO');
+        $client->setRedirectUri('urn:ietf:wg:oauth:2.0:oob');
+        $client  = WpmsGaTools::setClient($client, array(), array($google_alanytics['wpmsga_dash_clientid'], $google_alanytics['wpmsga_dash_clientsecret']));
+        $authUrl = $client->createAuthUrl();
+
+        if (!empty($authUrl)) {
+            echo json_encode(array('status' => 'true', 'authUrl' => $authUrl));
+            die();
+        }
+
+        echo json_encode(array('status' => 'false', 'authUrl' => ''));
+        die();
+    }
+
     /**
      * Run ajax
      *
@@ -3822,5 +3909,71 @@ class MetaSeoAdmin
                     break;
             }
         }
+    }
+
+
+    /**
+     * Convert canonical url
+     *
+     * @param string $url Url
+     *
+     * @return string
+     */
+    public static function convertCanonicalUrlToSave($url)
+    {
+        if (empty($url)) {
+            return $url;
+        }
+
+        $url = preg_replace('/\s+/', '', $url);
+
+        if (substr($url, 0, 2) === '//') {
+            $url = (is_ssl() ? 'https:' : 'http:') . $url;
+        }
+
+        // Remove / in first
+        $url = ltrim($url, '/');
+
+        // Full link
+        if (preg_match('#http(s?)://#i', $url)) {
+            if (strpos($url, trim(home_url(), '/')) !== false) {
+                $url = str_replace(trim(home_url(), '/'), '', $url);
+                return (empty($url) ? '/' : $url);
+            } else {
+                // External link
+                return $url;
+            }
+        }
+
+        $parseHome = parse_url(home_url());
+        $host = (!empty($parseHome['host']) ? $parseHome['host'] : '');
+        $host .= (!empty($parseHome['path']) ? $parseHome['path'] : '');
+
+        if ($host && $url && strpos($url, $host) !== false) {
+            $url = str_replace($host, '', $url);
+        }
+
+        return '/' . ltrim($url, '/');
+    }
+
+    /**
+     * Convert canonical url to display
+     *
+     * @param string $url Url
+     *
+     * @return string
+     */
+    public static function convertCanonicalUrlToDisplay($url)
+    {
+        if (empty($url)) {
+            return $url;
+        }
+
+        if (preg_match('#http(s?)://#i', $url)) {
+            // External link
+            return $url;
+        }
+
+        return trim(home_url(), '/') . $url;
     }
 }

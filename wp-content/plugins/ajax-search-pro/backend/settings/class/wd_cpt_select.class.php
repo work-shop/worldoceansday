@@ -109,7 +109,7 @@ if (!class_exists("wd_CPTSelect")) {
             ));
 
             $results = $asp_query->posts;
-
+			ASP_Helpers::prepareAjaxHeaders();
             if ( ! empty( $results ) ) {
                 echo "Results (".count($results)."): ";
                 foreach ( $results as $p ) {

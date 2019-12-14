@@ -130,47 +130,6 @@ $button_shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12
   }
 }
 
-// Wave effects
-.waves-effect {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  vertical-align: middle;
-  z-index: 1;
-  will-change: opacity, transform;
-  @include transition(all 0.3s ease-out);
-
-  .waves-ripple {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    margin-top: 10px;
-    margin-left: -10px;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.2);
-    @include borderRadius(50%);
-    @include transition(all 0.7s ease-out);
-    @include transform(scale(0));
-  }
-
-  &.waves-light {
-    .waves-ripple {
-      background-color: rgba(255, 255, 255, 0.45);
-    }
-  }
-
-  &.waves-dark {
-    .waves-ripple {
-      background-color: rgba(140, 140, 140, 0.45);
-    }
-  }
-}
-
 // Button style
 .ju-button {
   background-color: transparent;
@@ -185,6 +144,7 @@ $button_shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12
   text-align: center;
   letter-spacing: 2px;
   transition: all ease 0.5s;
+  vertical-align: middle;
   @include borderRadius($large-radius);
 
   &:focus {
@@ -273,6 +233,20 @@ input.ju-input {
         }
       }
     }
+  }
+}
+
+// Selection
+select.ju-select {
+  padding: 0 15px;
+  height: 50px;
+  vertical-align: middle;
+  @include borderRadius($small-radius);
+
+  &:focus {
+    border: 1px solid $orange-color;
+    box-shadow: none;
+    outline: none;
   }
 }
 
@@ -383,11 +357,16 @@ input.ju-radiobox {
 }
 
 // Settings option style
+.settings-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex: auto;
+}
+
 .ju-settings-option {
-  float: left;
   width: 48%;
   margin-bottom: 20px;
-  margin-right: 15px;
+  margin-right: 2%;
   background-color: $white-color;
   @include boxShadow(0 10px 30px 0 rgba(160, 166, 190, 0.08));
   @include borderRadius($small-radius);
@@ -446,6 +425,7 @@ input.ju-radiobox {
     background-image: linear-gradient(to bottom, #6465e2, #60c3ef);
     position: fixed;
     overflow: auto;
+    z-index: 15;
     @include boxShadow(10px 20px 20px 0 rgba(186, 192, 213, 0.1));
 
     // Left side logo
@@ -610,6 +590,13 @@ input.ju-radiobox {
     margin-left: 300px;
     background-color: #f3f6fa;
 
+    &:before {
+      content: '';
+      display: block;
+      clear: both;
+      padding: 1px 0 0 0;
+    }
+
     // Top nav tabs
     .ju-top-tabs-wrapper {
       background-color: #fff;
@@ -649,9 +636,135 @@ input.ju-radiobox {
       }
     }
   }
+
+  .ju-left-panel-toggle {
+    display: none;
+    position: fixed;
+    top: 120px;
+    left: 35px;
+    cursor: pointer;
+    background-color: $white-color;
+    width: auto;
+    height: auto;
+    padding: 25px 5px;
+    border: 1px solid #ddd;
+    opacity: 0.5;
+    z-index: 15;
+    @include borderRadius(0 25px 25px 0);
+
+    &:hover, &:focus {
+      opacity: 1;
+    }
+
+    .ju-left-panel-toggle-icon {
+      color: $orange-color;
+    }
+  }
 }
 
 .search-result {
   outline: 1px solid $orange-color;
   @include boxShadow(1px 1px 12px #ccc);
+}
+
+//Support RTL
+.rtl {
+  .ju-main-wrapper {
+    margin-left: 0;
+    margin-right: -20px;
+
+    .ju-left-panel {
+      .tabs.ju-menu-tabs li.tab {
+        text-align: inherit;
+      }
+    }
+
+    .ju-right-panel {
+      margin-left: 0;
+      margin-right: 300px;
+    }
+
+    .ju-left-panel-toggle {
+      left: unset;
+      right: 35px;
+      @include borderRadius(25px 0 0 25px);
+    }
+  }
+
+  .ju-setting-label {
+    float: right;
+  }
+
+  .ju-switch-button {
+    float: left;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .ju-main-wrapper {
+    .ju-left-panel {
+      display: none;
+    }
+
+    .ju-right-panel {
+      width: 100%;
+      margin-left: 0;
+
+      .tabs.ju-top-tabs {
+        width: 100% !important;
+        flex-wrap: wrap;
+
+        li.tab {
+          flex: 0 0 100%;
+
+          a.link-tab {
+            &.active {
+              background-color: $orange-color;
+              color: $white-color;
+
+              &:before {
+                display: none;
+              }
+            }
+          }
+        }
+
+        .indicator {
+          display: none;
+        }
+      }
+    }
+
+    .ju-left-panel-toggle {
+      display: block;
+    }
+  }
+
+  .rtl {
+    .ju-main-wrapper {
+      .ju-right-panel {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 782px) {
+  .ju-main-wrapper {
+    .ju-left-panel-toggle {
+      left: 0;
+    }
+  }
+
+  .ju-settings-option {
+    width: 98%;
+  }
+
+  .rtl {
+    .ju-main-wrapper {
+      .ju-left-panel-toggle {
+        right: 0;
+      }
+    }
+  }
 }

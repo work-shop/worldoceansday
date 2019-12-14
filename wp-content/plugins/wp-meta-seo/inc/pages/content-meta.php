@@ -42,13 +42,13 @@ if (!empty($_REQUEST['_wp_http_referer'])) {
                 <h3 class="wpms-top-h3"><?php esc_html_e('Action', 'wp-meta-seo') ?></h3>
                 <p>
                     <label class="wpms-text-action">
-                        <input type="checkbox" class="wpms-bulk-action wpms-checkbox" value="post-copy-title">
+                        <input type="checkbox" class="wpms-bulk-action wpms-checkbox wpms-bulk-action-coppytitle" value="post-copy-title">
                         <?php esc_html_e('Copy Title as Meta Title', 'wp-meta-seo') ?>
                     </label>
                 </p>
                 <p>
                     <label class="wpms-text-action">
-                        <input type="checkbox" class="wpms-bulk-action wpms-checkbox" value="post-copy-desc">
+                        <input type="checkbox" class="wpms-bulk-action wpms-checkbox wpms-bulk-action-desc" value="post-copy-desc">
                         <?php esc_html_e('Copy Title as Meta Description', 'wp-meta-seo') ?>
                     </label>
                 </p>

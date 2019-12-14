@@ -88,6 +88,16 @@ class WPMSEOMeta
                 'class'         => 'wpms_width_100 has-length wpms-large-input',
                 'classrow'      => 'wpms_width_100'
             ),
+            'metaseo_canonical'  => array(
+                'type'          => 'metaseo_canonical',
+                'title'         => '',
+                'default_value' => '',
+                'description'   => '',
+                'help'          => '',
+                'rows'          => 2,
+                'class'         => 'wpms_width_100 has-length wpms-large-input',
+                'classrow'      => 'wpms_width_100'
+            ),
             'metaseo_chart'  => array(
                 'type'          => 'metaseo_chart',
                 'title'         => '',

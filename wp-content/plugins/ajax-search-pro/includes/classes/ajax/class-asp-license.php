@@ -75,14 +75,11 @@ if (!class_exists("WD_ASP_License_Handler")) {
                         print_r(json_encode(array("status"=>0, "msg"=>"Invalid URL." . $host)));
                     }
                 }
-
                 die();
             }
-
             // We reached here, something is missing..
             print_r(json_encode(array("status"=>0, "msg"=>"WP: Missing information, please check the input fields.")));
             die();
-
         }
 
         function preValidateKey( $key ) {

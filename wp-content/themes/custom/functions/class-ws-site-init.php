@@ -23,44 +23,44 @@ class WS_Site {
         //WS_Custom_Category::register();
         //WS_Custom_Post::register();
 
-        register_post_type( 'people',
-            array(
-                'labels' => array(
-                    'name' => 'People',
-                    'singular_name' =>'Person',
-                    'add_new' => 'Add New',
-                    'add_new_item' => 'Add New Person',
-                    'edit_item' => 'Edit Person',
-                    'new_item' => 'New Person',
-                    'all_items' => 'All People',
-                    'view_item' => 'View Person',
-                    'search_items' => 'Search People',
-                    'not_found' =>  'No People found',
-                    'not_found_in_trash' => 'No People found in Trash',
-                ),
-                'public' => true,
-                'has_archive' => true,
-                'rewrite' => array('slug' => 'people'),
-                'show_in_rest'       => true,
-                'rest_base'          => 'people',
-                'rest_controller_class' => 'WP_REST_Posts_Controller',
-                'supports' => array( 'title', 'thumbnail'),
-                'menu_icon'   => 'dashicons-id'
-            ));
+        // register_post_type( 'people',
+        //     array(
+        //         'labels' => array(
+        //             'name' => 'People',
+        //             'singular_name' =>'Person',
+        //             'add_new' => 'Add New',
+        //             'add_new_item' => 'Add New Person',
+        //             'edit_item' => 'Edit Person',
+        //             'new_item' => 'New Person',
+        //             'all_items' => 'All People',
+        //             'view_item' => 'View Person',
+        //             'search_items' => 'Search People',
+        //             'not_found' =>  'No People found',
+        //             'not_found_in_trash' => 'No People found in Trash',
+        //         ),
+        //         'public' => true,
+        //         'has_archive' => true,
+        //         'rewrite' => array('slug' => 'people'),
+        //         'show_in_rest'       => true,
+        //         'rest_base'          => 'people',
+        //         'rest_controller_class' => 'WP_REST_Posts_Controller',
+        //         'supports' => array( 'title', 'thumbnail'),
+        //         'menu_icon'   => 'dashicons-id'
+        //     ));
 
-        register_taxonomy(
-            'people-categories',
-            'people',
-            array(
-                'hierarchical' => true,
-                'label' => 'People Categories',
-                'query_var' => true,
-                'show_admin_column' => true,
-                'rewrite' => array('slug' => 'people-categories'),
-                'rest_base'          => 'people-categories',
-                'rest_controller_class' => 'WP_REST_Terms_Controller',
-            )
-        );
+        // register_taxonomy(
+        //     'people-categories',
+        //     'people',
+        //     array(
+        //         'hierarchical' => true,
+        //         'label' => 'People Categories',
+        //         'query_var' => true,
+        //         'show_admin_column' => true,
+        //         'rewrite' => array('slug' => 'people-categories'),
+        //         'rest_base'          => 'people-categories',
+        //         'rest_controller_class' => 'WP_REST_Terms_Controller',
+        //     )
+        // );
 
         
 
@@ -72,11 +72,10 @@ class WS_Site {
             add_image_size('progressive', 16, 10, false); //1.6:1
             add_image_size('progressive_cropped', 16, 10, true); //1.6:1
             add_image_size('xs', 300, 187, false); //1.6:1
-            add_image_size('xs_landscape', 187, 300, true); //1.6:1
-            add_image_size('xs_portrait', 300, 187, true); //1.6:1
+            add_image_size('xs_portrait', 187, 300, true); //1.6:1
+            add_image_size('xs_landscape', 300, 187, true); //1.6:1
             add_image_size('xs_square', 300, 300, true);
             add_image_size('sm', 512, 320, false); //1.6:1
-            add_image_size('sm_landscape', 512, 320, true); //1.6:1
             add_image_size('sm_landscape', 512, 320, true); //1.6:1
             add_image_size('sm_portrait', 320, 512, true); //1.6:1
             add_image_size('sm_square', 512, 512, true);

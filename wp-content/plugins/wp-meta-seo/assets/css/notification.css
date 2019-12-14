@@ -111,3 +111,15 @@
 .more-info:hover{
     color: #fff;
 }
+
+@media screen and (max-width: 1200px) {
+    .wpms_notification .panel {
+        min-height: 150px !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wpms_notification .panel {
+        min-height: 180px !important;
+    }
+}

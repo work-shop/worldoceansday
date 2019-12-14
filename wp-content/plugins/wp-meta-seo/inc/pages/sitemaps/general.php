@@ -175,11 +175,11 @@ defined('ABSPATH') || die('No direct script access allowed!');
     <?php if (is_plugin_active(WPMSEO_ADDON_FILENAME)) : ?>
         <div class="ju-settings-option">
             <div class="wpms_row_full">
-                <label class="ju-setting-label wpms_left" data-alt="<?php esc_attr_e('A page is automatically generated to display your
+                <label class="ju-setting-label wpms_left sitemap-link-check-left" data-alt="<?php esc_attr_e('A page is automatically generated to display your
                      HTML sitemap. You can also use any of the existing pages.', 'wp-meta-seo'); ?>">
                     <?php esc_html_e('Sitemap link check', 'wp-meta-seo') ?>
                 </label>
-                <label class="wpms_right">
+                <label class="wpms_right sitemap-link-check-right">
                     <?php
                     $sitemap->checkLink();
                     ?>

@@ -833,3 +833,9 @@
 5.4.2 - 2019-11-14 - Timothy Jacobs
 	Tweak: Add stub Passwordless Login settings page.
 	Bug Fix: PHP warning if lockout_active field is missing.
+5.4.3 - 2019-11-18 - Timothy Jacobs
+	Tweak: Introduce ITSEC_Lib method to retrieve WP branch version.
+5.5.0 - 2019-12-09 - Timothy Jacobs
+	New Feature: iThemes Security now includes Security Check Pro to automatically and correctly determine your visitors IP addresses. Enable this scan by running Security Check and opting in to Security Check Pro or activate the Security Check Pro module in Advanced Modules. H/t Jeremy Voisin
+	Enhancement: Run Security Check Pro IP Detection automatically once a day.
+	Enhancement: Manually re-run Security Check Pro IP Detection from the Global Settings page.

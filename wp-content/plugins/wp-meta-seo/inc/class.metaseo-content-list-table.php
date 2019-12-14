@@ -283,6 +283,21 @@ class MetaSeoContentListTable extends WP_List_Table
             );
         }
 
+        // Visibility of post
+        $options_visibilitor = array(
+            'all' => esc_html__('All status', 'wp-meta-seo'),
+            'published' => esc_html__('Published', 'wp-meta-seo'),
+            'unpublished' => esc_html__('Unpublished', 'wp-meta-seo'),
+        );
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
+        $selected_visibilitor = !empty($_REQUEST['wpms_post_visibility']) ? $_REQUEST['wpms_post_visibility'] : 'published';
+        $visibilitor = '<select name="wpms_post_visibility" class="wpms_post_visibility">';
+        foreach ($options_visibilitor as $key => $label) {
+            $selected = ($selected_visibilitor === $key) ? 'selected' : '';
+            $visibilitor .= '<option '.$selected.' value="' . esc_attr($key) . '">' . esc_html($label) . '</option>';
+        }
+        $visibilitor .= '</select>';
+
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
         $selected_duplicate = !empty($_REQUEST['wpms_duplicate_meta']) ? $_REQUEST['wpms_duplicate_meta'] : 'none';
         $options_dups       = array(
@@ -301,8 +316,10 @@ class MetaSeoContentListTable extends WP_List_Table
         $sl_duplicate .= '</select>';
         // phpcs:ignore WordPress.Security.EscapeOutput -- Content escaped in previous line (same function)
         echo sprintf('<select name="post_type_filter" class="metaseo-filter">%1$s</select>', $options);
-        // phpcs:ignore WordPress.Security.EscapeOutput -- Content escaped in previous line (same function)
+        // phpcs:disable WordPress.Security.EscapeOutput -- Content escaped in previous line (same function)
+        echo $visibilitor;
         echo $sl_duplicate;
+        // phpcs:enable
         if (is_plugin_active(WPMSEO_ADDON_FILENAME)
             && (is_plugin_active('sitepress-multilingual-cms/sitepress.php')
                 || is_plugin_active('polylang/polylang.php'))) {
@@ -419,12 +436,23 @@ class MetaSeoContentListTable extends WP_List_Table
             $post_type = implode("', '", $post_type);
         }
 
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- No action, nonce is not required
+        $state_action = isset($_REQUEST['wpms_post_visibility']) ? $_REQUEST['wpms_post_visibility'] : 'published';
         $states = get_post_stati(array('show_in_admin_all_list' => true));
+        $newstates = array();
         foreach ($states as &$state) {
-            $state = esc_sql($state);
+            if ($state !== 'publish' && $state_action === 'published') {
+                continue;
+            }
+
+            if ($state === 'publish' && $state_action === 'unpublished') {
+                continue;
+            }
+
+            $newstates[$state] = esc_sql($state);
         }
 
-        $all_states = implode("', '", $states);
+        $all_states = implode("', '", $newstates);
         $where      = array();
         $where[]    = 'post_type IN (\'' . $post_type . '\')';
         $where[]    = 'post_status IN (\'' . $all_states . '\')';
@@ -773,6 +801,11 @@ class MetaSeoContentListTable extends WP_List_Table
 
         if (isset($_POST['wpms_duplicate_meta'])) {
             $current_url = add_query_arg(array('wpms_duplicate_meta' => $_POST['wpms_duplicate_meta']), $current_url);
+            $redirect = true;
+        }
+
+        if (isset($_POST['wpms_post_visibility'])) {
+            $current_url = add_query_arg(array('wpms_post_visibility' => $_POST['wpms_post_visibility']), $current_url);
             $redirect = true;
         }
 

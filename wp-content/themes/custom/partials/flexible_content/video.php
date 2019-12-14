@@ -5,7 +5,6 @@ $fc_row = $fc[$GLOBALS['fc_index']];
 $section_id = $fc_row['section_settings']['section_id'];
 $section_heading = $fc_row['section_settings']['section_heading'];
 
-$section_type = $fc_row['section_style']['section_type'];
 $section_background_color = $fc_row['section_style']['section_background_color'];
 $section_text_color = $fc_row['section_style']['section_text_color'];
 $section_text_color_string = 'style="color: ' . $section_text_color . ';"';
@@ -22,7 +21,7 @@ if( $section_id == NULL || $section_id == false ){
 
 ?>
 
-<section class="block flexible-content fc fc-video" style="background-color: <?php echo $section_background_color; ?>;" id="fc-<?php echo $section_id; ?>">
+<section class="block flexible-content fc fc-video" style="background-color: <?php echo $section_background_color; ?>;" id="<?php echo $section_id; ?>">
 	<div class="container-fc">
 		<?php if( $section_heading ): ?>
 			<div class="row fc-section-heading fc-row-primary">

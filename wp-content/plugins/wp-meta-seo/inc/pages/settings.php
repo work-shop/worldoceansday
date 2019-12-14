@@ -106,12 +106,19 @@ $setting_switch_fields = array(
     'metaseo_overridemeta'   => array(
         'label' => __('Use image information from bulk editor', 'wp-meta-seo'),
         'help'  => __('Override the image information (Alt text) with image bulk editor content', 'wp-meta-seo'),
+    ),
+    'metaseo_canonical'   => array(
+        'label' => __('Canonical URL', 'wp-meta-seo'),
+        'help'  => __('Add an option to force a canonical URL in each content. WordPress handles it by default but it can be useful in some 3rd party plugins.', 'wp-meta-seo'),
     )
 );
 
 ?>
 
 <div class="ju-main-wrapper">
+    <div class="ju-left-panel-toggle">
+        <i class="dashicons dashicons-leftright ju-left-panel-toggle-icon"></i>
+    </div>
     <div class="ju-left-panel">
         <div class="ju-logo">
             <a href="https://www.joomunited.com/" target="_blank">

@@ -82,6 +82,7 @@ if (!class_exists("wpdreamsSearchTags")) {
                 }
             else
                 $ret = __('No tags found for this phrase', 'ajax-search-pro');
+			ASP_Helpers::prepareAjaxHeaders();
             print "!!WDSTART!!" . $ret . "!!WDEND!!";
             die();
         }

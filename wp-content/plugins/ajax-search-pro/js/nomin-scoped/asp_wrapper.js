@@ -298,6 +298,8 @@ window.ASP.ready = function() {
     triggerSelectors = triggerSelectors + ', .side_menu_button, .search_button';
     // Jupiter theme
     triggerSelectors = triggerSelectors + ', .raven-search-form-toggle';
+    // Elementor trigger lightbox
+    triggerSelectors = triggerSelectors + ', [data-elementor-open-lightbox]';
     scope('body').on('click', triggerSelectors, function(){
         clearTimeout(ttt);
         ttt = setTimeout(function(){

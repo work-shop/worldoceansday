@@ -103,6 +103,7 @@ if (!class_exists("wd_TaxTermSearchCallBack")) {
                 'search' => trim($_POST['wd_phrase']),
                 'number' => $data['limit']
             ));
+			ASP_Helpers::prepareAjaxHeaders();
             if ( !is_wp_error($terms) ) {
                 print_r($data['delimiter'] . json_encode($terms) . $data['delimiter']);;
             } else {

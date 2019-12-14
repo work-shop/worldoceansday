@@ -45,4 +45,20 @@
 		}
 	}
 
+	.footer-secondary{
+		ul{
+			text-align: center;
+
+			li{
+				display: inline-block;
+			}
+
+			a{
+				text-transform: uppercase;
+				@extend .bold;
+				padding: 15px;
+			}
+		}
+	}
+
 }

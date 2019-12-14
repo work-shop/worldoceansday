@@ -623,9 +623,11 @@ class MetaSeoLinkListTable extends WP_List_Table
     public function checkBlocks($postId, $linkUrl)
     {
         global $wp_version;
+        // phpcs:disable Generic.PHP.LowerCaseConstant.Found -- In special case the block returns NULL
         $allowed_blocks = array(
             // Classic blocks have their blockName set to null.
             null,
+            NULL,
             'core/button',
             'core/paragraph',
             'core/heading',
@@ -639,6 +641,7 @@ class MetaSeoLinkListTable extends WP_List_Table
             'core/table',
             'core/media-text'
         );
+        // phpcs:enable
         $output = true;
         if (version_compare($wp_version, '5.0', '>=')) {
             if (function_exists('has_blocks')) {

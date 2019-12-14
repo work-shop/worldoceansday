@@ -1,7 +1,7 @@
 (function(jQuery, $, window){
 /*! Ajax Search pro 4.11.10 js */
 (function ($) {
-    var instData = [];
+    var instData = {};
     var w;
     var prevState;
     var firstIteration = true;
@@ -81,6 +81,8 @@
             $this.o.id = idArr[1];
 
             instData[$this.o.rid] = this;
+            ASP.instances = instData;
+
             $this.n.probox = $('.probox', $this.n.container);
             $this.n.proinput = $('.proinput', $this.n.container);
             $this.n.text = $('.proinput input.orig', $this.n.container);
@@ -467,11 +469,11 @@
             }
 
             // Generate scrollbars for vertical and horizontal
-            if ($this.o.resultstype == 'horizontal') {
+            /*if ($this.o.resultstype == 'horizontal') {
                 $this.createHorizontalScroll();
             } else if ($this.o.resultstype == 'vertical') {
                 $this.createVerticalScroll();
-            }
+            }*/
 
             if ($this.o.resultstype == 'polaroid')
                 $this.n.results.addClass('photostack');
@@ -589,12 +591,11 @@
             var $this = this;
             var t;
             var $resScroll = $this.n.results;
-            if ( $this.is_scroll ) {
+            if ($this.is_scroll && typeof $this.scroll.recalculate === 'undefined') {
                 // New Scrollbar
                 $this.scroll = new asp_SimpleBar($this.n.results.get(0), {
                     direction: $('body').hasClass('rtl') ? 'rtl' : 'ltr',
-                    autoHide: $this.o.scrollBar.vertical.autoHide,
-                    classNames: $this.o.scrollBar.classNames
+                    autoHide: $this.o.scrollBar.vertical.autoHide
                 });
                 $resScroll = $resScroll.add($this.scroll.getScrollElement());
             }
@@ -617,11 +618,10 @@
         createHorizontalScroll: function () {
             var $this = this;
 
-            if ($this.is_scroll) {
+            if ($this.is_scroll && typeof $this.scroll.recalculate === 'undefined') {
                 $this.scroll = new asp_SimpleBar($this.n.results.get(0), {
                     direction: $('body').hasClass('rtl') ? 'rtl' : 'ltr',
-                    autoHide: $this.o.scrollBar.horizontal.autoHide,
-                    classNames: $this.o.scrollBar.classNames
+                    autoHide: $this.o.scrollBar.horizontal.autoHide
                 });
             }
             $this.n.results.on('scroll', function() {
@@ -2271,6 +2271,13 @@
         showResults: function( ) {
             var $this = this;
 
+            // Create the scrollbars if needed
+            if ($this.o.resultstype == 'horizontal') {
+                $this.createHorizontalScroll();
+            } else if ($this.o.resultstype == 'vertical') {
+                $this.createVerticalScroll();
+            }
+
             switch ($this.o.resultstype) {
                 case 'horizontal':
                     $this.showHorizontalResults();
@@ -2310,6 +2317,12 @@
                         visibleOnly: $this.o.resultstype == 'isotopic'
                     });
                 }, 100)
+            }
+
+            if ( $this.is_scroll && typeof $this.scroll.recalculate !== 'undefined' ) {
+                setTimeout(function(){
+                    $this.scroll.recalculate();
+                }, 500);
             }
 
             $this.fixAccessibility();
@@ -2507,8 +2520,6 @@
 
                     }
                 }
-
-                window.sscroll = $this.scroll;
 
                 if ($this.o.highlight == 1) {
                     var wholew = (($this.o.highlightwholewords == 1) ? true : false);
@@ -3137,8 +3148,7 @@
                 $('.asp_sett_scroll', $this.n.searchsettings).each(function(){
                     $this.settScroll = new asp_SimpleBar($(this).get(0), {
                         direction: $('body').hasClass('rtl') ? 'rtl' : 'ltr',
-                        autoHide: $this.o.scrollBar.settings.autoHide,
-                        classNames: $this.o.scrollBar.classNames
+                        autoHide: $this.o.scrollBar.settings.autoHide
                     });
                 });
             }
@@ -3505,13 +3515,13 @@
                     if ( node.length == 0 )
                         node =  $('select[name*="aspf\[' +  v + '_"]:not([multiple])', $this.n.searchsettings);
                     if ( node.length == 0 )
-                        node =  $('input[type=radio][name*="termset\[' +  v + '_"]:checked', $this.n.searchsettings);
+                        node =  $('input[type=radio][name*="termset\[' +  v + '"]:checked', $this.n.searchsettings);
                     if ( node.length == 0 )
-                        node =  $('input[type=text][name*="termset\[' +  v + '_"]', $this.n.searchsettings);
+                        node =  $('input[type=text][name*="termset\[' +  v + '"]', $this.n.searchsettings);
                     if ( node.length == 0 )
-                        node =  $('input[type=hidden][name*="termset\[' +  v + '_"]', $this.n.searchsettings);
+                        node =  $('input[type=hidden][name*="termset\[' +  v + '"]', $this.n.searchsettings);
                     if ( node.length == 0 )
-                        node =  $('select[name*="termset\[' +  v + '_"]:not([multiple])', $this.n.searchsettings);
+                        node =  $('select[name*="termset\[' +  v + '"]:not([multiple])', $this.n.searchsettings);
                     if ( node.length == 0 )
                         return true; // Continue
 

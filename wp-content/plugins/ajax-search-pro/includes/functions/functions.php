@@ -2238,7 +2238,8 @@ if ( !function_exists('asp_parse_tax_term_filters') ) {
                     "default" => "checked",
                     "select_all" => 0,
                     "select_all_text" => "",
-                    "box_header_text" => ""
+                    "box_header_text" => "",
+                    "box_placeholder_text" => ""
                 );
                 if ( count($o['show_terms']['display_mode']) > 0) {
                     if ( $o['show_terms']['separate_filter_boxes'] != 1 ) {
@@ -2770,7 +2771,6 @@ if ( !function_exists('asp_parse_date_filters') ) {
             $_dff_v = $_def_dff_v;
             $_dft_v = $_def_dft_v;
         }
-        //var_dump($_dff_v, $_dft_v);
 
         $filter = wd_asp()->front_filters->create(
             'date',

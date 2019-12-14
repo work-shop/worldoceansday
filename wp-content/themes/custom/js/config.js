@@ -1,8 +1,8 @@
 'use strict';
 
 var global_config = {
-    navHeight: 80,
-    mobileNavHeight: 60,  
+    navHeight: 110,
+    mobileNavHeight: 80,  
     navPadding: 100,      
     transitionDuration: 1000,
     mobileBreakpoint: 768

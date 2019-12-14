@@ -102,7 +102,7 @@ if (!class_exists("WD_ASP_Search_Handler")) {
             $final_output .= "!!ASPEND_DATA!!";
 
             $this->setCache($final_output);
-
+			ASP_Helpers::prepareAjaxHeaders();
             print_r($final_output);
             die();
         }

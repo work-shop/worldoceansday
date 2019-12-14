@@ -12,7 +12,7 @@ require_once('../../../wp-load.php');
 //require_once('search.php');
 
 //Typical headers
-header('Content-Type: text/html');
+header('Content-Type: text/plain');
 send_nosniff_header();
 
 //Disable caching

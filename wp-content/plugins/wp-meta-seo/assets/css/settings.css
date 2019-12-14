@@ -114,19 +114,23 @@
     width: 20px !important;
     background: #fff;
     margin: -4px 4px 0 0 !important;
+    line-height: 1 !important;
+    text-align: unset !important;
 }
 
 .media_checkbox:checked {
     background: #49bf88;
     opacity: 1 !important;
+    font-family: dashicons;
 }
 
 .media_checkbox:checked:before {
     color: #fff !important;
-    margin: -1px 0 0 -1px !important;
-    font-size: 16px !important;
     content: "\f147" !important;
+    font-size: 16px !important;
     opacity: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .right-checkbox {
@@ -181,4 +185,16 @@
 #system_check .material-icons-success {
     color: #49bf88;
     vertical-align: middle;
+}
+
+@media only screen and (max-width: 500px) {
+    .wp-meta-seo_page_metaseo_settings #system_check p.ju-description {
+        height: auto;
+        word-wrap : break-word;
+    }
+
+    .wp-meta-seo_page_metaseo_settings #system_check .ju-setting-label:not(.php_version) {
+        min-width: unset;
+        max-width: unset;
+    }
 }

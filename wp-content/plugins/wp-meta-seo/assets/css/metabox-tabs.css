@@ -875,6 +875,43 @@ input.obtain{
     }
 }
 
+@media screen and (min-width: 1368px) {
+    .gsc_keywords.search_gsc_keywords_content {
+        width: 80%;
+    }
+
+    .gsc_keywords.filter_gsc_keywords_content {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .metaseo_left ,
+    .metaseo_right,
+    .metaseo_right .metaseo_analysis{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .wpmseo-metabox-tabs-div ul.wpmseo-metabox-tabs {
+        width: 100% !important;
+        flex-wrap: wrap;
+    }
+    .wpmseo-metabox-tabs-div ul.wpmseo-metabox-tabs li.wpmstab {
+        flex: 0 0 100%;
+    }
+
+    .wpmseo-metabox-tabs-div ul.wpmseo-metabox-tabs li.wpmstab a.active{
+        background-color: #ff8726 !important;
+        color: #fff !important;
+    }
+
+    .wpmseo-metabox-tabs-div ul.wpmseo-metabox-tabs .indicator {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 790px) {
     .gsc_keywords .type-filter-input {
         width: 65% !important;
@@ -893,12 +930,50 @@ input.obtain{
     }
 }
 
-@media screen and (min-width: 1368px) {
-    .gsc_keywords.search_gsc_keywords_content {
-        width: 80%;
+@media screen and (max-width: 700px) {
+    .wpmseotab.wpmseo_social .optimization-row-box {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .wpmseotab.wpmseo_social .optimization-row-box #metaseo_wpmseo_twitter-image,
+    .wpmseotab.wpmseo_social .optimization-row-box #metaseo_wpmseo_opengraph-image{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .wpmseotab.wpmseo_social .optimization-row-box .wpmseo_image_upload_button {
+        width: 100%;
     }
 
-    .gsc_keywords.filter_gsc_keywords_content {
-        width: 20%;
+    #wpmseosnippet .url {
+        word-wrap: break-word;
+        width: 100%;
+    }
+
+    .wpmseotab.wpmseo_general .optimization-row-box span.wpmslabel {
+        width: 60%;
+    }
+
+    .wpmseotab.wpmseo_general .optimization-row-box select{
+        width: 35%;
+        float: right;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .gsc_keywords .search,
+    .gsc_keywords .button-search{
+        width: 100% !important;
+    }
+
+    .gsc_keywords .button-search{
+        text-align: center;
+    }
+
+    .metaseo-qtip {
+        min-width: 100px !important;
     }
 }

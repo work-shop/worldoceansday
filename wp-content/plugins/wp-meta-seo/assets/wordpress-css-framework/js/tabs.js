@@ -125,6 +125,6 @@
   };
 
   $(document).ready(function(){
-    $('ul.ju-tabs').itabs();
+    $('ul.tabs').itabs();
   });
 }( jQuery ));

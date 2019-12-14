@@ -1,3 +1,4 @@
+jQuery.noConflict();
 function msClean(str) {
     if (str === '' || typeof (str) === 'undefined') {
         return '';
@@ -295,31 +296,31 @@ jQuery(document).ready(function ($) {
         wpmsdivtitle = '#title';
     }
 
-    jQuery('.wpmseo-heading').hide();
-    jQuery('#' + wpmseoMetaboxL10n.field_prefix + 'title').keyup(function () {
+    $('.wpmseo-heading').hide();
+    $('#' + wpmseoMetaboxL10n.field_prefix + 'title').keyup(function () {
         msUpdateTitle();
     });
 
-    jQuery('#' + wpmseoMetaboxL10n.field_prefix + 'keywords').keyup(function () {
+    $('#' + wpmseoMetaboxL10n.field_prefix + 'keywords').keyup(function () {
         msUpdateKeywords();
     });
 
-    jQuery(wpmsdivtitle).keyup(function () {
+    $(wpmsdivtitle).keyup(function () {
         msUpdateTitle();
         msUpdateDesc();
     });
 
-    jQuery('#parent_id').change(function () {
+    $('#parent_id').change(function () {
         msUpdateTitle();
         msUpdateDesc();
     });
 
     // DON'T 'optimize' this to use descElm! descElm might not be defined and will cause js errors (Soliloquy issue)
-    jQuery('#' + wpmseoMetaboxL10n.field_prefix + 'desc').keyup(function () {
+    $('#' + wpmseoMetaboxL10n.field_prefix + 'desc').keyup(function () {
         msUpdateDesc();
     });
 
-    jQuery('.gsc_keywords_time_filter select').change(function () {
+    $('.gsc_keywords_time_filter select').change(function () {
         wpms_filter_search_keywords();
     });
 
@@ -330,11 +331,11 @@ jQuery(document).ready(function ($) {
         var searchType = $('select[name="filter_type_name"] option:selected').val();
         var postId = $('#post_ID').val();
         var showitems = [];
-        jQuery('input[name="filter-row-name"]:checked').each(function () {
+        $('input[name="filter-row-name"]:checked').each(function () {
             showitems.push(this.value);
         });
 
-        var sorteditem = jQuery("#gsc_keywords_table label.sorted");
+        var sorteditem = $("#gsc_keywords_table label.sorted");
         var dataSort = '';
         if (sorteditem.length > 0) {
             dataSort = JSON.stringify([sorteditem.attr('data-sort'), sorteditem.attr('data-order')]);
@@ -342,7 +343,7 @@ jQuery(document).ready(function ($) {
 
         $('tbody#the-list').html('<tr><td colspan="6" class="td-page-loader"><img class="page-loader-loadmore" src="'+wpmseoMetaboxL10n.image_loader+'"></td></tr>');
 
-        jQuery.ajax({
+        $.ajax({
             url: ajaxurl,
             method: 'POST',
             dataType: 'json',
@@ -369,8 +370,8 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    jQuery('#wpms-csl-search-submit').click(function (e) {
-        var keycsl = jQuery('.wpms-search-key-csl').val().trim().toLocaleString();
+    $('#wpms-csl-search-submit').click(function (e) {
+        var keycsl = $('.wpms-search-key-csl').val().trim().toLocaleString();
 
         if (keycsl === '') {
             $('#wpms-search-input-csl').focus();
@@ -379,7 +380,7 @@ jQuery(document).ready(function ($) {
         wpms_filter_search_keywords();
     });
 
-    jQuery('select[name="filter_type_name"]').change(function(){
+    $('select[name="filter_type_name"]').change(function(){
         var select = $(this).val();
         var placeholder = 'Add keywords like "Apple pie recipe..."';
         if (select === 'page') {
@@ -390,7 +391,7 @@ jQuery(document).ready(function ($) {
         $("#wpms-search-input-csl").val('').attr('placeholder', placeholder).focus();
     });
 
-    jQuery('#wpms-search-input-csl').on('keyup', function() {
+    $('#wpms-search-input-csl').on('keyup', function() {
         var keycsl = $(this).val();
 
         if (keycsl === '') {
@@ -406,34 +407,34 @@ jQuery(document).ready(function ($) {
         addLinkToSearchBox('page-load');
     }
 
-    jQuery('.icons-key-csl-search').on('click', function() {
+    $('.icons-key-csl-search').on('click', function() {
         addLinkToSearchBox();
-        jQuery("#wpms-search-input-csl").focus();
-        jQuery('select[name="filter_type_name"]').val('page');
+        $("#wpms-search-input-csl").focus();
+        $('select[name="filter_type_name"]').val('page');
         return false;
     });
 
     function addLinkToSearchBox(action)
     {
-        var link = jQuery('#wp-admin-bar-view .ab-item');
-        var prelink = jQuery('#wp-admin-bar-preview .ab-item');
-        var newlink = jQuery('.is-link');
+        var link = $('#wp-admin-bar-view .ab-item');
+        var prelink = $('#wp-admin-bar-preview .ab-item');
+        var newlink = $('.is-link');
 
         if (link.length || prelink.length) {
             if (link.length) {
-                jQuery("#wpms-search-input-csl").val(link.attr('href'));
+                $("#wpms-search-input-csl").val(link.attr('href'));
             }
 
             if (prelink.length) {
-                jQuery("#wpms-search-input-csl").val(prelink.attr('href'));
+                $("#wpms-search-input-csl").val(prelink.attr('href'));
             }
         } else {
             if (newlink.length) {
-                jQuery("#wpms-search-input-csl").val(newlink.attr('href'));
+                $("#wpms-search-input-csl").val(newlink.attr('href'));
             }
         }
 
-        jQuery(".icons-key-csl-search").addClass('obtain');
+        $(".icons-key-csl-search").addClass('obtain');
 
         if (action) {
             wpms_filter_search_keywords();
@@ -441,12 +442,12 @@ jQuery(document).ready(function ($) {
     }
 
     // Show filter row
-    jQuery('.filter-row').click(function () {
-        jQuery('#filter-row-list').toggle('fade');
+    $('.filter-row').click(function () {
+        $('#filter-row-list').toggle('fade');
     });
     // Show filter row outside
-    jQuery(document).mouseup(function (e) {
-        var container = jQuery("#filter-row-list");
+    $(document).mouseup(function (e) {
+        var container = $("#filter-row-list");
         // if the target of the click isn't the container nor a descendant of the container
         if (!container.is(e.target) && container.has(e.target).length === 0) {
             container.hide('fade');
@@ -454,17 +455,17 @@ jQuery(document).ready(function ($) {
     });
 
     // Set filter row
-    jQuery('.filter-row-checkbox').click(function () {
+    $('.filter-row-checkbox').click(function () {
         var showitems = [];
-        jQuery('input[name="filter-row-name"]:checked').each(function () {
+        $('input[name="filter-row-name"]:checked').each(function () {
             showitems.push(this.value);
         });
-        jQuery('#gsc_keywords_table tr >th:nth-child(4),#gsc_keywords_table tr >th:nth-child(5),#gsc_keywords_table tr >td:nth-child(4), #gsc_keywords_table tr >td:nth-child(5)').hide();
+        $('#gsc_keywords_table tr >th:nth-child(4),#gsc_keywords_table tr >th:nth-child(5),#gsc_keywords_table tr >td:nth-child(4), #gsc_keywords_table tr >td:nth-child(5)').hide();
 
 
         if (showitems.length > 0) {
-            jQuery.each(showitems, function (i, showitem) {
-                jQuery('#gsc_keywords_table tr >th:nth-child('+showitem+'), #gsc_keywords_table tr >td:nth-child('+showitem+')').show();
+            $.each(showitems, function (i, showitem) {
+                $('#gsc_keywords_table tr >th:nth-child('+showitem+'), #gsc_keywords_table tr >td:nth-child('+showitem+')').show();
             });
         }
     });
@@ -497,8 +498,8 @@ jQuery(document).ready(function ($) {
     });
 
     // Sort table
-    jQuery('#gsc_keywords_table label.gsc-sort-by').on('click', function() {
-        jQuery('#gsc_keywords_table label.gsc-sort-by').not($(this)).removeClass('sorted down up');
+    $('#gsc_keywords_table label.gsc-sort-by').on('click', function() {
+        $('#gsc_keywords_table label.gsc-sort-by').not($(this)).removeClass('sorted down up');
 
         if ($(this).hasClass('down')) {
             $(this).removeClass('down').addClass('sorted up').attr('data-order', 'ascending');
@@ -506,7 +507,7 @@ jQuery(document).ready(function ($) {
             $(this).removeClass('up').addClass('sorted down').attr('data-order', 'descending');
         }
 
-        var page = jQuery('#gsc_keywords_table tfoot').data('page');
+        var page = $('#gsc_keywords_table tfoot').data('page');
         if (typeof page === 'undefined') {
             page = 2;
         }
@@ -514,7 +515,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    jQuery('#gsc_keywords_table tfoot').click(function () {
+    $('#gsc_keywords_table tfoot').click(function () {
         var page = $(this).data('page');
         wpms_filter_search_keywords_more(page, 2);
     });
@@ -523,17 +524,17 @@ jQuery(document).ready(function ($) {
         if (typeof page === 'undefined') {
             page = 1;
         }
-        var $this = jQuery('#gsc_keywords_table tfoot');
+        var $this = $('#gsc_keywords_table tfoot');
         var time = $('select[name="gsc_keywords_time_filter_select"] option:selected').val();
-        var keycsl = jQuery('input.wpms-search-key-csl').val().trim().toLocaleString();
+        var keycsl = $('input.wpms-search-key-csl').val().trim().toLocaleString();
         var searchType = $('select[name="filter_type_name"] option:selected').val();
         var postId = $('#post_ID').val();
         var showitems = [];
-        jQuery('input[name="filter-row-name"]:checked').each(function () {
+        $('input[name="filter-row-name"]:checked').each(function () {
             showitems.push(this.value);
         });
 
-        var sorteditem = jQuery("#gsc_keywords_table label.sorted");
+        var sorteditem = $("#gsc_keywords_table label.sorted");
         var dataSort = '';
         if (sorteditem.length > 0) {
             dataSort = JSON.stringify([sorteditem.attr('data-sort'), sorteditem.attr('data-order')]);
@@ -545,7 +546,7 @@ jQuery(document).ready(function ($) {
         } else {
             $('tbody#the-list').append(loadder);
         }
-        jQuery.ajax({
+        $.ajax({
             url: ajaxurl,
             method: 'POST',
             dataType: 'json',
@@ -589,7 +590,7 @@ jQuery(document).ready(function ($) {
             500
             );
 
-    jQuery('.metaseo_help').qtip({
+    $('.metaseo_help').qtip({
         content: {
             attr: 'data-alt'
         },
@@ -611,7 +612,7 @@ jQuery(document).ready(function ($) {
 
     });
 
-    jQuery('.metaseo_tool').qtip({
+    $('.metaseo_tool').qtip({
         content: {
             attr: 'data-alt'
         },
@@ -634,20 +635,22 @@ jQuery(document).ready(function ($) {
     });
 });
 
-$(document).on("click",".editor-post-permalink-editor__save", function () {
-    var url;
-    if ($('.editor-post-permalink-editor__edit').length) {
-        var slug = $('.editor-post-permalink-editor__edit').val();
-        url = wpmseoMetaboxL10n.wpmseo_permalink_template.replace('%postname%', slug).replace('http://', '');
-    }
+(function ($) {
+    $(document).on("click",".editor-post-permalink-editor__save", function () {
+        var url;
+        if ($('.editor-post-permalink-editor__edit').length) {
+            var slug = $('.editor-post-permalink-editor__edit').val();
+            url = wpmseoMetaboxL10n.wpmseo_permalink_template.replace('%postname%', slug).replace('http://', '');
+        }
 
-    $('#wpmseosnippet').find('.url').html(url);
-});
-
-$(document).on("keypress",".editor-post-permalink-editor__edit", function (e) {
-    if(e.which === 13){
-        var slug = $(this).val();
-        url = wpmseoMetaboxL10n.wpmseo_permalink_template.replace('%postname%', slug).replace('http://', '');
         $('#wpmseosnippet').find('.url').html(url);
-    }
-});
+    });
+
+    $(document).on("keypress",".editor-post-permalink-editor__edit", function (e) {
+        if(e.which === 13){
+            var slug = $(this).val();
+            url = wpmseoMetaboxL10n.wpmseo_permalink_template.replace('%postname%', slug).replace('http://', '');
+            $('#wpmseosnippet').find('.url').html(url);
+        }
+    });
+})(jQuery);

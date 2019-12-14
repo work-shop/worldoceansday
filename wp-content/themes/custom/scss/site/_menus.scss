@@ -118,16 +118,19 @@
 		}
 
 		h3{
-			@extend .bold;
-			font-size: 21px;
-			color: #777;
+			
+			a{
+				@extend .bold;
+				font-size: 21px;
+				color: #777;
+			}
 		}
 
 		li{
 			margin-bottom: .6em;
 
 			a{
-				font-size: 18px;
+				font-size: 17px;
 				display: block;
 			}
 		}
@@ -151,6 +154,7 @@
 			display: block;
 			max-width: $menu-graphic-image-width;
 			margin-bottom: 1em;
+			border-radius: 5px;
 		}
 
 		h4{

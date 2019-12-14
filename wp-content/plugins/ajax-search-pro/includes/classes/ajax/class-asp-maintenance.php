@@ -26,6 +26,7 @@ if (!class_exists("WD_ASP_Maintenance_Handler")) {
                     'action'    => '',
                     'msg'       => 'Not allowed in demo mode!'
                 )));
+                ASP_Helpers::prepareAjaxHeaders();
                 print "!!!ASP_MAINT_STOP!!!";
                 die();
             }
@@ -66,6 +67,7 @@ if (!class_exists("WD_ASP_Maintenance_Handler")) {
                 'action'    => $action,
                 'msg'       => $msg
             );
+			ASP_Helpers::prepareAjaxHeaders();
             print "Maintenance !!!ASP_MAINT_START!!!";
             print_r(json_encode($ret));
             print "!!!ASP_MAINT_STOP!!!";

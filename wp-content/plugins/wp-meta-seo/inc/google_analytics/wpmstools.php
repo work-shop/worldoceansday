@@ -30,14 +30,9 @@ if (!class_exists('WpmsGaTools')) {
          */
         public static function setClient($client, $access, $access_default)
         {
-            if (isset($access['wpmsga_dash_userapi']) && (int) $access['wpmsga_dash_userapi'] === 1) {
-                if (!empty($access['wpmsga_dash_clientid']) && !empty($access['wpmsga_dash_clientsecret'])) {
-                    $client->setClientId($access['wpmsga_dash_clientid']);
-                    $client->setClientSecret($access['wpmsga_dash_clientsecret']);
-                } else {
-                    $client->setClientId($access_default[0]);
-                    $client->setClientSecret($access_default[1]);
-                }
+            if (!empty($access['wpmsga_dash_clientid']) && !empty($access['wpmsga_dash_clientsecret'])) {
+                $client->setClientId($access['wpmsga_dash_clientid']);
+                $client->setClientSecret($access['wpmsga_dash_clientsecret']);
             } else {
                 $client->setClientId($access_default[0]);
                 $client->setClientSecret($access_default[1]);

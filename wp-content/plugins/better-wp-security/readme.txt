@@ -3,8 +3,8 @@ Contributors: ithemes, chrisjean, mattdanner, timothyblynjacobs
 Tags: security, security plugin, malware, hack, secure, block, SSL, admin, htaccess, lockdown, login, protect, protection, anti virus, attack, injection, login security, maintenance, permissions, prevention, authentication, administration, password, brute force, ban, permissions, bots, user agents, xml rpc, security log
 Requires at least: 4.7
 Tested up to: 5.3.0
-Stable tag: 7.5.0
-Requires PHP: 5.4
+Stable tag: 7.6.1
+Requires PHP: 5.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -188,6 +188,15 @@ Free support may be available with the help of the community in the <a href="htt
 5. Free malware scan powered by Sucuri SiteCheck.
 
 == Changelog ==
+
+= 7.6.1 =
+* Bug Fix: Properly notate that iThemes Security requires PHP 5.5 or greater.
+
+= 7.6.0 =
+* Breaking Change: iThemes Security requires PHP 5.5 or later.
+* New Feature: iThemes Security now includes Security Check Pro to automatically and correctly determine your visitors IP addresses. Enable this scan by running Security Check and opting in to Security Check Pro or activate the Security Check Pro module in Advanced Modules. H/t Jeremy Voisin
+* Enhancement: Run Security Check Pro IP Detection automatically once a day.
+* Enhancement: Manually re-run Security Check Pro IP Detection from the Global Settings page.
 
 = 7.5.0 =
 * Breaking Change: iThemes Security requires PHP 5.4 or later.
@@ -560,5 +569,5 @@ Free support may be available with the help of the community in the <a href="htt
 
 == Upgrade Notice ==
 
-= 7.5.0 =
-Version 7.5.0 contains new features and bug fixes. It is recommended for all users.
+= 7.6.1 =
+Version 7.6.1 contains new features and bug fixes. It is recommended for all users.

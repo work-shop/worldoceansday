@@ -45,6 +45,11 @@
         <div class="inside content-box">
             <form method="post" action="">
                 <div id="wpmsga-basic">
+                    <p class="wpms_width_100 wpms_left">
+                        <button type="submit" name="Submit" class="ju-button orange-button"
+                        ><?php esc_html_e('Save Changes', 'wp-meta-seo'); ?></button>
+                    </p>
+
                     <div class="ju-settings-option wpms-no-background wpms-no-shadow wpms-no-margin">
                         <div class="wpms_row_full">
                             <label class="ju-setting-label wpms_width_100 text">
@@ -121,7 +126,7 @@
                                             );
                                             if (!empty($profile_info[0])
                                                 && !empty($this->ga_tracking['wpmsga_dash_tracking'])) {
-                                                echo '<pre class="p-lr-20">View Name:	' . esc_html($profile_info[0]) . '<br>
+                                                echo '<pre class="p-lr-20" style="white-space: nowrap;width: 100%;overflow: hidden;text-overflow: ellipsis;">View Name:	' . esc_html($profile_info[0]) . '<br>
 Tracking ID:	' . esc_html($profile_info[2]) . '<br>
 Default URL:	' . esc_html($profile_info[3]) . '<br>
 Time Zone:	' . esc_html($profile_info[5]) . '</pre>';
