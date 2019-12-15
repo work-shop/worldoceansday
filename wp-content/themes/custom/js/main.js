@@ -18,6 +18,7 @@ import { sitewideAlert } from './sitewide-alert.js';
 import { progressiveImages } from './progressive-images.js';
 import { vh } from './vh.js';
 import { livereload } from './livereload-client.js';
+//import { instantpage } from './instantpage.js';
 
 //optional
 //import { stickyNav } from './sticky-nav.js';
@@ -25,6 +26,7 @@ import { dropdowns } from './dropdowns.js';
 import { menuToggle } from './menu-toggle.js';
 
 //must use 
+//instantpage();
 livereload();
 loading(config.loading);
 linksNewtab(config.linksNewtab);

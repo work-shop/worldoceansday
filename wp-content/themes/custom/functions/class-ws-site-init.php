@@ -109,6 +109,7 @@ class WS_Site {
 
             $main_css = '/bundles/bundle.css';
             $main_js = '/bundles/bundle.js';
+           // $instantpage = get_template_directory_uri() . '/js/instantpage.js';
 
             $compiled_resources_dir = get_template_directory();
             $compiled_resources_uri = get_template_directory_uri();
@@ -120,6 +121,7 @@ class WS_Site {
             wp_enqueue_style( 'fonts' );  
             wp_enqueue_style('main-css', $compiled_resources_uri . $main_css, array(), null);
             wp_enqueue_script('main-js', $compiled_resources_uri . $main_js, $main_js_ver);
+            //wp_enqueue_script('instantpage', $instantpage);
 
         }
     }
