@@ -192,7 +192,7 @@ class Templates
         $default = $type == 'link'?'link-template-calltoaction3.php':'page-template-1col-flat.php';
         $xdf = str_replace(".php", "", $default);
         if(is_array($activetpls) && count($activetpls) > 0)
-            $default = in_array($xdf, $activetpls)?$default:$activetpls[0];
+            $default = in_array($xdf, $activetpls) || !isset($activetpls[0]) ? $default : $activetpls[0];
         $html = "<select name='$name' id='$id' class='form-control template {$type}_template' {$css}><option value='$default'>Select ".ucfirst($type)." Template</option>";
         $data = array();
         foreach ($ctpls as $ctpl) {

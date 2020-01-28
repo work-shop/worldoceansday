@@ -40,4 +40,25 @@ jQuery(document).ready(function ($) {
             delay: 10
         }
     });
+
+    jQuery('.intro-topic-tooltip').qtip({
+        content: {
+            attr: 'data-alt'
+        },
+        position: {
+            my: 'center left',
+            at: 'center right'
+        },
+        style: {
+            tip: {
+                corner: true
+            },
+            classes: 'wpms-widgets-qtip'
+        },
+        show: 'hover',
+        hide: {
+            fixed: true,
+            delay: 10
+        }
+    });
 });

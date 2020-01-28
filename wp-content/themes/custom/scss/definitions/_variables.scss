@@ -3,10 +3,12 @@
 
 //brand colors
 $brand: #164579; //dark blue
+$brand-tint: #364f6a; //dark blue
 $brand-secondary: #19BAE3; //light blue
 $interactive: $brand-secondary;
 $light-blue: #9FDBED;
 $pink: #FFB5D8;
+$pink-tint: #FBE5F0;
 $orange: #F9A619;
 $pinka: transparentize($pink, .3);
 $orangea: transparentize($orange, .15);
@@ -20,7 +22,7 @@ $light: #E7E8EA;
 $medium-light: #697B90;
 $medium: #364F6A;
 $medium-dark: #364F6A;
-$tan: #F7F5F2;
+$tan: #FEF2DD;
 
 
 //utility colors
@@ -42,11 +44,11 @@ $error: lighten(#ea4444,5%);
 
 
 //sizes
-$nav-height: 110px;
-$nav-height-after: 80px;
+$nav-height: 100px;
+$nav-height-after: 100px;
 $nav-drop: $nav-height;
 $nav-drop-after: $nav-height - 1px;
-$nav-height-mobile: 80px;
+$nav-height-mobile: 60px;
 $sitewide-alert-height: 50px;
 $container-fluid-max-width: none;
 $container-fluid-padding: 100px;

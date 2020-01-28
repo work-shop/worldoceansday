@@ -150,10 +150,12 @@ label{
 }
 
 .gform_confirmation_message{
-	@extend .h2;
-	color: $dark;
-	padding: 25px;
-	background: $ultra-light;
+	@extend .h3;
+	color: $dark !important;
+	padding: 20px 25px;
+	background: $pink-tint;
+	max-width: 480px;
+	border-radius: 8px;
 	//border-bottom: 3px solid $yellow;
 }
 

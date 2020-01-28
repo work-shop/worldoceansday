@@ -47,6 +47,10 @@ class Template
         return ob_get_clean();
     }
 
+    function display($template, $tpldir = '' , $fallback = ''){
+        echo $this->fetch($template, $tpldir, $fallback);
+    }
+
     function execute($code){
         ob_start();
         if(is_array($this->Vars))

@@ -1,7 +1,7 @@
 'use strict';
 
 var global_config = {
-    navHeight: 110,
+    navHeight: 100,
     mobileNavHeight: 80,  
     navPadding: 100,      
     transitionDuration: 1000,
@@ -59,7 +59,7 @@ var config = {
     },
     scrollSpy: {
         firstElementSelector : '.spy-first',
-        spyTargetSelector : '.spy-target',
+        spyTargetSelector : '.block',
         spyLinkSelector : '.spy-link',
         spyActiveClass : 'spy-active',
         spyOffset : 150

@@ -2,7 +2,7 @@
 
 body{
 	font-family: $font-main;
-	font-weight: 400;
+	font-weight: 400; //book
 	@include text-size($text-h4);
 	color: $dark;
 	letter-spacing: -.01em;
@@ -29,7 +29,7 @@ body{
 
 	&.bold,&strong{
 		font-family: $font-secondary-bold;
-		font-weight: 800;
+		font-weight: 700;
 	}
 
 }
@@ -77,11 +77,11 @@ h2,.h2{
 	}
 
 	@media screen and (max-width: $sm) {
-		font-size: 4vw;
+		font-size: 5vw;
 	}
 
 	@media screen and (max-width: $xs) {
-		font-size: 5vw;
+		font-size: 7vw;
 	}	
 }
 
@@ -94,15 +94,15 @@ h3,.h3{
 	}	
 
 	@media screen and (max-width: $md) {
-		font-size: 2.0vw;
+		font-size: 2.5vw;
 	}
 
 	@media screen and (max-width: $sm) {
-		font-size: 3.5vw;
+		font-size: 2.7vw;
 	}
 
 	@media screen and (max-width: $xs) {
-		font-size: 5vw;
+		font-size: 3.5vw;
 	}	
 }
 
@@ -128,11 +128,12 @@ p{
 
 .bold,strong{
 	font-family: $font-bold;
-	font-weight: 800;
+	font-weight: 700;
 }
 
 .italic,em{
 	font-family: $font-italic;
+	font-style: italic;
 }
 
 .font-light{

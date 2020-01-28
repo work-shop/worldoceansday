@@ -4,7 +4,7 @@ defined('ABSPATH') || die('No direct script access allowed!');
 ?>
 <div class="wpmsrow sitemap-menu-bar">
     <div class="col s12">
-        <ul class="wpmstabs tabs ju-tabs">
+        <ul class="wpmstabs tabs ju-tabs ju-horizontal-tabs" style="overflow: hidden">
             <li class="tab wpmstab col active">
                 <a href="#menu_sitemaps"><?php esc_html_e('Sitemaps', 'wp-meta-seo') ?></a>
             </li>

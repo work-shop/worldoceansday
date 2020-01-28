@@ -9,11 +9,28 @@
 	z-index: 11;
 	opacity: .5;
 	transition:  opacity $modal-transition ease-in-out, left 0s linear $modal-transition;
+	background: $brand;
+	border-radius: 8px;
+
+	width: calc(100% - 100px);
+	height: calc(100vh - #{$nav-height} - 40px);
+	top: calc(#{$nav-height} + 20px);
+	box-shadow: 2px 4px 10px transparentize($dark, .5);
+
+	@media screen and (max-width: $md) {
+		width: calc(100% - 40px);
+		height: calc(100vh - #{$nav-height-mobile} - 100px);
+		top: calc(#{$nav-height-mobile} + 20px);
+	}
 
 	&.on{
 		transition: opacity $modal-transition;
-		left: 0;
+		left: 50px;
 		opacity: 1;
+
+		@media screen and (max-width: $md) {
+			left: 20px;
+		}
 	}
 
 	&.scroll{
@@ -25,7 +42,7 @@
 
 #modal-close{
 	position: fixed;
-	top: 40px;
+	top: calc(#{$nav-height} + 30px);
 	right: -100px;
 	height: 40px;
 	width: 40px;
@@ -37,6 +54,11 @@
 	.icon:before{
 		font-size: 50px;
 		line-height: 42px;
+		color: white;
+	}
+
+	@media screen and (max-width: $md) {
+		top: calc(#{$nav-height-mobile} + 30px);
 	}
 }
 
@@ -50,7 +72,7 @@
 	left: 200%;
 	@include transition(opacity .1s);
 	opacity: 0;
-	//background: transparentize($ultra-light, .5);
+	background: transparentize($ultra-light, .4);
 }
 
 //body styles
@@ -59,8 +81,12 @@
 
 	#modal-close{
 		transition: opacity $modal-transition*5;
-		right: 40px;
+		right: 60px;
 		opacity: 1;
+
+		@media screen and (max-width: $md) {
+			right: 25px;
+		}
 	}
 
 	#blanket{

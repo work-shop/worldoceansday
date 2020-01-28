@@ -745,7 +745,7 @@ class MetaSeoLinkListTable extends WP_List_Table
                              id="metaseo_link_title" class="metaseo_link_title '.esc_attr($blocks_class).'" value="' . esc_attr($rec->meta_title) . '">';
                             if ($has_block) {
                                 echo '<i class="material-icons wpms-material-icons-gutenberg label-dash-widgets"
-                             data-alt="'.esc_attr__('We can\'t update this link title because it\'s in a Gutenberg block and it has no alt/title attribute', 'wp-meta-seo').'">info</i>';
+                             data-alt="'.esc_attr__('We can\'t update this link title because it\'s in Gutenberg block and does not have any title attribute', 'wp-meta-seo').'">info</i>';
                             }
                             echo '<button type="button" data-post_id="' . esc_attr($rec->source_id) . '"
                              class="wpms_update_link ju-button orange-button wpms-small-btn">' . esc_html__('Update', 'wp-meta-seo') . '</button>';

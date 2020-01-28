@@ -2,9 +2,18 @@
 .page-hero{
 	display: flex;
 	@extend .align-items-end;
+	position: relative;
 
 	&.page-hero-with-image{
-		height: 45vh;
+		height: 47vh;
+
+		.block-background{
+			background-position: center center;
+		}
+
+		@media screen and (max-width: $md) {
+			height: auto;
+		}
 		.subpage-title{
 			color: white;
 		}
@@ -16,6 +25,11 @@
 	.page-title-container{
 		padding-top: 10vh;
 		padding-bottom: 6vh;
+
+		@media screen and (max-width: $sm) {
+			padding-top: 8vh;
+			padding-bottom: 4vh;
+		}
 	}
 
 	.subpage-title{
@@ -43,34 +57,113 @@
 		@extend .h3;
 		width: 75%;
 		color: $brand;
+
+		@media screen and (max-width: $md) {
+			width: 100%;
+			line-height: 1.5;
+		}
 	}
 }
 
+$page-nav-height: 52px;
+
 .page-nav{
-	background: white;
-	padding: 12px 0;
-	border-bottom: 1px solid $light;
+	height: $page-nav-height;
+
+	@media screen and (max-width: $md) {
+		height: auto;
+	}
+
+	.page-nav-inner{
+		width: 100%;
+		height: $page-nav-height;
+		left: 0;
+		top: $nav-height;
+		z-index: 11;
+		background: white;
+		border-bottom: 1px solid $light;
+
+		@media screen and (max-width: $md) {
+			height: auto;
+		}
+	}
+
+	&.after{
+
+		.page-nav-inner{
+			position: fixed;
+			@media screen and (max-width: $md) {
+				position: static;
+			}
+		}
+
+	}
 
 	li{
 		display: inline-block;
 		margin-right: 20px;
 		height: inherit;
 
+		@media screen and (max-width: $md) {
+			height: auto;
+			margin-right: 15px;
+		}
+
+		&:first-child a{
+			padding-left: 0;
+		}
+
 		a{
 			font-size: 13px;
 			text-transform: uppercase;
 			font-weight: 700;
 			color: $medium-light;
-			height: inherit;
-			padding: 0px 7px;
+			
+			padding: 15px 7px 9px 7px;
 			letter-spacing: .001em;
+			display: inline-block;
+			border-bottom: 3px solid transparent;
+			height: $page-nav-height;
 
-			&:first-child{
-				padding-left: 0;
+			&.spy-active{
+				color: $brand;
+				border-color: $interactive;
 			}
+
+			@media screen and (max-width: $md) {
+				font-size: 10px;
+				padding: 7px 6px 7px 0px;
+				border-bottom: none;
+				//border: 1px solid red;
+				height: auto;
+			}
+		}
+
+	}
+}
+
+.sticky-nav-after{
+	.page-nav + .block{
+		//margin-top: $page-nav-height;
+
+		@media screen and (max-width: $md) {
+			//margin-top: auto;
 		}
 	}
 }
+
+
+
+.spy-active{
+	//border: 10px solid yellow !important;
+}
+
+.section-heading{
+	margin-bottom: 3em;
+	@extend .bold;
+	@extend .brand-tint;
+}
+
 
 
 

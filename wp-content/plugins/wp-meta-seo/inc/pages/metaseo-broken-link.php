@@ -27,7 +27,9 @@ if (!empty($_REQUEST['_wp_http_referer'])) {
         <div id="icon-edit-pages" class="icon32 icon32-posts-page"></div>
         <form id="wp-seo-meta-form" class="wpms-form-table" action="" method="post">
             <?php
-            echo '<h1 class="wpms-top-h1">' . esc_html__('404 & Redirects', 'wp-meta-seo') . '</h1>';
+            echo '<h1 class="wpms-top-h1">' . esc_html__('404 & Redirects', 'wp-meta-seo') . '
+                <i class="material-icons intro-topic-tooltip" data-alt="'.esc_html__('Search engines hates to index pages that returns a 404 error. The 404 and redirect manager index all your internal and external errors in order to make redirect. You can also make custom redirects for whatever the reason is', 'wp-meta-seo').'">help_outline</i>
+            </h1>';
             $metaseo_list_table->searchBox1();
             $metaseo_list_table->brokenFilter('sl_broken[]');
             $metaseo_list_table->display();

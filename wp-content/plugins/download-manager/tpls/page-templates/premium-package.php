@@ -2,69 +2,67 @@
 <?php if(!defined("ABSPATH")) die(); ?>
 <div class="row">
     <div class="col-md-7">
-        [thumb_800x600]
+        <div class="card p-3">
+            [thumb_800x600]
+        </div>
     </div>
     <div class="col-md-5">
         [download_link_extended]
     </div>
 
-<div class="col-md-12">
-<br/>
+    <div class="col-md-12">
+        <br/>
 
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#wpdmpp-product-desc" aria-controls="wpdmpp-product-desc" role="tab" data-toggle="tab">[txt=Description]</a></li>
-            <li role="presentation"><a href="#wpdmpp-product-info" aria-controls="wpdmpp-product-info" role="tab" data-toggle="tab">[txt=Package Info]</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content" style="padding: 15px 0">
-            <div role="tabcard" class="tab-pane active" id="wpdmpp-product-desc">[description]</div>
-            <div role="tabcard" class="tab-pane" id="wpdmpp-product-info">
-                <ul class="list-group">
-                    <li class="list-group-item [hide_empty:version]">
-                        <span class="badge">[version]</span>
-                        [txt=Version]
-                    </li>
-                    <li class="list-group-item [hide_empty:download_count]">
-                        <span class="badge">[download_count]</span>
-                        [txt=Download]
-                    </li>
-                    <li class="list-group-item [hide_empty:file_size]">
-                        <span class="badge">[file_size]</span>
-                        [txt=File Size]
-                    </li>
-                    <li class="list-group-item [hide_empty:file_count]">
-                        <span class="badge">[file_count]</span>
-                        [txt=File Count]
-                    </li>
-                    <li class="list-group-item [hide_empty:create_date]">
-                        <span class="badge">[create_date]</span>
-                        [txt=Create Date]
-                    </li>
-                    <li class="list-group-item [hide_empty:update_date]">
-                        <span class="badge">[update_date]</span>
-                        [txt=Last Updated]
-                    </li>
-
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li role="presentation" class="nav-item"><a class="nav-link active" href="#wpdmpp-product-desc" aria-controls="wpdmpp-product-desc" role="tab" data-toggle="tab">[txt=Description]</a></li>
+                    <li role="presentation" class="nav-item"><a class="nav-link" href="#wpdmpp-product-info" aria-controls="wpdmpp-product-info" role="tab" data-toggle="tab">[txt=Package Info]</a></li>
                 </ul>
             </div>
+            <div class="card-body">
+            <!-- Tab panes -->
+            <div class="tab-content" style="padding: 15px 0">
+                <div role="tabcard" class="tab-pane active" id="wpdmpp-product-desc">[description]</div>
+                <div role="tabcard" class="tab-pane" id="wpdmpp-product-info">
+                    <ul class="list-group ml-0 mb-2">
+                        <li class="list-group-item d-flex justify-content-between align-items-center [hide_empty:version]">
+                            [txt=Version]
+                            <span class="badge">[version]</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center [hide_empty:download_count]">
+                            [txt=Download]
+                            <span class="badge">[download_count]</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center [hide_empty:file_size]">
+                            [txt=File Size]
+                            <span class="badge">[file_size]</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center [hide_empty:file_count]">
+                            [txt=File Count]
+                            <span class="badge">[file_count]</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center [hide_empty:create_date]">
+                            [txt=Create Date]
+                            <span class="badge">[create_date]</span>
+                        </li>
+                        <li class="list-group-item  d-flex justify-content-between align-items-center [hide_empty:update_date]">
+                            [txt=Last Updated]
+                            <span class="badge">[update_date]</span>
+                        </li>
 
+                    </ul>
+                </div>
+
+            </div>
+            </div>
         </div>
 
+    </div>
+
 
 </div>
 
-
-</div>
-<script>
-    jQuery(function ($) {
-        try {
-            $('.nav-tabs').tabs();
-        }catch (e){
-
-        }
-    });
-</script>
 
 

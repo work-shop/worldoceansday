@@ -1,0 +1,70 @@
+
+#news{
+
+	@media screen and (max-width: $md) {
+		.news-filters{
+			order: 1;
+		}
+		.blog-posts-container{
+			order: 2;
+		}
+	}
+	
+	.post-title{
+		margin-top: .5em;
+	}
+
+	.filter-button{
+		//margin-right: 1em;
+		display: block;
+		margin-bottom: .5em;
+		@extend .font-bold;
+
+		&.filter-active{
+			@extend .font-black;
+		}
+	}
+}
+
+.filter-target{
+	display: none;
+}
+
+.filter-show{
+	display: block !important;
+}
+
+
+
+.news-post{
+	margin-bottom: 4em;
+
+	&:hover{
+
+		.card-image{
+			@extend .shadowed;
+		}
+	}
+
+	.card-image{
+		border-radius: 8px;
+	}
+
+	.card-post-date{
+		margin-top: 20px;
+		margin-bottom: 3px;
+		color: $medium-light;
+		@extend .uppercase;
+		@extend .font-bold;
+	}
+
+	.card-post-title a{
+		@extend .font-black;
+		color: $brand-tint;
+	}
+
+	img{
+		display: block;
+		border-radius: 8px;
+	}
+}

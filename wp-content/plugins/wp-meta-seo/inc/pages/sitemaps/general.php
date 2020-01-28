@@ -3,7 +3,9 @@
 defined('ABSPATH') || die('No direct script access allowed!');
 ?>
 <div id="menu_sitemaps" class="wpms_source wpms_source_sitemaps content-box">
-    <h1 class="wpms-top-h1"><?php esc_html_e('Sitemap', 'wp-meta-seo') ?></h1>
+    <h1 class="wpms-top-h1"><?php esc_html_e('Sitemap', 'wp-meta-seo') ?>
+        <i class="material-icons intro-topic-tooltip" data-alt="<?php esc_html_e('Create your sitemaps based on your WordPress content (menus, pages...) and submit them to the Google Search console, it speeds up your pages index process', 'wp-meta-seo') ?>">help_outline</i>
+    </h1>
     <div class="ju-settings-option min-height-140">
         <div class="wpms_row_full">
             <label class="ju-setting-label wpms_width_100 wpms_left" data-alt="<?php esc_attr_e('Link to the xml file generated. It’s highly recommended
@@ -156,9 +158,7 @@ defined('ABSPATH') || die('No direct script access allowed!');
 
     <div class="ju-settings-option min-height-140">
         <div class="wpms_row_full">
-            <label class="ju-setting-label" data-alt="<?php esc_attr_e('Add a copy of the lastest version of your .xml sitemap at the root
-                 of your WordPress install named sitemap.xml. Some SEO tools and search engines bots
-                  are searching for it.', 'wp-meta-seo'); ?>">
+            <label class="ju-setting-label" data-alt="<?php esc_attr_e('Add a copy of the latest version of your .xml sitemap at the root of your WordPress install named sitemap.xml. Some SEO tools and search engines bots are searching for it', 'wp-meta-seo'); ?>">
                 <?php esc_html_e('Sitemap root', 'wp-meta-seo') ?>
             </label>
             <div class="ju-switch-button">
@@ -168,7 +168,7 @@ defined('ABSPATH') || die('No direct script access allowed!');
                     <span class="slider round"></span>
                 </label>
             </div>
-            <p class="description text_left p-lr-20"><?php esc_html_e('Add a sitemap.xml copy @ the site root', 'wp-meta-seo'); ?></p>
+            <p class="description text_left p-lr-20"><?php esc_html_e('Add a copy of the sitemap at your website root, named sitemap.xml', 'wp-meta-seo'); ?></p>
         </div>
     </div>
 

@@ -391,9 +391,9 @@ a:focus, a:active{ box-shadow: none !important; }
     font-size: 12pt;
 }
 .no-radius{ border-radius: 0 !important; }
-#ftabs #drag-drop-area{ border: 1px dashed #ccc; margin-top: 10px; }
-#ftabs .drag-drop-inside p.drag-drop-info{ font-size: 11pt;  font-weight: 700; }
-#ftabs #drag-drop-area small{ margin-top: 10px; }
+#drag-drop-area{ border: 2px dashed #59ac23 !important; min-height: 200px; text-align: center; background: rgba(97, 187, 38, 0.05);  }
+.drag-drop-inside p.drag-drop-info{ font-size: 11pt;  font-weight: 700; }
+#drag-drop-area small{ margin-top: 10px; }
 .bg-white{ background: #ffffff !important; }
 #wpdm-wrapper-panel{
     box-shadow: none;
@@ -1644,6 +1644,13 @@ body.wpdm-iframe-modal-open{
 }
 
 /** WPDM Notify end **/
+
+#wpdm-settings .panel-footer,
+#wpdm-settings .panel-heading,
+#currentfiles .panel-heading {
+    box-shadow: none !important;
+    background: #fbfbfb !important;
+}
 
 .w3eden .panel{
     box-shadow: 0 0 3px rgba(0,0,0,0.05);

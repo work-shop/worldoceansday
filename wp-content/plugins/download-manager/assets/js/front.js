@@ -280,42 +280,6 @@ jQuery(function ($) {
     });
 
 
-    $('body').on('click', '.wpdm-btn-play', function (e) {
-        e.preventDefault();
-        var player = $('#' + $(this).data('player'));
-        var btn = $('#' + this.id);
-
-        if (btn.data('state') == 'playing') {
-            $(this).data('state', 'paused');
-            player.trigger('pause');
-            $(this).html("<i class='fa fa-play'></i>");
-            return false;
-        }
-
-        if (btn.data('state') == 'paused') {
-            $(this).data('state', 'playing');
-            player.trigger('play');
-            $('.wpdm-btn-play').html("<i class='fa fa-play'></i>");
-            $(this).html("<i class='fa fa-pause'></i>");
-            return false;
-        }
-
-
-        player.attr('src', $(this).data('song') + "&play=song.mp3");
-        player.slideDown();
-        $('.wpdm-btn-play').data("state", "stopped");
-        $('.wpdm-btn-play').html("<i class='fa fa-play'></i>");
-        btn.html("<i class='fa fa-spinner fa-spin'></i>");
-        player.unbind('loadedmetadata');
-        player.on('loadedmetadata', function () {
-            console.log("Playing " + this.src + ", for: " + this.duration + "seconds.");
-            btn.html("<i class='fa fa-pause'></i>");
-            btn.data('state', 'playing');
-            //audio.play();
-        });
-    });
-
-
     // Uploading files
     var file_frame, dfield;
 
@@ -351,37 +315,57 @@ jQuery(function ($) {
         file_frame.open();
     });
 
-    try {
-        /*
-         FB.login(function(response) {
-         if (response.session) {
 
-         var user_id = response.session.uid;
-         var page_id = "40796308305"; //coca cola
-         var fql_query = "SELECT uid FROM page_fan WHERE page_id = "+page_id+"and uid="+user_id;
-         var the_query = FB.Data.query(fql_query);
+    $('body').on('click', '.wpdm-btn-play', function (e) {
+        e.preventDefault();
 
-         the_query.wait(function(rows) {
+        if($('#wpdm-audio-player').length === 0) {
+            var player = document.createElement('audio');
+            player.id = 'wpdm-audio-player';
+            player.controls = 'controls';
+            player.autoplay = 1;
+            player.type = 'audio/mpeg';
+            $('body').append(player);
+        }
 
-         if (rows.length == 1 && rows[0].uid == user_id) {
-         $("#container_like").show();
+        player = $('#wpdm-audio-player');
+        var btn = $(this);
 
-         //here you could also do some ajax and get the content for a "liker" instead of simply showing a hidden div in the page.
+        if (btn.data('state') == 'stop' || !btn.data('state')) {
+            player.css('display', 'none');
+            player.attr('src', $(this).data('song') + "&play=song.mp3");
+        }
 
-         } else {
-         $("#container_notlike").show();
-         //and here you could get the content for a non liker in ajax...
-         }
-         });
+        if (btn.data('state') == 'playing') {
+            $(this).data('state', 'paused');
+            player.trigger('pause');
+            $(this).html("<i class='fa fa-play'></i>");
+            return false;
+        }
+
+        if (btn.data('state') == 'paused') {
+            $(this).data('state', 'playing');
+            player.trigger('play');
+            $('.wpdm-btn-play').html("<i class='fa fa-play'></i>");
+            $(this).html("<i class='fa fa-pause'></i>");
+            return false;
+        }
 
 
-         } else {
-         // user is not logged in
-         }
-         });
-         */
-    } catch (err) {
-    }
+        $('.wpdm-btn-play').data("state", "stop");
+        $('.wpdm-btn-play').html("<i class='fa fa-play'></i>");
+        btn.html("<i class='fas fa-sun  fa-spin'></i>");
+        player.unbind('loadedmetadata');
+        player.on('loadedmetadata', function () {
+            console.log("Playing " + this.src + ", for: " + this.duration + "seconds.");
+            btn.html("<i class='fa fa-pause'></i>");
+            btn.data('state', 'playing');
+        });
+        document.getElementById('wpdm-audio-player').onended = function () {
+            btn.html("<i class='fa fa-redo'></i>");
+            btn.data('state', 'stop');
+        }
+    });
 
 });
 

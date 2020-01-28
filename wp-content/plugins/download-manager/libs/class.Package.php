@@ -4,6 +4,8 @@
 namespace WPDM;
 
 
+use WPDM\libs\FileSystem;
+
 class Package {
 
     public $ID;
@@ -157,6 +159,8 @@ class Package {
         $post_vars['download_link_popup'] =
         $post_vars['download_link_extended'] =
         $post_vars['download_link'] = "<a class='wpdm-download-link {$post_vars['btnclass']}' rel='nofollow' href='#' onclick=\"location.href='{$post_vars['download_url']}';return false;\">{$post_vars['link_label']}</a>";
+        $post_vars['play_button'] = self::audioPlayer($post_vars);
+        $post_vars['audio_player'] = self::audioPlayer($post_vars, true, 'full');
 
         $limit_over = 0;
         $alert_size = ($template_type == 'link')?'alert-sm':'';
@@ -193,7 +197,7 @@ class Package {
             $post_vars['download_link_popup'] = "<div class='alert alert-danger {$alert_size}' data-title='".__('DOWNLOAD ERROR','download-manager')."'><i class='fas fa-arrow-alt-circle-down'></i> {$post_vars['link_label']}</div>";
         }
 
-        else if(!is_user_logged_in() && count(self::AllowedRoles($post_vars['ID'])) > 0 && !self::userCanAccess($post_vars['ID'])){
+        else if(!is_user_logged_in() && count(self::AllowedRoles($post_vars['ID'])) >= 0 && !self::userCanAccess($post_vars['ID'])){
             $loginform = wpdm_login_form(array('redirect'=>get_permalink($post_vars['ID'])));
             $post_vars['download_url'] = home_url('/wp-login.php?redirect_to=' . urlencode($_SERVER['REQUEST_URI']));
             $post_vars['download_link'] =
@@ -509,13 +513,13 @@ class Package {
     }
 
     /**
-     * @usage Generates play button for link template
+     * @usage Generate play button for link template
      * @param $package
      * @param bool $return
      * @param $style
      * @return mixed|string|void
      */
-    public static function audioPlayer($package, $return  = true, $style = 'primary' )
+    public static function audioPlayer($package, $return  = true, $style = 'primary btn-lg wpdm-btn-play-lg' )
     {
 
         $audiohtml = "";
@@ -523,19 +527,26 @@ class Package {
         if (!is_array($package['files']) || count($package['files']) == 0) return;
         $audios = array();
         $nonce = wp_create_nonce($_SERVER['REQUEST_URI']);
-
+        $audio = $audx = null;
         foreach($package['files'] as $index => $file){
             $realpath = file_exists($file)?$file:UPLOAD_DIR.$file;
             $filetype = wp_check_filetype( $realpath );
             $tmpvar = explode('/',$filetype['type']);
-            if($tmpvar[0]=='audio')
-                $audios[$index] =  $file;
+            if($tmpvar[0]=='audio') {
+                $audio = $file;
+                $audx = $index;
+                break;
+            }
         }
 
-        if(count($audios)>0){
-            $audio = array_shift($audios);
-            $song = home_url("/?wpdmdl={$package['ID']}&ind=".\WPDM\libs\Crypt::Encrypt($audio)."&play=".basename($audio));
-            $audiohtml = "<button data-player='wpdm-audio-player' data-song='{$song}' class='btn btn-lg btn-{$style} wpdm-btn-play wpdm-btn-play-lg'><i class='fa fa-play'></i></button>";
+        if($audio != null){
+            $song = home_url("/?wpdmdl={$package['ID']}&play=".basename($audio));
+            if($style === 'full')
+                $audiohtml = do_shortcode("[audio src='$song']");
+            else
+                $audiohtml = "<button data-player='wpdm-audio-player' data-song='{$song}' class='btn btn-{$style} wpdm-btn-play'><i class='fa fa-play'></i></button>";
+
+
         }
 
         if($return)

@@ -23,6 +23,8 @@ class Packages
 
         add_action( 'quick_edit_custom_box', array($this, 'quickEditForm'), 10, 2 );
 
+        add_action('admin_footer', array($this, 'footerScripts'));
+
 
     }
 
@@ -89,7 +91,7 @@ class Packages
             $filename = time().'wpdm_'.$name;
         else
             $filename = $name;
-        
+
         do_action("wpdm_before_upload_file", $_FILES['package_file']);
 
         if(get_option('__wpdm_sanitize_filename', 0) == 1)
@@ -209,6 +211,22 @@ class Packages
     }
 
 
+    function footerScripts(){
+        global $pagenow;
+
+        if($pagenow === 'themes.php' || $pagenow === 'theme-install.php'){
+            if(!file_exists(ABSPATH.'/wp-content/themes/attire/')) {
+                ?>
+                <script>
+                    jQuery(function ($) {
+                        $('.page-title-action').after('<a href="<?php echo admin_url('/theme-install.php?search=attire'); ?>" class="hide-if-no-js page-title-action" style="border: 1px solid #0f9cdd;background: #13aef6;color: #ffffff;">Suggested Theme</a>');
+                    });
+                </script>
+                <?php
+            }
+        }
+
+    }
 
 
 

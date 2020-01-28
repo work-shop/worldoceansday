@@ -4,7 +4,7 @@
  * Plugin Name: WP Meta SEO
  * Plugin URI: http://www.joomunited.com/wordpress-products/wp-meta-seo
  * Description: WP Meta SEO is a plugin for WordPress to fill meta for content, images and main SEO info in a single view.
- * Version: 4.1.0
+ * Version: 4.2.1
  * Text Domain: wp-meta-seo
  * Domain Path: /languages
  * Author: JoomUnited
@@ -132,7 +132,7 @@ if (!defined('WPMSEO_VERSION')) {
     /**
      * Plugin version
      */
-    define('WPMSEO_VERSION', '4.1.0');
+    define('WPMSEO_VERSION', '4.2.1');
 }
 
 if (!defined('WPMS_CLIENTID')) {

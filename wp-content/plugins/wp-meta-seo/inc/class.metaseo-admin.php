@@ -2747,6 +2747,22 @@ class MetaSeoAdmin
             );
         }
 
+        // Add intro text on each wpms topic
+        $qtip_pages = array(
+            'wp-meta-seo_page_metaseo_content_meta',
+            'wp-meta-seo_page_metaseo_image_meta',
+            'wp-meta-seo_page_metaseo_google_sitemap',
+            'wp-meta-seo_page_metaseo_link_meta',
+            'wp-meta-seo_page_metaseo_broken_link',
+            'wp-meta-seo_page_metaseo_google_analytics',
+            'wp-meta-seo_page_metaseo_sendemail'
+        );
+        if (in_array($current_screen->base, $qtip_pages)) {
+            wp_enqueue_style('m-style-qtip');
+            wp_enqueue_script('jquery-qtip');
+            wp_enqueue_script('my-qtips-js');
+        }
+
         if (is_plugin_active(WPMSEO_ADDON_FILENAME)) {
             $addon_active = 1;
         } else {
@@ -3208,7 +3224,7 @@ class MetaSeoAdmin
                         }
                         $this->gaDisconnect = array(
                             'wpms_ga_uax_reference'     => '',
-                            'wpmsga_dash_tracking_type' => 'classic',
+                            'wpmsga_dash_tracking_type' => 'universal',
                             'wpmsga_code_tracking'      => ''
                         );
                         $gaDisconnect       = get_option('_metaseo_ggtracking_disconnect_settings');
@@ -3245,7 +3261,9 @@ class MetaSeoAdmin
                             echo '<div class="wrap wpmsga_wrap">';
                             echo '<div>';
                             require_once(WPMETASEO_PLUGIN_DIR . 'inc/pages/google-analytics/menu.php');
-                            echo '<h2 class="wpms-top-h2">' . esc_html__('Google Analytics Settings', 'wp-meta-seo') . '</h2>';
+                            echo '<h1 class="wpms-top-h1">' . esc_html__('Google Analytics Settings', 'wp-meta-seo') . '
+                            <i class="material-icons intro-topic-tooltip" data-alt="'.esc_html__('Create a Google Analytics property then connect WordPress to this Analytics property. You can then follow your traffic and include the data in your Email report (Pro Addon)', 'wp-meta-seo').'">help_outline</i>
+                            </h1>';
                             echo '<div id="wpms-window-1"></div>';
                             echo '</div>';
                             echo '</div>';

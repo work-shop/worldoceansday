@@ -1,11 +1,13 @@
-<div id="ftabs" class="w3eden">
+
+<div class="w3eden">
 <input type="hidden" name="file[files][]" value="<?php $afiles = maybe_unserialize(get_post_meta(get_the_ID(), "__wpdm_files", true)); echo is_array($afiles)&&isset($afiles[0])?$afiles[0]:''; ?>" id="wpdmfile" />
-<div style="padding: 10px;">
-<div class="cfile" id="cfl" style="padding: 10px;border:2px solid #ddd;background: #ffffff">
+
+<div class="cfile" id="cfl" style="padding: 10px;border:2px solid #ddd;background: #ffffff;margin-bottom: 10px">
     <?php
     $filesize = "<em style='color: darkred'>( ".__("attached file is missing/deleted",'download-manager')." )</em>";
     $afile = is_array($afiles)&&isset($afiles[0])?$afiles[0]:'';
     $afile = trim($afile);
+    $mfz = get_post_meta(get_the_ID(), '__wpdm_package_size', true);
     if($afile !=''){
 
         if(strpos($afile, "://")){
@@ -29,23 +31,15 @@
             <a href="#" id="dcf" title="Delete Current File" class="pull-right" style="font-size:24px">
                 <i class="fa fa-trash color-red"></i>
             </a>
-            <div class="media-body"><strong><?php echo  basename($afile); ?></strong><br><?php echo wpdm_file_size($afile); ?></div>
+            <div class="media-body"><strong><?php echo  basename($afile); ?></strong><br><span class="text-success"><?php echo $mfz?$mfz:wpdm_file_size($afile); ?></span></div>
         </div>
 
     <?php } else echo "<span style='font-weight:bold;color:#ddd'>". __('No file uploaded yet!', 'download-manager')."</span>"; ?>
     <div style="clear: both;"></div>
 </div>
-</div>
 
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#upload" data-toggle="tab"><?php _e('Upload', 'download-manager'); ?></a></li>
-    <?php  if(current_user_can('access_server_browser')){ ?>
-    <li><a href="#browse" data-toggle="tab"><?php _e('Browse', 'download-manager'); ?></a></li>
-    <?php } ?>
-    <li><a href="#remote" role="tab" data-toggle="tab"><?php echo __('URL','wpdmpro'); ?></a></li>
-</ul>
-    <div class="tab-content">
-    <div class="tab-pane active" id="upload">
+
+    <div id="upload">
         <div id="plupload-upload-ui" class="hide-if-no-js">
             <div id="drag-drop-area">
                 <div class="drag-drop-inside" style="margin-top: 40px">
@@ -166,49 +160,103 @@
     </div>
 
 
-<div id="browse" class="tab-pane">
-    <?php  if(current_user_can('access_server_browser')) wpdm_file_browser(); ?>
-</div>
-        <div class="tab-pane" id="remote" class="w3eden">
-            <div class="input-group"><input type="url" id="rurl" class="form-control" placeholder="Insert URL"><span class="input-group-btn"><button type="button" id="rmta" class="btn btn-default"><i class="fa fa-plus-circle"></i></button></span></div>
-        </div>
-</div>
-</div>
-
 <script>
-jQuery(function(){
-        //jQuery( "#ftabs" ).tabs();
-
-        jQuery('#rmta').click(function(){
+jQuery(function($){
+        $('#rmta').click(function(){
         var ID = 'file_' + parseInt(Math.random()*1000000);
-        var file = jQuery('#rurl').val();
+        var file = $('#rurl').val();
         var filename = file;
-            jQuery('#rurl').val('');
+            $('#rurl').val('');
         if(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(file)==false){
                 alert("Invalid url");
             return false;
             }
 
-            jQuery('#wpdmfile').val(file);
-            jQuery('#cfl').html('<div><strong>'+file+'</strong>').slideDown();
+            $('#wpdmfile').val(file);
+            $('#cfl').html('<div><strong>'+file+'</strong>').slideDown();
 
 
     });
 
 
 
-    jQuery('body').on('click', '#dcf', function(){
+    $('body').on('click', '#dcf', function(){
         if(!confirm('<?php _e('Are you sure?','download-manager'); ?>')) return false;
-        jQuery('#wpdmfile').val('');
-        jQuery('#cfl').html('<?php _e('<div class="w3eden"><div class="text-danger"><i class="fa fa-check-circle"></i> Removed!</div></div>','download-manager'); ?>');
+        $('#wpdmfile').val('');
+        $('#cfl').html('<?php _e('<div class="w3eden"><div class="text-danger"><i class="fa fa-check-circle"></i> Removed!</div></div>','download-manager'); ?>');
     });
 
 
 
 
 });
- 
+
 </script>
-<?php
+
+    <div class="input-group" style="margin-bottom: 10px"><input type="url" id="rurl" class="form-control" placeholder="Insert URL"><span class="input-group-btn"><button type="button" id="rmta" class="btn wpdm-wordpress"><i class="fa fa-plus-circle"></i></button></span></div>
+
+    <button type="button" class="btn btn-primary btn-block" id="attachml"><?php echo __( "Select from media library", "download-manager" ); ?></button>
+    <script>
+        jQuery(function ($) {
+            var file_frame;
+            $('body').on('click', '#attachml' , function( event ){
+                event.preventDefault();
+                if ( file_frame ) {
+                    file_frame.open();
+                    return;
+                }
+                file_frame = wp.media.frames.file_frame = wp.media({
+                    title: $( this ).data( 'uploader_title' ),
+                    button: {
+                        text: $( this ).data( 'uploader_button_text' )
+                    },
+                    multiple: false
+                });
+                file_frame.on( 'select', function() {
+                    var attachment = file_frame.state().get('selection').first().toJSON();
+                    console.log(attachment);
+                    $('#wpdmfile').val(attachment.url);
+                    $('#cfl').html('<div><strong>'+attachment.filename+'</strong><br/>'+attachment.filesizeHumanReadable).slideDown();
+                    $('input[name="file[package_size]"]').val(attachment.filesizeHumanReadable);
+
+                });
+                file_frame.open();
+            });
+        });
+    </script>
+<?php  if(current_user_can('access_server_browser')) { ?>
+
+        <button type="button" class="btn btn-warning btn-block" id="attachsf"
+                style="margin-top: 10px"><?php echo __("Select from server", "download-manager"); ?></button>
+        <script>
+            jQuery(function ($) {
+                $('body').on('click', '#attachsf', function (e) {
+                    e.preventDefault();
+                    hide_asset_picker_frame();
+                    $(window.parent.document.body).append("<iframe id='wpdm-asset-picker' style='left:0;top:0;width: 100%;height: 100%;z-index: 999999999;position: fixed;background: rgba(255,255,255,0.4) url('<?php echo home_url('/wp-content/plugins/download-manager/assets/images/loader.svg') ?>') center center no-repeat;background-size: 100px 100px;border: 0;' src='<?php echo admin_url('/?assetpicker=1'); ?>'></iframe>");
+
+                });
+            });
+
+            function hide_asset_picker_frame() {
+                jQuery('#wpdm-asset-picker').remove();
+            }
+
+            function attach_server_files(files) {
+                jQuery.each(files, function (index, file) {
+                    var d = new Date();
+                    var ID = d.getTime();
+                    jQuery('#wpdmfile').val(file.path);
+                    jQuery('#cfl').html('<div class="media"><a href="#" class="pull-right ttip" id="dcf" title="<?php _e('Delete Current File', 'download-manager');?>" style="font-size: 24px"><i class="fa fa-trash color-red"></i></a><div class="media-body"><strong>' + file.name + '</strong><br/>&mdash; </div></div>').slideDown();
+
+                });
+            }
+        </script>
+
+    <?php
+}
 
 do_action("wpdm_attach_file_metabox");
+
+?>
+</div>

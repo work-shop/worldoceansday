@@ -6,23 +6,26 @@ function wpdm_dir_tree(){
     if(!is_user_logged_in()) return;
     if (!isset($_GET['task']) || $_GET['task'] != 'wpdm_dir_tree') return;
     if(!current_user_can('access_server_browser') && !current_user_can('manage_options')) { echo "<ul><li>".__('Not Allowed!','download-manager')."</li></ul>"; die(); }
-    $_POST['dir'] = urldecode($_POST['dir']);
-    if (file_exists($_POST['dir'])) {
-        $files = scandir($_POST['dir']);
+    $dir = urldecode($_POST['dir']);
+    if (file_exists($dir)) {
+        $files = scandir($dir);
         natcasesort($files);
         if (count($files) > 2) { /* The 2 accounts for . and .. */
             echo "<ul class=\"jqueryFileTree\" style=\"display: none;\">";
             // All dirs
             foreach ($files as $file) {
-                if ($file != '.' && $file != '..' && file_exists($root . $_POST['dir'] . $file) && is_dir($root . $_POST['dir'] . $file)) {
-                    echo "<li class=\"directory collapsed\"><a id=\"" . uniqid() . "\" href=\"#\" rel=\"" . htmlentities($_POST['dir'] . $file) . "/\">" . htmlentities($file) . "</a></li>";
+                if ($file != '.' && $file != '..' && file_exists($root . $dir . $file) && is_dir($root . $dir . $file)) {
+                    echo "<li class=\"directory collapsed\"><a id=\"" . uniqid() . "\" href=\"#\" rel=\"" . htmlentities($dir . $file) . "/\">" . htmlentities($file) . "</a></li>";
                 }
             }
             // All files
             foreach ($files as $file) {
-                if ($file != '.' && $file != '..' && file_exists($root . $_POST['dir'] . $file) && !is_dir($root . $_POST['dir'] . $file)) {
+                $abspath = realpath($root.'/'.$dir.'/'.$file);
+                $relpath = $root === '/' ? $abspath : str_replace($root, "", $abspath);
+                if ($file != '.' && $file != '..' && $file != '.htaccess' && file_exists($abspath) && !is_dir($abspath)) {
                     $ext = preg_replace('/^.*\./', '', $file);
-                    echo "<li class=\"file ext_$ext\"><a id=\"" . uniqid() . "\" href=\"#\" rel=\"" . htmlentities($_POST['dir'] . $file) . "\">" . htmlentities($file) . "</a></li>";
+                    $abspath = str_replace(UPLOAD_DIR, '', $abspath);
+                    echo "<li class=\"file ext_$ext\"><a id=\"" . uniqid() . "\" href=\"#\" rel=\"" . ($abspath) . "\">" . htmlentities($file) . "</a></li>";
                 }
             }
             echo "</ul>";
@@ -63,7 +66,7 @@ function wpdm_file_browser(){
 
 
                 }
-                //jQuery('#serverfiles').append('<li><label><input checked=checked type="checkbox" value="'+file+'" name="imports[]" class="role"> &nbsp; '+filename+'</label></li>');                
+                //jQuery('#serverfiles').append('<li><label><input checked=checked type="checkbox" value="'+file+'" name="imports[]" class="role"> &nbsp; '+filename+'</label></li>');
             });
 
       });
@@ -76,30 +79,30 @@ function wpdm_file_browser(){
 
 function wpmp_file_browser_metabox(){
     ?>
-    
+
     <div class="postbox " id="action">
 <div title="Click to toggle" class="handlediv"><br></div><h3 class="hndle"><span><?php echo __('Add file(s) from server','download-manager'); ?></span></h3>
 <div class="inside" style="height: 200px;overflow: auto;">
-      
+
 <?php wpdm_file_browser(); ?>
 
 <ul id="serverfiles">
 
 
 
- 
 
 
-</ul>   
+
+</ul>
  <div class="clear"></div>
 </div>
 </div>
-    
+
     <?php
 }
 
 if(is_admin()){
-     
+
     //add_action("init","wpdm_file_browser");
     add_action("init","wpdm_dir_tree");
     add_action("add_new_file_sidebar","wpmp_file_browser_metabox");

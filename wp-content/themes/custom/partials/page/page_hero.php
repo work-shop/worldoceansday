@@ -4,7 +4,7 @@ $hero_image = get_field('hero_image');
 $hero_image = $hero_image['sizes']['xl_landscape'];
 $introduction_text = get_field('introduction_text');
 ?>
-<section class="block page-hero present <?php if( $hero_image ): ?> page-hero-with-image <?php endif; ?>" id="page-hero">
+<section class="page-hero <?php if( $hero_image ): ?> page-hero-with-image <?php endif; ?>" id="page-hero">
 	<?php if( $hero_image ): ?>
 		<div class="block-background page-hero-image" style="background-image: url('<?php echo $hero_image; ?>');">
 		</div>

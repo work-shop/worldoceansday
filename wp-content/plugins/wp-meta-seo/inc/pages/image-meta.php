@@ -68,7 +68,9 @@ if (!empty($_REQUEST['_wp_http_referer'])) {
             <label class="bulk-msg"><?php esc_html_e('Done! You may ', 'wp-meta-seo') ?><a href="<?php echo esc_url(admin_url('admin.php?page=metaseo_image_meta')) ?>"><?php esc_html_e('close the window and refresh the page...', 'wp-meta-seo') ?></a></label>
         </div>
         <?php
-        echo '<h1 class="wpms-top-h1">' . esc_html__('Image Information', 'wp-meta-seo') . '</h1>';
+        echo '<h1 class="wpms-top-h1">' . esc_html__('Image Information', 'wp-meta-seo') . '
+                <i class="material-icons intro-topic-tooltip" data-alt="'.esc_html__('Where your image SEO can be optimized to get traffic from search engines image search and add smart content to your pages HTML. Optimize in priority file names, Alt text and image Titles', 'wp-meta-seo').'">help_outline</i>
+            </h1>';
         $metaseo_list_table->searchBox1();
         $metaseo_list_table->display();
         ?>

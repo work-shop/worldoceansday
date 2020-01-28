@@ -70,4 +70,4 @@ class WPDM_Messages {
         $msg['icon'] = 'check-circle';
         return self::Message($msg, $die);
     }
-} 
+}

@@ -20,7 +20,7 @@ class Apply {
 
     function FrontendActions(){
         if(is_admin()) return;
-        add_action("init", array($this, 'playMedia'), 0);
+        //add_action("init", array($this, 'playMedia'), 0);
         add_action("init", array($this, 'triggerDownload'), 1);
         add_filter('widget_text', 'do_shortcode');
         add_action('query_vars', array( $this, 'dashboardPageVars' ));
@@ -704,6 +704,7 @@ class Apply {
         if(!current_user_can('manage_options')) die('error');
         global $wpdb;
         $wpdb->query('truncate table '.$wpdb->prefix.'ahm_download_stats');
+        $wpdb->query("delete from {$wpdb->prefix}postmeta where meta_key='__wpdmx_user_download_count'");
         die('ok');
     }
 
@@ -724,7 +725,7 @@ class Apply {
     }
 
 
-    function googleFont(){
+    static function googleFont(){
         $wpdmss = maybe_unserialize(get_option('__wpdm_disable_scripts', array()));
         $uicolors = maybe_unserialize(get_option('__wpdm_ui_colors', array()));
             ?>
@@ -760,11 +761,11 @@ class Apply {
                 }
             </style>
             <?php
-            $this->uiColors();
+            self::uiColors();
 
     }
 
-    function uiColors(){
+    static function uiColors(){
         $uicolors = maybe_unserialize(get_option('__wpdm_ui_colors', array()));
         $primary = isset($uicolors['primary'])?$uicolors['primary']:'#4a8eff';
         $secondary = isset($uicolors['secondary'])?$uicolors['secondary']:'#4a8eff';

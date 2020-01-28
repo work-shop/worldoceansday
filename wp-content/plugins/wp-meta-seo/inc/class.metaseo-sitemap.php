@@ -141,8 +141,8 @@ class MetaSeoSitemap
     public function getSitemapSettings()
     {
         $this->settings_sitemap = array(
-            'wpms_sitemap_add'           => 0,
-            'wpms_sitemap_root'          => 0,
+            'wpms_sitemap_add'           => 1,
+            'wpms_sitemap_root'          => 1,
             'wpms_sitemap_author'        => 0,
             'wpms_sitemap_taxonomies'    => array(),
             'wpms_category_link'         => array(),
@@ -346,25 +346,22 @@ class MetaSeoSitemap
                 '_',
                 str_replace('http://', '', str_replace('https://', '', ABSPATH))
             );
-            if ((int)$this->settings_sitemap['wpms_sitemap_root'] === 1) {
-                $value    = trim(ABSPATH, '/') . '/sitemap_' . $home_url . '.xml';
-                $link     = get_option('siteurl') . '/sitemap_' . $home_url . '.xml';
-            } else {
-                $value    = trim(ABSPATH, '/') . '/wpms-sitemap_' . $home_url . '.xml';
-                $link     = get_option('siteurl') . '/wpms-sitemap_' . $home_url . '.xml';
-            }
+            $value = ABSPATH . '/wpms-sitemap_' . $home_url . '.xml';
+            $link = get_option('siteurl') . '/wpms-sitemap_' . $home_url . '.xml';
         } else {
-            if ((int)$this->settings_sitemap['wpms_sitemap_root'] === 1) {
-                $value = trim(ABSPATH, '/') . '/' . $this->wpms_sitemap_default_name;
-                $link  = get_option('siteurl') . '/' . $this->wpms_sitemap_default_name;
-            } else {
-                $value = trim(ABSPATH, '/') . '/' . $this->wpms_sitemap_name;
-                $link  = get_option('siteurl') . '/' . $this->wpms_sitemap_name;
-            }
+            $value = ABSPATH . '/' . $this->wpms_sitemap_name;
+            $link = get_option('siteurl') . '/' . $this->wpms_sitemap_name;
         }
-        echo '<input readonly id="wpms_sitemap_link" name="_metaseo_settings_sitemap[wpms_sitemap_link]"
-         type="text" value="' . esc_attr($link) . '" size="50" class="wpms-large-input wpms-no-margin wpms_width_90" />';
-        echo '<a class="wpms-open-xml-sitemap ju-button orange-button waves-effect waves-light wpms-small-btn" href="' . esc_url($link) . '" target="_blank">' . esc_html__('Open', 'wp-meta-seo') . '</a>';
+
+        $refresh_install = false;
+        // Refresh install
+        if (!file_exists($value)) {
+            $refresh_install = true;
+        }
+
+        echo '<input readonly id="wpms_sitemap_link" name="_metaseo_settings_sitemap[wpms_sitemap_link]" 
+         type="text" value="' . esc_attr($link) . '" size="50" class="wpms-large-input wpms-no-margin wpms_width_90 '.($refresh_install ? 'wpms-sitemap-xml-link-input' : '').'" />';
+        echo '<a class="wpms-open-xml-sitemap ju-button orange-button waves-effect waves-light wpms-small-btn '.(($refresh_install) ? 'wpms-sitemap-xml-link-button' : '').'" href="' . esc_url($link) . '" target="_blank">' . (($refresh_install) ? esc_html__('Generate and Open', 'wp-meta-seo') : esc_html__('Open', 'wp-meta-seo')) . '</a>';
     }
 
     /**
@@ -2650,8 +2647,8 @@ ORDER BY p.post_date DESC', array($_POST['category_id'])));
 
         $settings_sitemap = get_option('_metaseo_settings_sitemap');
         $lists            = array(
-            'wpms_sitemap_add'           => 0,
-            'wpms_sitemap_root'          => 0,
+            'wpms_sitemap_add'           => 1,
+            'wpms_sitemap_root'          => 1,
             'wpms_sitemap_author'        => 0,
             'wpms_html_sitemap_page'     => 0,
             'wpms_html_sitemap_column'   => 1,

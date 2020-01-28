@@ -36,11 +36,11 @@ function stickyNav( config ) {
 			});	
 
 			setTimeout(function() {
-				window.requestAnimationFrame(checkNavPosition); 
+				//window.requestAnimationFrame(checkNavPosition); 
 			}, 200);
 
 			setTimeout(function() {
-				window.requestAnimationFrame(calculatePositions); 
+				//window.requestAnimationFrame(calculatePositions); 
 			}, 3000);
 
 		}
@@ -52,7 +52,9 @@ function stickyNav( config ) {
 
 function calculatePositions(){
 	stickyNavProperties.offset = stickyNavProperties.element.offset();
-	stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - 90;
+	stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.navHeight;
+	console.log('stickyNavProperties.offset.top: ' + stickyNavProperties.offset.top);
+	console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
 }
 
 

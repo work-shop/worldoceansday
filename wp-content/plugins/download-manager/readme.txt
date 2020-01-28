@@ -21,6 +21,7 @@ Also, you may use WordPress Download Manager as a complete e-Commerce Solution f
 *   Drag and Drop File Upload
 *   Chunk upload support to override http max upload limit
 *   Attach file directly from your server using server file browser
+*   Media library file protection
 *   Quick add panel with tinymce editor button to create and insert a download easily when you are editing a post or page
 *   Google Drive support to store your files in Google drive ( 15 GB of space for free)
 *   DropBox support to store your files in DropBox ( 2 GB of space for free )
@@ -158,25 +159,41 @@ Check download stats and get a push notification when someone downloads, install
 
 
 == Screenshots ==
-1. Create New
-2. Front-end link template preview
-3. Full tree view of categories and files with a simple short-code [wpdm_tree]
-4. Sortable and Searchable Download List , use short-code [wpdm_all_packages] to embed the list
-5. Settings Page
-6. Front-end preview for category short-code
-7. Password Protection
+1. Create new download
+2. Front-end link template previews
+3. Tree view
+4. Responsive datatable
+5. UI customizer
+6. Category short-code
+7. Password protection
 8. Asset Manager
 9. Preview & Edit Digital Assets
 10. Orders Page ( Admin )
 11. Order Details ( Admin )
-12. Invoice
-13. Video Player
-14. Shortcode Generator
-15. Quick Add Panel
-16. User Dashboard Login
-17. User Dashboard
+12. Media library protection
+13. Video player
+14. Gutenberg ready
+15. Lock options
+16. Login form
+17. User dashboard
+18. Server file browser
+19. More features
 
 == Changelog ==
+
+= 3.0.8 =
+* Fixed attached file path issue with the server file picker
+
+= 3.0.7 =
+* Added server file picker feature
+* Added media library file protection feature
+
+= 3.0.6 =
+* Added custom icon support for data table
+* Added new option to attach file from media library
+* Added audio player option
+* Added new link template with audio play button
+* Added new page template with audio player
 
 = 3.0.5 =
 * Improved asset manager

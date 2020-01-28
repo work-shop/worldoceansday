@@ -68,7 +68,9 @@ if (!empty($_REQUEST['_wp_http_referer'])) {
         </div>
 
         <?php
-        echo '<h1 class="wpms-top-h1">' . esc_html__('Link Editor', 'wp-meta-seo') . '</h1>';
+        echo '<h1 class="wpms-top-h1">' . esc_html__('Link Editor', 'wp-meta-seo') . '
+            <i class="material-icons intro-topic-tooltip" data-alt="'.esc_html__('This is the title added to hyperlinks in your content. While this is secondary in the SEO optimization process, you can still add smart content to your pages HTML', 'wp-meta-seo').'">help_outline</i>
+            </h1>';
         $metaseo_list_table->searchBox1();
         $metaseo_list_table->display();
         ?>

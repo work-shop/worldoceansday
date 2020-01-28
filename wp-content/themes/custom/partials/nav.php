@@ -2,8 +2,7 @@
 	<div class="nav-left">
 		<div id="logo" class="logo">
 			<a href="<?php echo bloginfo('url'); ?>" title="Home">
-				World Oceans Day
-				<?php //get_template_part('partials/logo'); ?>
+				<?php get_template_part('partials/logo'); ?>
 			</a>
 		</div>
 	</div>

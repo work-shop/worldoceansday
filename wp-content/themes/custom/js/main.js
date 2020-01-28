@@ -18,15 +18,20 @@ import { sitewideAlert } from './sitewide-alert.js';
 import { progressiveImages } from './progressive-images.js';
 import { vh } from './vh.js';
 import { livereload } from './livereload-client.js';
-//import { instantpage } from './instantpage.js';
+import { nav } from './nav.js';
+import { news } from './news.js';
+import { makeMap } from './map.js';
+import { scrollSpy } from './scroll-spy.js';
 
 //optional
-//import { stickyNav } from './sticky-nav.js';
+import { stickyNav } from './sticky-nav.js';
 import { dropdowns } from './dropdowns.js';
 import { menuToggle } from './menu-toggle.js';
 
+
 //must use 
-//instantpage();
+nav();
+scrollSpy(config.scrollSpy);
 livereload();
 loading(config.loading);
 linksNewtab(config.linksNewtab);
@@ -39,7 +44,16 @@ slickSlideshows(config.slickSlideshows);
 sitewideAlert();
 progressiveImages();
 vh();
+makeMap();
+stickyNav(config.stickyNav);
+
 
 //optional
 dropdowns(config.dropdowns);
 menuToggle(config.menuToggle);
+
+$(document).ready( function() {
+	if( $('body').hasClass('blog')){
+		news();
+	}
+});

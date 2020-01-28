@@ -1,0 +1,89 @@
+
+
+#current-council{
+
+	.person{
+		img{
+			display: block;
+			border-radius: 8px;
+		}
+	}
+
+	.person-text{
+		padding-left: 8px;
+	}
+
+	.person-name{
+		@extend .font-black;
+		color: $brand;
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+
+	.person-country{
+		color: $medium-light;
+		@extend .font-medium;
+		margin-top: -5px;
+	}
+
+	.modal-person{
+		padding-top: $nav-height-mobile;
+
+		@media screen and (max-width: $md) {
+			padding-top: $nav-height-mobile;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.person-image{
+			@media screen and (max-width: $md) {
+				max-width: 200px;
+				margin-bottom: 3em;
+			}
+		}
+
+		.person-name{
+			color: white;
+			margin-top: 0;
+		}
+
+		.person-country{
+			color: $light;
+			margin-bottom: 1em;
+		}
+
+		.person-link{
+			color: white;
+			text-decoration: underline;
+			font-size: 15px;
+
+			@media screen and (max-width: $lg) {
+				font-size: 14px;
+			}
+
+			@media screen and (max-width: $md) {
+				font-size: 13px;
+			}
+
+			@media screen and (max-width: $sm) {
+				font-size: 12px;
+			}
+		}
+
+		.person-bio{
+			margin-top: 3em;
+			color: white;
+		}
+
+	}
+}
+
+
+#alumni-map{
+	height: 50vh;
+
+	.ws-map{
+		height: inherit;
+		border-radius: 8px;
+	}
+}

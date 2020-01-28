@@ -3,9 +3,38 @@
 #footer{
 	position: relative;
 	z-index: 2;
+
+	.container-fluid{
+		@media screen and (max-width: 1440px) and (min-width: 1200px) {
+			padding-left: $container-fluid-padding*.6;
+			padding-right: $container-fluid-padding*.6;
+		}
+	}
 	
 	*{
 		color: white;
+	}
+
+	.footer-primary{
+		@media screen and (max-width: $md) {
+			margin-bottom: -1em;
+		}
+	}
+
+	.footer-col{
+		@media screen and (max-width: $md) {
+			margin-bottom: 4em;
+		}
+	}
+
+	.footer-heading{
+		@extend .font-bold;
+		a{
+			@extend .font-bold;
+		}
+		@media screen and (max-width: $md) {
+			margin-bottom: 1em;
+		}
 	}
 
 	ul{
@@ -14,6 +43,18 @@
 
 			a{
 				font-size: 17px;
+				@extend .font-medium;
+
+				@media screen and (max-width: $xl) {
+					font-size: 16px;
+				}
+				@media screen and (max-width: $lg) {
+					font-size: 15px;
+				}
+				@media screen and (max-width: $md) {
+					font-size: 14px;
+					padding: 5px 0px;
+				}
 			}
 		}
 	}
@@ -55,10 +96,50 @@
 
 			a{
 				text-transform: uppercase;
-				@extend .bold;
+				@extend .font-black;
 				padding: 15px;
 			}
 		}
+	}
+
+	#footer-subscribe-item{
+		margin-top: 2em;
+		//margin-bottom: 2em;
+
+		.subscribe-form-row{
+			@media screen and (max-width: $lg) {
+				display: block;
+			}
+			
+		}
+
+		input[type="email"]{
+			font-size: 13px;
+			border: 1px solid $light;
+			color: $dark;
+			@media screen and (max-width: $lg) {
+				display: block;
+				width: 100%;
+				border-radius: 50px;
+				max-width: 300px;
+			}
+		}
+
+		input[type="submit"]{
+			font-size: 12px;
+			width: 120px;
+			border: 1px solid $light;
+
+			@media screen and (max-width: $lg) {
+				margin: 1em auto;
+				border-radius: 50px;
+			}
+		}
+	}
+
+	.footer-subscribe-text{
+		font-size: 14px;
+		@extend .bold;
 	}
 
 }

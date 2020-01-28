@@ -1,7 +1,7 @@
 <div id="menus">
 	<?php if( have_rows('menus','option') ): ?>
 		<?php  while ( have_rows('menus','option') ) : the_row(); ?>
-			<menu id="menu-<?php the_sub_field('menu_slug'); ?>" class="menu menu-dropdown off" data-dropdown="<?php the_sub_field('menu_slug'); ?>" >
+			<menu id="menu-<?php the_sub_field('menu_slug'); ?>" class="menu menu-dropdown mobile-menu-closed off" data-dropdown="<?php the_sub_field('menu_slug'); ?>" >
 				<div class="menu-title">
 					<?php $link = get_sub_field('menu_title'); ?>
 					<?php if( $link ): ?>
@@ -17,7 +17,7 @@
 								<h3 class="">
 									<?php $link = get_sub_field('menu_column_1_heading'); ?>
 									<?php if( $link ): ?>
-										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-title-link">
+										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-heading-link">
 											<?php echo $link['title']; ?>
 										</a>
 									<?php endif; ?>
@@ -47,7 +47,7 @@
 								<h3 class="">
 									<?php $link = get_sub_field('menu_column_2_heading'); ?>
 									<?php if( $link ): ?>
-										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-title-link">
+										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-heading-link">
 											<?php echo $link['title']; ?>
 										</a>
 									<?php endif; ?>
@@ -95,6 +95,22 @@
 				</div>
 			</menu>				
 		<?php endwhile; ?>
+		<?php if( have_rows('secondary_navigation_buttons','option') ): ?>
+			<div class="mobile-menu-secondary">
+				<ul class="mobile-menu-secondary-links">
+					<?php  while ( have_rows('secondary_navigation_buttons','option') ) : the_row(); ?>
+						<li class="mobile-menu-secondary-link">
+							<?php $link = get_sub_field('link'); ?>
+							<?php if( $link ): ?>
+								<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-link">
+									<?php echo $link['title']; ?>
+								</a>
+							<?php endif; ?>
+						</li>
+					<?php endwhile; ?>
+				</ul>
+			</div>
+		<?php endif; ?>
 	<?php endif; ?>
 	<div id="blanket-dropdown" class="dropdown-close"></div>
 </div>

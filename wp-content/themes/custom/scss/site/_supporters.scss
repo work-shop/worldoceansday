@@ -1,0 +1,129 @@
+
+.supporters-stories{
+
+	.supporters-stories-home{
+		height: 100%;
+	}
+
+	.slick-track{
+		display: flex;
+	}
+
+	.slick-slide{
+		height: auto;
+
+		> div{
+			height: 100%;
+		}
+	}
+
+	.slide{
+		height: 100%;
+	}
+
+	.slick-arrow{
+		left: -42px;
+
+		&:after{
+			color: $dark;
+			font-size: 70px;
+		}
+
+		@media screen and (max-width: $sm) {
+			left: -23px;
+
+			&:after{
+				font-size: 40px;
+			}
+		}
+
+		&.slick-next{
+			left: auto;
+			right: -42px;
+
+			@media screen and (max-width: $sm) {
+				right: -23px;
+			}
+		}
+
+	}
+}
+
+
+
+.supporter-story{
+	display: flex;
+	border-radius: 8px;
+	overflow: hidden;
+	height: 100%;
+
+	@media screen and (max-width: $sm) {
+		display: block;
+		height: auto;
+	}
+
+	.card-supporter-image{
+		background-size: cover;
+		height: 100%;
+		background-position: center center;
+		flex: 0 0 39%;
+
+		@media screen and (max-width: $sm) {
+			height: 30vh;
+			//flex: 0 0 100%;
+			//height: 250px;
+		}
+	}
+
+	.card-supporter-text{
+		background: $tan;
+		padding: 50px;
+		flex: 0 0 61%;
+		display: flex;
+		@extend .align-items-center;
+
+		@media screen and (max-width: $lg) {
+			padding: 40px;
+		}
+
+		@media screen and (max-width: $md) {
+			padding: 30px;
+			height: 100%;
+		}
+
+		@media screen and (max-width: $md) {
+			padding: 20px;
+		}
+	}
+
+
+	.card-supporter-logo{
+		display: block;
+		margin-bottom: 35px;
+
+		@media screen and (max-width: $md) {
+			margin-bottom: 1.5em;
+		}
+
+		img{
+			width: 100px;
+			@media screen and (max-width: $sm) {
+				width: 50px;
+			}
+		}
+	}
+
+	.card-supporter-title{
+		margin-bottom: 35px;
+		font-size: 22px;
+		width: 100%;
+
+		@media screen and (max-width: $md) {
+			margin-bottom: 1.5em;
+		}
+	}
+
+	.card-supporter-button{
+	}
+
+}

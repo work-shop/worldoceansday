@@ -46,6 +46,8 @@ if(!class_exists('AssetManager')):
 
             add_action('init',array($this,'download'),1);
 
+            add_action('init',array($this,'assetPicker'),1);
+
             //add_action('wp_ajax_wpdm_fm_file_upload', array($this,'uploadFile'));
             add_action('wp_ajax_wpdm_mkdir', array($this,'mkDir'));
             add_action('wp_ajax_wpdm_newfile', array($this,'newFile'));
@@ -102,6 +104,15 @@ if(!class_exists('AssetManager')):
             wp_enqueue_script('jquery-ui-core');
             wp_enqueue_script('jquery-ui-autocomplete');
 
+        }
+
+        function assetPicker(){
+            global $wp_query;
+            if(wpdm_query_var('assetpicker', 'int') === 1) {
+                http_response_code(200);
+                include WPDM_BASE_DIR.'admin/tpls/asset-manager-picker.php';;
+                die();
+            }
         }
 
         public function download(){
@@ -197,7 +208,7 @@ if(!class_exists('AssetManager')):
                 }
                 else {
                     $contenttype = function_exists('mime_content_type') ? mime_content_type($path.$item) : self::mime_type($path.$item);
-                    $_items[] = array('item_label' => $item_label, 'item' => $item, 'icon' => $icon, 'type' => $type, 'contenttype' => $contenttype, 'note' => $note, 'path' => $_rpath, 'id' => md5($rpath));
+                    $_items[] = array('item_label' => $item_label, 'item' => $item, 'icon' => $icon, 'type' => $type, 'contenttype' => $contenttype, 'note' => $note, 'path' => $_rpath, 'path_on' => $path.$item, 'id' => md5($rpath));
                 }
 
             }
@@ -214,7 +225,7 @@ if(!class_exists('AssetManager')):
                 $rpath = Crypt::encrypt(implode("/", $topath));
                 $breadcrumb[] = "<a href='#' class='media-folder' data-path='{$rpath}'>".esc_attr($part)."</a>";
             }
-            $breadcrumb = implode("<i class='dashicons dashicons-arrow-right-alt2' style='font-size: 11px;line-height: 17px;'></i>", $breadcrumb);
+            $breadcrumb = implode("<i class='fa fa-folder-open'></i>", $breadcrumb);
             if((int)wpdm_query_var('dirs') === 1)
                 wp_send_json($_dirs);
             else

@@ -1115,7 +1115,7 @@ class MetaSeoImageListTable extends WP_List_Table
                                                 <?php
                                                 if ($has_block) {
                                                     echo '<i class="material-icons wpms-material-icons-gutenberg label-dash-widgets"
-                             data-alt="'.esc_attr__('We can\'t update this link title because it\'s in a Gutenberg block and it has no alt/title attribute', 'wp-meta-seo').'">info</i>';
+                             data-alt="'.esc_attr__('We can\'t update this link title because it\'s in Gutenberg block and does not have any title attribute', 'wp-meta-seo').'">info</i>';
                                                 }
                                                 ?>
                                             </div>

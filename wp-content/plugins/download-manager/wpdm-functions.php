@@ -625,7 +625,7 @@ function wpdm_sanitize_var($value, $sanitize = 'kses'){
 
 function wpdm_category($params)
 {
-    $params['order_field'] = isset($params['order_by'])?$params['order_by']:'publish_date';
+    $params['order_field'] = isset($params['order_by'])?$params['order_by']:'date';
     unset($params['order_by']);
     if (isset($params['item_per_page']) && !isset($params['items_per_page'])) $params['items_per_page'] = $params['item_per_page'];
     unset($params['item_per_page']);
@@ -650,8 +650,9 @@ function wpdm_page_links($urltemplate, $total, $page = 1, $items_per_page = 10)
 }
 
 
-function wpdm_embed_category($params = array('id' => '', 'operator' => 'IN' , 'items_per_page' => 10, 'title' => false, 'desc' => false, 'order_field' => 'create_date', 'order' => 'desc', 'paging' => false, 'toolbar' => 1, 'template' => '','cols'=>3, 'colspad'=>2, 'colsphone' => 1))
+function wpdm_embed_category($params = array('id' => '', 'operator' => 'IN' , 'items_per_page' => 10, 'title' => false, 'desc' => false, 'order_field' => 'date', 'order' => 'desc', 'paging' => false, 'toolbar' => 1, 'template' => '','cols'=>3, 'colspad'=>2, 'colsphone' => 1))
 {
+    //die("<pre>".print_r($params, 1));
     extract($params);
     $fnparams = $params;
     if(!isset($id) || $id =="") return;
@@ -672,7 +673,7 @@ function wpdm_embed_category($params = array('id' => '', 'operator' => 'IN' , 'i
 
     global $wpdb, $current_user, $post, $wp_query;
 
-    $order_field = isset($order_field) ? $order_field : 'publish_date';
+    $order_field = isset($order_field) ? $order_field : 'date';
     $order_field = isset($_GET['orderby']) ? esc_attr($_GET['orderby']) : $order_field;
     $order = isset($order) ? $order : 'desc';
     $order = isset($_GET['order']) ?esc_attr( $_GET['order']) : $order;
@@ -796,7 +797,7 @@ function wpdm_embed_category($params = array('id' => '', 'operator' => 'IN' , 'i
     $burl = $burl . $sap;
     if (isset($_GET['p']) && $_GET['p'] != '') $burl .= 'p=' . esc_attr($_GET['p']) . '&';
     if (isset($_GET['src']) && $_GET['src'] != '') $burl .= 'src=' . esc_attr($_GET['src']) . '&';
-    $orderby = isset($_GET['orderby']) ? esc_attr($_GET['orderby']) : 'create_date';
+    $orderby = isset($_GET['orderby']) ? esc_attr($_GET['orderby']) : 'date';
     $order = ucfirst($order);
     $order_field = " " . __(ucwords(str_replace("_", " ", $order_field)),'download-manager');
     $ttitle = __('Title','download-manager');
@@ -828,7 +829,7 @@ function wpdm_embed_category($params = array('id' => '', 'operator' => 'IN' , 'i
                    <div class="panel-footer">
                    
                    <div class="btn-group btn-group-sm pull-right"><button type="button" class="btn btn-primary" disabled="disabled">{$ord} &nbsp;</button><a class="btn btn-primary" href="{$burl}orderby={$orderby}&order=asc">{$tasc}</a><a class="btn btn-primary" href="{$burl}orderby={$orderby}&order=desc">{$tdsc}</a></div>                         
-                   <div class="btn-group btn-group-sm"><button type="button" class="btn btn-info" disabled="disabled">{$order_by_label} &nbsp;</button><a class="btn btn-info" href="{$burl}orderby=title&order=asc">{$ttitle}</a><a class="btn btn-info" href="{$burl}orderby=publish_date&order=desc">{$tcdate}</a></div>                         
+                   <div class="btn-group btn-group-sm"><button type="button" class="btn btn-info" disabled="disabled">{$order_by_label} &nbsp;</button><a class="btn btn-info" href="{$burl}orderby=title&order=asc">{$ttitle}</a><a class="btn btn-info" href="{$burl}orderby=date&order=desc">{$tcdate}</a></div>                         
                     
                    </div>
                    </div>
@@ -840,7 +841,7 @@ TBR;
                                   <div class="pull-left label label-primary label-wpdm-categroy" style="font-size: 16px;padding: 7px 15px;border-radius: 2px">$cats</div>
                                <div class="media-body text-right">
                                  <div class="btn-group btn-group-sm" style="margin-right: 5px"><button type="button" class="btn btn-light" disabled="disabled">{$ord} &nbsp;</button><a class="btn btn-light" href="{$burl}orderby={$orderby}&order=asc">{$tasc}</a><a class="btn btn-light" href="{$burl}orderby={$orderby}&order=desc">{$tdsc}</a></div>                         
-                                 <div class="btn-group btn-group-sm"><button type="button" class="btn btn-light" disabled="disabled">{$order_by_label} &nbsp;</button><a class="btn btn-light" href="{$burl}orderby=title&order=asc">{$ttitle}</a><a class="btn btn-light" href="{$burl}orderby=publish_date&order=desc">{$tcdate}</a></div>                                                               
+                                 <div class="btn-group btn-group-sm"><button type="button" class="btn btn-light" disabled="disabled">{$order_by_label} &nbsp;</button><a class="btn btn-light" href="{$burl}orderby=title&order=asc">{$ttitle}</a><a class="btn btn-light" href="{$burl}orderby=date&order=desc">{$tcdate}</a></div>                                                               
                                </div>
                    </div>
                    
@@ -1572,7 +1573,7 @@ function wpdm_user_logged_in($msg){
  * @return string
  */
 function wpdm_tpl_path1($file, $tpldir = ''){
-    if(file_exists(get_stylesheet_directory().'/download-manager/'.$file)) 
+    if(file_exists(get_stylesheet_directory().'/download-manager/'.$file))
         $path = get_stylesheet_directory().'/download-manager/'.$file;
     else if(file_exists(get_template_directory().'/download-manager/'.$file))
         $path = get_template_directory().'/download-manager/'.$file;
@@ -1765,7 +1766,7 @@ function wpdm_total_views($uid = null){
  * @param string $var
  * @return string
  */
-function wpdm_paginate_links($total, $items_per_page, $page = 1, $var = 'cp', $params = array()){
+function wpdm_paginate_links($total, $items_per_page, $current_page = 1, $var = 'cp', $params = array()){
 
     $pages = ceil($total/$items_per_page);
 
@@ -1773,7 +1774,7 @@ function wpdm_paginate_links($total, $items_per_page, $page = 1, $var = 'cp', $p
         //'base'               => '%_%',
         'format'             => "?{$var}=%#%",
         'total'              => $pages,
-        'current'            => $page,
+        'current'            => $current_page,
         //'show_all'           => false,
         //'end_size'           => 2,
         //'mid_size'           => 1,

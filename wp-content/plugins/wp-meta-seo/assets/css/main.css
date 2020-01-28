@@ -140,6 +140,7 @@
     color: #404852;
     font-family: 'Roboto', sans-serif;
     vertical-align: middle;
+    min-width: 100px;
 }
 
 .ju-main-wrapper select,
@@ -959,9 +960,14 @@
 
 .wp-meta-seo_page_metaseo_google_analytics #ga_dash_code,
 .wp-meta-seo_page_metaseo_google_analytics #wpms_ga_uax_reference,
-.wp-meta-seo_page_metaseo_google_analytics .wpmsga_code_tracking
+.wp-meta-seo_page_metaseo_google_analytics .wpmsga_code_tracking,
+.wp-meta-seo_page_metaseo_google_analytics #wpmsga_dash_tracking_type
 {
     width: 100%;
+}
+
+.wp-meta-seo_page_metaseo_google_analytics #wpmsga_dash_tracking_type {
+    max-width: unset;
 }
 
 .wp-meta-seo_page_metaseo_google_analytics #wpmsga-basic .ju-settings-option {
@@ -1056,3 +1062,8 @@
     }
 }
 
+.intro-topic-tooltip {
+    font-size: 30px;
+    cursor: default;
+    vertical-align: middle;
+}

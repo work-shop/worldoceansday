@@ -28,15 +28,13 @@
                 <label class="ju-setting-label"><?php esc_html_e('Client ID', 'wp-meta-seo') ?></label>
                 <div class="ju-switch-button">
                     <input type="text" name="wpmsga_dash_clientid" class="wpms-large-input wpmsga_dash_input" size="60"
-                           required
                            value="<?php echo esc_attr((!empty($this->google_alanytics['wpmsga_dash_clientid'])) ? $this->google_alanytics['wpmsga_dash_clientid'] : '') ?>">
                 </div>
             </div>
             <div class="wpms_row_full">
                 <label class="ju-setting-label"><?php esc_html_e('Client Secret', 'wp-meta-seo') ?></label>
                 <div class="ju-switch-button">
-                    <input type="text" name="wpmsga_dash_clientsecret" class="wpms-large-input wpmsga_dash_input"
-                           size="60" required
+                    <input type="text" name="wpmsga_dash_clientsecret" class="wpms-large-input wpmsga_dash_input" size="60"
                            value="<?php echo esc_attr((!empty($this->google_alanytics['wpmsga_dash_clientsecret'])) ? $this->google_alanytics['wpmsga_dash_clientsecret'] : '') ?>">
                 </div>
             </div>

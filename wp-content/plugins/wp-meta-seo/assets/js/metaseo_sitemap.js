@@ -1,5 +1,18 @@
 (function ($) {
+    $.fn.hScroll = function (amount) {
+        amount = amount || 120;
+        $(this).bind("DOMMouseScroll mousewheel", function (event) {
+            var oEvent = event.originalEvent,
+                direction = oEvent.detail ? oEvent.detail * -amount : oEvent.wheelDelta,
+                position = $(this).scrollLeft();
+            position += direction > 0 ? -amount : amount;
+            $(this).scrollLeft(position);
+            event.preventDefault();
+        })
+    };
+
     $(document).ready(function () {
+        $('.ju-horizontal-tabs').hScroll(60);
 
         $('.open-popup-posts-list').magnificPopup({
             type:'inline',
@@ -126,10 +139,17 @@
             wpms_save_create_sitemaps();
         });
 
+        $('.wpms-sitemap-xml-link-button').on('click', function (e) {
+            e.preventDefault();
+
+            var link_sitemap = $(this).attr('href');
+            wpms_save_create_sitemaps(link_sitemap);
+        });
+
         /**
          * Create sitemap
          */
-        var wpms_save_create_sitemaps = function () {
+        var wpms_save_create_sitemaps = function (link_sitemap) {
             // show spinner
             $('.spinner_save_sitemaps').css({'visibility': 'visible'}).show();
             var posts = {}, pages = {}, menus = {}, customUrl = {} ,taxonomies = [], columns_menu = {}, wpms_category_link = [], check_all_menu_items = [];
@@ -275,7 +295,7 @@
                 dataType: 'json',
                 data: datas,
                 success: function () {
-                    wpms_regen_sitemaps();
+                    wpms_regen_sitemaps(link_sitemap);
                 }
             });
         };
@@ -283,7 +303,7 @@
         /**
          * Generate sitemaps
          */
-        var wpms_regen_sitemaps = function () {
+        var wpms_regen_sitemaps = function (link_sitemap) {
             $.ajax({
                 url: ajaxurl,
                 method: 'POST',
@@ -294,6 +314,11 @@
                 success: function () {
                     $('.spinner_save_sitemaps').hide();
                     $('.div_wpms_save_sitemaps .msg-success').fadeIn(100).delay(1000).fadeOut(3000);
+
+                    if (typeof link_sitemap !== 'undefined') {
+                        window.open(link_sitemap, '_blank');
+                        window.location.reload();
+                    }
                 }
             });
         };
@@ -339,6 +364,8 @@
             } else {
                 $('.' + category).prop('checked', false);
             }
+            // Create sitemap automatic
+            wpms_save_create_sitemaps();
         });
 
         // check all
@@ -351,16 +378,8 @@
                 $('.cb_sitemaps_' + type).prop('checked', false);
                 $('.check_all_menu_items').prop('checked', false);
             }
-        });
-
-        // check all
-        $('.sitemap_check_all_posts_in_page').on('click', function () {
-            var type = $(this).data('type');
-            if ($(this).is(':checked')) {
-                $('.wpms_row').not('.jp-hidden').find('.cb_sitemaps_' + type).prop('checked', true);
-            } else {
-                $('.wpms_row').not('.jp-hidden').find('.cb_sitemaps_' + type).prop('checked', false);
-            }
+            // Create sitemap automatic
+            wpms_save_create_sitemaps();
         });
 
         // Add custom url

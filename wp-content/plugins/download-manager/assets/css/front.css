@@ -136,6 +136,8 @@
 
 .w3eden .wpdm_icon {
     box-shadow: none;
+    min-width: 48px;
+    width: 48px;
 }
 
 .w3eden a.btn {
@@ -2575,7 +2577,19 @@ i.udbsap{
         display: none;
     }
 }
-
+@media (max-width: 450px) {
+    .w3eden .media.stack-xs{
+        display: block;
+    }
+    .w3eden .media.stack-xs .wpdmdl-btn{
+        margin: 15px 0 0 !important;
+        display: block;
+    }
+    .w3eden .media.stack-xs .wpdmdl-btn .btn{
+        display: block;
+        width: 100%;
+    }
+}
 .link-template-default .package-title {
     margin: 0;
     font-size: 11pt;
@@ -2600,8 +2614,10 @@ i.udbsap{
     cursor: pointer;
 }
 .wpdm_icon,
+.w3eden .img-48,
 .w3eden .img-48 img{
     width: 48px;
+    box-shadow: none;
     max-width: 48px;
     height: auto;
     padding: 0;

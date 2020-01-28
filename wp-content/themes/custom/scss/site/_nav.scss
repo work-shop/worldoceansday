@@ -51,20 +51,22 @@ $text-nav: (
 
 		#logo{
 			//border: 1px solid green;
-			padding-top: 60px;
+			padding-top: 15px;
+			width: 177px;
 
 			@media screen and (max-width: $xl) {
-				padding-top: 65px;
+				//padding-top: 65px;
 			}
 
 			@media screen and (max-width: $md) {
-				padding-top: 30px;
-				width: 150px;
+				padding-top: 10px;
+				width: 103px;
 			}
 
 			a{
 				font-weight: bold;
 				color: white;
+				display: block;
 
 				@media screen and (max-width: $xl) {
 					font-size: 15px;
@@ -81,7 +83,7 @@ $text-nav: (
 			//border: 1px solid blue;
 			height: 50px;
 			text-align: right;
-			padding-top: 13px;
+			padding-top: 10px;
 
 			@media screen and (max-width: $md) {
 				display: none;
@@ -117,7 +119,7 @@ $text-nav: (
 			//border: 1px solid red;
 			height: $nav-height - 50px;
 			text-align: right;
-			padding-top: 15px;
+			padding-top: 7px;
 
 			@media screen and (max-width: $md) {
 				display: none;
@@ -377,7 +379,7 @@ $text-nav: (
 	display: none;
 	position: fixed;
 	right: 15px;
-	top: 12px;
+	top: 0px;
 	height: 40px;
 	width: 28px;
 	z-index: 10;

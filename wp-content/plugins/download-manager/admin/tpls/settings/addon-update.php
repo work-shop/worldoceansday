@@ -64,8 +64,9 @@
                         <tbody>
                         <?php
                         $latest = maybe_unserialize(get_option('wpdm_latest'));
+                        $latest = !is_array($latest) ? (array)json_decode($latest):$latest;
 
-                        if(is_array($purchased_items)){
+                        if(isset($purchased_items) && is_array($purchased_items)){
                             foreach($purchased_items as $item){
                                 if(isset($item->download_url)){
                                     foreach($item->download_url as $file => $dlu){

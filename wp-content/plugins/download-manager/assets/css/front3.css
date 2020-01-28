@@ -3285,6 +3285,19 @@ i.udbsap{
     font-size: 11pt;
     line-height: 24px;
 }
+@media (max-width: 450px) {
+    .w3eden .media.stack-xs{
+        display: block;
+    }
+    .w3eden .media.stack-xs .wpdmdl-btn{
+        margin: 15px 0 0 !important;
+        display: block;
+    }
+    .w3eden .media.stack-xs .wpdmdl-btn .btn{
+        display: block;
+        width: 100%;
+    }
+}
 .w3eden .link-template-default.thumbnail{
     padding: 10px;
 }

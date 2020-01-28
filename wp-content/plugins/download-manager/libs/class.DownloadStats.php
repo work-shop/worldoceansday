@@ -32,7 +32,7 @@ class DownloadStats{
         else {
             $index = str_replace(".", "_", $_SERVER['REMOTE_ADDR']);
         }
-        $udl["{$index}"] = isset($udl["{$index}"])?(int)$udl["{$index}"]+1:1;
+        $udl["{$index}"] = isset($udl["{$index}"]) && $udl["{$index}"] > 0?(int)$udl["{$index}"]+1:1;
         update_post_meta($pid, '__wpdmx_user_download_count', $udl);
         //setcookie('downloaded_'.$pid,  $ip, 1800);
         if($ip == '') $ip = uniqid();

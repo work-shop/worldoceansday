@@ -2,7 +2,8 @@
 <div class="page-template-default wpdm-page-template">
     <div class="row">
         <div class="col-md-12">
-            [thumb_900x0]
+            [featured_image]
+            [audio_player]
         </div>
         <div class="col-md-12"><br/>
             <table class="table table-striped">

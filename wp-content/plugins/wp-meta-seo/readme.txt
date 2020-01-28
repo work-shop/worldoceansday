@@ -1,9 +1,9 @@
 === WP Meta SEO ===
 Contributors: JoomUnited
 Tags: google, webmaster tools, keywords, meta, meta description, meta keywords, meta title, robots meta, search engine optimization, seo, wordpress seo, yahoo, image optimization, image resize, custom post seo, redirect, redirection, 301, broken link
-Requires at least: 4.0
-Tested up to: 5.3.0
-Stable tag: 4.1.0
+Requires at least: 4.7
+Tested up to: 5.3.2
+Stable tag: 4.2.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,6 +25,7 @@ WP Meta SEO gives you the control over all your SEO optimization. Bulk SEO conte
 * Facebook and Twitter social sharing custom elements per content
 * Breadcrumb generator
 * Gutenberg SEO content checker
+* Canonical URL management for post, pages... and categories
 
 
 ## WP Meta SEO Addon plugin (optional), additional search engine optimization
@@ -253,10 +254,20 @@ Yes WP Meta SEO is compatible with Gutenberg editor since 3.7 version.
 1. Bulk image SEO content edition: title, description, alt, legend text
 1. Image resized in HTML (with handles) is automatically detected and can be resized
 1. 404 and redirect tool + broken link checker
-1. 404 automatic redirection and 404 page customization
+1. Google Search Console integration: Google keyword suggestions
 1. Google Analytics integration with all main information and view selection
 
 == Changelog ==
+
+= 4.2.1 =
+ * Fix : Translation sharing issue in some browsers
+
+= 4.2.0 =
+ * Add : Description on admin on each WPMS topic
+ * Add : Generate automatically a sitemap before the first configuration
+ * Fix : Edit some styles and tooltips
+ * Fix : Conflict with other tabs in metabox
+ * Fix : Some minor errors in the sitemap page
 
 = 4.1.0 =
  * Add : Force a Canonical URL per content (post, page...) or category

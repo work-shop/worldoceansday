@@ -3,6 +3,7 @@
     <div class="col-md-12">
         <div class="card mb-3 p-3">
             [featured_image]
+            [audio_player]
         </div>
     </div>
     <div class="col-md-5">

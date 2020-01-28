@@ -244,6 +244,7 @@ if(isset($params['jstable']) && $params['jstable']==1):
                     $ext = plugins_url("download-manager/assets/file-type-icons/".$ext);
                 else
                     $ext = plugins_url("download-manager/assets/file-type-icons/unknown.svg");
+                if(isset($data['icon']) && $data['icon'] !== '') $ext = $data['icon'];
                 $data['download_url'] = '';
                 $data['download_link'] = \WPDM\Package::downloadLink($data['ID'], 0, array('template_type' => 'link'));//DownloadLink($data, 0);
                 $data = apply_filters("wpdm_after_prepare_package_data", $data);

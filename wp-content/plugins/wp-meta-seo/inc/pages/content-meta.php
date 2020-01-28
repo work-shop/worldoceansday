@@ -60,7 +60,9 @@ if (!empty($_REQUEST['_wp_http_referer'])) {
             <label class="bulk-msg"><?php esc_html_e('Done! You may ', 'wp-meta-seo') ?><a href="<?php echo esc_url(admin_url('admin.php?page=metaseo_content_meta')) ?>"><?php esc_html_e('close the window and refresh the page...', 'wp-meta-seo') ?></a></label>
         </div>
         <?php
-        echo '<h1 class="wpms-top-h1">' . esc_html__('Content Meta', 'wp-meta-seo') . '</h1>';
+        echo '<h1 class="wpms-top-h1">' . esc_html__('Content Meta', 'wp-meta-seo') . '
+                <i class="material-icons intro-topic-tooltip" data-alt="'.esc_html__('Edit all your website meta informations here  and apply bulk edition on them', 'wp-meta-seo').'">help_outline</i>
+            </h1>';
         $metaseo_list_table->searchBox(esc_html__('Search Posts', 'wp-meta-seo'), 'wpms_content');
         $metaseo_list_table->display();
         ?>

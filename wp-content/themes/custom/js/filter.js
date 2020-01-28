@@ -1,7 +1,7 @@
 'use strict';
 
 function filter() {
-	//console.log('filter.js loaded');
+	console.log('filter.js loaded');
 
 	var categoryFiltered = false;
 	var categoryFilteredCurrent = 'all';
@@ -45,7 +45,7 @@ function filter() {
 
 
 	function filterCategories(filterClass) {
-		//console.log('filterCategories: ' + filterClass);
+		console.log('filterCategories: ' + filterClass);
 		clearFilterMessages();
 
 		if( filterClass !== 'all'){
@@ -63,13 +63,13 @@ function filter() {
 
 
 	function getElementsByCategory( elements, filterClass ){
-		//console.log('getElementsByCategory with filterClass: ' + filterClass);
+		console.log('getElementsByCategory with filterClass: ' + filterClass);
 		var newElements = [];
 
 		$.each(elements, function(index, val) {
 			var element = $(val);
 			if( element.hasClass(filterClass) || filterClass === 'all' ){
-				////console.log(element);
+				//console.log(element);
 				newElements.push(element);
 			}
 		});
@@ -79,7 +79,7 @@ function filter() {
 
 
 	function updateElements(newElements){
-		//console.log('updateElements');
+		console.log('updateElements');
 		var elementsFound = false;
 		hideElements();
 
@@ -90,7 +90,7 @@ function filter() {
 		});
 
 		if( !elementsFound ){
-			//console.log('no elements found');
+			console.log('no elements found');
 			$('#filter-messages').addClass('filter-show');
 		}
 	}

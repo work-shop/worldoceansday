@@ -1,0 +1,11 @@
+### 1.2 | 2019-11-27
+- Fixed an issue where submissions may fail to be sent to Constant Contact because of an authentication error.
+
+
+### 1.1 | 2019-08-06
+- Fixed a PHP fatal error which could occur on the feed settings page if a WP_Error was returned when getting the custom fields.
+- Fixed a PHP error which could occur when using the http_request_timeout filter with WP 5.1+.
+
+
+### 1.0 | 2019-03-11
+- It's all new!

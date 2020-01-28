@@ -4,7 +4,7 @@ defined('ABSPATH') || die('No direct script access allowed!');
 ?>
 <div id="menu_source_pages" class="wpms_source wpms_source_pages content-box">
     <h1 class="h1_top"><?php esc_html_e('Source : Page', 'wp-meta-seo') ?></h1>
-    <div class="ju-settings-option">
+    <div class="ju-settings-option wpms_single_row">
         <div class="wpms_row_full">
             <label class="ju-setting-label text" data-alt="<?php echo esc_attr('Include all elements in the sitemap', 'wp-meta-seo') ?>">
                 <?php esc_html_e('Check all pages', 'wp-meta-seo') ?>
@@ -12,21 +12,6 @@ defined('ABSPATH') || die('No direct script access allowed!');
             <div class="ju-switch-button">
                 <label class="switch">
                     <input type="checkbox" class="sitemap_check_all" data-type="pages" id="wpms_check_all_pages"
-                           value="1">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <div class="ju-settings-option">
-        <div class="wpms_row_full">
-            <label class="ju-setting-label text">
-                <?php esc_html_e('Check all pages in current page', 'wp-meta-seo') ?>
-            </label>
-            <div class="ju-switch-button">
-                <label class="switch">
-                    <input type="checkbox" class="sitemap_check_all_posts_in_page" data-type="pages" id="wpms_check_all_posts_in_page_pages"
                            value="1">
                     <span class="slider round"></span>
                 </label>
