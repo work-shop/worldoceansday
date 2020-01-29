@@ -58,15 +58,15 @@
 		width: 50px;
 		height: 100px;
 		line-height: 100px;
-		font-size: 90px;
-		color: white;
+		font-size: 70px;
+		color: $dark;
 		text-align: center;
 
 		@media screen and (max-width: $md) {
 			width: 30px;
 			height: 80px;
 			line-height: 80px;
-			font-size: 60px;
+			font-size: 50px;
 		}			
 	}
 

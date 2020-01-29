@@ -64,5 +64,4 @@ if( $section_id == NULL || $section_id == false ){
 			</div>	
 		</div>
 	<?php endif; ?>
-</div>
 </section>

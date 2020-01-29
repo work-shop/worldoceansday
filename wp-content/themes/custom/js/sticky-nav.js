@@ -53,8 +53,8 @@ function stickyNav( config ) {
 function calculatePositions(){
 	stickyNavProperties.offset = stickyNavProperties.element.offset();
 	stickyNavProperties.triggerPosition = stickyNavProperties.offset.top - stickyNavProperties.navHeight;
-	console.log('stickyNavProperties.offset.top: ' + stickyNavProperties.offset.top);
-	console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
+	//console.log('stickyNavProperties.offset.top: ' + stickyNavProperties.offset.top);
+	//console.log('stickyNavProperties.triggerPosition: ' + stickyNavProperties.triggerPosition);
 }
 
 

@@ -57,6 +57,10 @@
 	overflow: hidden;
 	height: 100%;
 
+	&:hover{
+		@extend .shadowed;
+	}
+
 	@media screen and (max-width: $sm) {
 		display: block;
 		height: auto;
@@ -67,6 +71,8 @@
 		height: 100%;
 		background-position: center center;
 		flex: 0 0 39%;
+
+
 
 		@media screen and (max-width: $sm) {
 			height: 30vh;
@@ -126,4 +132,47 @@
 	.card-supporter-button{
 	}
 
+}
+
+
+.partner-network-list{
+	height: 55vh;
+	overflow: scroll;
+	box-shadow: inset 0px 1px 3px 1px transparentize($dark, .7);
+	border-radius: 8px;
+	background: white;
+
+	.wysiwyg{
+		padding: 30px 15px 30px 15px;
+		columns: 5;
+		column-gap: 70px;
+
+		@media screen and (max-width: $lg) {
+			columns: 4;
+		}
+
+		@media screen and (max-width: $md) {
+			columns: 3;
+		}
+
+		@media screen and (max-width: $sm) {
+			columns: 2;
+			column-gap: 40px;
+			padding: 30px 5px;
+		}
+
+		a{
+			font-size: 13px;
+			@extend .font-medium;
+			@extend .brand;
+			line-height: 1.4;
+			display: inline-block;
+			margin-bottom: 1em;
+
+			@media screen and (max-width: $md) {
+				font-size: 9px;
+				margin-bottom: .7em;
+			}
+		}
+	}
 }

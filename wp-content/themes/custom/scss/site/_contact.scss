@@ -1,0 +1,43 @@
+
+
+.page-id-85{
+	
+}
+
+#contact-intro{
+	.block-background{
+		&:after{
+			background: transparentize($brand, .2);
+		}
+	}
+}
+
+
+.contact-left,.contact-right{
+	*{
+		color: white;
+	}
+
+	a:hover{
+		color: white;
+	}
+
+	h3{
+		margin-top: 0;
+	}
+}
+
+.contact-right-social-media{
+	a{
+		display: inline-block;
+		padding-right: 12px;
+		margin-right: 0;
+
+		img{
+			width: 21px;
+			@media screen and (max-width: $sm) {
+				width: 20px;
+			}
+		}
+	}
+}

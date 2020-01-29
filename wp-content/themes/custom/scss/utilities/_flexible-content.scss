@@ -621,7 +621,7 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 			padding: 15px 30px 0px 30px;
 
 			@media screen and (max-width: $xl) {
-				padding: 15px 15px 0 15px;
+				padding: 25px 25px 0 25px;
 			}
 			@media screen and (max-width: $md) {
 				padding: 10px 10px 0 10px;
@@ -638,7 +638,7 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 			padding: 0px 30px 15px 30px;
 
 			@media screen and (max-width: $xl) {
-				padding: 0px 15px 7px 15px;
+				padding: 0px 25px 25px 25px;
 				width: 100%;
 			}
 			@media screen and (max-width: $md) {

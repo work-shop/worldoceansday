@@ -97,7 +97,7 @@ function news() {
 		pagination = 1;
 		
 		clearFilterMessages();
-		$('.post').remove();
+		$('.news-post').remove();
 
 		if( category !== 'all'){
 			categoryFiltered = true;

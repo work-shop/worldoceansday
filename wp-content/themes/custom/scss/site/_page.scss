@@ -142,6 +142,42 @@ $page-nav-height: 52px;
 	}
 }
 
+.page-nav + .block{
+	background: $ultra-light;
+}
+
+
+
+//FLEXIBLE CONTENT MODIFICATIONS
+
+.page-template-default{
+	#flexible-content{
+		.block:first-child{
+			background: $ultra-light;
+		}
+	}
+}
+
+#flexible-content{
+	.container-fc{
+		@extend .container-fluid;
+	}
+}
+
+.fc-cards{
+
+	.fc-section-heading{
+		margin-bottom: 0;
+	}
+
+	.fc-section-heading-text{
+		@extend .section-heading;
+		@extend .h3;
+	}
+
+	
+}
+
 .sticky-nav-after{
 	.page-nav + .block{
 		//margin-top: $page-nav-height;
@@ -160,6 +196,7 @@ $page-nav-height: 52px;
 
 .section-heading{
 	margin-bottom: 3em;
+	@extend .h3;
 	@extend .bold;
 	@extend .brand-tint;
 }
