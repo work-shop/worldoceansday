@@ -192,7 +192,6 @@ if (!class_exists('ASP_Search_COMMENTS')) {
 
             $querystr = $this->build_query( $this->parts );
             $commentsresults = $wpdb->get_results($querystr, OBJECT);
-
             $this->results_count = count($commentsresults);
 
             // For non-ajax search, results count needs to be limited to the maximum limit,
@@ -210,19 +209,59 @@ if (!class_exists('ASP_Search_COMMENTS')) {
 
         public function post_process() {
             $r = &$this->results;
-            $args = &$this->args;
-
-            if ( isset($args["_sd"]) )
-                $sd = &$args["_sd"];
-            else
-                $sd = array();
+            $args = $this->args;
+            $s          = $this->s;
+            $_s         = $this->_s;
+            $sd = $args['_sd'];
 
             if (is_array($r)) {
                 foreach ($r as $k => $v) {
                     $r[$k]->link = get_comment_link($v->id);
                     $r[$k]->author = get_comment_author($v->id);
 
-                    $r[$k]->title = wd_substr_at_word($r[$k]->content, 40) . "...";
+                    if ( ASP_mb::strlen($v->content) > 40 ) {
+                        $r[$k]->title = wd_substr_at_word($v->content, 40) . "...";
+                    } else {
+                        $r[$k]->title = $r[$k]->content;
+                    }
+
+                    if ( $sd['showdescription'] == 1 ) {
+                        // Remove inline styles and scripts
+                        $_content = preg_replace(array(
+                            '#<script(.*?)>(.*?)</script>#is',
+                            '#<style(.*?)>(.*?)</style>#is'
+                        ), '', $v->content);
+
+                        $_content = wd_strip_tags_ws($_content, $sd['striptagsexclude']);
+
+                        // Get the words from around the search phrase, or just the description
+                        if ($sd['description_context'] == 1 && count($_s) > 0 && $s != '') {
+                            // Try for an exact match
+                            $_ex_content = $this->context_find(
+                                $_content, $s,
+                                floor($sd['descriptionlength'] / 6),
+                                $sd['descriptionlength'],
+                                $sd['description_context_depth'],
+                                true
+                            );
+                            if ($_ex_content === false) {
+                                // No exact match, go with the first keyword
+                                $_content = $this->context_find(
+                                    $_content, $_s[0],
+                                    floor($sd['descriptionlength'] / 6),
+                                    $sd['descriptionlength'],
+                                    $sd['description_context_depth']
+                                );
+                            } else {
+                                $_content = $_ex_content;
+                            }
+                        } else if ($_content != '' && (ASP_mb::strlen($_content) > $sd['descriptionlength'])) {
+                            $_content = wd_substr_at_word($_content, $sd['descriptionlength']) . "...";
+                        }
+                        $v->content = wd_closetags($_content);
+                    } else {
+                        $v->content = '';
+                    }
 
                     /* Remove the results in polaroid mode */
                     if ($args['_ajax_search'] && empty($r->image) && isset($sd['resultstype']) &&

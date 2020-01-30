@@ -113,8 +113,8 @@ if (!class_exists('aspCSSCompatibilityReplace')) {
 
 // Load the corresponding CSS3 loader
 $asp_loader_css_full = file_get_contents(ASP_CSS_PATH . "style.loaders.css");
-$asp_loader_css = wd_get_inner_substring( $asp_loader_css_full, "/*[general]*/");
-$asp_loader_css .= " " . wd_get_inner_substring( $asp_loader_css_full, "/*[" . w_isset_def($style['loader_image'], "simple-circle") . "]*/");
+$asp_loader_css = asp_get_inner_substring( $asp_loader_css_full, "/*[general]*/");
+$asp_loader_css .= " " . asp_get_inner_substring( $asp_loader_css_full, "/*[" . w_isset_def($style['loader_image'], "simple-circle") . "]*/");
 $asp_loader_css = str_replace("#fff", $style['loadingimage_color'], $asp_loader_css);
 
 // Print the loader CSS, without the changes (so same instances above 2 will work)
@@ -123,18 +123,17 @@ echo str_replace("id*='ajaxsearchpro']", "id*='ajaxsearchprores".$id."_'] .asp_r
 
 // Load the required CSS3 animation
 $asp_anim_css_full = file_get_contents(ASP_CSS_PATH . "animations.css");
-$asp_anim_css =  wd_get_inner_substring( $asp_anim_css_full, "/*[" . w_isset_def($style['res_items_animation'], "fadeInDown") . "]*/");
-$asp_anim_css_mob =  wd_get_inner_substring( $asp_anim_css_full, "/*[" . w_isset_def($style['res_items_animation_m'], "voidanim") . "]*/");
+$asp_anim_css =  asp_get_inner_substring( $asp_anim_css_full, "/*[" . w_isset_def($style['res_items_animation'], "fadeInDown") . "]*/");
+$asp_anim_css_mob =  asp_get_inner_substring( $asp_anim_css_full, "/*[" . w_isset_def($style['res_items_animation_m'], "voidanim") . "]*/");
 
 if ( $asp_anim_css != $asp_anim_css_mob )
     $asp_anim_css .= " " . $asp_anim_css_mob;
 
 // Do some stuff with the base CSS if the compatibility level is Maximum
 if ($use_strong_compatibility == true) {
-    if ( defined('WP_ASP_TEST_ENV') )
-        $base_css = file_get_contents(ASP_PATH . "/css/style.basic.css");
-    else
-        $base_css = file_get_contents(ASP_PATH . "/css/style.basic-nomin.css");
+    ob_start();
+    include(ASP_PATH . "/css/style.basic.css.php");
+    $basic_css = ob_get_clean();
     $orinal_base_css = $base_css;
     $css_helper = new aspCSSCompatibilityReplace($id, false, '#ajaxsearchpro');
     $base_css = preg_replace_callback("/^div\.asp_w\.ajaxsearchpro(.*?[ ]*,)/im", array($css_helper, "callback2"), $base_css);

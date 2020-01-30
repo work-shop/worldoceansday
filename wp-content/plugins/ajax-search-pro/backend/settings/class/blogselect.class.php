@@ -39,7 +39,7 @@ if (!class_exists("wpdreamsBlogselect")) {
             }
             echo "</ul></div>";
             echo '<div class="sortablecontainer"><p>' . __('Drag here the blogs you want to use!', 'ajax-search-pro') . '</p><ul id="sortable_conn' . self::$_instancenumber . '" class="connectedSortable">';
-            if ($this->selected != null && count($this->selected)>0) {
+            if ( $this->selected != null && count($this->selected)>0 && function_exists('get_blog_details') ) {
                 foreach ($this->selected as $k => $v) {
                     $blog = get_blog_details($v);
                     if ( !is_wp_error($blog) && isset($blog->blogname) ) {

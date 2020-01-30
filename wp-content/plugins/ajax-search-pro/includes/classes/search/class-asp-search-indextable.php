@@ -230,7 +230,7 @@ if (!class_exists('ASP_Search_INDEX')) {
 
 			/*------------------- Post type based ordering ------------------*/
 			$p_type_priority = "";
-			if ( $sd['use_post_type_order'] == 1 ) {
+			if ( isset($sd['use_post_type_order']) && $sd['use_post_type_order'] == 1 ) {
 				foreach ( $sd['post_type_order'] as $pk => $p_order ) {
 					$p_type_priority .= "
                     WHEN '$p_order' THEN $pk ";
@@ -465,7 +465,7 @@ if (!class_exists('ASP_Search_INDEX')) {
                 if ( !$args['_ajax_search'] || ( $args['_ajax_search'] && $args['_show_more_results'] ) )
                     $limit = $limit * $this->remaining_limit_mod;
 
-                $title_query = str_replace( array('{like_query}', '{rmod}', '{limit}'), array("(asp_index.term_reverse = '' AND asp_index.term LIKE '$s%')", 50, $limit), $this->query );
+                $title_query = str_replace( array('{like_query}', '{rmod}', '{limit}'), array("(asp_index.term_reverse = '' AND asp_index.term LIKE '$s%')", 1000, $limit), $this->query );
                 aspDebug::start('-ASP-ISEARCH-QUERY-TITLE');
                 $results_arr[99999] = $wpdb->get_results($title_query);
                 aspDebug::stop('-ASP-ISEARCH-QUERY-TITLE');

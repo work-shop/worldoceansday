@@ -27,15 +27,14 @@
     </p>
 </div>
 <div class="item"><?php
-    /*$o = new wpdreamsNumericUnit("hresheight", __('Result height', 'ajax-search-pro'), array(
-        'value' => $sd['hresheight'],
-        'units'=>array('px'=>'px')));
-    $params[$o->getName()] = $o->getData();*/
     $o = new wpdreamsTextSmall("horizontal_res_height", __('Result height', 'ajax-search-pro'), $sd['horizontal_res_height']);
     $params[$o->getName()] = $o->getData();
     ?>
     <p class="descMsg">
-        <?php echo __('Use with units (70px or 50% or auto). Default: <strong>auto</strong>', 'ajax-search-pro'); ?>
+        <?php echo sprintf(
+            __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+            'https://www.w3schools.com/cssref/css_units.asp', '200px', '30vh', '30%', 'auto'
+        ); ?>
     </p>
 </div>
 <div class="item"><?php

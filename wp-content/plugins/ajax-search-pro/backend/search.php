@@ -2,19 +2,57 @@
 /* Prevent direct access */
 defined('ABSPATH') or die("You can't access this file directly.");
 
+$action_msg = '';
+
+/**
+ * If safe mode is enabled because of the low max_input_vars value, then decode the params.
+ */
+if ( isset($_POST['asp_options_serialized'], $_GET['asp_sid'] ) ) {
+    // To bypass parse_str max_input_vars limitation
+    ASP_ParseStr::parse(base64_decode($_POST['asp_options_serialized']), $_POST);
+    $_POST['submit_' . intval($_GET['asp_sid'])] = 1;
+}
+
 if (
-    isset($_GET['asp_sid'], $_POST['reset_' . ($_GET['asp_sid'] + 0)]) &&
+    isset($_GET['asp_sid'], $_POST['reset_' . intval($_GET['asp_sid'])]) &&
     isset($_POST['asp_sett_nonce'])
 ) {
     if ( wp_verify_nonce( $_POST['asp_sett_nonce'], 'asp_sett_nonce' ) ) {
-        wd_asp()->instances->reset($_GET['asp_sid'] + 0);
+        wd_asp()->instances->reset( intval($_GET['asp_sid']) );
         asp_generate_the_css();
         $ch = new WD_ASP_Deletecache_Handler();
         $ch->handle(false);
-        $_reset_success = true;
+        $action_msg = "<div class='infoMsg'><strong>" . __('Search settings were reset to defaults!', 'ajax-search-pro') . '</strong> (' . date("Y-m-d H:i:s") . ")</div>";
     } else {
-        $_reset_success = false;
+        $action_msg = "<div class='errorMsg'><strong>".  __('<strong>ERROR Saving:</strong> Invalid NONCE, please try again!', 'ajax-search-pro') . '</strong> (' . date("Y-m-d H:i:s") . ")</div>";
+        $_POST = array();
     }
+}
+
+if ( isset($_GET['asp_sid'], $_POST['submit_' . intval($_GET['asp_sid'])]) ) {
+    if ( wp_verify_nonce( $_POST['asp_sett_nonce'], 'asp_sett_nonce' ) ) {
+        $params = wpdreams_parse_params($_POST);
+
+        wd_asp()->instances->update(intval($_GET['asp_sid']), $params);
+
+        $style = $params;
+        $id = intval(intval($_GET['asp_sid']));
+
+        asp_generate_the_css();
+
+        // Clear all the cache just in case
+        $ch = new WD_ASP_Deletecache_Handler();
+        $ch->handle(false);
+
+        // Do not clear cookies here, it might cause an error
+        // WD_ASP_Cookies_Action::forceUnsetCookies();
+
+        $action_msg = "<div class='infoMsg'><strong>" . __('Search settings saved!', 'ajax-search-pro') . '</strong> (' . date("Y-m-d H:i:s") . ")</div>";
+    } else {
+        $action_msg = "<div class='errorMsg'><strong>".  __('<strong>ERROR Saving:</strong> Invalid NONCE, please try again!', 'ajax-search-pro') . '</strong> (' . date("Y-m-d H:i:s") . ")</div>";
+        $_POST = array();
+    }
+
 }
 
 $params = array();
@@ -43,20 +81,10 @@ if ( empty($search) ) {
  * $asp_globals->instances has it already merged with default options
  */
 $sd = &$search['data'];
-
-/**
- * If safe mode is enabled because of the low max_input_vars value, then decode the params.
- */
-if ( isset($_POST['asp_options_serialized']) ) {
-    // To bypass parse_str max_input_vars limitation
-    ASP_ParseStr::parse(base64_decode($_POST['asp_options_serialized']), $_POST);
-    $_POST['submit_' . $search['id']] = 1;
-}
-
 ?>
-<link rel="stylesheet" href="<?php echo ASP_URL_NP . 'css/style.basic.css?v='.ASP_CURR_VER; ?>" />
 <link rel="stylesheet" href="<?php echo plugin_dir_url(__FILE__) . 'settings/assets/options_search.css?v='.ASP_CURR_VER; ?>" />
 <link rel="stylesheet" href="<?php echo plugin_dir_url(__FILE__) . 'settings/assets/search_instance.css?v='.ASP_CURR_VER; ?>" />
+<link rel="stylesheet" href="<?php echo ASP_URL . 'css/chosen/chosen.css?v='.ASP_CURR_VER; ?>" />
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -223,7 +251,8 @@ if ( isset($_POST['asp_options_serialized']) ) {
     <div style="width:100%; height: 1px; background:transparent; border: 0;"></div>
 
     <div class="wpdreams-box" style="float:left;">
-        <?php if ( ini_get('max_input_vars') < 1000 ): ?>
+        <?php echo $action_msg; ?>
+        <?php if ( ini_get('max_input_vars') < 100000 ): ?>
         <form action='' style="display:none;" method='POST' name='asp_data_serialized'>
             <input type="hidden" id='asp_options_serialized' name='asp_options_serialized' value = "">
             <input type="submit"
@@ -338,43 +367,8 @@ if ( isset($_POST['asp_options_serialized']) ) {
         </div>
     </div>
 
-    <?php $output = ob_get_clean(); ?>
     <?php
-    if ( isset($_POST['submit_' . $search['id']]) ) {
-        $params = wpdreams_parse_params($_POST);
-
-        wd_asp()->instances->update($search['id'], $params);
-
-        $style = $params;
-        $id = $search['id'];
-
-        asp_generate_the_css();
-
-        // Clear all the cache just in case
-        $ch = new WD_ASP_Deletecache_Handler();
-        $ch->handle(false);
-
-        // Do not clear cookies here, it might cause an error
-        // WD_ASP_Cookies_Action::forceUnsetCookies();
-
-        echo "<div class='successMsg'>Search settings saved!</div>";
-    }
-    if ( isset($_reset_success) ) {
-        if ( $_reset_success ) {
-            wd_asp()->instances->reset($search['id']);
-
-            asp_generate_the_css();
-            $ch = new WD_ASP_Deletecache_Handler();
-            $ch->handle(false);
-
-            // Do not clear cookies here, it might cause an error
-            // WD_ASP_Cookies_Action::forceUnsetCookies();
-
-            echo "<div class='successMsg'>" . __('Search settings were reset to defaults!', 'ajax-search-pro') . "</div>";
-        } else {
-            echo "<div class='errorMsg'>" . __('<strong>ERROR:</strong> Something went wrong during the reset, please try again!', 'ajax-search-pro') . "</div>";
-        }
-    }
+    $output = ob_get_clean();
     echo $output;
     ?>
     <div class="clear"></div>

@@ -1393,10 +1393,19 @@ jQuery(function($){
             actualData.unselected = unselected;
             actualData.checked = checked;
             actualData.labels = labels;
+            actualData.required = $('input.wd_df_required', parent).length > 0 ? $('input.wd_df_required', parent).is(':checked') : false;
+            actualData.invalid_input_text = $('input.wd_df_invalid_input_text', parent).length > 0 ? $('input.wd_df_invalid_input_text', parent).val() : '';
             hidden.val("_decode_" + Base64.encode(JSON.stringify(actualData)));
         }
 
         function list_update() {
+            if ( $('input.wd_df_required', parent).length > 0 ) {
+                if ( $('input.wd_df_required', parent).is(':checked') ) {
+                    $('input.wd_df_invalid_input_text', parent).closest('label').removeClass('disabled');
+                } else {
+                    $('input.wd_df_invalid_input_text', parent).closest('label').addClass('disabled');
+                }
+            }
             $("#sortable" + id + " li").removeClass("ui-state-disabled");
             $('ul[id*=sortable_conn] li', parent).each(function (i, v) {
                 $("#sortable" + id + " li[field='"+$(this).attr('field')+"']").addClass("ui-state-disabled");
@@ -1448,7 +1457,7 @@ jQuery(function($){
             }, 500);
         });
 
-        $(".wd_df_display_mode", parent).change(function(){
+        $(".wd_df_display_mode, .wd_df_invalid_input_text, .wd_df_required", parent).change(function(){
             tt_s_update( parent );
             list_update();
         });
@@ -1509,14 +1518,13 @@ jQuery(function($){
                 if ($("input[type='checkbox']", $(this)).length > 0 && !$("input[type='checkbox']", $(this)).get(0).checked)
                     un_checked.push($(this).attr('term_id'));
             });
-            actualData.separate_filter_boxes = $("input.separate-filter-boxes", parent).prop("checked");
+            actualData.separate_filter_boxes = $("input.separate-filter-boxes", parent).is(':checked');
             actualData.terms = terms;
             actualData.op_type = $(".tts_operation", parent).val();
             actualData.un_checked = un_checked;
             actualData.select_all = select_all;
-            hidden.val("_decode_" + Base64.encode(JSON.stringify(actualData)));
-
             display_mode_parse();
+            hidden.val("_decode_" + Base64.encode(JSON.stringify(actualData)));
         }
 
         function list_update() {
@@ -1594,7 +1602,7 @@ jQuery(function($){
             });
 
         $("#sortable_conn" + id).on("change", "li[term_id='-2'] input.wd_tts_for_all", function(){
-            if ( $(this).prop("checked") )
+            if ( $(this).is(':checked') )
                $(".wd_tts_selectall_tax", $(this).parent().parent()).css("display", "none");
             else
                $(".wd_tts_selectall_tax", $(this).parent().parent()).css("display", "");
@@ -1795,6 +1803,10 @@ jQuery(function($){
                     $("input.wd_tts_select_all", $(this)).prop("checked", data.select_all);
                     $("input.wd_tts_select_all_text", $(this)).val(data.select_all_text);
                     $("input.wd_tts_placeholder_text", $(this)).val(data.box_placeholder_text);
+                    if ( typeof data.required != "undefined")
+                        $("input.wd_tts_required", $(this)).prop("checked", data.required);
+                    if ( typeof data.invalid_input_text != "undefined")
+                        $("input.wd_tts_required_text", $(this)).val(data.invalid_input_text);
                 }
             });
         }
@@ -1841,8 +1853,13 @@ jQuery(function($){
                     $(".wd_tts_res span", $(this)).removeClass("wd_disabled");
                     $(".wd_tts_res span[term_id='"+ $(".wd_tts_defined span", $(this)).attr("term_id") + "']", $(this)).addClass("wd_disabled");
                 }
+                if ( $("input.wd_tts_required", $(this)).is(':checked') ) {
+                    $("input.wd_tts_required_text", $(this)).removeAttr('disabled');
+                } else {
+                    $("input.wd_tts_required_text", $(this)).attr('disabled', 'disabled');
+                }
             });
-            if ( $("input.separate-filter-boxes", parent).prop("checked") ) {
+            if ( $("input.separate-filter-boxes", parent).is(':checked') ) {
                 $("fieldset", $dispPopup).removeClass("hiddend");
                 $("fieldset[taxonomy='all']", $dispPopup).addClass("hiddend");
             } else {
@@ -1857,10 +1874,12 @@ jQuery(function($){
             $("fieldset", $dispPopup).each(function() {
                 var data = {};
                 data.type = $(".tts_display_as", $(this)).val();
-                data.select_all = $(".wd_tts_select_all", $(this)).prop("checked");
+                data.select_all = $(".wd_tts_select_all", $(this)).is(':checked');
                 data.box_header_text = $("input.wd_tts_box_header_text", $(this)).val();
                 data.box_placeholder_text = $("input.wd_tts_placeholder_text", $(this)).val();
                 data.select_all_text = $(".wd_tts_select_all_text", $(this)).val();
+                data.required = $(".wd_tts_required", $(this)).is(':checked');
+                data.invalid_input_text = $(".wd_tts_required_text", $(this)).val();
 
                 if ( $(".tts_display_as", $(this)).val() == "checkboxes" ) {
                     data.default = $(".tts_d_checkboxes", $(this)).val();
@@ -1929,7 +1948,7 @@ jQuery(function($){
             $(".wd_tts_res", $(this).parent()).html("");
         });
 
-        $(".tts_display_as, .tts_d_checkboxes, .tts_d_dropdown, .wd_tts_select_all", $dispPopup).change(function(){
+        $(".tts_display_as, .tts_d_checkboxes, .wd_tts_required, .tts_d_dropdown, .wd_tts_select_all", $dispPopup).change(function(){
             display_mode_update();
             tt_s_update( parent );
         });
@@ -3040,10 +3059,6 @@ jQuery(function($){
 
 
     // ----------------------- ETC.. ---------------------
-
-    $('.successMsg').each(function () {
-        $(this).delay(4000).fadeOut();
-    });
     $('img.delete').click(function () {
         var del = confirm("Do yo really want to delete this item?");
         if (del) {

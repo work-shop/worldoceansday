@@ -1,6 +1,6 @@
 <fieldset>
     <legend><?php echo __('Logic and matching', 'ajax-search-pro'); ?></legend>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsCustomSelect("keyword_logic", __('Primary keyword logic', 'ajax-search-pro'),
             array(
@@ -27,7 +27,7 @@
             ));
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo sprintf( __('<strong>Secodary logic</strong> is used when the results count does not reach the limit. More <a href="%s" target="_blank">information about logics here</a>.', 'ajax-search-pro'), 'https://documentation.ajaxsearchpro.com/search-logic/search-logics-explained' ); ?>
         </div>
     </div>
@@ -54,7 +54,7 @@
             $sd['exact_m_secondary']);
         $params[$o->getName()] = $o->getData();
         ?></div>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('If this is enabled, the Regular search engine is used. Index table engine doesn\'t support exact matches.', 'ajax-search-pro'); ?>
         </div>
     </div>
@@ -94,7 +94,7 @@
         $params[$o->getName()] = $o->getData();
         ?>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsCustomSelect("click_action", __('Action when clicking <strong>the magnifier</strong> icon', 'ajax-search-pro'),
             array(
@@ -113,7 +113,7 @@
         $params[$o->getName()] = $o->getData();
         ?>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsCustomSelect("return_action", __('Action when pressing <strong>the return</strong> button', 'ajax-search-pro'),
             array(
@@ -142,7 +142,7 @@
             <?php echo sprintf( __('You can use the <string>asp_redirect_url</string> filter to add more variables. See <a href="%s" target="_blank">this tutorial</a>.', 'ajax-search-pro'), 'http://wp-dreams.com/go/?to=kb-redirecturl' ); ?>
         </p>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsYesNo("override_default_results", __('<b>Override</b> the default WordPress search results with results from this search instance?', 'ajax-search-pro'),
             $sd['override_default_results']);
@@ -158,7 +158,7 @@
         ));
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('If this is enabled, the plugin will try to replace the default results with it\'s own. Might not work with themes which temper the search query themselves (very very rare).', 'ajax-search-pro'); ?>
         </div>
     </div>

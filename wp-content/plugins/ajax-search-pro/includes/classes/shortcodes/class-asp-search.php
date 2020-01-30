@@ -185,6 +185,7 @@ if (!class_exists("WD_ASP_Search_Shortcode")) {
             // Finally make preview changes after option changes
             if ( WD_ASP_Ajax::doingAjax("ajaxsearchpro_preview") ) {
                 ob_start();
+                include(ASP_PATH . "/css/style.basic.css.php");
                 include(ASP_PATH . "/css/style.css.php");
                 $out = ob_get_contents();
                 ob_end_clean();
@@ -193,8 +194,6 @@ if (!class_exists("WD_ASP_Search_Shortcode")) {
                 ?>
                 <div style='display: none;' id="asp_preview_options"><?php echo base64_encode(serialize($style)); ?></div>
                 <style>
-                    @import url('<?php echo ASP_URL; ?>css/style.basic.css?r=<?php echo rand(1, 123123123); ?>');
-                    @import url('<?php echo ASP_URL; ?>css/chosen/chosen.css?r=<?php echo rand(1, 123456789); ?>');
                     <?php echo $out; ?>
                 </style>
                 <?php

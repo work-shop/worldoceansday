@@ -24,12 +24,12 @@ function makeMap () {
       // },
       marker: {
        icon: {
-        fillColor: brandColor//,
-        // url: '/wp-content/themes/dileonardo/images/marker.png',
-        // size: new google.maps.Size(44,68),
-        // scaledSize: new google.maps.Size(44,68),
-        // origin: new google.maps.Point( 44, 68 ),
-        // anchor: new google.maps.Point( 22, 0 )
+        fillColor: brandColor,
+        url: 'http://localhost/worldoceansday/wp-content/themes/custom/images/marker2.png',
+        size: new google.maps.Size(10,10),
+        scaledSize: new google.maps.Size(10,10)//,
+        //origin: new google.maps.Point( 44, 68 ),
+        //anchor: new google.maps.Point( 22, 0 )
       },
       popup: {
         pointer: '10px',

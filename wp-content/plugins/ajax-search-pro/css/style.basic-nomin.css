@@ -1,4 +1,5 @@
 /*
+@deprecated
 AJAX SEARCH PRO FOR WORDPRESS PLUGIN BASIC CSS
 */
 
@@ -29,6 +30,7 @@ CONTENTS:
     12. AUTOCOMPLETE STYLES
     13. RTL SPECIFIC STYLES AND CHANGES
     14. CHOSEN SCRIPT STYLES
+    15. ARROW BOX
 
 
 SHORTHAND CLASSES
@@ -149,6 +151,7 @@ div.asp_w.asp_sb * {
     box-shadow: none;
     text-decoration: none;
     text-align: left;
+    text-indent: initial;
     letter-spacing: normal;
 }
 
@@ -361,6 +364,7 @@ div.asp_m.ajaxsearchpro .probox .proclose .innericon {
     background-color: transparent;
     width: 100%;
     height: 100%;
+    line-height: initial;
     text-align: center;
     overflow: hidden;
 }
@@ -538,13 +542,17 @@ div.asp_w.asp_r .results .item {
     background: #f4f4f4;
     border-left: 1px solid rgba(255, 255, 255, 0.6);
     border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+div.asp_w.asp_r .results .item,
+div.asp_w.asp_r .results .asp_group_header {
     animation-delay: 0s;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-timing-function: ease;
     backface-visibility: hidden;
     -webkit-animation-delay: 0s;
-    -webkit-animation-duration: 1s;
+    -webkit-animation-duration: 0.5s;
     -webkit-animation-fill-mode: both;
     -webkit-animation-timing-function: ease;
     -webkit-backface-visibility: hidden;
@@ -553,11 +561,37 @@ div.asp_w.asp_r .results .item {
 div.asp_w.asp_r .results .item .asp_image {
     overflow: hidden;
     background: transparent;
-    margin: 4px auto 0px 0px;
     padding: 0;
     float: left;
     background-position: center;
     background-size: cover;
+    position: relative;
+}
+
+div.asp_w.asp_r .results .asp_image canvas {
+    display: none;
+}
+
+div.asp_w.asp_r .results .asp_image .asp_item_canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: block;
+    opacity: 1;
+    background-position: inherit;
+    background-size: inherit;
+    transition: opacity 0.5s;
+}
+
+div.asp_w.asp_r .results .item:hover .asp_image .asp_item_canvas,
+div.asp_w.asp_r .results figure:hover .asp_image .asp_item_canvas{
+    opacity: 0;
 }
 
 div.asp_w.asp_r a.asp_res_image_url,
@@ -601,28 +635,14 @@ div.asp_w.ajaxsearchpro .asp_group_header:first-of-type {
 
 /*      4.2 VERTICAL RESULT STYLES
 \**********************************************************************************************************************/
-
+/*[vertical]*/
 div.asp_w.asp_r.vertical .results .item:first-child {
     border-radius: 0;
 }
 
 div.asp_w.asp_r.vertical .results .item:last-child {
     border-radius: 0;
-    margin-bottom: 0px;
-}
-
-div.asp_w.asp_r.vertical .results .asp_spacer {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.55);
-    display: block;
-    height: 1px;
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 10000px;
-}
-
-div.asp_w.asp_r.vertical .results .asp_spacer:last-child {
-    display: none;
-    height: 0px !important;
+    margin-bottom: 0;
 }
 
 div.asp_w.asp_r.vertical .results .item:last-child:after {
@@ -630,11 +650,11 @@ div.asp_w.asp_r.vertical .results .item:last-child:after {
     margin: 0;
     width: 0;
 }
-
+/*[vertical]*/
 
 /*      4.3 HORIZONTAL RESULT STYLES
 \**********************************************************************************************************************/
-
+/*[horizontal]*/
 div.asp_w.asp_r.horizontal {
     padding: 2px 0 10px;
 }
@@ -665,10 +685,11 @@ div.asp_w.asp_r.horizontal .resdrg:after {
   clear: both;
   display: table;
 }
+/*[horizontal]*/
 
 /*      4.4 ISOTOPIC RESULT STYLES, ISOTOPIC NAVIGATION
 \**********************************************************************************************************************/
-
+/*[isotopic]*/
 div.asp_w.asp_r.isotopic>nav,
 div.asp_w.asp_r.isotopic nav.asp_navigation {
     display: none;
@@ -815,6 +836,7 @@ div.asp_w.asp_r.isotopic .results .item .asp_item_inner img {
     height: 100%;
     width: 32px;
     fill: #fff;
+    display: inline;
 }
 
 div.asp_w.asp_r.isotopic .results .item .asp_item_inner img {
@@ -839,13 +861,13 @@ div.asp_w.asp_r.isotopic .results .item .asp_content  {
     padding: 4px 6px;
 }
 
-div.asp_w.asp_r.isotopic .results .item .asp_item_img+.asp_content  {
+div.asp_w.asp_r.isotopic .results .item .asp_image+.asp_content  {
     height: auto;
     top: auto;
     bottom: 0;
 }
 
-div.asp_w.asp_r.isotopic .results .item .asp_item_img {
+div.asp_w.asp_r.isotopic .results .item .asp_image {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -878,11 +900,11 @@ div.asp_w.asp_r.isotopic .results .item .asp_item_overlay_img {
     background-size: cover;
     background-position: center;
 }
-
+/*[isotopic]*/
 
 /*      4.4 POLAROID RESULT STYLES
 \**********************************************************************************************************************/
-
+/*[polaroid]*/
 div.asp_w.asp_r .photostack,
 div.asp_w.asp_r .photostack * {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -915,17 +937,13 @@ div.asp_w.asp_r .photostack > div {
     margin: 0;
 }
 
-div.asp_w.asp_r .photostack-img {
+div.asp_w.asp_r figure .asp_image {
     outline: none;
     display: block;
     background: #f9f9f9;
     background-position: center;
     background-size: cover;
-}
-
-div.asp_w.asp_r .photostack-img img {
-    width: 100%;
-    height: 100%;
+    position: relative;
 }
 
 div.asp_w.asp_r .photostack-back {
@@ -1152,7 +1170,7 @@ div.asp_w.asp_r .photostack-perspective figure.photostack-flip {
     -webkit-transform: translateY(10%) rotate(-3deg) !important;
     transform: translateY(10%) rotate(-3deg) !important;
 }
-
+/*[polaroid]*/
 
 /**********************************************************************************************************************\
     5. SETTINGS STYLES
@@ -1542,7 +1560,7 @@ div.ajaxsearchpro.searchsettings  fieldset .asp_select_multiple {
 /**********************************************************************************************************************\
     8. NO-UI DRAGGER STYLES
 \**********************************************************************************************************************/
-
+/*[noui]*/
 /* OLD STYLES BELOW */
 div.ajaxsearchpro.searchsettings .asp_noui_lu,
 div.asp_w.asp_sb .asp_noui_lu {
@@ -1726,7 +1744,7 @@ div.ajaxsearchpro.searchsettings .noUi-vertical .noUi-handle:after {
 div.ajaxsearchpro.searchsettings .noUi-vertical .noUi-handle:after {
     top: 17px;
 }
-
+/*[noui]*/
 
 /**********************************************************************************************************************\
     9. SUGGESTED KEYWORDS
@@ -1751,6 +1769,7 @@ p.asp-try a {
 /**********************************************************************************************************************\
     10. SCROLLBAR STYLES
 \**********************************************************************************************************************/
+/*[simplebar]*/
 /* NEW SIMPLEBAR SCROLLBAR */
 [data-asp_simplebar] {
     position: relative;
@@ -1965,11 +1984,11 @@ p.asp-try a {
     overflow-y: scroll;
     scrollbar-width: none;
 }
-
+/*[simplebar]*/
 /**********************************************************************************************************************\
     11. DATEPICKER STYLES
 \**********************************************************************************************************************/
-
+/*[datepicker]*/
 .asp-ui,
 .asp-ui * {
     font-size: 12px;
@@ -2365,11 +2384,12 @@ p.asp-try a {
 div.ajaxsearchpro.searchsettings fieldset .asp_post_date_from {
     margin-bottom: 12px;
 }
+/*[datepicker]*/
 
 /**********************************************************************************************************************\
     12. AUTOCOMPLETE STYLES
 \**********************************************************************************************************************/
-
+/*[autocomplete]*/
 .asp_ac_autocomplete,
 .asp_ac_autocomplete div,
 .asp_ac_autocomplete span{
@@ -2427,6 +2447,7 @@ div.ajaxsearchpro.searchsettings fieldset .asp_post_date_from {
     background: #0097CF;
     color: #FFFFFF;
 }
+/*[autocomplete]*/
 
 /**********************************************************************************************************************\
     13. RTL SPECIFIC STYLES AND CHANGES
@@ -2526,4 +2547,40 @@ div.ajaxsearchpro.searchsettings fieldset .asp_post_date_from {
 */
 .asp-fss-column .chosen-container-active.chosen-with-drop .chosen-drop {
     position: relative !important;
+}
+
+/**********************************************************************************************************************\
+    15. ARROW BOX
+\**********************************************************************************************************************/
+.asp_arrow_box {
+    position: absolute;
+    background: #444;
+    padding: 12px;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    max-width: 240px;
+    display: none;
+    z-index: 99999999999999999;
+}
+.asp_arrow_box:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-top-color: #444;
+    border-width: 6px;
+    margin-left: -6px;
+}
+
+.asp_arrow_box.asp_arrow_box_bottom:after {
+    bottom: 100%;
+    top: unset;
+    border-bottom-color: #444;
+    border-top-color: transparent;
 }

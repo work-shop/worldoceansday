@@ -1,4 +1,13 @@
 <div class="item">
+    <?php $o = new wpdreamsYesNo("query_soft_check",
+        __('Do a soft-check only on search override, when trying to check if the current query is the search?', 'ajax-search-pro'),
+        $com_options['query_soft_check']
+    ); ?>
+    <p class='descMsg'>
+        <?php echo __('Use this option, when the search override does not work on the search results page.', 'ajax-search-pro'); ?>
+    </p>
+</div>
+<div class="item">
     <?php $o = new wpdreamsYesNo("use_acf_getfield",
         __('<strong>Advanced Custom Fields</strong>: use the ACF get_field() function to get the metadata?', 'ajax-search-pro'),
         $com_options['use_acf_getfield']

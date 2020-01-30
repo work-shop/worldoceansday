@@ -569,7 +569,7 @@ if (!class_exists('ASP_Search_ATTACHMENTS')) {
                         if ( $image_settings['image_cropping'] == 0 ) {
                             $this->results[$k]->image = $im;
                         } else {
-                            if ( strpos( $im, "mshots/v1" ) === false ) {
+                            if ( strpos( $im, "mshots/v1" ) === false && strpos( $im, ".gif" ) === false ) {
                                 $bfi_params = array( 'width'  => $image_settings['image_width'],
                                                      'height' => $image_settings['image_height'],
                                                      'crop'   => true

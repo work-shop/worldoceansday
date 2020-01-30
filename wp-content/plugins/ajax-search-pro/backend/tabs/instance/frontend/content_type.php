@@ -12,6 +12,7 @@
             "show_checkboxes" => 1,
             "show_display_mode" => 1,
             "show_labels" => 1,
+            "show_required" => 1,
             'fields' => array(
                 'any'           => 'Choose One/Select all',
                 'cpt'           => 'Custom post types',

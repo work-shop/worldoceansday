@@ -3,7 +3,7 @@
     <p><?php echo __('You can change that under the <a href="#402" data-asp-os-highlight="resultstype" tabid="402">Layout Options -> Results layout</a> panel,
         <br>..or choose a <a href="#601" tabid="601">different theme</a> with a different pre-defined layout.', 'ajax-search-pro'); ?></p>
 </div>
-<div class="item item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item item-flex-nogrow item-flex-wrap">
     <?php
     $o = new wpdreamsYesNo("i_pagination", __('Display the pagination navigation?', 'ajax-search-pro'), $sd['i_pagination']);
     $params[$o->getName()] = $o->getData();
@@ -11,7 +11,7 @@
     $o = new wpdreamsTextSmall("i_rows", __('Rows count per page', 'ajax-search-pro'), $sd['i_rows']);
     $params[$o->getName()] = $o->getData();
     ?>
-    <p class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+    <p class="descMsg item-flex-grow item-flex-100">
         <?php echo __('If the item would exceed the row limit, it gets placed to a new page.', 'ajax-search-pro'); ?>
     </p>
 </div>

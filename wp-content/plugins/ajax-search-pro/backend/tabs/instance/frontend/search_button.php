@@ -5,7 +5,7 @@
 </div>
 <fieldset id="fe_sb_functionality">
     <legend>Functionality</legend>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         foreach ($_red_opts as $rok => $rov)
             if ( $rov['value'] == 'same' || $rov['value'] == 'nothing' )

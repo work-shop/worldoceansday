@@ -38,7 +38,7 @@
         $params[$o->getName()] = $o->getData();
         ?>
     </div>
-    <div class="item item-flex-nogrow wpd-isotopic-width" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap wpd-isotopic-width">
         <?php
         $o = new wpdreamsTextSmall("results_width", __('Results box width', 'ajax-search-pro'), array(
             'icon' => 'desktop',
@@ -56,8 +56,11 @@
         ));
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
-            <?php echo __('Use with units (10px or 50% or auto). Default: <strong>auto</strong>', 'ajax-search-pro'); ?>
+        <div class="descMsg item-flex-grow item-flex-100">
+            <?php echo sprintf(
+                __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+                'https://www.w3schools.com/cssref/css_units.asp', '10px', '50%', 'auto', 'auto'
+            ); ?>
         </div>
     </div>
     <div class="item">
@@ -76,7 +79,10 @@
             ));
         ?>
         <div class="descMsg">
-            <?php echo __('Use with units (10px or 50% or auto). Default: <strong>auto</strong>', 'ajax-search-pro'); ?>
+            <?php echo sprintf(
+                __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+                'https://www.w3schools.com/cssref/css_units.asp', '10px', '50%', 'auto', 'auto'
+            ); ?>
         </div>
     </div>
 </fieldset>

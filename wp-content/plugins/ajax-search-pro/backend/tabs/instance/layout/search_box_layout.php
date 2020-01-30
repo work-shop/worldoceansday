@@ -25,6 +25,22 @@
         <?php echo __('By default the plugin follows the parent element alignment. This option might not have an effect if the parent element is displayed as "table" or "flex".', 'ajax-search-pro'); ?>
     </p>
 </div>
+<div class="item item-flex-nogrow item-flex-wrap">
+    <?php
+    $o = new wpdreamsTextSmall('box_margin_top', __('Search box Top Margin', 'ajax-search-pro'),
+        $sd['box_margin_top']);
+
+    $o = new wpdreamsTextSmall('box_margin_bottom', __('Bottom Margin', 'ajax-search-pro'),
+        $sd['box_margin_bottom']);
+    $params[$o->getName()] = $o->getData();
+    ?>
+    <div class="descMsg item-flex-grow item-flex-100">
+        <?php echo sprintf(
+            __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+            'https://www.w3schools.com/cssref/css_units.asp', '12px', '5vh', 'auto', '0'
+        ); ?>
+    </div>
+</div>
 <div class="item">
     <?php
     $o = new wpdreamsYesNo("box_sett_hide_box", __('Hide the search box completely, display settings only?', 'ajax-search-pro'), $sd['box_sett_hide_box']);
@@ -55,7 +71,7 @@
             frontend search options <strong>WILL be taken into account</strong> as if a normal search was made!', 'ajax-search-pro'); ?>
         </p>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsText("auto_populate_phrase", __('Phrase', 'ajax-search-pro'), $sd['auto_populate_phrase']);
         $params[$o->getName()] = $o->getData();

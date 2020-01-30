@@ -174,7 +174,7 @@
 </fieldset>
 <fieldset>
     <legend><?php echo __('User image options', 'ajax-search-pro'); ?></legend>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsYesNo("user_search_display_images", __('Display user images?', 'ajax-search-pro'),
             $sd['user_search_display_images']);

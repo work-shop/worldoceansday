@@ -49,14 +49,14 @@ if (!class_exists("wpdreamsCustomPostTypesEditable")) {
             if ($this->selected != null && is_array($this->selected)) {
                 foreach ($this->selected as $k => $v) {
                     echo '<li class="ui-state-default ui-left" style="background: #ddd;">
-            <label>' . $v[0] . '</label>
-            <input type="text" value="' . $v[1] . '"/>
+            <label>' . esc_html($v[0]) . '</label>
+            <input type="text" value="' . esc_attr($v[1]) . '"/>
             </li>';
                 }
             }
             echo "</ul></div>";
             echo "
-         <input isparam=1 type='hidden' value='" . $this->data . "' name='" . $this->name . "'>";
+         <input isparam=1 type='hidden' value='" . esc_attr($this->data) . "' name='" . $this->name . "'>";
             echo "
          <input type='hidden' value='wpdreamsCustomPostTypesEditable' name='classname-" . $this->name . "'>";
             echo "

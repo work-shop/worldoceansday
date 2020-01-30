@@ -57,6 +57,10 @@ Generic selectors
     color: rgb(199, 0, 0);
 }
 
+.hiddend {
+    display: none !important;
+}
+
 /************************************************\
 Generic classes
 \************************************************/
@@ -148,6 +152,13 @@ Generic classes
 
 .wpdreams select {
     background: #FFF;
+}
+
+.wpdreams select[disabled],
+.wpdreams select.disabled {
+    background-image: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .wpdreams script {
@@ -686,7 +697,10 @@ div#wpdreams .wpd-text-right {
     display: inline-block;
 }
 
-#wpdreams input:hover,#wpdreams textarea:hover,#wpdreams input:focus,#wpdreams textarea:focus {
+#wpdreams input:not([disabled]):hover,
+#wpdreams textarea:not([disabled]):hover,
+#wpdreams input:not([disabled]):focus,
+#wpdreams textarea:not([disabled]):focus {
     border-color:#C9C9C9;
     -webkit-box-shadow:rgba(0,0,0,0.15) 0px 0px 8px;
 }
@@ -893,6 +907,17 @@ input[type=button].wd_button_blue,
     flex-grow: 1;
 }
 
+#wpdreams .item.item-flex-wrap {
+    flex-wrap: wrap;
+}
+
+#wpdreams .item .item-flex-100 {
+    min-width: 100%;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    flex-grow: 1 !important;
+    box-sizing: border-box;
+}
 
 #wpdreams .item:nth-child(2n) {
     /* background: #EFEFEF; */
@@ -957,6 +982,8 @@ input[type=button].wd_button_blue,
     margin-top:-2px;
     vertical-align:middle;
     cursor:pointer;
+    width: auto;
+    height: auto;
 }
 #wpdreams .preview {
     height:28px;
@@ -2175,6 +2202,11 @@ div#wpd_loading_msg {
     display: inline-block;
 }
 
+#wpdreams .wd_DraggableFields .wd_df_display_mode_container,
+#wpdreams .wd_DraggableFields .wd_df_required_container {
+    margin: 16px 0 0;
+}
+
 #wpdreams .wpdreamsCustomFields .sortablecontainer li,
 #wpdreams .customFieldsSortable .sortablecontainer li,
 #wpdreams .wd_TaxonomyTermSelect .sortablecontainer li,
@@ -2324,6 +2356,10 @@ div#wpd_loading_msg {
     max-height: 458px;
 }
 
+#wpdreams .wd_TaxonomyTermSelect .wd_tts_disp_m_popup .wd_tts_m_popup_content div {
+    line-height: 24px;
+}
+
 #wpdreams .wd_TaxonomyTermSelect .wd_tts_disp_m_popup .wd_tts_box_header_text {
     margin-bottom: 10px;
 }
@@ -2380,10 +2416,21 @@ div#wpd_loading_msg {
     display: inline-block;
 }
 
+#wpdreams .wd_TaxonomyTermSelect .wd_tts_disp_m_popup .wd_tts_required {
+    padding: 8px 0 0 0;
+    margin: 10px 0 0 0;
+    border-top: dotted 1px gainsboro;
+    vertical-align: middle;
+}
+
 #wpdreams .wd_TaxonomyTermSelect .wd_tts_disp_m_popup .wd_tts_m_popup_content>label {
     margin: 4px 0 16px;
     display: block;
     font-weight: bold;
+}
+
+#wpdreams .wd_TaxonomyTermSelect .wd_tts_disp_m_popup .wd_tts_m_popup_content input[type=checkbox] {
+    margin: 0 12px 0 0;
 }
 
 #wpdreams .wd_disabled {

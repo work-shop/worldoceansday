@@ -5,7 +5,7 @@
  */
 ;(function (window) {
     'use strict';
-    var $ = window.jQuery;
+    var $ = typeof aspjQuery != 'undefined' ? aspjQuery : window.jQuery;
 
     // expose isInViewport as a custom pseudo-selector
     $.extend($.expr.pseudos || $.expr[':'], {

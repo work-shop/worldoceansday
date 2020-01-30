@@ -71,7 +71,7 @@ if (!function_exists('wpd_get_languages_array')) {
     }
 }
 
-if (!function_exists("wd_get_inner_substring")) {
+if (!function_exists("asp_get_inner_substring")) {
     /**
      * Get the string from inbetween delimiters
      *
@@ -79,11 +79,24 @@ if (!function_exists("wd_get_inner_substring")) {
      * @param $delim
      * @return string
      */
-    function wd_get_inner_substring($string, $delim) {
+    function asp_get_inner_substring($string, $delim) {
 
-        $string = explode($delim, $string, 3); // also, we only need 2 items at most
+        $s = explode($delim, $string, 3); // also, we only need 2 items at most
+        return isset($s[1]) ? $s[1] : '';
+    }
+}
 
-        return isset($string[1]) ? $string[1] : '';
+if (!function_exists("asp_get_outer_substring")) {
+    /**
+     * Get the string from outside the delimiters
+     *
+     * @param $string
+     * @param $delim
+     * @return string
+     */
+    function asp_get_outer_substring($string, $delim) {
+        $s = explode($delim, $string, 3); // also, we only need 2 items at most
+        return isset($s[0], $s[2]) ? $s[0] . $s[2] : $string;
     }
 }
 
@@ -376,71 +389,6 @@ if (!function_exists("wpdreams_rgb2hex")) {
         }
         return $color;
     }
-} 
-
-if (!function_exists("get_content_w")) {
-    /**
-     * Gets the post content, manually filtered
-     *
-     * @deprecated
-     * @param $id
-     * @return mixed
-     */
-    function get_content_w($id) {
-      $my_postid = $id;
-      $content_post = get_post($my_postid);
-      $content = $content_post->post_content;
-      $content = apply_filters('the_content', $content);
-      $content = str_replace(']]>', ']]&gt;', $content);
-      return $content;
-    }
-}
-
-if (!function_exists("wpdreams_utf8safeencode")) {
-    /**
-     * UTF-8 safe encoding
-     *
-     * @param $s
-     * @param $delimiter
-     * @return string
-     */
-    function wpdreams_utf8safeencode($s, $delimiter)
-  {
-    $convmap= array(0x0100, 0xFFFF, 0, 0xFFFF);
-    return $delimiter."_".base64_encode(mb_encode_numericentity($s, $convmap, 'UTF-8'));
-  }  
-}
-
-if (!function_exists("wpdreams_utf8safedecode")) {
-    /**
-     * UTF-8 safe decoding
-     *
-     * @param $s
-     * @param $delimiter
-     * @return string
-     */
-    function wpdreams_utf8safedecode($s, $delimiter)
-  {
-    if (strpos($s, $delimiter)!=0) return $s;
-    $convmap= array(0x0100, 0xFFFF, 0, 0xFFFF);
-    $_s = explode($delimiter."_", $s);
-    return base64_decode(mb_decode_numericentity($s[1], $convmap, 'UTF-8'));
-  }  
-}
-
-if (!function_exists("postval_or_getoption")) {
-    /**
-     * Returns post value if set, option value otherwise
-     *
-     * @param $option
-     * @return mixed
-     */
-    function postval_or_getoption($option)
-  {
-    if (isset($_POST) && isset($_POST[$option]))
-      return $_POST[$option];
-    return get_option($option);
-  }  
 }
 
 if (!function_exists("asp_get_image_from_content")) {
@@ -508,21 +456,6 @@ if ( !function_exists('wpdreams_get_image_from_content') ) {
     /* Backwards compatibility */
     function wpdreams_get_image_from_content($content, $number) {
         return asp_get_image_from_content($content, $number);
-    }
-}
-
-if (!function_exists("wpdreams_on_backend_page")) {
-    /**
-     * Checks if the current page is back-end page
-     *
-     * @param $pages
-     * @return bool
-     */
-    function wpdreams_on_backend_page($pages) {
-        if (isset($_GET) && isset($_GET['page'])) {
-            return in_array($_GET['page'] ,$pages);
-        }
-        return false;
     }
 }
 
@@ -611,6 +544,32 @@ if (!function_exists("wpd_mem_convert")) {
 //----------------------------------------------------------------------------------------------------------------------
 // 2. FILE SYSTEM SPECIFIC WRAPPERS
 //----------------------------------------------------------------------------------------------------------------------
+if ( !function_exists('wpd_fs_init') ) {
+    function wpd_fs_init($include = false, $check_method = '') {
+        global $wp_filesystem;
+        if ( $include && empty($wp_filesystem) ) {
+            require_once (ABSPATH . '/wp-admin/includes/file.php');
+        }
+        if ( function_exists('WP_Filesystem') && WP_Filesystem() === true && is_object($wp_filesystem) ) {
+            if ( $check_method != '' ) {
+                return method_exists($wp_filesystem, $check_method);
+            }
+            return true;
+        }
+        // Did not init
+        return false;
+    }
+}
+if ( !function_exists('wpd_fs_wrapper') ) {
+    function wpd_fs_wrapper($function) {
+        global $wp_filesystem;
+        $args = func_get_args();
+        array_shift($args);
+        return wpd_fs_init(false, $function) ?
+            call_user_func_array(array($wp_filesystem, $function), $args) :
+            call_user_func_array($function, $args);
+    }
+}
 if (!function_exists('wpd_mtime')) {
     /**
      * Checks the last modification time on file
@@ -621,16 +580,11 @@ if (!function_exists('wpd_mtime')) {
      */
     function wpd_mtime($file) {
         global $wp_filesystem;
-        // Try initializing the file system without inclusion
-        if ( (!isset($wp_filesystem) || $wp_filesystem == null) && function_exists('WP_Filesystem') ) {
-            WP_Filesystem();
-        }
         // Did it fail?
-        if ( !isset($wp_filesystem) || $wp_filesystem == null ) {
-            /* any problems and we exit */
-            return filemtime($file);
+        if ( wpd_fs_init(false, 'mtime') ) {
+            return $wp_filesystem->mtime($file);
         }
-        return $wp_filesystem->mtime($file);
+        return filemtime( $file );
     }
 }
 
@@ -643,17 +597,7 @@ if (!function_exists('wpd_is_file')) {
      * @return bool
      */
     function wpd_is_file($file) {
-        global $wp_filesystem;
-        // Try initializing the file system without inclusion
-        if ( (!isset($wp_filesystem) || $wp_filesystem == null) && function_exists('WP_Filesystem') ) {
-            WP_Filesystem();
-        }
-        // Did it fail?
-        if ( !isset($wp_filesystem) || $wp_filesystem == null ) {
-            /* any problems and we exit */
-            return is_file($file);
-        }
-        return $wp_filesystem->is_file($file);
+        return wpd_fs_wrapper('is_file', $file);
     }
 }
 
@@ -666,21 +610,11 @@ if (!function_exists('wpd_is_dir')) {
      * @return bool
      */
     function wpd_is_dir($file) {
-        global $wp_filesystem;
-        // Try initializing the file system without inclusion
-        if ( (!isset($wp_filesystem) || $wp_filesystem == null) && function_exists('WP_Filesystem') ) {
-            WP_Filesystem();
-        }
-        // Did it fail?
-        if ( !isset($wp_filesystem) || $wp_filesystem == null ) {
-            /* any problems and we exit */
-            return is_dir($file);
-        }
-        return $wp_filesystem->is_dir($file);
+        return wpd_fs_wrapper('is_dir', $file);
     }
 }
 
-if (!function_exists("wpd_get_file")) {
+if ( !function_exists("wpd_get_file") ) {
     /**
      * Gets file contents with the use of WordPress file API with a fallback to file_get_contents()
      * NOTE: Use this function in own plugin pages/actions/ajax only! Loading the WP_Filesystem(); can cause compatibility issues
@@ -690,26 +624,19 @@ if (!function_exists("wpd_get_file")) {
      * @return bool
      */
     function wpd_get_file($filename, $exist_check = false) {
+        global $wp_filesystem;
         // Replace double
         $filename = str_replace(array('\\\\', '//'), array('\\', '/'), $filename);
-        global $wp_filesystem;
-
-        // Try initializing the file system without inclusion
-        if ( (!isset($wp_filesystem) || $wp_filesystem == null) && function_exists('WP_Filesystem') ) {
-            WP_Filesystem();
-        }
 
         if ( $exist_check && !file_exists($filename) )
             return '';
 
-        // Did it fail?
-        if ( !isset($wp_filesystem) || $wp_filesystem == null ) {
-            /* any problems and we exit */
-            return @file_get_contents($filename);
+        if ( wpd_fs_init(false, 'get_contents') ) {
+            // All went well, return
+            return $wp_filesystem->get_contents( $filename );
         }
 
-        // All went well, return
-        return $wp_filesystem->get_contents( $filename );
+        return @file_get_contents($filename);
     }
 }
 
@@ -723,28 +650,23 @@ if (!function_exists("wpd_put_file")) {
      * @return bool
      */
     function wpd_put_file($filename, $contents) {
+        global $wp_filesystem;
         // Replace double
         $filename = str_replace(array('\\\\', '//'), array('\\', '/'), $filename);
-        global $wp_filesystem;
-
-        // Try initializing the file system without inclusion
-        if ( (!isset($wp_filesystem) || $wp_filesystem == null) && function_exists('WP_Filesystem') ) {
-            WP_Filesystem();
-        }
 
         // Did it fail?
-        if ( !isset($wp_filesystem) || $wp_filesystem == null ) {
+        if ( !wpd_fs_init(false, 'put_contents') ) {
             /* any problems and we exit */
             return @file_put_contents($filename, $contents) === false ? false : true;
         }
 
         // It worked, use it!
         if ( defined('FS_CHMOD_FILE') ) {
-            if (!$wp_filesystem->put_contents($filename, $contents, FS_CHMOD_FILE)) {
+            if ( !$wp_filesystem->put_contents($filename, $contents, FS_CHMOD_FILE) ) {
                 return @file_put_contents($filename, $contents) === false ? false : true;
             }
         } else {
-            if (!$wp_filesystem->put_contents($filename, $contents)) {
+            if ( !$wp_filesystem->put_contents($filename, $contents) ) {
                 return @file_put_contents($filename, $contents) === false ? false : true;
             }
         }
@@ -761,6 +683,7 @@ if (!function_exists("wpd_rmdir")) {
      *
      * @param $dir
      * @param $recursive
+     * @param $force
      * @return bool
      */
     function wpd_rmdir($dir, $recursive = false, $force = false) {
@@ -771,13 +694,8 @@ if (!function_exists("wpd_rmdir")) {
             return true;
         }
 
-        // Try initializing the file system without inclusion
-        if ( (!isset($wp_filesystem) || $wp_filesystem == null) && function_exists('WP_Filesystem') ) {
-            WP_Filesystem();
-        }
-
         // Did it fail?
-        if ( !isset($wp_filesystem) || $wp_filesystem == null ) {
+        if ( !wpd_fs_init(false, 'rmdir') ) {
             // $recursive is not supported in the default php rmdir function
             return rmdir( $dir );
         }
@@ -833,18 +751,13 @@ if (!function_exists("wpd_del_file")) {
     function wpd_del_file($filename) {
         global $wp_filesystem;
 
-        // Try initializing the file system without inclusion
-        if ( (!isset($wp_filesystem) || $wp_filesystem == null) && function_exists('WP_Filesystem') ) {
-            WP_Filesystem();
-        }
-
         // Did it fail?
-        if ( !isset($wp_filesystem) || $wp_filesystem == null ) {
+        if ( !wpd_fs_init(false, 'delete') ) {
             /* any problems and we exit */
             return @unlink( $filename );
         }
 
-        $wp_filesystem->delete($filename);
+        return $wp_filesystem->delete($filename);
     }
 }
 
@@ -1678,6 +1591,8 @@ if ( !function_exists("asp_parse_custom_field_filters") ) {
             $data = array(
                 "field" => $bfield->asp_f_field,
                 "source" => w_isset_def($bfield->asp_f_source, 'postmeta'),
+                "required" => w_isset_def($bfield->asp_f_required, 'asp_unchecked') == 'asp_checked',
+                "invalid_input_text" => w_isset_def($bfield->asp_f_invalid_input_text, 'This field is required!'),
                 "operator" => !empty($bfield->asp_f_datepicker_operator) ? $bfield->asp_f_datepicker_operator : $bfield->asp_f_operator,
                 "logic" => $logic,
                 "date_store_format" => $date_store_format,
@@ -2233,19 +2148,23 @@ if ( !function_exists('asp_parse_tax_term_filters') ) {
                 $_needed_terms_sorted = array();
                 $needed_terms_flat = array();
 
+                // This is passed as the $data argument
                 $display_mode = array(
-                    "type" => "checkbox",
+                    "type" => "checkboxes",
+                    "required" => false,
+                    "invalid_input_text" => 'This field is required!',
                     "default" => "checked",
                     "select_all" => 0,
                     "select_all_text" => "",
                     "box_header_text" => "",
                     "box_placeholder_text" => ""
                 );
+
                 if ( count($o['show_terms']['display_mode']) > 0) {
                     if ( $o['show_terms']['separate_filter_boxes'] != 1 ) {
-                        $display_mode = $o['show_terms']['display_mode']['all'];
+                        $display_mode = array_merge($display_mode, $o['show_terms']['display_mode']['all']);
                     } else if (isset($o['show_terms']['display_mode'][$taxonomy])) {
-                        $display_mode = $o['show_terms']['display_mode'][$taxonomy];
+                        $display_mode = array_merge($display_mode, $o['show_terms']['display_mode'][$taxonomy]);
                     }
                 }
                 $display_mode["taxonomy"] = $o['show_terms']['separate_filter_boxes'] == 0 ? 'terms' : $taxonomy;
@@ -2477,11 +2396,13 @@ if ( !function_exists('asp_parse_post_tag_filters') ) {
             "type" => $_sfto['display_mode'],
             "taxonomy" => "post_tag",
             "custom_name" => 'post_tag_set[]',
-            "default" => $_sfto['display_mode'] == 'checkboxes' ? $o['all_tags_check_opt_state'] : 1,
+            "default" => $_sfto['display_mode'] == 'checkboxes' ? ($o['all_tags_check_opt_state'] == 'checked' ? 1 : 0) : 1,
             "select_all" => $_sfto['display_mode'] == 'checkboxes' ? $o['display_all_tags_check_opt'] : $o['display_all_tags_option'],
             "select_all_text" => $_sfto['display_mode'] == 'checkboxes' ? $o['all_tags_check_opt_text'] : $o['all_tags_opt_text'],
             "box_header_text" => w_isset_def($o['frontend_tags_header'], "Filter by Tags"),
             "placeholder" => $o["frontend_tags_placeholder"],
+            "required" => $o['frontend_tags_required'] == 1,
+            "invalid_input_text" => $o['frontend_tags_invalid_input_text'],
             "is_api" => false
         );
 
@@ -2591,6 +2512,7 @@ if ( !function_exists("asp_parse_generic_filters") ) {
             $_checked = $_checked_def;
         }
 
+
         $filter = wd_asp()->front_filters->create(
             'generic',
             asp_icl_t("Generic filter label", $o['generic_filter_label']),
@@ -2601,13 +2523,13 @@ if ( !function_exists("asp_parse_generic_filters") ) {
 
         $filter->data['visible'] = count($o['frontend_fields']['selected']) > 0;
 
-        foreach ( $o['frontend_fields']['selected'] as $item ) {
+        foreach ($o['frontend_fields']['selected'] as $item) {
             $default = $_checked_def[$item];
             $selected = $_checked[$item];
             $filter->add(array(
                 "value" => $item,
                 "default" => $default,
-                "label" => asp_icl_t("Generic field[".$item."]", $o['frontend_fields']['labels'][$item] ),
+                "label" => asp_icl_t("Generic field[" . $item . "]", $o['frontend_fields']['labels'][$item]),
                 "selected" => $selected,
                 "field" => $item
             ));
@@ -2701,7 +2623,10 @@ if ( !function_exists('asp_parse_post_type_filters') ) {
                 'post_type',
                 asp_icl_t("Custom post types label", w_isset_def($o['custom_types_label'], 'Filter by Custom Post Type')),
                 $o['cpt_display_mode'],
-                array()
+                array(
+                    'required' => $o['cpt_required'] == 1,
+                    'invalid_input_text' =>$o['cpt_invalid_input_text']
+                )
             );
             $filter->is_api = false;
 
@@ -2776,7 +2701,10 @@ if ( !function_exists('asp_parse_date_filters') ) {
             'date',
             "Post type date filters",
             'date',
-            array()
+            array(
+                "required" => $o['date_filter_required'] == 1,
+                "invalid_input_text" => $o['date_filter_invalid_input_text']
+            )
         );
         $filter->is_api = false;
 
@@ -2859,20 +2787,170 @@ if (!function_exists("asp_gen_rnd_str")) {
     }
 }
 
+if ( !function_exists("asp_is_asset_required") ) {
+    function asp_is_asset_required($asset) {
+        if ( wd_asp()->manager->getContext() == 'backend' ) {
+            return true;
+        } else {
+            $assets = asp_get_unused_assets(true);
+            return !wd_in_array_r($asset, $assets);
+        }
+    }
+}
+
+if ( !function_exists("asp_get_unused_assets") ) {
+    function asp_get_unused_assets( $return_stored = false ) {
+        $dependencies = array(
+            'vertical', 'horizontal', 'isotopic', 'polaroid', 'noui', 'datepicker', 'autocomplete'
+        );
+        $external_dependencies = array(
+            'chosen', 'isotope', 'simplebar'
+        );
+        $filters_may_require_simplebar = false;
+
+        if ( $return_stored !== false ) {
+            return get_option('asp_unused_assets', array(
+                'internal' => $dependencies,
+                'external' => $external_dependencies
+            ));
+        }
+
+        $search = wd_asp()->instances->get();
+        if (is_array($search) && count($search)>0) {
+            foreach ($search as $s) {
+                // $style and $id needed in the include
+                $style = $s['data'];
+                $id = $s['id'];
+
+                // Calculate flags for the generated basic CSS
+                // --- Results type
+                $dependencies = array_diff($dependencies, array($s['data']['resultstype']));
+                // --- NOUI
+                asp_parse_filters($id, $style, true, true);
+                foreach (wd_asp()->front_filters->get() as $filter) {
+                    if ($filter->display_mode == 'slider' || $filter->display_mode == 'range') {
+                        $dependencies = array_diff($dependencies, array('noui'));
+                        break;
+                    }
+                }
+                // --- Datepicker
+                foreach (wd_asp()->front_filters->get() as $filter) {
+                    if ($filter->display_mode == 'date' || $filter->display_mode == 'datepicker') {
+                        $dependencies = array_diff($dependencies, array('datepicker'));
+                        break;
+                    }
+                }
+                // --- Scrollable filters
+                foreach (wd_asp()->front_filters->get() as $filter) {
+                    if ( isset($filter->data['visible']) && $filter->data['visible'] == 0 ) {
+                        continue;
+                    }
+                    if ($filter->display_mode == 'checkboxes' || $filter->display_mode == 'radio') {
+                        $filters_may_require_simplebar = true;
+                        break;
+                    }
+                }
+                // --- Autocomplete (not used yet)
+
+                // --- Chosen
+                foreach (wd_asp()->front_filters->get() as $filter) {
+                    if ($filter->display_mode == 'dropdownsearch' || $filter->display_mode == 'multisearch') {
+                        $external_dependencies = array_diff($external_dependencies, array('chosen'));
+                        break;
+                    }
+                }
+
+                // --- Isotope
+                if ( $s['data']['resultstype'] == 'isotopic' || $s['data']['fss_column_layout'] == 'masonry' ) {
+                    $external_dependencies = array_diff($external_dependencies, array('isotope'));
+                }
+            }
+        }
+
+        // No vertical or horizontal results results, and no filters that may trigger the scroll script
+        if (
+            $filters_may_require_simplebar ||
+            !in_array('vertical', $dependencies) ||
+            !in_array('horizontal', $dependencies)
+        ) {
+            $external_dependencies = array_diff($external_dependencies, array('simplebar'));
+        }
+
+        // Store for the init script
+        update_option('asp_unused_assets', array(
+            'internal' => $dependencies,
+            'external' => $external_dependencies
+        ));
+
+        return array(
+            'internal' => $dependencies,
+            'external' => $external_dependencies
+        );
+    }
+}
+
+if ( !function_exists("asp_get_css_url") ) {
+    function asp_get_css_url( $handle ) {
+        $externals = array(
+            'chosen' => ASP_URL . 'css/chosen/chosen.css',
+            'wpdreams-asp-chosen' => ASP_URL . 'css/chosen/chosen.css'
+        );
+        if ( isset($externals[$handle]) ) {
+            return $externals[$handle];
+        } else {
+            if ( '' != $file = asp_get_css_filename($handle) ) {
+                return wd_asp()->upload_url . $file;
+            } else {
+                return '';
+            }
+        }
+    }
+}
+
+if ( !function_exists("asp_get_css_filename") ) {
+    function asp_get_css_filename( $handle ) {
+        $media_flags = get_option('asp_css_flags', array(
+            'basic' => ''
+        ));
+        $files = array(
+            'basic' => 'style.basic'.$media_flags['basic'].'.css',
+            'wpdreams-asp-basics' => 'style.basic'.$media_flags['basic'].'.css',
+            'instances' => 'style.instances'.$media_flags['basic'].'.css',
+            'wpdreams-ajaxsearchpro-instances' => 'style.instances'.$media_flags['basic'].'.css'
+        );
+        if ( isset($files[$handle]) ) {
+            return $files[$handle];
+        } else {
+            return '';
+        }
+    }
+}
+
 if (!function_exists("asp_generate_the_css")) {
     /**
      * Generates all Ajax Search Pro CSS code
      */
     function asp_generate_the_css( $remake_media_query = true ) {
         $css_arr = array();
-
         $comp_settings = wd_asp()->o['asp_compatibility'];
         $async_load = w_isset_def($comp_settings['css_async_load'], false);
+        $basic_flags_string = '';
 
         $search = wd_asp()->instances->get();
         if (is_array($search) && count($search)>0) {
+            // Basic CSS
+            ob_start();
+            include(ASP_PATH . "/css/style.basic.css.php");
+            $basic_css = ob_get_clean();
+            $unused_assets = asp_get_unused_assets();
+            foreach ( $unused_assets['internal'] as $flag ) {
+                // Remove unneccessary CSS
+                $basic_css = asp_get_outer_substring($basic_css, '/*[' . $flag . ']*/');
+                $basic_flags_string .= '-' . substr($flag, 0, 2);
+            }
+
+            // Instances CSS
             foreach ($search as $s) {
-                //$s['data'] = json_decode($s['data'], true);
                 // $style and $id needed in the include
                 $style = &$s['data'];
                 $id = $s['id'];
@@ -2882,8 +2960,8 @@ if (!function_exists("asp_generate_the_css")) {
                 $css_arr[$id] = $out;
                 ob_end_clean();
             }
+
             // Too big, disabled...
-            //update_option('asp_styles_base64', base64_encode($css));
             $css = implode(" ", $css_arr);
 
             if ( $async_load == 1 ) {
@@ -2894,15 +2972,26 @@ if (!function_exists("asp_generate_the_css")) {
                 }
             }
             // Save the style instances file nevertheless, even if async enabled
-            if ( $comp_settings['css_minify'] == 1 )
+            if ( $comp_settings['css_minify'] == 1 ) {
                 $css = asp_css_minify($css);
-            asp_put_file("style.instances.css", $css);
+                $basic_css = asp_css_minify($basic_css);
+            }
 
+            asp_put_file("style.instances.css", $basic_css . $css);
+            asp_put_file("style.basic.css", $basic_css);
+            if ( $basic_flags_string != '' ) {
+                asp_put_file("style.basic" . $basic_flags_string . ".css", $basic_css);
+                asp_put_file("style.instances" . $basic_flags_string . ".css", $basic_css . $css);
+            }
+
+            update_option('asp_css_flags', array(
+                'basic' => $basic_flags_string
+            ));
 
             if ( $remake_media_query )
                 update_option( "asp_media_query", asp_gen_rnd_str() );
 
-            return $css;
+            return $basic_css . $css;
         }
     }
 }
@@ -2917,14 +3006,11 @@ if (!function_exists("asp_css_minify")) {
     function asp_css_minify($css) {
         // Normalize whitespace
         $css = preg_replace( '/\s+/', ' ', $css );
-
         // Remove spaces before and after comment
         $css = preg_replace( '/(\s+)(\/\*(.*?)\*\/)(\s+)/', '$2', $css );
         // Remove comment blocks, everything between /* and */, unless
         // preserved with /*! ... */ or /** ... */
         $css = preg_replace( '~/\*(?![\!|\*])(.*?)\*/~', '', $css );
-        // Remove ; before }
-        $css = preg_replace( '/;(?=\s*})/', '', $css );
         // Remove space after , : ; { } */ >
         $css = preg_replace( '/(,|:|;|\{|}|\*\/|>) /', '$1', $css );
         // Remove space before , ; { } ( ) >
@@ -2935,17 +3021,19 @@ if (!function_exists("asp_css_minify")) {
         $css = preg_replace( '/(:| )(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css );
         // Converts all zeros value into short-hand
         $css = preg_replace( '/0 0 0 0;/', '0;', $css );
-        $css = preg_replace( '/0 0 0 0\}/', '0\}', $css );
+        $css = preg_replace( '/0 0 0 0\}/', '0}', $css );
         // Invisible inset box shadow
-        $css = preg_replace( '/box-shadow:0 0 0(?: 0)? [a-fA-F0-9()#,rgb]+(?: inset)?([};])/i', 'box-shadow: none${1}', $css );
+        $css = preg_replace( '/box-shadow:0 0 0(?: 0)? [a-fA-F0-9()#,rgb]+(?: inset)?([};])/i', 'box-shadow:none${1}', $css );
         // Transparent box shadow
-        $css = preg_replace( '/box-shadow:[0-9px ]+ (transparent inset|transparent)([};])/i', 'box-shadow: none${2}', $css );
+        $css = preg_replace( '/box-shadow:[0-9px ]+ (transparent inset|transparent)([};])/i', 'box-shadow:none${2}', $css );
         // Invisible text shadow
-        $css = preg_replace( '/text-shadow:0 0(?: 0 )? [a-fA-F0-9()#,rgb]+([};])/i', 'text-shadow: none${1}', $css );
+        $css = preg_replace( '/text-shadow:0 0(?: 0)? [a-fA-F0-9()#,rgb]+([};])/i', 'text-shadow:none${1}', $css );
         // Transparent text shadow
-        $css = preg_replace( '/text-shadow:[0-9px ]+ transparent([};])/i', 'text-shadow: none${1}', $css );
+        $css = preg_replace( '/text-shadow:[0-9px ]+ transparent([};])/i', 'text-shadow:none${1}', $css );
         // Shorten 6-character hex color codes to 3-character where possible
         $css = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css );
+        // Remove ; before }
+        $css = preg_replace( '/;(?=\s*})/', '', $css );
         return trim( $css );
     }
 }

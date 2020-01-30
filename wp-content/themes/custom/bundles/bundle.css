@@ -4244,7 +4244,7 @@ button.bg-dark:focus {
 }
 
 /* line 33, wp-content/themes/custom/scss/bootstrap/utilities/_flex.scss */
-.align-items-center, .flex-center, .flex-center-vertical, .flex-center-horizontal, .fc-cards .card.card-style-featured, .card.card-style-featured, .sitewide-alert-message, #subscribe .subscribe-content, .supporter-story .card-supporter-text {
+.align-items-center, .flex-center, .flex-center-vertical, .flex-center-horizontal, .fc-cards .card.card-style-featured, .card.card-style-featured, .sitewide-alert-message, #subscribe .subscribe-content, .supporter-story .card-supporter-text, .list-your-event-banner-2 {
   align-items: center !important;
 }
 
@@ -13622,6 +13622,93 @@ body.dropdown-on #blanket-dropdown {
 #alumni-map .ws-map {
   height: inherit;
   border-radius: 8px;
+}
+
+/* line 2, wp-content/themes/custom/scss/site/_events.scss */
+#list-your-event-banner {
+  background: rgba(160, 228, 245, 0.75);
+}
+
+/* line 5, wp-content/themes/custom/scss/site/_events.scss */
+#list-your-event-banner .button {
+  border-radius: 50px;
+}
+
+/* line 9, wp-content/themes/custom/scss/site/_events.scss */
+#list-your-event-banner #list-your-event-banner-close {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  margin-top: -15px;
+}
+
+/* line 18, wp-content/themes/custom/scss/site/_events.scss */
+#list-your-event-banner #list-your-event-banner-close a {
+  display: block;
+  font-family: modern_pictograms_proregular;
+  font-size: 55px;
+}
+
+/* line 26, wp-content/themes/custom/scss/site/_events.scss */
+.list-your-event-banner-2 {
+  display: flex;
+}
+
+/* line 33, wp-content/themes/custom/scss/site/_events.scss */
+#events-nav {
+  border-top: 1px solid #E7E8EA;
+  border-bottom: 1px solid #E7E8EA;
+  height: 60px;
+}
+
+/* line 42, wp-content/themes/custom/scss/site/_events.scss */
+#events .events-container {
+  display: flex;
+  height: inherit;
+}
+
+/* line 47, wp-content/themes/custom/scss/site/_events.scss */
+#events .events-list {
+  flex: 0 0 50%;
+  height: inherit;
+}
+
+/* line 52, wp-content/themes/custom/scss/site/_events.scss */
+#events .events-map {
+  height: inherit;
+  flex: 0 0 50%;
+}
+
+/* line 63, wp-content/themes/custom/scss/site/_events.scss */
+.wpgmza_map {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+  height: 100% !important;
+  width: 50% !important;
+}
+
+/* line 71, wp-content/themes/custom/scss/site/_events.scss */
+.wpgmza_map + div {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  height: 100% !important;
+  width: 50% !important;
+}
+
+/* line 81, wp-content/themes/custom/scss/site/_events.scss */
+#events-map {
+  height: 400px;
+  width: 100%;
+}
+
+/* line 86, wp-content/themes/custom/scss/site/_events.scss */
+#events-map .cluster img {
+  max-width: 100%;
 }
 
 /* line 9, wp-content/themes/custom/scss/site/_contact.scss */

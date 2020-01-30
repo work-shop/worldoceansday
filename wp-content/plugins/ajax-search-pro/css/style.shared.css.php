@@ -88,6 +88,8 @@ defined('ABSPATH') or die("You can't access this file directly.");
   <?php elseif ($style['box_alignment'] == "right"): ?>
   margin-left: auto;
   <?php endif; ?>
+  margin-top: <?php echo esc_attr( $style['box_margin_top'] ); ?>;
+  margin-bottom: <?php echo esc_attr( $style['box_margin_bottom'] ); ?>;
   <?php wpdreams_gradient_css($style['boxbackground']); ?>
   overflow: hidden;
   <?php echo $style['boxborder']; ?>
@@ -641,19 +643,8 @@ p[id*=asp-try-<?php echo $id; ?>] a:last-child:after {
     <?php echo $asp_res_ids2; ?> .results .item .asp_image,
 <?php endif; ?>
 <?php echo $asp_res_ids; ?> .results .item .asp_image {
-  width: <?php echo $style['image_width']; ?>px;
-  height: <?php echo $style['image_height']; ?>px;
   background-size: <?php echo w_isset_def($style['image_display_mode'], "cover"); ?>;
   background-repeat: no-repeat;
-}
-
-<?php if ($use_compatibility == true): ?>
-    <?php echo $asp_res_ids1; ?> .results .item .asp_item_img,
-    <?php echo $asp_res_ids2; ?> .results .item .asp_item_img,
-<?php endif; ?>
-<?php echo $asp_res_ids; ?> .results .item .asp_item_img {
-   background-size: <?php echo w_isset_def($style['image_display_mode'], "cover"); ?>;
-   background-repeat: no-repeat;
 }
 
 <?php if ($use_compatibility == true): ?>
@@ -783,24 +774,6 @@ p[id*=asp-try-<?php echo $id; ?>] a:last-child:after {
     background: <?php echo $style['showmorefont_bg']; ?>;
     display: block;
     text-align: center;
-}
-
-<?php if ($use_compatibility == true): ?>
-    <?php echo $asp_res_ids1; ?> .asp_group_header,
-    <?php echo $asp_res_ids2; ?> .asp_group_header,
-<?php endif; ?>
-<?php echo $asp_res_ids; ?> .asp_group_header {
-  background: #DDDDDD;
-  background: <?php echo $style['exsearchincategoriesboxcolor']; ?>;
-  border-radius: 3px 3px 0 0;
-  border-top: 1px solid <?php echo $style['groupingbordercolor']; ?>;
-  border-left: 1px solid <?php echo $style['groupingbordercolor']; ?>;
-  border-right: 1px solid <?php echo $style['groupingbordercolor']; ?>;
-  margin: 10px 0 -3px;
-  padding: 7px 0 7px 10px;
-  position: relative;
-  z-index: 1000;
-  <?php echo ASP_Helpers::font($style['groupbytextfont']); ?>
 }
 
 <?php if ($use_compatibility == true): ?>

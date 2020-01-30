@@ -1054,11 +1054,12 @@ if ( ! class_exists( 'ASP_Search_CPT' ) ) {
                         }
                     } else {
                         foreach ($posted as $v) {
-                            if ($operator === "ELIKE") {
+                            if ($operator === "ELIKE" || $operator === "NOT ELIKE") {
+                                $_op = $operator === 'ELIKE' ? 'LIKE' : 'NOT LIKE';
                                 if ($values != '') {
-                                    $values .= " $logic $wpdb->postmeta.meta_value LIKE '" . $v . "'";
+                                    $values .= " $logic $wpdb->postmeta.meta_value $_op '" . $v . "'";
                                 } else {
-                                    $values .= "$wpdb->postmeta.meta_value LIKE '" . $v . "'";
+                                    $values .= "$wpdb->postmeta.meta_value $_op '" . $v . "'";
                                 }
                             } else if ($operator === "NOT LIKE" || $operator === "LIKE") {
                                 if ($values != '') {
@@ -1081,10 +1082,11 @@ if ( ! class_exists( 'ASP_Search_CPT' ) ) {
                     // String operations
                 } else if ($operator === "NOT LIKE" || $operator === "LIKE") {
                     $current_part = "($wpdb->postmeta.meta_value $operator '%" . $posted . "%')";
-                } else if ($operator === "ELIKE") {
-                    $current_part = "($wpdb->postmeta.meta_value LIKE '$posted')";
-                    // Numeric operations or problematic stuff left
+                } else if ($operator === "ELIKE" || $operator === "NOT ELIKE") {
+                    $_op = $operator === 'ELIKE' ? 'LIKE' : 'NOT LIKE';
+                    $current_part = "($wpdb->postmeta.meta_value $_op '$posted')";
                 } else {
+                    // Numeric operations or problematic stuff left
                     $current_part = "($wpdb->postmeta.meta_value $operator $posted  )";
                 }
 
@@ -1220,13 +1222,13 @@ if ( ! class_exists( 'ASP_Search_CPT' ) ) {
                                 break;
                             case "customfp DESC":
                                 if ($this->args['post_primary_order_metatype'] == 'numeric')
-                                    return $b->customfp - $a->customfp;
+                                    return floatval($b->customfp) - floatval($a->customfp);
                                 else
                                     return strcasecmp($b->customfp, $a->customfp);
                                 break;
                             case "customfp ASC":
                                 if ($this->args['post_primary_order_metatype'] == 'numeric')
-                                    return $a->customfp - $b->customfp;
+                                    return floatval($a->customfp) - floatval($b->customfp);
                                 else
                                     return strcasecmp($a->customfp, $b->customfp);
                                 break;
@@ -1540,7 +1542,7 @@ if ( ! class_exists( 'ASP_Search_CPT' ) ) {
                     if ( $image_settings['image_cropping'] == 0 ) {
                         $r->image = $im;
                     } else {
-                        if ( strpos( $im, "mshots/v1" ) === false ) {
+                        if ( strpos( $im, "mshots/v1" ) === false && strpos( $im, ".gif" ) === false ) {
                             $bfi_params = array( 'width'  => $image_settings['image_width'],
                                                  'height' => $image_settings['image_height'],
                                                  'crop'   => true
@@ -1966,8 +1968,6 @@ if ( ! class_exists( 'ASP_Search_CPT' ) ) {
                                     $val = isset($r->content) ? $r->content : '';
                                     break;
                                 case '__link':
-                                    $val = isset($r->link) ? $r->link : '';
-                                    break;
                                 case '__url':
                                     $val = isset($r->link) ? $r->link : '';
                                     break;
@@ -1975,7 +1975,13 @@ if ( ! class_exists( 'ASP_Search_CPT' ) ) {
                                     $val = isset($r->image) ? $r->image : '';
                                     break;
                                 case '__date':
-                                    $val = isset($r->date) ? $r->date : '';
+                                    if ( isset($r->date) ) {
+                                        if ( isset($field_args['date_format']) ) {
+                                            return date_i18n($field_args['date_format'], strtotime($r->date));
+                                        }
+                                        return $r->date;
+                                    }
+                                    return '';
                                     break;
                                 case '__author':
                                     $val = isset($r->author) ? $r->author : '';

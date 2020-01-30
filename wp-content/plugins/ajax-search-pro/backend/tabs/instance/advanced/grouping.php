@@ -38,6 +38,13 @@
 </div>
 <div class="item wd_groupby_op">
 	<?php
+	$o = new wpdreamsYesNo("group_reorder_by_pr", __('Reorder groups by highest priority and relevance in results?', 'ajax-search-pro'), $sd['group_reorder_by_pr']);
+	$params[$o->getName()] = $o->getData();
+	?>
+	<p class="descMsg"><?php echo __('The groups are reordered according to the highest priority and relevance of each result within each individual group.', 'ajax-search-pro'); ?></p>
+</div>
+<div class="item wd_groupby_op">
+	<?php
 	$o = new wpdreamsText("group_header_prefix", __('Group header prefix text', 'ajax-search-pro'), $sd['group_header_prefix']);
 	$params[$o->getName()] = $o->getData();
 	?>
@@ -59,7 +66,7 @@
 	$params[$o->getName()] = $o->getData();
 	?>
 </div>
-<div class="item wd_groupby_op item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item wd_groupby_op item-flex-nogrow item-flex-wrap">
 	<?php
 	$o = new wpdreamsText("group_other_results_head", __('Other results group header text', 'ajax-search-pro'), $sd['group_other_results_head']);
 	$params[$o->getName()] = $o->getData();
@@ -79,7 +86,7 @@
 	?>
 	<p class="descMsg"><?php echo __('For example posts in multiple categories will be displayed in the first matching group only.', 'ajax-search-pro'); ?></p>
 </div>
-<div class="item wd_groupby_op item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item wd_groupby_op item-flex-nogrow item-flex-wrap">
 	<?php
 	$o = new wpdreamsYesNo("group_show_empty", __('Display empty groups with the \'No results!\' text?', 'ajax-search-pro'), $sd['group_show_empty']);
 	$params[$o->getName()] = $o->getData();

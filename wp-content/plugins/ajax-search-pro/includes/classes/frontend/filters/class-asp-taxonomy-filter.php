@@ -5,6 +5,8 @@ if ( !class_exists('aspTaxFilter') ) {
     class aspTaxFilter extends aspFilter {
         public $data = array(
             "type" => "checkbox",
+            "required" => false,
+            "invalid_input_text" => "Please select one!",
             "default" => "checked",
             "placeholder" => "",
             "taxonomy" => "category",

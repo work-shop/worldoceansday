@@ -20,47 +20,46 @@ class WS_Site {
 
     public function register_post_types_and_taxonomies() {
 
-        //WS_Custom_Category::register();
-        //WS_Custom_Post::register();
+        // WS_Custom_Category::register();
+        // WS_Custom_Post::register();
 
-        // register_post_type( 'people',
-        //     array(
-        //         'labels' => array(
-        //             'name' => 'People',
-        //             'singular_name' =>'Person',
-        //             'add_new' => 'Add New',
-        //             'add_new_item' => 'Add New Person',
-        //             'edit_item' => 'Edit Person',
-        //             'new_item' => 'New Person',
-        //             'all_items' => 'All People',
-        //             'view_item' => 'View Person',
-        //             'search_items' => 'Search People',
-        //             'not_found' =>  'No People found',
-        //             'not_found_in_trash' => 'No People found in Trash',
-        //         ),
-        //         'public' => true,
-        //         'has_archive' => true,
-        //         'rewrite' => array('slug' => 'people'),
-        //         'show_in_rest'       => true,
-        //         'rest_base'          => 'people',
-        //         'rest_controller_class' => 'WP_REST_Posts_Controller',
-        //         'supports' => array( 'title', 'thumbnail'),
-        //         'menu_icon'   => 'dashicons-id'
-        //     ));
+        register_post_type( 'event-test',
+            array(
+                'labels' => array(
+                    'name' => 'Event Test',
+                    'singular_name' =>'Event Test',
+                    'add_new' => 'Add New',
+                    'add_new_item' => 'Add New Event Test',
+                    'edit_item' => 'Edit Event Test',
+                    'new_item' => 'New Event Test',
+                    'all_items' => 'All Event Tests',
+                    'view_item' => 'View Event Test',
+                    'search_items' => 'Search Event Tests',
+                    'not_found' =>  'No Event Tests found',
+                    'not_found_in_trash' => 'No Event Tests found in Trash',
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'event-test'),
+                'show_in_rest'       => true,
+                'rest_base'          => 'event-test',
+                'rest_controller_class' => 'WP_REST_Posts_Controller',
+                'supports' => array( 'title', 'thumbnail')
+            ));
 
-        // register_taxonomy(
-        //     'people-categories',
-        //     'people',
-        //     array(
-        //         'hierarchical' => true,
-        //         'label' => 'People Categories',
-        //         'query_var' => true,
-        //         'show_admin_column' => true,
-        //         'rewrite' => array('slug' => 'people-categories'),
-        //         'rest_base'          => 'people-categories',
-        //         'rest_controller_class' => 'WP_REST_Terms_Controller',
-        //     )
-        // );
+        register_taxonomy(
+            'event-test-categories',
+            'event-test',
+            array(
+                'hierarchical' => true,
+                'label' => 'Event Test Categories',
+                'query_var' => true,
+                'show_admin_column' => true,
+                'rewrite' => array('slug' => 'event-test-categories'),
+                'rest_base'          => 'event-test-categories',
+                'rest_controller_class' => 'WP_REST_Terms_Controller',
+            )
+        );
 
         
 

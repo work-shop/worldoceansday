@@ -77,6 +77,7 @@ defined('ABSPATH') or die("You can't access this file directly.");
 <?php echo $asp_res_ids; ?>.isotopic>nav,
 <?php echo $asp_res_ids; ?>.isotopic nav.asp_navigation {
     background: <?php echo $style['i_pagination_background']; ?>;
+    margin-bottom: <?php echo w_isset_def($style['i_item_margin'], 10); ?>px;
 }
 
 <?php if ($use_compatibility == true): ?>

@@ -1301,15 +1301,55 @@ if (!class_exists('ASP_Query')) {
                     $groups[$k]['title'] .= " (".count($groups[$k]['items']).")";
             }
 
+            if ( $sd['group_reorder_by_pr'] == 1 ) {
+                $ordered = array();
+                foreach ( $groups as $gkey => $group ) {
+                    $ordered[$gkey] = array(
+                        'group_priority' => 0,
+                        'priority' => 0,
+                        'relevance' => 0
+                    );
+                    if ( isset($group['items']) ) {
+                        foreach ($group['items'] as $result) {
+                            if ( isset($result->group_priority) && intval($result->group_priority) > $ordered[$gkey]['group_priority'] ) {
+                                $ordered[$gkey]['group_priority'] = intval($result->group_priority);
+                            }
+                            if ( isset($result->priority) && intval($result->priority) > $ordered[$gkey]['priority'] ) {
+                                $ordered[$gkey]['priority'] = intval($result->priority);
+                            }
+                            if ( isset($result->relevance) && intval($result->relevance) > $ordered[$gkey]['relevance'] ) {
+                                $ordered[$gkey]['relevance'] = intval($result->relevance);
+                            }
+                        }
+                    }
+                }
+                uasort($ordered, array($this, 'usort_groups'));
+                $new_groups = array();
+                foreach ( $ordered as $okey => $values ) {
+                    $new_groups[$okey] = $groups[$okey];
+                }
+                $groups = $new_groups;
+            }
+
             if ( count($groups) > 0)
                 return array("grouped" => 1, "groups" => $groups);
             else
                 return array();
         }
 
+        private function usort_groups($a, $b) {
+            if ( $a['group_priority'] == $b['group_priority'] ) {
+                if ( $a['priority'] == $b['priority'] ) {
+                    return $b['relevance'] - $a['relevance'] ;
+                }
+                return $b['priority'] - $a['priority'];
+            }
+            return $b['group_priority'] - $a['group_priority'];
+        }
+
         private function applyExceptions( $s ) {
             if ( !isset($this->args['_sd']) )
-                return false;
+                return $s;
 
             $sd = &$this->args['_sd'];
 

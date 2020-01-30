@@ -131,15 +131,12 @@ if (!class_exists('ASP_Search_PeepsoActivites')) {
                 $group_ids = is_array($args['peepso_group_activity_privacy']) ? $args['peepso_group_activity_privacy'] : explode(',', $args['peepso_group_activity_privacy']);
                 $group_ids = implode(',', $group_ids);
                 $peeps_privacy_query = "
-                    AND (EXISTS (SELECT 1 FROM $wpdb->postmeta pgm 
-                         WHERE pgm.post_id = apm.meta_value AND 
-                               pgm.meta_key LIKE 'peepso_group_privacy' AND 
-                               pgm.meta_value IN ($group_ids)
-                         ))
+                AND (EXISTS (SELECT 1 FROM $wpdb->postmeta pgm 
+                     WHERE pgm.post_id = apm.meta_value AND 
+                           pgm.meta_key LIKE 'peepso_group_privacy' AND 
+                           pgm.meta_value IN ($group_ids)
+                     ))
                 ";
-            } else {
-                // No Privacy selected
-                return array();
             }
             /*---------------------------------------------------------------*/
 

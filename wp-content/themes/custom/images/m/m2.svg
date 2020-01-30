@@ -1,0 +1,13 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px"
+ height="50px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+ <style type="text/css">
+  .st0{fill:url(#SVGID_1_);}
+  .st1{fill:url(#SVGID_2_);}
+</style>
+<radialGradient id="SVGID_1_" cx="25" cy="25" r="25" gradientUnits="userSpaceOnUse">
+  <stop  offset="0" style="stop-color:#183F6E;stop-opacity:0.8"/>
+  <stop  offset="0.8587" style="stop-color:#183F6E;stop-opacity:0.8859"/>
+  <stop  offset="1" style="stop-color:#183F6E;stop-opacity:0.9"/>
+</radialGradient>
+<circle class="st0" cx="25" cy="25" r="25"/>
+</svg>

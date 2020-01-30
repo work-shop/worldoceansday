@@ -59,10 +59,10 @@ defined('ABSPATH') or die("You can't access this file directly.");
 }
 
 <?php if ($use_compatibility == true): ?>
-    <?php echo $asp_res_ids1; ?> .photostack-img,
-    <?php echo $asp_res_ids2; ?> .photostack-img,
+    <?php echo $asp_res_ids1; ?> .asp_image,
+    <?php echo $asp_res_ids2; ?> .asp_image,
 <?php endif; ?>
-<?php echo $asp_res_ids; ?> .photostack-img {
+<?php echo $asp_res_ids; ?> .asp_image {
 	width: <?php echo (wpdreams_width_from_px($style['preswidth'])- 2*wpdreams_width_from_px($style['prespadding'])); ?>px;
 	height: <?php echo (wpdreams_width_from_px($style['preswidth'])- 2*wpdreams_width_from_px($style['prespadding'])); ?>px;
     <?php echo ASP_Helpers::font($style['pressubtitlefont']); ?>

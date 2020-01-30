@@ -16,7 +16,11 @@ $cf_tooltip_msg = sprintf( __('One item per line. Use the <strong>{get_values}</
 
         // Store defaults
         $('#asp_new_field input, #asp_new_field select, #asp_new_field textarea').each(function(){
-           resetValues[$(this).attr('name')] = $(this).val();
+            if ( $(this).is(':checkbox')) {
+                resetValues[$(this).attr('name')] = $(this).is(':checked');
+            } else {
+                resetValues[$(this).attr('name')] = $(this).val();
+            }
         });
 
         // Fields for checking
@@ -79,7 +83,11 @@ $cf_tooltip_msg = sprintf( __('One item per line. Use the <strong>{get_values}</
 
         function resetNew() {
             $('#asp_new_field input, #asp_new_field select, #asp_new_field textarea').each(function(){
-                $(this).val(resetValues[$(this).attr('name')]);
+                if ( $(this).is(':checkbox')) {
+                    $(this).prop('checked', resetValues[$(this).attr('name')]);
+                } else {
+                    $(this).val(resetValues[$(this).attr('name')]);
+                }
             });
             $('#asp_new_field select[name="asp_f_type"]').trigger('change');
             $('#asp_new_field select[name="asp_f_source"]').trigger('focusin');
@@ -90,6 +98,11 @@ $cf_tooltip_msg = sprintf( __('One item per line. Use the <strong>{get_values}</
         function resetEdit() {
             $('#asp_edit_field input, #asp_edit_field select, #asp_edit_field textarea').each(function(){
                 $(this).val(resetValues[$(this).attr('name')]);
+                if ( $(this).is(':checkbox')) {
+                    $(this).prop('checked', resetValues[$(this).attr('name')]);
+                } else {
+                    $(this).val(resetValues[$(this).attr('name')]);
+                }
             });
             $('#asp_edit_field select[name="asp_f_type"]').trigger('change');
             $('#asp_edit_field select[name="asp_f_source"]').trigger('focusin');
@@ -100,21 +113,28 @@ $cf_tooltip_msg = sprintf( __('One item per line. Use the <strong>{get_values}</
         /* Type change */
         $('select[name="asp_f_type"]').on('change', function(){
             var id = $(this).parent().parent()[0].id;
+            var val = $(this).val();
             $('#' + id + ' .asp_f_type').addClass('hiddend');
             $('#' + id + ' .asp_f_' + $(this).val()).removeClass('hiddend');
-            if ($(this).val() == 'slider') {
+            if (val == 'slider') {
                 $($('#' + id + ' .asp_f_operator optgroup')[1]).addClass('hiddend');
                 $('#' + id + ' .asp_f_operator select').val('eq');
             } else {
                 $($('#' + id + ' .asp_f_operator optgroup')[1]).removeClass('hiddend');
             }
-            if ($(this).val() == 'checkboxes') {
+            if (val == 'checkboxes') {
                 $('#' + id + ' .asp_f_operator select').val('like');
             }
-            if ($(this).val() == 'range' || $(this).val() == 'datepicker') {
+            if (val == 'range' || val == 'datepicker') {
                 $('#' + id + ' .asp_f_operator').addClass('hiddend');
             } else {
                 $('#' + id + ' .asp_f_operator').removeClass('hiddend');
+            }
+
+            if ( val == 'hidden' || val == 'slider' || val == 'range' ) {
+                $('#' + id + ' .asp_f_required').addClass('hiddend');
+            } else {
+                $('#' + id + ' .asp_f_required').removeClass('hiddend');
             }
         });
         /* Reset it on page load */
@@ -238,6 +258,8 @@ $cf_tooltip_msg = sprintf( __('One item per line. Use the <strong>{get_values}</
             $('#asp_edit_field select[name="asp_f_source"]').trigger('focusin');
             $('#asp_edit_field select[name="asp_f_source"]').trigger('change');
 
+            $('#asp_edit_field input[name="asp_f_required"]').trigger('change');
+
             initDatePickers();
         });
 
@@ -301,6 +323,13 @@ $cf_tooltip_msg = sprintf( __('One item per line. Use the <strong>{get_values}</
         });
         $('input[name=asp_f_dropdown_search]').change();
 
+        $('input[name=asp_f_required]').change(function(){
+            if ( $(this).prop('checked') )
+                $(this).closest('fieldset').find('input[name=asp_f_invalid_input_text]').closest('label').removeClass('disabled');
+            else
+                $(this).closest('fieldset').find('input[name=asp_f_invalid_input_text]').closest('label').addClass('disabled');
+        });
+        $('input[name=asp_f_required]').change();
     });
 </script>
 <style>
@@ -524,9 +553,20 @@ sample_value3||Sample Label 3**</textarea>
             <optgroup label="String operators">
                 <option value="elike">EXACTLY LIKE</option>
                 <option value="like" selected="selected">LIKE</option>
+                <option value="not elike">NOT EXACTLY LIKE</option>
+                <option value="not like">NOT LIKE</option>
             </optgroup>
             </select>
             <p class="descMsg"><?php echo __('Use the numeric operators for numeric values and string operators for text values', 'ajax-search-pro'); ?></p>
+        </div>
+        <div class='one-item asp_f_required'>
+            <label for='asp_f_required'><?php echo __('Required?', 'ajax-search-pro'); ?>
+                <input type="checkbox" name="asp_f_required">
+            </label>
+            <label for='asp_f_required'><?php echo __('..text: ', 'ajax-search-pro'); ?>
+                <input type='text' value="This field is required!" name='asp_f_invalid_input_text'/>
+            </label>
+            <p class="descMsg"><?php echo __('The plugin will not trigger search until the required field is set.', 'ajax-search-pro'); ?></p>
         </div>
         <div class='one-item'>
             <button type='button' style='margin-right: 20px;' name='reset'><?php echo __('Reset', 'ajax-search-pro'); ?></button>
@@ -711,9 +751,20 @@ sample_value3||Sample Label 3**</textarea>
             <optgroup label="String operators">
                 <option value="elike">EXACTLY LIKE</option>
                 <option value="like">LIKE</option>
+                <option value="not elike">NOT EXACTLY LIKE</option>
+                <option value="not like">NOT LIKE</option>
             </optgroup>
             </select>
             <p class="descMsg"><?php echo __('Use the numeric operators for numeric values and string operators for text values.', 'ajax-search-pro'); ?></p>
+        </div>
+        <div class='one-item asp_f_required'>
+            <label for='asp_f_required'><?php echo __('Required?', 'ajax-search-pro'); ?>
+                <input type="checkbox" name="asp_f_required">
+            </label>
+            <label for='asp_f_required'><?php echo __('..text: ', 'ajax-search-pro'); ?>
+                <input type='text' value="This field is required!" name='asp_f_invalid_input_text'/>
+            </label>
+            <p class="descMsg"><?php echo __('The plugin will not trigger search until the required field is set.', 'ajax-search-pro'); ?></p>
         </div>
         <div class='one-item'>
             <button type='button' style='margin-right: 20px;' name='back'><?php echo __('Back', 'ajax-search-pro'); ?></button>

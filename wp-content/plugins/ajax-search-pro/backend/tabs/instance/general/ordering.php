@@ -6,7 +6,7 @@
 </style>
 <fieldset>
     <legend><?php echo __('Ordering', 'ajax-search-pro'); ?></legend>
-    <div class="item wd-primary-order item-flex-nogrow" style="flex-wrap: wrap;"><?php
+    <div class="item wd-primary-order item-flex-nogrow item-flex-wrap"><?php
         $o = new wpdreamsCustomSelect("orderby_primary", __('Primary ordering', 'ajax-search-pro'),
             array(
                 'selects' => array(
@@ -37,7 +37,7 @@
         $params[$o->getName()] = $o->getData();
         ?>
     </div>
-    <div class="item wd-secondary-order item-flex-nogrow" style="flex-wrap: wrap;"><?php
+    <div class="item wd-secondary-order item-flex-nogrow item-flex-wrap"><?php
         $o = new wpdreamsCustomSelect("orderby", __('Secondary ordering', 'ajax-search-pro'),
             array(
                 'selects' => array(
@@ -67,7 +67,7 @@
             ));
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('If two elements match the primary ordering criteria, the <b>Secondary ordering</b> is used.', 'ajax-search-pro'); ?>
         </div>
     </div>

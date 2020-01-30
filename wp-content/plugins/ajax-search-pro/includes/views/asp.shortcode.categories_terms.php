@@ -13,8 +13,8 @@ foreach ( wd_asp()->front_filters->get('position', 'taxonomy') as $k => $filter 
     $ch_class = $filter->isMixed() ? 'terms' : preg_replace("/[^a-zA-Z0-9]+/", "", $taxonomy);
 
     include(ASP_Helpers::aspTemplateFilePath('filters/taxonomy/asp-tax-header.php'));
-
     switch ($filter->display_mode) {
+        case 'checkbox':
         case 'checkboxes':
             include(ASP_Helpers::aspTemplateFilePath('filters/taxonomy/asp-tax-checkboxes.php'));
             break;

@@ -1142,7 +1142,7 @@ if ( ! class_exists( 'asp_indexTable' ) ) {
 
             // Get additional words if available
 			$additional_words = array();
-            $pattern = array('"', "'", "`", '’', '‘', '”', '“', "+", '.', ',', '-', '_', "=", "%", '(', ')', '{', '}');
+            $pattern = array('"', "'", "`", '’', '‘', '”', '“', "+", '.', ',', '-', '_', "=", "%", '(', ')', '{', '}', '*', '[', ']', '|');
 			foreach ($words as $wk => $ww) {
 
                 // ex.: 123-45-678 to 123, 45, 678
@@ -1300,9 +1300,11 @@ if ( ! class_exists( 'asp_indexTable' ) ) {
                 $wpt_reloaded = new WP_Table_Reloaded_Controller_Frontend();
             }
             // TablePress support
-            if ( defined( 'TABLEPRESS_ABSPATH' ) ) {
-                $tp_controller = TablePress::load_controller( 'frontend' );
-                $tp_controller->init_shortcodes();
+            if ( defined( 'TABLEPRESS_ABSPATH' ) && class_exists('TablePress') ) {
+                TablePress::$model_options = TablePress::load_model( 'options' );
+                TablePress::$model_table = TablePress::load_model( 'table' );
+                TablePress::$controller = TablePress::load_controller( 'frontend' );
+                TablePress::$controller->init_shortcodes();
             }
 
             // Remove user defined shortcodes

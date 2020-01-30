@@ -549,11 +549,12 @@ if (!class_exists('ASP_Search_USERS')) {
                         }
                     } else {
                         foreach ($posted as $v) {
-                            if ($operator === "ELIKE") {
+                            if ($operator === "ELIKE" || $operator === "NOT ELIKE") {
+                                $_op = $operator === 'ELIKE' ? 'LIKE' : 'NOT LIKE';
                                 if ($values != '') {
-                                    $values .= " $logic $wpdb->usermeta.meta_value $operator '" . $v . "'";
+                                    $values .= " $logic $wpdb->usermeta.meta_value $_op '" . $v . "'";
                                 } else {
-                                    $values .= "$wpdb->usermeta.meta_value $operator '" . $v . "'";
+                                    $values .= "$wpdb->usermeta.meta_value $_op '" . $v . "'";
                                 }
                             } else if ($operator === "NOT LIKE" || $operator === "LIKE") {
                                 if ($values != '') {
@@ -576,8 +577,9 @@ if (!class_exists('ASP_Search_USERS')) {
                     // String operations
                 } else if ($operator === "NOT LIKE" || $operator === "LIKE") {
                     $current_part = "($wpdb->usermeta.meta_value $operator '%" . $posted . "%')";
-                } else if ($operator === "ELIKE") {
-                    $current_part = "($wpdb->usermeta.meta_value LIKE '$posted')";
+                } else if ($operator === "ELIKE" || $operator === "NOT ELIKE") {
+                    $_op = $operator === 'ELIKE' ? 'LIKE' : 'NOT LIKE';
+                    $current_part = "($wpdb->usermeta.meta_value $_op '$posted')";
                     // Numeric operations or problematic stuff left
                 } else {
                     $current_part = "($wpdb->usermeta.meta_value $operator $posted  )";
@@ -639,7 +641,6 @@ if (!class_exists('ASP_Search_USERS')) {
             }
 
             aspDebug::stop( '--searchContent-cf' );
-
             return $cf_select;
         }
 
@@ -712,7 +713,7 @@ if (!class_exists('ASP_Search_USERS')) {
                         if ( $image_settings['image_cropping'] == 0 ) {
                             $userresults[$k]->image = $im;
                         } else {
-                            if ( strpos( $im, "mshots/v1" ) === false ) {
+                            if ( strpos( $im, "mshots/v1" ) === false && strpos( $im, ".gif" ) === false ) {
                                 $bfi_params = array( 'width'  => $image_settings['image_width'],
                                                      'height' => $image_settings['image_height'],
                                                      'crop'   => true

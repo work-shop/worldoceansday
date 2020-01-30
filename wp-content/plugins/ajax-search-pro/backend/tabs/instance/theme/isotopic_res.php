@@ -29,7 +29,7 @@
         <?php echo __('Background color under the image. Not visible by default, unless the image is opaque.', 'ajax-search-pro'); ?>
     </p>
 </div>
-<div class="item item-flex-nogrow wpd-isotopic-width" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap wpd-isotopic-width">
     <?php
     $o = new wpdreamsTextSmall("i_item_width", __('Result width', 'ajax-search-pro'), array(
         'icon' => 'desktop',
@@ -47,11 +47,15 @@
     ));
     $params[$o->getName()] = $o->getData();
     ?>
-    <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
-        <?php echo __('Use with units (200px or 32%). The search will try to stick close to this value when filling the width of the results list.', 'ajax-search-pro'); ?>
+    <div class="descMsg item-flex-grow item-flex-100">
+        <?php echo sprintf(
+            __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+            'https://www.w3schools.com/cssref/css_units.asp', '200px', '32%', 'auto', '200px'
+        ); ?><br>
+        <?php echo __('The search will try to stick close to this value when filling the width of the results list.', 'ajax-search-pro'); ?>
     </div>
 </div>
-<div class="item item-flex-nogrow wpd-isotopic-width" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap wpd-isotopic-width">
     <?php
     $o = new wpdreamsTextSmall("i_item_height", __('Result height', 'ajax-search-pro'), array(
         'icon' => 'desktop',
@@ -69,8 +73,12 @@
     ));
     $params[$o->getName()] = $o->getData();
     ?>
-    <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
-        <?php echo __('Use with units (200px or 32%). For % values, it will be relative to the results container width, not container height - as the container height is dynamic.', 'ajax-search-pro'); ?>
+    <div class="descMsg item-flex-grow item-flex-100">
+        <?php echo sprintf(
+            __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+            'https://www.w3schools.com/cssref/css_units.asp', '200px', '32%', 'auto', '200px'
+        ); ?><br>
+        <?php echo __('For % values, it will be relative to the results container width, not container height - as the container height is dynamic.', 'ajax-search-pro'); ?>
     </div>
 </div>
 <div class="item"><?php

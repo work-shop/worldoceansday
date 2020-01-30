@@ -8,7 +8,7 @@
         $sd['desktop_display_search']);
     $params[$o->getName()] = $o->getData();
     ?>
-    <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+    <div class="descMsg item-flex-grow item-flex-100">
         <?php echo __('If you want to hide this search bar on mobile/desktop devices then turn OFF these option.', 'ajax-search-pro'); ?>
     </div>
 </div>
@@ -19,7 +19,7 @@
     $params[$o->getName()] = $o->getData();
     ?>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
     <?php
     $_red_opts = array_merge(
         array(array('option'=>'Same as on desktop', 'value'=>'same')),
@@ -42,7 +42,7 @@
     $params[$o->getName()] = $o->getData();
     ?>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
     <?php
     $o = new wpdreamsCustomSelect("mob_return_action", __('Action when tapping <strong>the return</strong> button (search icon on virtual keyboard)<br>', 'ajax-search-pro'),
         array(
@@ -105,7 +105,7 @@
     ));
     $params[$o->getName()] = $o->getData();
     ?>
-    <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+    <div class="descMsg item-flex-grow item-flex-100">
         <?php echo __('This will force to display the settings below the search bar (floating above the content) on mobile devices, even if the settings shortcode is used.', 'ajax-search-pro'); ?>
     </div>
 </div>

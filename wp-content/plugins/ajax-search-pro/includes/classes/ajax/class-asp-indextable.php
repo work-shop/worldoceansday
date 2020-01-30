@@ -34,9 +34,9 @@ if (!class_exists("WD_ASP_IndexTable_Handler")) {
             update_option("asp_recreate_index", 0);
 
             $limit = $options['it_limit'];
-            // Adjust the limit based on the previous request duration (lower only)
-            if ( isset($_POST['last_request_duration']) ) {
-                $dur = $_POST['last_request_duration'] + 0;
+            // Adjust the limit based on the previous and longest request duration
+            if ( isset($_POST['last_request_duration'], $_POST['longest_request_duration']) ) {
+                $dur = ( intval( $_POST['last_request_duration'] ) + intval( $_POST['longest_request_duration'] ) ) / 2;
                 if ( $dur > 25 ) {
                     $limit = intval($limit / 5);
                 } else if ( $dur > 20 ) {

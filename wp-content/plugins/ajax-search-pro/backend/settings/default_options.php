@@ -100,20 +100,15 @@ function asp_do_init_options() {
         'css_compatibility_level' => "medium",
         'forceinlinestyles' => 0,
         'css_async_load' => 0,
-        'css_minify' => 0,
+        'css_minify' => 1,
         'usetimbthumb' => 1,
         'usecustomajaxhandler' => 0,
         'old_browser_compatibility' => 1,
 
         // JS and CSS load
         'load_google_fonts' => 1,
-        'loadpolaroidjs' => 1,
         'load_mcustom_js' => 'yes',
-        'load_isotope_js' => 1,
-        'load_datepicker_js' => 1,
-        'load_chosen_js' => 1,
         'load_lazy_js' => 0,
-        'load_noui_js' => 1,
         'selective_enabled' => 0,
         'selective_front' => 1,
         'selective_archive' => 1,
@@ -121,6 +116,7 @@ function asp_do_init_options() {
         'selective_exin' => '',
 
         // Query options
+        'query_soft_check' => 0,
         'db_force_case_selects' => array(
             array('option' => 'None', 'value' => 'none'),
             array('option' => 'Sensitivity', 'value' => 'sensitivity'),
@@ -342,7 +338,7 @@ function asp_do_init_options() {
         'peep_s_posts' => 0,
         'peep_s_comments' => 0,
         'peep_pc_follow' => 0,
-        'peep_pc_public' => 1,
+        'peep_pc_public' => 0,
         'peep_pc_closed' => 0,
         'peep_pc_secret' => 0,
 
@@ -400,6 +396,8 @@ function asp_do_init_options() {
         'date_filter_to_t' => 'Content to',
         'date_filter_to_placeholder' => 'Choose date',
         'date_filter_to_format' => 'dd-mm-yy',
+        'date_filter_required' => 0,
+        'date_filter_invalid_input_text' => 'Please select a date!',
 
 // general
         'show_frontend_search_settings' => 0,
@@ -423,9 +421,13 @@ function asp_do_init_options() {
         'cpt_filter_default' => 'post',
         'cpt_cbx_show_select_all' => 0,
         'cpt_cbx_show_select_all_text' => 'Select all',
+        'cpt_required' => 0,
+        'cpt_invalid_input_text' => 'This field is required!',
 
         'show_frontend_tags' => "0|checkboxes|all|checked|||",
         'frontend_tags_placeholder' => 'Select tags',
+        'frontend_tags_required' => 0,
+        'frontend_tags_invalid_input_text' => 'This field is required!',
         'frontend_tags_header' => "Filter by Tags",
         'frontend_tags_logic' => "or",
         'frontend_tags_empty' => 0,
@@ -445,8 +447,8 @@ function asp_do_init_options() {
         'frontend_fields' => array(
             'display_mode' => 'checkboxes', // checkboxes, dropdown, radio
             'labels' => $_frontend_fields,          // This is overwritten on save
-            'selected' => array('exact'),
-            'unselected' => array('title', 'content', 'excerpt'),
+            'selected' => array(),
+            'unselected' => array('exact', 'title', 'content', 'excerpt'),
             'checked' => array('title', 'content', 'excerpt')
         ),
 
@@ -669,6 +671,7 @@ function asp_do_init_options() {
                 'peepso_activities' => 'Peepso Activities'
         ),
 
+        'group_reorder_by_pr' => 0,
         'group_result_no_group' => 'display',
         'group_other_location' => 'bottom',
         'group_other_results_head' => 'Other results',
@@ -711,11 +714,13 @@ function asp_do_init_options() {
         'box_width_tablet' => '100%',
         'box_width_phone' => '100%',
         'boxheight' => '34px',
-        'boxmargin' => '0px',
+        'box_margin_top' => 0,
+        'box_margin_bottom' => 0,
         'boxbackground' => '0-60-rgb(225, 99, 92)-rgb(225, 99, 92)',
         'boxborder' => 'border:0px none rgb(141, 213, 239);border-radius:0px 0px 0px 0px;',
         'boxshadow' => 'box-shadow:0px 0px 0px 0px #000000 ;',
 
+        'boxmargin' => '0px',
         'inputbackground' => '0-60-rgb(225, 99, 92)-rgb(225, 99, 92)',
         'inputborder' => 'border:0px solid rgb(104, 174, 199);border-radius:0px 0px 0px 0px;',
         'inputshadow' => 'box-shadow:0px 0px 0px 0px rgb(181, 181, 181) inset;',
@@ -790,6 +795,13 @@ function asp_do_init_options() {
         'v_res_overflow_autohide' => 1,
         'v_res_overflow_color' => '0-60-rgba(0, 0, 0, 0.5)-rgba(0, 0, 0, 0.5)',
         'v_res_max_height' => 'none',
+        'v_res_show_scrollbar' => 1,
+        'v_res_max_height_tablet' => 'none',
+        'v_res_max_height_phone' => 'none',
+        'v_res_column_count' => 1,
+        'v_res_column_min_width' => '200px',
+        'v_res_column_min_width_tablet' => '200px',
+        'v_res_column_min_width_phone' => '200px',
 
 // Theme options - Settings image
         'settingsimage_custom' => "",

@@ -12,7 +12,7 @@
     ?>
     <p class="descMsg"><?php echo __('If set to Yes, then the settings will be visible/opened by default.', 'ajax-search-pro'); ?></p>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
     <?php
     $o = new wpdreamsCustomSelect("frontend_search_settings_position", __('Search settings position', 'ajax-search-pro'), array(
         'selects'=>array(
@@ -50,7 +50,7 @@
     ));
     $params[$o->getName()] = $o->getData();
     ?>
-    <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+    <div class="descMsg item-flex-grow item-flex-100">
         <?php echo __('The position is automatically set to Block if you use the settings shortcode.<br><strong>Columns WRAP</strong> if they reach the edge of the screen, or container element!', 'ajax-search-pro'); ?>
     </div>
 </div>
@@ -91,7 +91,11 @@
     $params[$o->getName()] = $o->getData();
     ?>
     <p class="descMsg">
-        <?php echo __('Height of each filter box within the search settings drop-down. Use with units (220px or auto). Default: 220px', 'ajax-search-pro'); ?>
+        <?php echo __('Height of each filter box within the search settings drop-down.', 'ajax-search-pro'); ?>
+        <?php echo ' '. sprintf(
+            __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+            'https://www.w3schools.com/cssref/css_units.asp', '220px', '30vw', 'auto', '220px'
+        ); ?>
     </p>
 </div>
 <div class="item">

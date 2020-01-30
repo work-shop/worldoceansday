@@ -30,7 +30,7 @@ defined('ABSPATH') or die("You can't access this file directly.");
 
     <?php if ( isset($r->image) ): ?>
         <a class="asp_res_url" href='<?php echo $r->link; ?>'<?php echo ($s_options['results_click_blank'])?" target='_blank'":""; ?>>
-	        <div class='photostack-img' style='background-image: url("<?php echo $r->image; ?>");' imgsrc='<?php echo $r->image; ?>'></div>
+	        <div class='photostack-img asp_image' style='background-image: url("<?php echo $r->image; ?>");' data-src="<?php echo esc_attr($r->image); ?>"></div>
         </a>
     <?php elseif ($s_options['pifnoimage'] == 'descinstead'): ?>
         <a class="asp_res_url" href='<?php echo $r->link; ?>'<?php echo ($s_options['results_click_blank'])?" target='_blank'":""; ?>><?php echo $r->content; ?></a>

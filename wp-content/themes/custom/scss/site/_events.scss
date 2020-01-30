@@ -1,0 +1,88 @@
+
+#list-your-event-banner{
+	background: lighten($interactivea, 30%);
+
+	.button{
+		border-radius: 50px;
+	}
+
+	#list-your-event-banner-close{
+		position: absolute;
+		right: 30px;
+		top: 50%;
+		height: 40px;
+		line-height: 40px;
+		width: 40px;
+		margin-top: -15px;
+
+		a{
+			display: block;
+			font-family: modern_pictograms_proregular;
+			font-size: 55px;
+		}
+	}
+}
+
+.list-your-event-banner-2{
+	display: flex;
+	@extend .align-items-center;
+}
+
+$events-nav-height: 60px;
+
+#events-nav{
+	border-top: 1px solid $light;
+	border-bottom: 1px solid $light;
+	height: $events-nav-height;
+}
+
+#events{
+	//height: calc(100vh - #{$events-nav-height} - #{$nav-height});
+	
+	.events-container{
+		display: flex;
+		height: inherit;
+	}
+
+	.events-list{
+		flex: 0 0 50%;
+		height: inherit;
+	}
+
+	.events-map{
+		height: inherit;
+		flex: 0 0 50%;
+	}
+
+	#googleMap{
+		//height: inherit !important;
+	}
+}
+
+
+.wpgmza_map {
+	position: absolute !important;
+	right: 0;
+	top: 0;
+	height: 100% !important;
+	width: 50% !important;
+}
+
+.wpgmza_map + div {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	height: 100% !important;
+	width:50% !important;
+}
+
+
+
+#events-map{
+	height: 400px;
+	width: 100%;
+}
+
+#events-map .cluster img {
+    max-width: 100%;
+}

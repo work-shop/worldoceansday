@@ -110,6 +110,7 @@ if (!class_exists("WD_ASP_Manager")) {
          */
         private function preLoad() {
             require_once(ASP_PATH . "/backend/settings/default_options.php");
+            require_once(ASP_FUNCTIONS_PATH . "functions.php");
             require_once(ASP_CLASSES_PATH . "etc/class.asp-mb.php");
 
             require_once(ASP_CLASSES_PATH . "etc/indextable.class.php");
@@ -242,7 +243,6 @@ if (!class_exists("WD_ASP_Manager")) {
          */
         private function loadIncludes() {
 
-            require_once(ASP_FUNCTIONS_PATH . "functions.php");
             require_once(ASP_CLASSES_PATH . "ajax/ajax.inc.php");
             require_once(ASP_CLASSES_PATH . "filters/filters.inc.php");
             require_once(ASP_CLASSES_PATH . "frontend/frontend.inc.php");

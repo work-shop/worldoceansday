@@ -31,16 +31,29 @@ jQuery(function ($) {
     var blog = "";
     var initial_action = "";
     var lastRequestDuration = 0;
+    var longestRequestDuration = 0;
     var _lrStart;
 
-    function index( action ) {
+    function index( action, failures ) {
         index = typeof index == 'undefined' ? 'extend' : index;
+        failures = typeof failures == 'undefined' ? false : failures;
+        var timeout = 3000;
+        if ( failures ) {
+            timeout = 15000;
+        } else {
+            if ( lastRequestDuration >= 10 ) {
+                timeout = 7000;
+            } else if ( lastRequestDuration <= 4 ) {
+                timeout = 1500;
+            }
+        }
         data = {
             action: 'asp_indextable_admin_ajax',
             asp_index_action: action,
             blog_id: blog,
             data: $('#asp_indextable_settings').serialize(),
-            last_request_duration: lastRequestDuration
+            last_request_duration: lastRequestDuration,
+            longest_request_duration: longestRequestDuration
         };
 
         // Wait a bit to cool off the server
@@ -49,11 +62,12 @@ jQuery(function ($) {
             post = $.post(ajaxurl, data)
                 .done(asp_on_post_success)
                 .fail(asp_on_post_failure);
-        }, 1500);
+        }, timeout );
     }
 
     function asp_on_post_success(response) {
-        lastRequestDuration = parseInt(( (new Date()).getTime() - _lrStart ) / 1000)
+        lastRequestDuration = parseInt(( (new Date()).getTime() - _lrStart ) / 1000);
+        longestRequestDuration = lastRequestDuration > longestRequestDuration ? lastRequestDuration : longestRequestDuration;
 
         var res = response.replace(/^\s*[\r\n]/gm, "");
         res = res.match(/!!!ASP_INDEX_START!!!(.*[\s\S]*)!!!ASP_INDEX_STOP!!!/);
@@ -143,6 +157,7 @@ jQuery(function ($) {
 
     function asp_on_post_failure(response, t) {
         lastRequestDuration = parseInt(( (new Date()).getTime() - _lrStart ) / 1000);
+        longestRequestDuration = lastRequestDuration > longestRequestDuration ? lastRequestDuration : longestRequestDuration;
 
         // Manual abort, do nothing
         if ( response.aborted || t == 'abort' )
@@ -170,10 +185,10 @@ jQuery(function ($) {
             $progress.addClass('hiddend');
             $overlay.addClass('hiddend');
         } else {
-            console.log('Index Table Request failed, but continuing.. Consecutive failures count:', failCount);
+            console.log('Index Table Request failed, but continuing in 15 seconds. Consecutive failures count:', failCount);
             console.log(response);
 
-            index('extend');
+            index('extend', failCount);
         }
     }
 

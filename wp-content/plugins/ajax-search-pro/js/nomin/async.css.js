@@ -104,7 +104,7 @@ jQuery(function($){
 
     // If any active instances were found, load the basic JS
     if (arr.length > 0) {
-        asp_loadCSS(ASP.asp_url + "css/style.basic.css?mq=" + media_query);
+        asp_loadCSS(ASP.css_basic_url +"?mq=" + media_query);
 
         // Parse through and load only the required CSS files
         var last;

@@ -4,7 +4,9 @@ if (!defined('ABSPATH')) die('-1');
 if ( !class_exists('aspContentTypeFilter') ) {
     class aspContentTypeFilter extends aspFilter {
         public $data = array(
-            "field" => ""
+            "field" => "",
+            "required" => false,
+            "invalid_input_text" => "Please select one!"
         );
 
         protected $default = array(

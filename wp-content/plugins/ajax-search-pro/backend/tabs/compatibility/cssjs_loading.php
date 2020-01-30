@@ -26,39 +26,6 @@
             <?php echo sprintf( __('Will load an use a modified version of <a href="%s" target="_blank">Lazy Load</a> script to load the images of results.', 'ajax-search-pro'), 'http://jquery.eisbehr.de/lazy/' ); ?>
         </p>
     </div>
-    <div class="item">
-        <p class='infoMsg'><?php echo __('You can turn some of these off, if you are not using them.', 'ajax-search-pro'); ?></p>
-        <?php $o = new wpdreamsYesNo("loadpolaroidjs", __('Load the polaroid gallery JS?', 'ajax-search-pro'),
-            $com_options['loadpolaroidjs']
-        ); ?>
-        <p class='descMsg'><?php echo __("Don't turn this off if you are using the POLAROID layout.", 'ajax-search-pro'); ?></p>
-    </div>
-    <div class="item">
-        <?php $o = new wpdreamsYesNo("load_isotope_js", __('Load the isotope JS?', 'ajax-search-pro'),
-            $com_options['load_isotope_js']
-        ); ?>
-        <p class='descMsg'><?php echo __("Don't turn this off if you are using the ISOTOPIC layout.", 'ajax-search-pro'); ?></p>
-    </div>
-    <div class="item">
-        <?php $o = new wpdreamsYesNo("load_noui_js", __('Load the NoUI slider JS?', 'ajax-search-pro'),
-            $com_options['load_noui_js']
-        ); ?>
-        <p class='descMsg'><?php echo __("Don't turn this off if you are using SLIDERS in the custom field filters.", 'ajax-search-pro'); ?></p>
-    </div>
-    <div class="item">
-        <?php $o = new wpdreamsYesNo("load_datepicker_js", __('Load the DatePicker UI script?', 'ajax-search-pro'),
-            $com_options['load_datepicker_js']
-        ); ?>
-        <p class='descMsg'><?php echo __("Don't turn this off if you are using date picker on the search front-end.", 'ajax-search-pro'); ?></p>
-    </div>
-    <div class="item">
-        <?php $o = new wpdreamsYesNo("load_chosen_js", __('Load the Chosen jQuery script?', 'ajax-search-pro'),
-            $com_options['load_chosen_js']
-        ); ?>
-        <p class='descMsg'>
-            <?php echo sprintf( __('Used with dropdown and multiselect fields to add a <a href="%s" target="_blank">search feature</a> to them if used.', 'ajax-search-pro'), 'https://harvesthq.github.io/chosen/' ); ?>
-        </p>
-    </div>
 </fieldset>
 <fieldset>
     <legend>Selective loading options</legend>
@@ -78,7 +45,7 @@
             $com_options['selective_front']
         ); ?>
     </div>
-    <div class="item item_selective_load item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item_selective_load item-flex-nogrow item-flex-wrap">
         <div style="margin: 0;">
         <?php
         $o = new wpdreamsCustomSelect("selective_exin_logic", "",
@@ -94,7 +61,7 @@
         <?php
         $o = new wd_TextareaExpandable("selective_exin", " ids ", $com_options['selective_exin']);
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('Comma separated list of Post/Page/CPT IDs.', 'ajax-search-pro'); ?>
         </div>
     </div>

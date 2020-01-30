@@ -4,7 +4,9 @@
         <input type="checkbox" value="<?php echo esc_attr($ctfield->value); ?>" id="set_<?php echo esc_attr($ctfield->field).$id; ?>"
                aria-label="<?php echo esc_html($ctfield->label); ?>"
                <?php echo $ctfield->default ? 'data-origvalue="1"' : ''; ?>
-               <?php echo $ctfield->value == -1 ? ' data-targetclass="asp_ctf_cbx" ' : ''; ?>
+               <?php echo $ctfield->value == -1 ?
+                   " data-targetclass='asp_ctf_cbx' " :
+                   " class='asp_ctf_cbx' "; ?>
                name="asp_ctf[]" <?php echo $ctfield->selected ? ' checked="checked"' : ''; ?>/>
         <label aria-hidden="true" for="set_<?php echo esc_attr($ctfield->field).$id; ?>">
             <?php echo asp_icl_t('Hidden label', 'Hidden label'); ?>

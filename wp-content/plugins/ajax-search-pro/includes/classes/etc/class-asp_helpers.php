@@ -1626,31 +1626,43 @@ if (!class_exists("ASP_Helpers")) {
                     if ( isset( $filter->data['operator'] ) ) {
                         switch ( $filter->data['operator'] ) {
                             case 'eq':
+                            case '=':
                                 $operator = "=";
                                 $posted   = self::force_numeric( $posted );
                                 break;
                             case 'neq':
+                            case '<>':
                                 $operator = "<>";
                                 $posted   = self::force_numeric( $posted );
                                 break;
                             case 'lt':
+                            case '<':
                                 $operator = "<";
                                 $posted   = self::force_numeric( $posted );
                                 break;
                             case 'let':
+                            case '<=':
                                 $operator = "<=";
                                 $posted   = self::force_numeric( $posted );
                                 break;
                             case 'gt':
+                            case '>':
                                 $operator = ">";
                                 $posted   = self::force_numeric( $posted );
                                 break;
                             case 'get':
+                            case '>=':
                                 $operator = ">=";
                                 $posted   = self::force_numeric( $posted );
                                 break;
+                            case 'not elike':
+                                $operator = "NOT ELIKE";
+                                break;
                             case 'elike':
                                 $operator = "ELIKE";
+                                break;
+                            case 'not like':
+                                $operator = "NOT LIKE";
                                 break;
                             case 'like':
                                 $operator = "LIKE";

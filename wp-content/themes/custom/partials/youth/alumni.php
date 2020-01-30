@@ -42,13 +42,16 @@
 							<?php 
 							$location = get_sub_field('country');
 							$id = 'marker-' . $count;
+							$lat = $location['lat'];
+							$lng = $location['lng'];
 							if ( $location && ($location['lat'] && $location['lng']) ) {
 								$location = array(
 									'marker' => array(
-										'position' => $location,
-										'popup' => array(
-											'id' => $id
-										)
+										'position' => array(
+											'lat' => $lat,
+											'lng' => $lng
+										),
+										'popup' => false
 									)
 								);
 								$mapOptions['data'][] = $location;
@@ -62,15 +65,15 @@
 				        // Okay, we got the data. Now we just need to build the html, and parse
 				        // the latitude and longitude as integers.
 				        mapOptions.data.forEach( function( location ) {
-				        	console.log(location);
+				        	console.log(location.marker);
 				        	location.marker.position.lat = parseFloat(location.marker.position.lat);
 				        	location.marker.position.lng = parseFloat(location.marker.position.lng);
 				        });
-        				mapOptions.render = { zoom: 2 };
-        			</script>
-        			<script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBBurwCtrQ2a4q-CrpB-Wa6cdLO-sR1Zxw" async defer></script>
-        			<div class="ws-map" data-options="mapOptions"></div>
-        		</div>
-        	</div>
-        </div>
-    </section>
+				        mapOptions.render = { zoom: 2 };
+				    </script>
+				    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCUZ88sqTgo2gkvg-5q6xxawt9wZkTRCv8" async defer></script>
+				    <div class="ws-map" data-options="mapOptions"></div>
+				</div>
+			</div>
+		</div>
+	</section>

@@ -123,7 +123,7 @@ $_comp = wpdreamsCompatibility::Instance();
                             <?php echo __('The plugin uses external libraries as well as internal methods to get the best results, however it is still possible that some information might not be extracted properly.', 'ajax-search-pro'); ?>
                         </div>
                     </div>
-                    <div class="item item-flex-nogrow item-conditional" style="flex-wrap: wrap;">
+                    <div class="item item-flex-nogrow  item-flex-wrap item-conditional">
                         <?php $o = new wpdreamsYesNo("it_index_pdf_content", __('Index PDF file contents?', 'ajax-search-pro'),
                             $it_options['it_index_pdf_content']
                         );
@@ -138,7 +138,7 @@ $_comp = wpdreamsCompatibility::Instance();
                             )
                         );
                         ?>
-                        <div class="descMsg" style="margin-top:4px;min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+                        <div class="descMsg item-flex-grow item-flex-100">
                             <?php echo __('When set to \'Auto\', the plugin will try both methods if possible.', 'ajax-search-pro'); ?>
                         </div>
                     </div>

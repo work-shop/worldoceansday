@@ -68,7 +68,7 @@ $_comp = wpdreamsCompatibility::Instance();
                 $new_slider = new wpdreamsText("addsearch", __('Search form name:', 'ajax-search-pro'), "", array(array("func" => "wd_isEmpty", "op" => "eq", "val" => false)), "Please enter a valid form name!");
                 ?>
                 <input name="submit" type="submit" value="Add"/>
-                <?php if ( count(get_option('asl_options', array())) > 0 && get_option('asl_version', 0) > 4732 ): ?>
+                <?php if ( count( (array)get_option('asl_options', array()) ) > 0 && get_option('asl_version', 0) > 4732 ): ?>
                 <input name="import" type="submit" value="<?php echo __('Import from Ajax Search Lite', 'ajax-search-pro'); ?>">
                 <?php endif; ?>
                 <?php

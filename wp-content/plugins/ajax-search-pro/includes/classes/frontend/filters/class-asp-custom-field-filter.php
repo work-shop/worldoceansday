@@ -6,7 +6,9 @@ if ( !class_exists('aspCfFilter') ) {
         public $data = array(
             "field" => "",
             "source" => "postmeta",
-            "type" => "checkboxes"
+            "type" => "checkboxes",
+            "required" => false,
+            "invalid_input_text" => "Please select one!"
         );
 
         protected $default = array(

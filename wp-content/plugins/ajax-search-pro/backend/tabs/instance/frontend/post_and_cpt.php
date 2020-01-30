@@ -35,6 +35,15 @@
     $params[$o->getName()] = $o->getData();
     ?>
 </div>
+<div class="item item-flex-nogrow">
+    <?php
+    $o = new wpdreamsYesNo("cpt_required", __('Required field?', 'ajax-search-pro'), $sd['cpt_required']);
+    $params[$o->getName()] = $o->getData();
+
+    $o = new wpdreamsText("cpt_invalid_input_text", __('required popup text', 'ajax-search-pro'), $sd['cpt_invalid_input_text']);
+    $params[$o->getName()] = $o->getData();
+    ?>
+</div>
 <div class="item"><?php
     $o = new wpdreamsCustomPostTypesEditable("showcustomtypes", __('Show search in custom post types selectors', 'ajax-search-pro'), $sd['showcustomtypes']);
     $params[$o->getName()] = $o->getData();

@@ -26,7 +26,7 @@
 </fieldset>
 <fieldset>
     <legend><?php echo __('Desktop browsers', 'ajax-search-pro'); ?></legend>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsCustomSelect("sett_box_animation", __('Settings drop-down box animation', 'ajax-search-pro'),  array(
             'selects'=>array(
@@ -42,11 +42,11 @@
             $sd['sett_box_animation_duration']);
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('The animation of the appearing settings box when clicking on the settings icon.', 'ajax-search-pro'); ?>
         </div>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsCustomSelect("res_box_animation", __('Results container box animation', 'ajax-search-pro'),  array(
             'selects'=>array(
@@ -62,7 +62,7 @@
             $sd['res_box_animation_duration']);
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('The animation of the appearing results box when finishing the search.', 'ajax-search-pro'); ?>
         </div>
     </div>
@@ -78,7 +78,7 @@
 </fieldset>
 <fieldset>
     <legend><?php echo __('Mobile browsers', 'ajax-search-pro'); ?></legend>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsCustomSelect("sett_box_animation_m", __('Settings drop-down box animation', 'ajax-search-pro'),  array(
             'selects'=>array(
@@ -94,11 +94,11 @@
             $sd['sett_box_animation_duration_m']);
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('The animation of the appearing settings box when clicking on the settings icon.', 'ajax-search-pro'); ?>
         </div>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsCustomSelect("res_box_animation_m", __('Results container box animation', 'ajax-search-pro'),  array(
             'selects'=>array(
@@ -114,7 +114,7 @@
             $sd['res_box_animation_duration_m']);
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('The animation of the appearing results box when finishing the search.', 'ajax-search-pro'); ?>
         </div>
     </div>

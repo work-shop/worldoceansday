@@ -82,7 +82,7 @@
         $params[$o->getName()] = $o->getData();
         ?>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsColorPicker("close_icon_background", __('Close icon background', 'ajax-search-pro'), $sd['close_icon_background']);
         $params[$o->getName()] = $o->getData();

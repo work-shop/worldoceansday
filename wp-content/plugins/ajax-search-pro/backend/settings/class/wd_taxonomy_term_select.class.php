@@ -167,11 +167,15 @@ if (!class_exists("wd_TaxonomyTermSelect")) {
                                             <div class="wd_tts_res"></div>
                                         </div>
                                         <div class="wd_tts_selectall">
-                                            <?php echo __('Display the', 'ajax-search-pro'); ?> <span class="wd_tts_select_all_label"><?php echo __('"Select all option"?', 'ajax-search-pro'); ?></span> <input type="checkbox" class="wd_tts_select_all" value="checked"><br>
+                                            <input type="checkbox" class="wd_tts_select_all" value="checked"><?php echo __('Display the', 'ajax-search-pro'); ?><span class="wd_tts_select_all_label"><?php echo __('"Select all option"?', 'ajax-search-pro'); ?></span><br>
                                             <?php echo __('Text:', 'ajax-search-pro'); ?> <input type="text" value="Select all" class="wd_tts_select_all_text">
                                         </div>
                                         <div class="wd_tts_placeholder">
                                             <?php echo __('Placeholder:', 'ajax-search-pro'); ?> <input type="text" value="<?php echo __('Select options..', 'ajax-search-pro'); ?>" class="wd_tts_placeholder_text">
+                                        </div>
+                                        <div class="wd_tts_required">
+                                            <input type="checkbox" class="wd_tts_required" value="checked"><span class="wd_tts_required_label"><?php echo __('Required?', 'ajax-search-pro'); ?></span><br>
+                                            <?php echo __('Required popup text:', 'ajax-search-pro'); ?> <input type="text" value="This field is required!" class="wd_tts_required_text">
                                         </div>
                                     </fieldset>
                                 <?php endforeach; ?>

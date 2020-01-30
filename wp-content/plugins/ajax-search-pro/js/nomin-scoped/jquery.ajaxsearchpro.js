@@ -424,19 +424,24 @@
                  shortcode is used, we need to force the blocking behavior,
                  since the user expects it.
                  */
-                if ($this.o.blocking == false) {
-                    $this.n.searchsettings.attr(
-                        "id",
-                        $this.n.searchsettings.attr("id").replace('prosettings', 'probsettings')
-                    );
-                    $this.o.blocking = true;
+
+                // There is already a results box there
+                if ( $this.n.settingsAppend.find('.asp_w').length > 0 ) {
+                    $this.n.searchsettings = $this.n.settingsAppend.find('.asp_w');
+                } else {
+                    if ($this.o.blocking == false) {
+                        $this.n.searchsettings.attr(
+                            "id",
+                            $this.n.searchsettings.attr("id").replace('prosettings', 'probsettings')
+                        );
+                        $this.o.blocking = true;
+                    }
+                    $this.n.searchsettings.detach().appendTo($this.n.settingsAppend);
                 }
-                $this.n.searchsettings.detach().appendTo($this.n.settingsAppend);
+
             } else if ($this.o.blocking == false) {
                 $this.n.searchsettings.detach().appendTo("body");
             }
-
-
         },
 
         initResultsBox: function() {
@@ -453,27 +458,27 @@
                 // Move the results div to the correct position
                 if ($this.o.resultsposition == 'hover' && $this.n.resultsAppend.length <= 0) {
                     $this.n.resultsDiv.detach().appendTo("body");
-                } else if ($this.n.resultsAppend.length > 0) {
+                } else  {
                     $this.o.resultsposition = 'block';
                     $this.n.resultsDiv.css({
                         'position': 'static'
                     });
-                    $this.n.resultsDiv.detach().appendTo($this.n.resultsAppend);
-                } else {
-                    $this.o.resultsposition = 'block';
-                    $this.n.resultsDiv.css({
-                        'position': 'static'
-                    });
-                    $this.n.resultsDiv.detach().insertAfter($this.n.container);
+                    if ( $this.n.resultsAppend.length > 0  ) {
+                        if ( $this.n.resultsAppend.find('.asp_w').length > 0 ) {
+                            $this.n.resultsDiv = $this.n.resultsAppend.find('.asp_w');
+                            $this.n.showmore = $('.showmore', $this.n.resultsDiv);
+                            $this.n.items = $('.item', $this.n.resultsDiv).length > 0 ? $('.item', $this.n.resultsDiv) : $('.photostack-flip', $this.n.resultsDiv);
+                            $this.n.results = $('.results', $this.n.resultsDiv);
+                            $this.n.resdrg = $('.resdrg', $this.n.resultsDiv);
+                        } else {
+                            $this.n.resultsDiv.detach().appendTo($this.n.resultsAppend);
+                        }
+                    } else {
+                        $this.n.resultsDiv.detach().insertAfter($this.n.container);
+                    }
+
                 }
             }
-
-            // Generate scrollbars for vertical and horizontal
-            /*if ($this.o.resultstype == 'horizontal') {
-                $this.createHorizontalScroll();
-            } else if ($this.o.resultstype == 'vertical') {
-                $this.createVerticalScroll();
-            }*/
 
             if ($this.o.resultstype == 'polaroid')
                 $this.n.results.addClass('photostack');
@@ -482,42 +487,15 @@
         initInfiniteScroll: function() {
             // NOTE: Custom Scrollbar triggers are under the scrollbar script callbacks -> OnTotalScroll callbacks
             var $this = this;
-            // No polaroid layout support
-            if ( $this.o.resultstype == 'polaroid' )
-                return false;
 
-            if ( $this.o.show_more.infinite ) {
+            if ( $this.o.show_more.infinite && $this.o.resultstype != 'polaroid' ) {
                 // Vertical & Horizontal: Regular scroll + when custom scrollbar scroll is not present
                 // Isotopic: Regular scroll on non-paginated layout
                 var t;
                 $(window).add($this.n.results).on('scroll', function () {
                     clearTimeout(t);
                     t = setTimeout(function(){
-                        var $r = $('.item', $this.n.resultsDiv);
-
-                        // Show more not even visible
-                        if ($this.n.showmore.length == 0 || $this.n.showmore.css('display') == 'none') {
-                            return false;
-                        }
-
-                        // Isotopic pagination present? Abort.
-                        if (
-                            $this.o.resultstype == 'isotopic' &&
-                            $('nav.asp_navigation', $this.n.resultsDiv).css('display') != 'none'
-                        ) {
-                            return false;
-                        }
-
-                        var onViewPort = $r.last().is(':in-viewport(0, .asp_r_' + $this.o.rid + ')');
-                        var onScreen = $r.last().is(':in-viewport(0)');
-
-                        if (
-                            !$this.searching &&
-                            $r.length > 0 &&
-                            onViewPort && onScreen
-                        ) {
-                            $this.n.showmore.find('a.asp_showmore').trigger('click');
-                        }
+                        $this.checkAndTriggerInfiniteScroll('window');
                     }, 80);
                 });
 
@@ -526,19 +504,7 @@
                     // Delay this a bit, in case the user quick-switches
                     clearTimeout(tt);
                     tt = setTimeout(function(){
-                        // Show more not even visible
-                        if ($this.n.showmore.length == 0 || $this.n.showmore.css('display') == 'none') {
-                            return false;
-                        }
-                        var $r = $('.item', $this.n.resultsDiv);
-
-                        if (
-                            !$this.searching &&
-                            $r.length > 0 &&
-                            $this.n.resultsDiv.find('nav.asp_navigation ul li').last().hasClass('asp_active')
-                        ) {
-                            $this.n.showmore.find('a.asp_showmore').trigger('click');
-                        }
+                        $this.checkAndTriggerInfiniteScroll('isotopic');
                     }, 800);
                 });
             }
@@ -587,10 +553,11 @@
             }
         },
 
-        createVerticalScroll: function () {
+        createResultsScroll: function(type) {
             var $this = this;
             var t;
             var $resScroll = $this.n.results;
+            type = typeof type == 'undefined' ? 'vertical' : type;
             if ($this.is_scroll && typeof $this.scroll.recalculate === 'undefined') {
                 // New Scrollbar
                 $this.scroll = new asp_SimpleBar($this.n.results.get(0), {
@@ -600,35 +567,72 @@
                 $resScroll = $resScroll.add($this.scroll.getScrollElement());
             }
             $resScroll.on('scroll', function() {
-                clearTimeout(t);
-                t = setTimeout(function(){
-                    if ( typeof $this.asp_lazy.update != 'undefined' ) {
-                        $this.asp_lazy.update();
-                    }
-                    var $scrollable = $this.n.resultsDiv.find('.asp_simplebar-content-wrapper').length > 0 ?
-                        $this.n.resultsDiv.find('.asp_simplebar-content-wrapper') : $this.n.results;
-                    if ( $this.o.show_more.infinite && $this.n.showmore.length > 0 && isScrolledToBottom($scrollable.get(0), 20) ) {
-                        if ( $this.n.showmore.css('display') != 'none' )
-                            $this.n.showmore.find('a.asp_showmore').trigger('click');
-                    }
-                }, 50);
+                if ( typeof $this.asp_lazy.update != 'undefined' ) {
+                    $this.asp_lazy.update();
+                }
+                if ( $this.o.show_more.infinite ) {
+                    clearTimeout(t);
+                    t = setTimeout(function () {
+                        $this.checkAndTriggerInfiniteScroll(type);
+                    }, 60);
+                }
             });
+        },
+
+        createVerticalScroll: function () {
+            var $this = this;
+            $this.createResultsScroll('vertical')
         },
 
         createHorizontalScroll: function () {
             var $this = this;
+            $this.createResultsScroll('horizontal')
+        },
 
-            if ($this.is_scroll && typeof $this.scroll.recalculate === 'undefined') {
-                $this.scroll = new asp_SimpleBar($this.n.results.get(0), {
-                    direction: $('body').hasClass('rtl') ? 'rtl' : 'ltr',
-                    autoHide: $this.o.scrollBar.horizontal.autoHide
-                });
+        checkAndTriggerInfiniteScroll: function( caller ) {
+            var $this = this;
+            var $r = $('.item', $this.n.resultsDiv);
+            caller = typeof caller == 'undefined' ? 'window' : caller;
+
+            // Show more might not even visible
+            if ($this.n.showmore.length == 0 || $this.n.showmore.css('display') == 'none') {
+                return false;
             }
-            $this.n.results.on('scroll', function() {
-                if ( typeof $this.asp_lazy.update != 'undefined' ) {
-                    $this.asp_lazy.update();
+
+            if ( caller == 'window' || caller == 'horizontal' ) {
+                // Isotopic pagination present? Abort.
+                if (
+                    $this.o.resultstype == 'isotopic' &&
+                    $('nav.asp_navigation', $this.n.resultsDiv).css('display') != 'none'
+                ) {
+                    return false;
                 }
-            });
+
+                var onViewPort = $r.last().is(':in-viewport(0, .asp_r_' + $this.o.rid + ')');
+                var onScreen = $r.last().is(':in-viewport(0)');
+                if (
+                    !$this.searching &&
+                    $r.length > 0 &&
+                    onViewPort && onScreen
+                ) {
+                    $this.n.showmore.find('a.asp_showmore').trigger('click');
+                }
+            } else if ( caller == 'vertical' ) {
+                var $scrollable = $this.n.resultsDiv.find('.asp_simplebar-content-wrapper').length > 0 ?
+                    $this.n.resultsDiv.find('.asp_simplebar-content-wrapper') : $this.n.results;
+                if ( isScrolledToBottom($scrollable.get(0), 20) ) {
+                    $this.n.showmore.find('a.asp_showmore').trigger('click');
+                }
+            } else if ( caller == 'isotopic' ) {
+                var $r = $('.item', $this.n.resultsDiv);
+                if (
+                    !$this.searching &&
+                    $r.length > 0 &&
+                    $this.n.resultsDiv.find('nav.asp_navigation ul li').last().hasClass('asp_active')
+                ) {
+                    $this.n.showmore.find('a.asp_showmore').trigger('click');
+                }
+            }
         },
 
         initAutop: function () {
@@ -821,7 +825,7 @@
                 $this.settingsCheckboxToggle( $(this).closest('.asp_option_cat') );
             });
             // Init the hide settings
-            $('.asp_option_cat').each(function(){
+            $('.asp_option_cat', $this.n.searchsettings).each(function(){
                 $this.settingsCheckboxToggle( $(this) );
             });
         },
@@ -846,20 +850,25 @@
 
                 $this.hideOnInvisibleBox();
 
+                // Any hints
+                $this.hideArrowBox();
+
                 // If not right click
                 if( ktype != 'click' || ktype != 'touchend' || keycode != 3 ) {
                     if ($this.o.compact.enabled) {
                         var compact = $this.n.container.attr('asp-compact') || 'closed';
                         if ($this.o.compact.closeOnDocument == 1 && compact == 'open' && !$this.resultsOpened) {
                             $this.closeCompact();
-                            if ($this.post != null) $this.post.abort();
+                            $this.searchAbort();
                             $this.hideLoader();
                         }
                     } else {
                         if ($this.resultsOpened == false || $this.o.closeOnDocClick != 1) return;
                     }
 
-                    if (!$this.dragging) {
+                    if ( !$this.dragging ) {
+                        $this.hideLoader();
+                        $this.searchAbort();
                         $this.hideResults();
                     }
                 }
@@ -915,7 +924,7 @@
 
                 $this.n.proloading.css('display', 'none');
                 $this.hideLoader();
-                if ($this.post != null) $this.post.abort();
+                $this.searchAbort();
             });
             $($this.elem).bind($this.clickTouchend, function (e) {
                 e.stopImmediatePropagation();
@@ -1070,6 +1079,10 @@
             $this.n.searchsettings.find('button.asp_r_btn').on('click', function(e){
                 e.preventDefault();
                 $this.resetSearchFilters();
+                // Reset category tree toggle
+                $('.asp_option_cat', $this.n.searchsettings).each(function(){
+                    $this.settingsCheckboxToggle( $(this) );
+                });
             });
 
             // The return event has to be dealt with on a keyup event, as it does not trigger the input event
@@ -1115,7 +1128,7 @@
                 $this.keycode =  e.keyCode || e.which;
                 $this.ktype = e.type;
                 var isInput = $(this).hasClass("orig");
-
+                $this.hideArrowBox();
                 // Show the results if the query does not change
                 if ( isInput && $this.ktype == 'click' ) {
                     if (
@@ -1133,15 +1146,16 @@
                 // Ignore submit and any other events
                 if ( $this.ktype != 'click' && $this.ktype != 'input' ) return;
 
+                var compact = $this.n.container.attr('asp-compact')  || 'closed';
                 // Click on magnifier in opened compact mode, when closeOnMagnifier enabled
                 if (
                     $this.o.compact.enabled == 1 &&
                     ($this.ktype == 'click' || $this.ktype == 'touchend') &&
-                    $this.o.compact.closeOnMagnifier == 1
+                    $this.o.compact.closeOnMagnifier == 1 &&
+                    compact == 'open'
                 ) return;
 
                 // Click on magnifier in closed compact mode, when closeOnMagnifier disabled
-                var compact = $this.n.container.attr('asp-compact')  || 'closed';
                 if (
                     $this.o.compact.enabled == 1 &&
                     ($this.ktype == 'click' || $this.ktype == 'touchend') &&
@@ -1171,14 +1185,15 @@
                     $this.n.proloading.css('display', 'none');
                     if ($this.o.blocking == false) $this.hideSettings();
                     $this.hideResults(false);
-                    if ($this.post != null) $this.post.abort();
+                    $this.searchAbort();
                     clearTimeout(t);
                     return;
                 }
 
-                if ($this.post != null) $this.post.abort();
+                $this.searchAbort();
                 clearTimeout(t);
                 $this.n.proloading.css('display', 'none');
+
                 t = setTimeout(function () {
                     // If the user types and deletes, while the last results are open
                     if (
@@ -1237,6 +1252,11 @@
             var $this = this;
             var _loc;
 
+            if ( !$this.reportSettingsValidity() ) {
+                $this.showNextInvalidFacetMessage();
+                return false;
+            }
+
             if ( ktype == 'click' ) {
                 _loc = $this.o.redirectClickLoc;
             } else if ( ktype == 'button' ) {
@@ -1277,7 +1297,7 @@
             $this.hideLoader();
             if ($this.o.blocking == false) $this.hideSettings();
             $this.hideResults();
-            if ($this.post != null) $this.post.abort();
+            $this.searchAbort();
         },
 
         initCompactEvents: function () {
@@ -1298,7 +1318,7 @@
                 } else {
                     if ($this.o.compact.closeOnMagnifier != 1) return;
                     $this.closeCompact();
-                    if ($this.post != null) $this.post.abort();
+                    $this.searchAbort();
                     $this.n.proloading.css('display', 'none');
                 }
             });
@@ -1369,7 +1389,7 @@
                     });
                 }
 
-
+                $this.n.container.attr('asp-compact', 'open');
             }, 50);
 
             // Clear this timeout first, in case of fast clicking..
@@ -1382,9 +1402,6 @@
                 $this.n.text.focus();
                 $this.scrolling();
             }, 500);
-
-
-            $this.n.container.attr('asp-compact', 'open');
         },
 
         closeCompact: function() {
@@ -1395,6 +1412,10 @@
              */
             clearTimeout($this.timeouts.compactBeforeOpen);
             clearTimeout($this.timeouts.compactAfterOpen);
+
+            $this.timeouts.compactBeforeOpen = setTimeout(function(){
+                $this.n.container.attr('asp-compact', 'closed');
+            }, 50);
 
             $('>:not(.promagnifier)', $this.n.probox).addClass('hiddend');
 
@@ -1420,8 +1441,6 @@
                     "z-index": 0
                 });
             }
-
-            $this.n.container.attr('asp-compact', 'closed');
         },
 
         initAutocompleteEvent: function () {
@@ -1443,7 +1462,7 @@
                         e.preventDefault();
                         $this.n.text.val($this.n.textAutocomplete.val());
                         if ( $this.o.triggerontype != 0 ) {
-                            if ($this.post != null) $this.post.abort();
+                            $this.searchAbort();
                             $this.search();
                         }
                     } else {
@@ -1601,21 +1620,21 @@
                     // IOS does not trigget mouseup after mouseenter, so the user has to tap again to redirect
                     if ( !detectIOS() ) {
                         $this.n.resultsDiv.on('mouseenter', 'div.item', function (e) {
-                            $('.asp_item_overlay', this).fadeIn();
-                            if ($(".asp_item_img", this).length > 0) {
+                            $('.asp_item_overlay', this).stop().fadeIn();
+                            if ($(".asp_image", this).length > 0) {
                                 if ($this.o.isotopic.blurOverlay)
-                                    $('.asp_item_overlay_img', this).fadeIn();
+                                    $('.asp_item_overlay_img', this).stop().fadeIn();
                                 if ($this.o.isotopic.hideContent)
-                                    $('.asp_content', this).slideUp(100);
+                                    $('.asp_content', this).stop().slideUp(100);
                             }
                         });
                         $this.n.resultsDiv.on('mouseleave', 'div.item', function (e) {
-                            $('.asp_item_overlay', this).fadeOut();
-                            if ($(".asp_item_img", this).length > 0) {
+                            $('.asp_item_overlay', this).stop().fadeOut();
+                            if ($(".asp_image", this).length > 0) {
                                 if ($this.o.isotopic.blurOverlay)
-                                    $('.asp_item_overlay_img', this).fadeOut();
-                                if ($this.o.isotopic.hideContent && $(".asp_item_img", this).length > 0)
-                                    $('.asp_content', this).slideDown(100);
+                                    $('.asp_item_overlay_img', this).stop().fadeOut();
+                                if ($this.o.isotopic.hideContent && $(".asp_image", this).length > 0)
+                                    $('.asp_content', this).stop().slideDown(100);
                             }
                         });
                         $this.n.resultsDiv.on('mouseenter', 'div.asp_item_inner', function (e) {
@@ -1928,6 +1947,138 @@
             });
         },
 
+        reportSettingsValidity: function() {
+            var $this = this;
+            var valid = true;
+
+            // Automatically valid, when settings can be closed, or are hidden
+            if ( $this.n.searchsettings.css('visibility') == 'hidden' )
+                return true;
+
+            $this.n.searchsettings.find('fieldset.asp_required').each(function(){
+                var $_this = $(this);
+                var fieldset_valid = true;
+                // Text input
+                $_this.find('input[type=text]:not(.chosen-search-input)').each(function(){
+                    if ( $(this).val() == '' ) {
+                        fieldset_valid = false;
+                    }
+                });
+                // Select drop downs
+                $_this.find('select').each(function(){
+                    if (
+                        $(this).val() == null || $(this).val() == '' ||
+                        ( $(this).closest('fieldset').is('.asp_filter_tax, .asp_filter_content_type') && $(this).val() == '-1')
+                    ) {
+                        fieldset_valid = false;
+                    }
+                });
+                // Check for checkboxes
+                if ( $_this.find('input[type=checkbox]').length > 0 ) {
+                    // Check if all of them are checked
+                    if ( !$_this.find('input[type=checkbox]').is(':checked') ) {
+                        fieldset_valid = false;
+                    } else if (
+                        $_this.find('input[type=checkbox]:checked').length === 1 &&
+                        $_this.find('input[type=checkbox]:checked').val() === ''
+                    ) {
+                        // Select all checkbox
+                        fieldset_valid = false;
+                    }
+                }
+                // Check for checkboxes
+                if ( $_this.find('input[type=radio]').length > 0 ) {
+                    // Check if all of them are checked
+                    if ( !$_this.find('input[type=radio]').is(':checked') ) {
+                        fieldset_valid = false;
+                    }
+                    if ( fieldset_valid ) {
+                        $_this.find('input[type=radio]').each(function () {
+                            if (
+                                $(this).is(':checked') &&
+                                ( $(this).val() == '' || ( $(this).closest('fieldset').is('.asp_filter_tax, .asp_filter_content_type') && $(this).val() == '-1') )
+                            ) {
+                                fieldset_valid = false;
+                            }
+                        });
+                    }
+                }
+
+                if ( !fieldset_valid ) {
+                    $_this.addClass('asp-invalid');
+                    valid = false;
+                } else {
+                    $_this.removeClass('asp-invalid');
+                }
+            });
+
+            if ( !valid ) {
+                $this.n.searchsettings.find('button.asp_s_btn').attr('disabled', 'disabled');
+            } {
+                $this.n.searchsettings.find('button.asp_s_btn').removeAttr('disabled');
+            }
+
+            return valid;
+        },
+
+        showArrowBox: function(element, text) {
+            var $this = this;
+            var offsetTop, left;
+            if ( $('body').find('.asp_arrow_box').length === 0 ) {
+                 $('body').append( "<div class='asp_arrow_box'></div>" );
+                 $('body').find('.asp_arrow_box').on('mouseout', function(){
+                     $this.hideArrowBox();
+                 });
+            }
+            var $box = $('body').find('.asp_arrow_box');
+            // getBoundingClientRect() is not giving correct values, use different method
+            var space = $(element).offset().top - $(window).scrollTop();
+            var fixedp = $(element).parents().filter(
+                function() {
+                    return $(this).css('position') == 'fixed';
+                }
+            );
+            if ( fixedp.length > 0 ) {
+                $box.css('position', 'fixed');
+                offsetTop = 0;
+            } else {
+                $box.css('position', 'absolute');
+                offsetTop = $(window).scrollTop();
+            }
+            $box.html(text);
+            // Count after text is added
+            left = (element.getBoundingClientRect().left + ($(element).outerWidth() / 2) - ($box.outerWidth() / 2) ) + 'px';
+
+            if ( space > 100 ) {
+                $box.removeClass('asp_arrow_box_bottom');
+                $box.css({
+                    top: offsetTop + element.getBoundingClientRect().top - $box.outerHeight() - 4 + 'px',
+                    left: left
+                });
+            } else {
+                $box.addClass('asp_arrow_box_bottom');
+                $box.css({
+                    top: offsetTop + element.getBoundingClientRect().bottom + 4 + 'px',
+                    left: left
+                });
+            }
+            $box.css('display', 'block');
+        },
+
+        hideArrowBox: function() {
+            $('body').find('.asp_arrow_box').css('display', 'none');
+        },
+
+        showNextInvalidFacetMessage: function() {
+            var $this = this;
+            if ( $this.n.searchsettings.find('.asp-invalid').length > 0 ) {
+                $this.showArrowBox(
+                    $this.n.searchsettings.find('.asp-invalid').first().get(0),
+                    $this.n.searchsettings.find('.asp-invalid').first().data('asp_invalid_msg')
+                );
+            }
+        },
+
         destroy: function () {
             return this.each(function () {
                 var $this = $.extend({}, this, methods);
@@ -2015,13 +2166,33 @@
             });
         },
 
+        isDuplicateSearchTriggered: function() {
+            var $this = this;
+            for (var i=0;i<25;i++) {
+                var id = $this.o.id + '_' + i;
+                if ( id != $this.o.rid ) {
+                    if ( typeof ASP.instances[id] != 'undefined' ) {
+                        return ASP.instances[id].searching;
+                    }
+                }
+            }
+            return false;
+        },
+
+        searchAbort: function() {
+            var $this = this;
+            if ( $this.post != null ) {
+                $this.post.abort();
+            }
+        },
+
         searchWithCheck: function( timeout ) {
             var $this = this;
             if ( typeof timeout == 'undefined' )
                 timeout = 50;
 
             if ($this.n.text.val().length < $this.o.charcount) return;
-            if ($this.post != null) $this.post.abort();
+            $this.searchAbort();
 
             clearTimeout($this.timeouts.searchWithCheck);
             $this.timeouts.searchWithCheck = setTimeout(function() {
@@ -2029,14 +2200,16 @@
             }, timeout);
         },
 
-        search: function ( count, order, recall, apiCall ) {
+        search: function ( count, order, recall, apiCall, supressInvalidMsg ) {
             var $this = this;
+            var abort = false;
 
-            if ( typeof recall == "undefined" )
-                recall = false;
+            if ( $this.isDuplicateSearchTriggered() )
+                return false;
 
-            if ( typeof apiCall == "undefined" )
-                apiCall = false;
+            recall = typeof recall == "undefined" ? false : recall;
+            apiCall = typeof apiCall == "undefined" ? false : apiCall;
+            supressInvalidMsg = typeof supressInvalidMsg == "undefined" ? false : supressInvalidMsg;
 
             var data = {
                 action: 'ajaxsearchpro_search',
@@ -2046,10 +2219,18 @@
                 options: $('form', $this.n.searchsettings).serialize()
             };
 
+            $this.hideArrowBox();
+            if ( !$this.isAutoP && !$this.reportSettingsValidity() ) {
+                if ( !supressInvalidMsg )
+                    $this.showNextInvalidFacetMessage();
+                abort = true;
+            }
+
             if ( $this.isAutoP ) {
                 data.autop = 1;
                 $this.isAutoP = false;
             }
+
 
             if ( !recall && !apiCall && (JSON.stringify(data) === JSON.stringify($this.lastSearchData)) ) {
                 if ( !$this.o.resPage.useAjax && !$this.resultsOpened )
@@ -2058,7 +2239,12 @@
                     $this.doRedirectToFirstResult();
                     return false;
                 }
+                abort = true;
+            }
+
+            if ( abort ) {
                 $this.hideLoader();
+                $this.searchAbort();
                 return false;
             }
 
@@ -2081,12 +2267,7 @@
             } else {
                 $this.call_num = 0;
             }
-            /*var asp_preview_options = "";
-            if ( $('#asp_preview_options').length > 0 ) {
-                asp_preview_options = $('#asp_preview_options').html();
-                if ( asp_preview_options != "" )
-                    data.asp_preview_options = asp_preview_options;
-            }*/
+
             if ( $('form[name="asp_data"]').length > 0 ) {
                 data.asp_preview_options = $('form[name="asp_data"]').serialize();
             }
@@ -2104,6 +2285,7 @@
                 $this.post = $.post(ASP.ajaxurl, data, function (response) {
                     $this.analytics($this.n.text.val());
 
+                    $this.searching = false;
                     response = response.replace(/^\s*[\r\n]/gm, "");
                     var html_response = response.match(/!!ASPSTART_HTML!!(.*[\s\S]*)!!ASPEND_HTML!!/);
                     var data_response = response.match(/!!ASPSTART_DATA!!(.*[\s\S]*)!!ASPEND_DATA!!/);
@@ -2165,14 +2347,18 @@
                             $('a', $this.n.showmore).attr('href', "");
                             $('a', $this.n.showmore).off();
                             $('a', $this.n.showmore).on($this.clickTouchend, function(e){
-                                $(this).off(); // Remove duplicate triggering
                                 e.preventDefault();
                                 e.stopImmediatePropagation();   // Stopping either click or touchend
 
-                                if ( $this.o.show_more.action == "ajax") {
+                                if ( $this.o.show_more.action == "ajax" ) {
+                                    // Prevent duplicate triggering, don't use .off, as re-opening the results box this will fail
+                                    if ( $this.searching )
+                                        return false;
                                     $this.showMoreResLoader();
                                     $this.search(false, false, true);
                                 } else {
+                                    // Prevent duplicate triggering
+                                    $(this).off();
                                     if ( $this.o.show_more.action == 'results_page' ) {
                                         var url = '?s=' + asp_nice_phrase( $this.n.text.val() );
                                     } else if ( $this.o.show_more.action == 'woo_results_page' ) {
@@ -2223,6 +2409,7 @@
                     $this.n.resdrg.html('<div class="asp_nores">The request failed. Please check your connection! Status: ' + jqXHR.status + '</div>');
                     $this.n.items = $('.item', $this.n.resultsDiv).length > 0 ? $('.item', $this.n.resultsDiv) : $('.photostack-flip', $this.n.resultsDiv);
                     $this.results_num = 0;
+                    $this.searching = false;
                     $this.hideLoader();
                     $this.showResults();
                     $this.scrollToResults();
@@ -2263,7 +2450,11 @@
                     $this.isotopic.appended( $items );
                     $this.n.items = $('.item', $this.n.resultsDiv).length > 0 ? $('.item', $this.n.resultsDiv) : $('.photostack-flip', $this.n.resultsDiv);
                 } else {
-                    $this.n.resdrg.html($this.n.resdrg.html() + html);
+                    if ( $this.call_num > 0 && $this.o.resultstype == 'vertical' ) {
+                        $this.n.resdrg.html($this.n.resdrg.html() + '<div class="asp_v_spacer"></div>' + html);
+                    } else {
+                        $this.n.resdrg.html($this.n.resdrg.html() + html);
+                    }
                 }
             }
         },
@@ -2297,6 +2488,7 @@
                     break;
             }
 
+            $this.showAnimatedImages();
             $this.hideLoader();
 
             $this.n.proclose.css({
@@ -2327,6 +2519,35 @@
 
             $this.fixAccessibility();
             $this.resultsOpened = true;
+        },
+
+        showAnimatedImages: function() {
+            var $this = this;
+            $this.n.items.each(function () {
+                var $image = $(this).find('.asp_image[data-src]');
+                var src = $image.data('src');
+                if (typeof src != 'undefined' && src !== '' && src.indexOf('.gif') > -1) {
+                    if ($image.find('canvas').length == 0) {
+                        $('<div class="asp_item_canvas"><canvas></canvas></div>').prependTo($image);
+                        var c = $(this).find('canvas').get(0);
+                        var $cc = $(this).find('.asp_item_canvas');
+                        var ctx = c.getContext("2d");
+                        var img = new Image;
+                        img.crossOrigin = "anonymous";
+                        img.onload = function () {
+                            $(c).attr({
+                                "width": img.width,
+                                "height": img.height
+                            });
+                            ctx.drawImage(img, 0, 0, img.width, img.height); // Or at whatever offset you like
+                            $cc.css({
+                                "background-image": 'url(' + c.toDataURL() + ')'
+                            });
+                        };
+                        img.src = src;
+                    }
+                }
+            });
         },
 
         updateInfoHeader: function( totalCount ) {
@@ -2382,6 +2603,8 @@
 
             if ( typeof $this.ptstack != "undefined" )
                 delete $this.ptstack;
+
+            $this.hideArrowBox();
 
             $this.n.c.trigger("asp_results_hide", [$this.o.id, $this.o.iid]);
         },
@@ -2457,8 +2680,8 @@
 
             if ($this.n.items.length > 0) {
                 var count = (($this.n.items.length < $this.o.itemscount) ? $this.n.items.length : $this.o.itemscount);
+                count = count <= 0 ? 9999 : count;
                 var groups = $('.asp_group_header', $this.n.resultsDiv);
-                var spacers = $('.asp_spacer', $this.n.resultsDiv);
 
                 // So if the result list is short, we dont even need to do the math
                 if ($this.n.items.length <= $this.o.itemscount) {
@@ -2520,6 +2743,11 @@
 
                     }
                 }
+
+                // Mark the last item
+                $this.n.items.last().addClass('asp_last_item');
+                // Before groups as well
+                $this.n.results.find('.asp_group_header').prev('.item').addClass('asp_last_item');
 
                 if ($this.o.highlight == 1) {
                     var wholew = (($this.o.highlightwholewords == 1) ? true : false);
@@ -2625,6 +2853,7 @@
 
             $this.showResultsBox();
             $this.addAnimation();
+            $this.searching = false;
         },
 
         showIsotopicResults: function () {
@@ -2707,11 +2936,11 @@
 
                 var image = "";
                 var overlayImage = "";
-                var hasImage = $('.asp_item_img', el).length > 0 ? true : false;
-                var $img = $('.asp_item_img', el);
+                var hasImage = $('.asp_image', el).length > 0 ? true : false;
+                var $img = $('.asp_image', el);
 
                 if (hasImage) {
-                    var src = $img.attr('imgsrc');
+                    var src = $img.data('src');
                     var filter = $this.o.isotopic.blurOverlay && !isMobile() ? "aspblur" : "no_aspblur";
 
                     overlayImage = $("<div data-src='"+src+"' ></div>");
@@ -2728,37 +2957,6 @@
                         "-ms-filter": "url(#" + filter + ")"
                     }).addClass('asp_item_overlay_img asp_lazy');
                     overlayImage = overlayImage.get(0).outerHTML;
-                } else {
-                    switch ($this.o.isotopic.ifNoImage) {
-                        case "background":
-                            break;
-                        case "description":
-                            break;
-                        case "removeres":
-                            return false;
-                            break;
-                        case "defaultimage":
-                            if ($this.o.defaultImage != "") {
-                                image = "<div class='asp_item_img' style='background-image:url(" + $this.o.defaultImage + ");'>";
-                                var filter = $this.o.isotopic.blurOverlay && !isMobile() ? "aspblur" : "no_aspblur";
-
-                                overlayImage = $("<div data-src='"+ $this.o.defaultImage +"' ></div>");
-                                if ( typeof $.fn.asp_lazy == 'undefined' ) {
-                                    overlayImage.css({
-                                        "background-image": "url(" + $this.o.defaultImage + ")"
-                                    });
-                                }
-                                overlayImage.css({
-                                    "filter": "url(#" + filter + ")",
-                                    "-webkit-filter": "url(#" + filter + ")",
-                                    "-moz-filter": "url(#" + filter + ")",
-                                    "-o-filter": "url(#" + filter + ")",
-                                    "-ms-filter": "url(#" + filter + ")"
-                                }).addClass('asp_item_overlay_img asp_lazy');
-                                overlayImage = overlayImage.get(0).outerHTML;
-                            }
-                            break;
-                    }
                 }
 
                 $(overlayImage + overlay + image).prependTo(el);
@@ -2939,8 +3137,6 @@
             $this.fixResultsPosition(true);
             $this.searching = false;
             $this.initPolaroidEvents(figures);
-
-
         },
 
         initPolaroidEvents: function (figures) {
@@ -3005,15 +3201,30 @@
 
             var i = 0;
             var j = 1;
+            var delay = 25;
+            var checkViewport = true;
 
             // No animation for the new elements via more results link
             if ( $this.call_num > 0 || $this._no_animations ) {
-                $this.n.items.removeClass("opacityZero").removeClass("asp_an_" + $this.animOptions.items);
+                $this.n.results.find('.item, .asp_group_header').removeClass("opacityZero").removeClass("asp_an_" + $this.animOptions.items);
                 return false;
             }
 
-            $this.n.items.each(function () {
+            $this.n.results.find('.item, .asp_group_header').each(function () {
                 var x = this;
+                // The first item must be in the viewport, if not, then we won't use this at all
+                if ( j === 1) {
+                    checkViewport = $(x).is(':in-viewport(0)');
+                }
+
+                // No need to animate everything
+                if (
+                    ( j > 1 && checkViewport && !$(x).is(':in-viewport(0)') ) ||
+                    j > 80
+                ) {
+                    $(x).removeClass("opacityZero");
+                    return true;
+                }
 
                 if ($this.o.resultstype == 'isotopic' && j>$this.il.itemsPerPage) {
                     // Remove this from the ones not affected by the animation
@@ -3032,8 +3243,8 @@
                      * call the opacity flashes back to 0 - window rezise or pagination events
                      */
                     $(x).removeClass("opacityZero");
-                }, i);
-                i = i + 80;
+                }, (i + delay));
+                i = i + 45;
                 j++;
             });
 
@@ -3145,11 +3356,16 @@
             $this.n.searchsettings.removeClass($this.settAnim.hideClass).addClass($this.settAnim.showClass);
 
             if ($this.settScroll == null && ($this.is_scroll) ) {
-                $('.asp_sett_scroll', $this.n.searchsettings).each(function(){
-                    $this.settScroll = new asp_SimpleBar($(this).get(0), {
-                        direction: $('body').hasClass('rtl') ? 'rtl' : 'ltr',
-                        autoHide: $this.o.scrollBar.settings.autoHide
-                    });
+                $this.settScroll = [];
+                $('.asp_sett_scroll', $this.n.searchsettings).each(function(i, o){
+                    var _this = this;
+                    // Small delay to fix a rendering issue
+                    setTimeout(function(){
+                        $this.settScroll[i] = new asp_SimpleBar($(_this).get(0), {
+                            direction: $('body').hasClass('rtl') ? 'rtl' : 'ltr',
+                            autoHide: $this.o.scrollBar.settings.autoHide
+                        });
+                    }, 15);
                 });
             }
 
@@ -3186,7 +3402,7 @@
                 display: 'block',
                 height: 'auto'
             });
-            $this.n.items.addClass($this.animationOpacity);
+            $this.n.results.find('.item, .asp_group_header').addClass($this.animationOpacity);
 
             $this.fixResultsPosition(true);
 
@@ -3212,6 +3428,8 @@
                     $this.sIsotope = null;
                 }, $this.settAnim.duration);
             }
+
+            $this.hideArrowBox();
         },
 
         cleanUp: function () {
@@ -3241,6 +3459,7 @@
             $this.fixSettingsPosition();
             $this.fixResultsPosition();
             $this.fixTryThisPosition();
+            $this.hideArrowBox();
 
             if ( $this.o.resultstype == "isotopic" && $this.n.resultsDiv.css('visibility') == 'visible' ) {
                 $this.calculateIsotopeRows();
@@ -3393,9 +3612,10 @@
 
             // Alternative possible selectors from famous themes
             var altSel = [
+                '.search-content',
                 '#content', '#Content', 'div[role=main]',
                 'main[role=main]', 'div.theme-content', 'div.td-ss-main-content',
-                'main.l-content'
+                'main.l-content', '#primary'
             ];
             if ( selector != '#main' )
                 altSel.unshift('#main');
@@ -3416,7 +3636,7 @@
             var $el = $(selector).first();
             var $this = this;
 
-            if ($this.post != null) $this.post.abort();
+            $this.searchAbort();
             $el.css('opacity', 0.4);
             $this.post = $.ajax({
                 url: url,
@@ -3430,6 +3650,7 @@
                         $this.lastSuccesfulSearch = $('form', $this.n.searchsettings).serialize() + $this.n.text.val().trim();
                         $this.lastSearchData = data;
                     }
+                    $this.n.c.trigger("asp_search_end", [$this.o.id, $this.o.iid, $this.n.text.val(), data]);
                     $this.hideLoader();
                     $el.css('opacity', 1);
                     $this.searching = false;
@@ -3610,11 +3831,11 @@
             $this.n.text.val('');
             $this.n.proloading.css('display', 'none');
             $this.hideLoader();
-            if ($this.post != null) $this.post.abort();
+            $this.searchAbort();
             if ( $this.o.rb.action == 'live' &&
                 JSON.stringify(currentFormData) != JSON.stringify(formData($('form', $this.n.searchsettings)))
             ) {
-                $this.search();
+                $this.search(false, false, false, false, true);
             } else if ( $this.o.rb.action == 'close' ) {
                 $this.hideResults();
             }
@@ -3675,9 +3896,11 @@
         // -----------------------------------------------------------------------
         searchFor: function( phrase ) {
             var rid = $(this).attr('id').match(/^ajaxsearchpro(.*)/)[1];
+            phrase = (typeof phrase !== 'undefined') ? phrase : '';
             if ( typeof instData[rid] != 'undefined' ) {
                 var $this = instData[rid];
                 $this.n.text.val(phrase);
+                $this.n.textAutocomplete.val('');
                 $this.search(false, false, false, true);
             } else {
                 console.log('This instance: ' + rid + ' does not exist :(');
@@ -3752,7 +3975,7 @@
                 $this.hideResults();
                 $this.n.proloading.css('display', 'none');
                 $this.hideLoader();
-                if ($this.post != null) $this.post.abort();
+                $this.searchAbort();
             } else {
                 console.log('This instance: ' + rid + ' does not exist :(');
             }

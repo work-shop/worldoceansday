@@ -3,7 +3,10 @@ if (!defined('ABSPATH')) die('-1');
 
 if ( !class_exists('aspPostTypeFilter') ) {
     class aspPostTypeFilter extends aspFilter {
-        public $data = array();
+        public $data = array(
+            'required' => false,
+            'invalid_input_text' => 'This is required!'
+        );
 
         protected $default = array(
             'label' => '',

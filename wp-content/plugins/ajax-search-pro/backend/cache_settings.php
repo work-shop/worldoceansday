@@ -33,7 +33,7 @@ if (ASP_DEMO) $_POST = null;
 
 	<div class="wpdreams-box" style="float:left;">
 		<?php ob_start(); ?>
-		<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+		<div class="item item-flex-nogrow item-flex-wrap">
 			<?php
             $o = new wpdreamsYesNo( "caching", __('Caching activated', 'ajax-search-pro'), $cache_options["caching"]);
             $o = new wpdreamsCustomSelect('caching_method', __('Caching method', 'ajax-search-pro'),

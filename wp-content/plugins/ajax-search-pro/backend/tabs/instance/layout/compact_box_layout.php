@@ -25,7 +25,7 @@
         <?php echo __('Closes the box when the document is clicked.', 'ajax-search-pro'); ?>
     </p>
 </div>
-<div class="item item-flex-nogrow wpd-isotopic-width" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap wpd-isotopic-width" style="flex-wrap: wrap;">
     <?php
     $o = new wpdreamsTextSmall("box_compact_width", __('Compact box final width', 'ajax-search-pro'), array(
         'icon' => 'desktop',
@@ -43,12 +43,16 @@
     ));
     $params[$o->getName()] = $o->getData();
     ?>
-    <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
-        <?php echo __('Use with units (10px or 50% or auto). Default: <strong>100%</strong><br>
-        You might need to adjust this to a static value like 200px, as 100% is not always working in compact mode.', 'ajax-search-pro'); ?>
+    <div class="descMsg item-flex-grow item-flex-100">
+        <?php echo sprintf(
+            __('Use with <a href="%s" target="_blank">CSS units</a> (like %s or %s or %s ..) Default: <strong>%s</strong>', 'ajax-search-pro'),
+            'https://www.w3schools.com/cssref/css_units.asp', '200px', '50%', 'auto', '100%'
+        ); ?>
+        <br>
+        <?php echo __('You might need to adjust this to a static value like 200px, as 100% is not always working in compact mode.', 'ajax-search-pro'); ?>
     </div>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
     <?php
     $o = new wpdreamsYesNo("box_compact_overlay", __('Display background overlay?', 'ajax-search-pro'), $sd['box_compact_overlay']);
     $params[$o->getName()] = $o->getData();
@@ -57,7 +61,7 @@
     $o = new wpdreamsColorPicker("box_compact_overlay_color", __(' color ', 'ajax-search-pro'), $sd['box_compact_overlay_color']);
     $params[$o->getName()] = $o->getData();
     ?>
-    <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+    <div class="descMsg item-flex-grow item-flex-100">
         <?php echo __('Overlay only works with if the <strong>box position is set to Fixed</strong> below.', 'ajax-search-pro'); ?>
     </div>
 </div>

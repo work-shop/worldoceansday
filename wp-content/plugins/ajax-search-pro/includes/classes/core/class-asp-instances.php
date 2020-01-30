@@ -117,12 +117,16 @@ class WD_ASP_Instances {
      * @param $id
      * @return bool
      */
-    public function exists( $id ) {
+    public function exists( $id = false ) {
         if ($this->refresh) {
             $this->init();
             $this->refresh = false;
         }
-        return isset($this->instances[$id]);
+        if ( $id === false ) {
+            return count($this->instances) > 0;
+        } else {
+            return isset($this->instances[$id]);
+        }
     }
 
     /**

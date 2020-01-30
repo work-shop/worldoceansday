@@ -193,6 +193,15 @@ jQuery(function($){
     });
     $('input[name=cpt_cbx_show_select_all]').trigger('change');
 
+    $('input[name=cpt_required]').on('change', function(){
+        if ($(this).val() == 0) {
+            $('input[name=cpt_invalid_input_text]').closest('div').addClass('disabled');
+        } else {
+            $('input[name=cpt_invalid_input_text]').closest('div').removeClass('disabled');
+        }
+    });
+    $('input[name=cpt_required]').trigger('change');
+
     // ---------------------- General/Sources 1 ------------------------
     $('input[name="search_all_cf"]').change(function(){
         if ($(this).val() == 1)
@@ -432,12 +441,11 @@ jQuery(function($){
     });
     $('select[name=search_engine]').trigger('change');
 
-    $('input[name=showsearchintaxonomies]').on('change', function(){
+    $('input[name=date_filter_required]').on('change', function(){
         if ( $(this).val() == 0 ) {
-            $(this).closest('div[tabid]').find('>.item').addClass('disabled');
-            $(this).closest('.item').removeClass('disabled');
+            $('input[name=date_filter_invalid_input_text]').closest('div').addClass('disabled');
         } else {
-            $(this).closest('div[tabid]').find('>.item').removeClass('disabled');
+            $('input[name=date_filter_invalid_input_text]').closest('div').removeClass('disabled');
         }
     }).trigger('change');
     // -----------------------------------------------------------------
@@ -459,6 +467,14 @@ jQuery(function($){
         } else {
             $('input[name=date_filter_to_t]').closest('.item').removeClass('disabled');
             $('input[name=date_filter_to_format]').closest('.item').removeClass('disabled');
+        }
+    }).trigger('change');
+    $('input[name=showsearchintaxonomies]').on('change', function(){
+        if ( $(this).val() == 0 ) {
+            $(this).closest('div[tabid]').find('>.item').addClass('disabled');
+            $(this).closest('.item').removeClass('disabled');
+        } else {
+            $(this).closest('div[tabid]').find('>.item').removeClass('disabled');
         }
     }).trigger('change');
     // -----------------------------------------------------------------
@@ -714,16 +730,18 @@ jQuery(function($){
     });
     $('input[name="display_all_tags_check_opt"]').change();
 
-    $("select.wd_tagDisplayMode", $('input[name="show_frontend_tags"]').parent()).change(function(){
-        if ( $(this).val() == 'checkboxes' ) {
-            $(".item.wd_tag_mode_checkbox, .item.wd_tag_mode_dropdown, .item.wd_tag_mode_radio").addClass('hiddend');
-            $(".item.wd_tag_mode_checkbox").removeClass('hiddend');
-        } else {
-            $(".item.wd_tag_mode_checkbox, .item.wd_tag_mode_dropdown, .item.wd_tag_mode_radio").addClass('hiddend');
-            $(".item.wd_tag_mode_dropdown").removeClass('hiddend');
-        }
+    $('input[name="frontend_tags_required"]').change(function(){
+        if ( $(this).val() == 1 )
+            $('input[name="frontend_tags_invalid_input_text"]').closest('div').removeClass("disabled");
+        else
+            $('input[name="frontend_tags_invalid_input_text"]').closest('div').addClass('disabled');
     });
-    $("select.wd_tagDisplayMode", $('input[name="show_frontend_tags"]').parent()).change();
+    $('input[name="frontend_tags_required"]').change();
+
+    $("select.wd_tagDisplayMode", $('input[name="show_frontend_tags"]').parent()).on('change', function(){
+        $(this).closest('fieldset').find('.item[class*=wd_tag_mode_]').addClass('hiddend');
+        $(this).closest('fieldset').find('.item.wd_tag_mode_' + $(this).val()).removeClass('hiddend');
+    }).trigger('change');
 
     $('select.wd_tagDisplayMode').change(function(){
         if ( $(this).val() !='multisearch' )
@@ -987,6 +1005,14 @@ jQuery(function($){
 
 
     // ---------------------------- THEME OPTIONS PANEL ---------------------------------
+    $('input[name="v_res_show_scrollbar"]').change(function(){
+        if ($(this).val() == 0) {
+            $('.asp_v_res_scroll_dependent').addClass('disabled');
+        } else {
+            $('.asp_v_res_scroll_dependent').removeClass('disabled');
+        }
+    }).trigger('change');
+
     $('input[name="i_pagination"]').change(function(){
         if ($(this).val() == 0) {
             $('input[name="i_rows"]').closest('.wpdreamsTextSmall').addClass('disabled');

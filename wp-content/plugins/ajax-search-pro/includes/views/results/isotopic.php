@@ -32,9 +32,9 @@ defined('ABSPATH') or die("You can't access this file directly.");
 
     <?php if ( !empty($r->image) ): ?>
         <?php if ( $load_lazy == 1 ): ?>
-            <div class='asp_item_img asp_lazy' data-src="<?php echo $r->image; ?>" imgsrc='<?php echo $r->image; ?>'></div>
+            <div class='asp_item_img asp_image asp_lazy' data-src="<?php echo esc_attr($r->image); ?>""></div>
         <?php else: ?>
-            <div class='asp_item_img' imgsrc='<?php echo $r->image; ?>' style="background-image: url('<?php echo $r->image; ?>');"></div>
+            <div class='asp_item_img asp_image' data-src="<?php echo esc_attr($r->image); ?>" style="background-image: url('<?php echo $r->image; ?>');"></div>
         <?php endif; ?>
     <?php endif; ?>
 

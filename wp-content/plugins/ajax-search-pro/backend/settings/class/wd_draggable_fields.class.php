@@ -14,9 +14,10 @@ if (!class_exists("wd_DraggableFields")) {
     class wd_DraggableFields extends wpdreamsType {
         private $e_data;
         private $args = array(
-            "show_checkboxes" => 0,            // Checkboxes for default states
-            "show_display_mode" => 0,          // Display mode option
-            "show_labels" => 0,             // Display inputs to edit the labels
+            "show_checkboxes" => 0,             // Checkboxes for default states
+            "show_display_mode" => 0,           // Display mode option
+            "show_labels" => 0,                 // Display inputs to edit the labels
+            "show_required" => 0,
             /**
              * It's more logical to add the fields via arguments, because it can be extended - as opposing to
              * options, which are stored permanently after saving.
@@ -31,6 +32,8 @@ if (!class_exists("wd_DraggableFields")) {
         private $default_options = array(
             'display_mode' => 'checkboxes', // checkboxes, dropdown, radio
             'selected' => array('exact', 'title', 'content', 'excerpt', 'comments'),
+            'required' => false,
+            'invalid_input_text' => 'Please select an option!',
             'unselected' => array(),
             /**
              * This only contains the items from the selected array, for the front-end,
@@ -54,7 +57,7 @@ if (!class_exists("wd_DraggableFields")) {
                     <legend><?php echo $this->label; ?></legend>
 
                     <?php if ($this->args['show_display_mode']): ?>
-                        <div><label>
+                        <div class="wd_df_display_mode_container"><label>
                                 <?php echo __('Display mode:', 'ajax-search-pro'); ?>
                                 <select class="wd_df_display_mode" id="wd_df_display_mode-<?php echo self::$_instancenumber; ?>">
                                 <option value="checkboxes"<?php echo $this->e_data['display_mode'] == 'checkboxes' ? ' selected="selected"' : '';?>>
@@ -68,6 +71,18 @@ if (!class_exists("wd_DraggableFields")) {
                                 </option>
                             </select>
                         </label></div>
+                    <?php endif; ?>
+                    <?php if ($this->args['show_required']): ?>
+                        <div class="wd_df_required_container">
+                            <label>
+                                <?php echo __('Required?', 'ajax-search-pro'); ?>
+                                <input type="checkbox" class="wd_df_required" <?php echo $this->e_data['required'] ? " checked=checked" :''; ?>>
+                            </label>
+                            <label>
+                                <?php echo __('Required popup text:', 'ajax-search-pro'); ?>
+                                <input type="text" class="wd_df_invalid_input_text" value="<?php echo esc_attr($this->e_data['invalid_input_text']); ?>">
+                            </label>
+                        </div>
                     <?php endif; ?>
                     <div class="draggablecontainer" id="sortablecontainer<?php echo self::$_instancenumber; ?>">
                         <p>&nbsp;</p>

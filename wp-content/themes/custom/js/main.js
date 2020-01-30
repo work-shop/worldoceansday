@@ -20,8 +20,9 @@ import { vh } from './vh.js';
 import { livereload } from './livereload-client.js';
 import { nav } from './nav.js';
 import { news } from './news.js';
-import { makeMap } from './map.js';
+//import { makeMap } from './map.js';
 import { scrollSpy } from './scroll-spy.js';
+import { events } from './events.js';
 
 //optional
 import { stickyNav } from './sticky-nav.js';
@@ -44,8 +45,9 @@ slickSlideshows(config.slickSlideshows);
 sitewideAlert();
 progressiveImages();
 vh();
-makeMap();
+//makeMap();
 stickyNav(config.stickyNav);
+events(config.stickyNav);
 
 
 //optional

@@ -37,7 +37,7 @@
 	$params[$o->getName()] = $o->getData();
 	?>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
 	<?php
 	$o = new wpdreamsCustomSelect("primary_titlefield", __('Primary Title Field for Posts/Pages/CPT', 'ajax-search-pro'),  array(
 		'selects'=>array(
@@ -58,7 +58,7 @@
 	$params[$o->getName()] = $o->getData();
 	?>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
     <?php
     $o = new wpdreamsCustomSelect("secondary_titlefield", __('Secondary Title Field for Posts/Pages/CPT', 'ajax-search-pro'),  array(
         'selects'=>array(
@@ -80,7 +80,7 @@
 	$params[$o->getName()] = $o->getData();
     ?>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
 	<?php
 	$o = new wpdreamsCustomSelect("primary_descriptionfield", __('Primary Description Field for Posts/Pages/CPT', 'ajax-search-pro'),  array(
 		'selects'=>array(
@@ -102,7 +102,7 @@
 	$params[$o->getName()] = $o->getData();
 	?>
 </div>
-<div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+<div class="item item-flex-nogrow item-flex-wrap">
     <?php
     $o = new wpdreamsCustomSelect("secondary_descriptionfield", __('Secondary Description Field for Posts/Pages/CPT', 'ajax-search-pro'),  array(
         'selects'=>array(

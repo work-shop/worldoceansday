@@ -1,6 +1,6 @@
 <fieldset>
     <legend><?php echo __('More results text and behavior', 'ajax-search-pro'); ?></legend>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsYesNo("showmoreresults", __('Show \'More results..\' text in the bottom of the search box?', 'ajax-search-pro'), $sd['showmoreresults']);
         $params[$o->getName()] = $o->getData();
@@ -15,7 +15,7 @@
         ));
         $params[$o->getName()] = $o->getData();
         ?>
-        <div class="descMsg" style="min-width: 100%;flex-wrap: wrap;flex-basis: auto;flex-grow: 1;box-sizing: border-box;">
+        <div class="descMsg item-flex-grow item-flex-100">
             <?php echo __('"Load more ajax results" option will not work if Polaroid layout or Grouping is activated, or if results are removed when no images are present.', 'ajax-search-pro'); ?>
         </div>
     </div>
@@ -31,7 +31,7 @@
         $params[$o->getName()] = $o->getData();
         ?>
     </div>
-    <div class="item item-flex-nogrow" style="flex-wrap: wrap;">
+    <div class="item item-flex-nogrow item-flex-wrap">
         <?php
         $o = new wpdreamsText("showmoreresultstext", __('\' Show more results..\' text', 'ajax-search-pro'), $sd['showmoreresultstext']);
         $params[$o->getName()] = $o->getData();

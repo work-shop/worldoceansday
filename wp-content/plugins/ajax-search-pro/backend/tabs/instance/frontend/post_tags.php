@@ -11,7 +11,7 @@
     $params[$o->getName()] = $o->getData();
     ?>
 </div>
-<div class="item item-flex-nogrow wd_tag_mode_checkbox">
+<div class="item item-flex-nogrow wd_tag_mode_checkboxes">
     <?php
     $o = new wpdreamsYesNo("display_all_tags_check_opt", __('Show select/deselect all option?', 'ajax-search-pro'), $sd['display_all_tags_check_opt']);
     $params[$o->getName()] = $o->getData();
@@ -27,13 +27,22 @@
     $params[$o->getName()] = $o->getData();
     ?>
 </div>
-<div class="item">
+<div class="item wd_tag_mode_multisearch">
     <?php
     $o = new wpdreamsText("frontend_tags_placeholder", __('Placeholder text', 'ajax-search-pro'), $sd['frontend_tags_placeholder']);
     ?>
     <p class="descMsg">
         <?php echo __('Placeholder text for the multiselect search layout, in case nothing is selected.', 'ajax-search-pro'); ?>
     </p>
+</div>
+<div class="item item-flex-nogrow">
+    <?php
+    $o = new wpdreamsYesNo("frontend_tags_required", __('Required field?', 'ajax-search-pro'), $sd['frontend_tags_required']);
+    $params[$o->getName()] = $o->getData();
+
+    $o = new wpdreamsText("frontend_tags_invalid_input_text", __('required popup text', 'ajax-search-pro'), $sd['frontend_tags_invalid_input_text']);
+    $params[$o->getName()] = $o->getData();
+    ?>
 </div>
 <div class="item">
     <?php
@@ -43,7 +52,7 @@
         <?php echo __('Leave empty if you don\'t want to display the header.', 'ajax-search-pro'); ?>
     </p>
 </div>
-<div class="item"><?php
+<div class="item wd_tag_mode_checkboxes"><?php
     $o = new wpdreamsCustomSelect("frontend_tags_logic", __('Tags logic (only used for checkboxes!)', 'ajax-search-pro'),
         array(
             'selects' => array(

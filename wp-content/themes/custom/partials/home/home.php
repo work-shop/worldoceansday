@@ -157,7 +157,6 @@
 					<div class="slick-home-supporters">
 						<?php $count = 1; ?>
 						<?php while ( have_rows('sustaining_partners',105) ) : the_row(); ?>
-							<?php  for ($i=0; $i < 5; $i++) { ?>
 								<div class="home-supporters-slide">
 									<?php $link = get_field('link'); ?>
 									<?php if( $link ): ?>
@@ -170,7 +169,6 @@
 									<?php endif; ?>
 								</div>
 								<?php $count++; ?>
-							<?php  } ?>
 						<?php endwhile; ?>
 					</div>
 				</div>
