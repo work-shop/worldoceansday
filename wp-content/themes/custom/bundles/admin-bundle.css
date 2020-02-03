@@ -2,7 +2,7 @@
 /* line 32, wp-content/themes/custom/scss/definitions/_variables.scss */
 :root {
   --brand: #164579;
-  --brand-secondary: #19BAE3;
+  --brand-secondary: #19bae3;
   --orange: #F9A619;
   --pink: #FFB5D8;
   --pink-tint: rgba(255, 181, 216, 0.7);
@@ -53,6 +53,30 @@
 /* line 48, wp-content/themes/custom/scss/admin.scss */
 #menu-posts-shop_order, #menu-posts-shop_coupon {
   display: none;
+}
+
+/* line 52, wp-content/themes/custom/scss/admin.scss */
+.wod-alert {
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 8px;
+  background: #cce5ff;
+  color: #164579;
+  border-color: #164579;
+}
+
+/* line 61, wp-content/themes/custom/scss/admin.scss */
+.wod-alert.wod-alert-success {
+  color: #327742;
+  background: #d4edda;
+  border-color: #327742;
+}
+
+/* line 68, wp-content/themes/custom/scss/admin.scss */
+.wod-alert.wod-alert-error {
+  color: #e72d2d;
+  background: #fce4e4;
+  border-color: #e72d2d;
 }
 
 /*# sourceMappingURL=admin-bundle.css.map */

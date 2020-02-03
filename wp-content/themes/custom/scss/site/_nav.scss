@@ -16,7 +16,8 @@ $text-nav: (
 	padding-right: 25px;
 	z-index: 7;
 	transition: background 1s;
-	background: $brand;
+	background: $brand-secondary;
+	//background: $brand;
 	display: grid;
 	grid-template-columns: 350px auto;
 	//border-bottom: 1px solid $ultra-light;
@@ -140,10 +141,56 @@ $text-nav: (
 
 				&.nav-take-action-item{
 					a{
-						background: darken($pink,5%);
-						border-radius: 10px;
-						padding-left: 10px; 
-						padding-right: 10px;
+						background: darken($brand,0%);
+						border-radius: 16px;
+						padding-left: 13px; 
+						padding-right: 13px;
+						background: $brand;
+						
+						//background-size: 200% auto;
+						// background-size: 300% 300%;
+						// background: linear-gradient(to right, $brand, $pink, $brand);
+						// //transition: 0.5s;
+						// //animation: gradient 1s ease infinite;
+						// background-position: 0 0;
+
+						// background: linear-gradient(
+						// 	-45deg,
+						// 	$brand ,
+						// 	$pink,
+						// 	$brand ,
+						// 	$brand ,
+						// 	$pink,
+						// 	$brand
+						// 	);
+						// background-size: 250% 100%;
+						// background-position: 100% 50%;
+												//transition: 0.5s all;
+						//animation: gradient 7s ease infinite;
+
+						// background: linear-gradient(-15deg, $brand, $brand, $brand-secondary, $pink, $brand-secondary, $brand, $brand,);
+						// background-size: 400% 400%;
+						// animation: gradient 15s ease infinite;
+
+
+
+
+						// @keyframes gradient { 
+						// 	0% {
+						// 		background-position: 0% 50%;
+						// 	}
+						// 	50% {
+						// 		background-position: 100% 50%;
+						// 	}
+						// 	100% {
+						// 		background-position: 0% 50%;
+						// 	}
+						// }
+
+						// &:hover {
+						// 	background-position: 0% 50%;
+						// 	transition: 0.5s all;
+						// }  
 					}
 				}
 

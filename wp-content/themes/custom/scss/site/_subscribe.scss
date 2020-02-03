@@ -32,18 +32,47 @@
 		margin-bottom: 1em;
 	}
 
+	.gform_body{
+		float: left;
+		width: 350px;
+
+		@media screen and (max-width: $md) {
+			width: 300px;
+		}
+
+		@media screen and (max-width: $sm) {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	.gform_footer{
+		float: left;
+
+		@media screen and (max-width: $sm) {
+			float: none;
+		}
+	}
+
 	input[type="email"]{
 		background: white;
 		border-radius: 50px 0px 0px 50px;
-		border-radius: 50px;
+		//border-radius: 50px;
 		border: none;
-		max-width: 270px;
-		font-size: 16px;
+		font-size: 15px;
+		line-height: 40px;
 		padding-left: 15px !important;
 		color: $dark;
+		height: 40px;
+
+		@media screen and (max-width: $sm) {
+			border-radius: 50px;
+			width: 100%;
+		}
 	}
 
 	input[type="submit"]{
+		height: 40px;
 		display: inline-block;
 		margin: 0;
 		background: $brand;
@@ -53,8 +82,16 @@
 		@extend .tracked-less;
 		border: none;
 		border-radius: 0px 50px 50px 0px;
-		border-radius: 50px;
-		width: 200px;
+		//border-radius: 50px;
+		//width: 200px;
+		padding: 0px 15px;
+
+		@media screen and (max-width: $sm) {
+			border-radius: 50px;
+			width: 200px;
+			display: block;
+			margin: 30px auto;
+		}
 	}
 }
 

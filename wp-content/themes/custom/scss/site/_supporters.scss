@@ -70,7 +70,7 @@
 		background-size: cover;
 		height: 100%;
 		background-position: center center;
-		flex: 0 0 39%;
+		flex: 0 0 35%;
 
 
 
@@ -83,8 +83,8 @@
 
 	.card-supporter-text{
 		background: $tan;
-		padding: 50px;
-		flex: 0 0 61%;
+		padding: 40px;
+		flex: 0 0 65%;
 		display: flex;
 		@extend .align-items-center;
 
@@ -112,7 +112,7 @@
 		}
 
 		img{
-			width: 100px;
+			width: 75px;
 			@media screen and (max-width: $sm) {
 				width: 50px;
 			}
@@ -129,8 +129,9 @@
 		}
 	}
 
-	.card-supporter-button{
-	}
+	// .card-supporter-button{
+	// 	@extend .button-small;
+	// }
 
 }
 

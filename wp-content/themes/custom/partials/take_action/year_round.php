@@ -1,3 +1,4 @@
+<?php if( get_field('get_involved_year_round_heading') || get_field('get_involved_year_round_cards')): ?>
 <section class="block padded" id="take-action-year-round">
 	<div class="container-fluid">
 		<?php if( get_field('get_involved_year_round_heading')): ?>
@@ -71,3 +72,4 @@
 	<?php endif; ?>
 </div>
 </section>
+<?php endif; ?>

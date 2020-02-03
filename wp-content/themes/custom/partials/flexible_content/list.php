@@ -9,11 +9,12 @@ $section_heading = $fc_row['section_settings']['section_heading'];
 $section_type = $fc_row['section_style']['section_type'];
 $section_background_color = $fc_row['section_style']['section_background_color'];
 $section_text_color = $fc_row['section_style']['section_text_color'];
-if($section_text_color == false){
-	$section_text_color = ' #222';
-}
 $section_text_color_string = 'style="color: ' . $section_text_color . ';"';
-$section_text_color_background_string = 'style="background-color: ' . $section_text_color . ';"';
+$section_text_color_background_string = 'style="background-color: #222222;"';
+
+if($section_text_color){
+	$section_text_color_background_string = 'style="background-color: ' . $section_text_color . ';"';
+} 
 
 $list_items = $fc_row['section_content']['list_items'];
 

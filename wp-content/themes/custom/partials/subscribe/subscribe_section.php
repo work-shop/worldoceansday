@@ -9,7 +9,7 @@
 	<div class="container-fluid height-100 subscribe-content">
 		<div class="row subscribe-row">
 			<div class="col">
-				<h2 class="white mb1 bold">
+				<h2 class="white mb1 font-black">
 					<?php echo $background_text; ?>
 				</h2>
 				<?php get_template_part('/partials/subscribe_form'); ?>

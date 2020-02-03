@@ -199,4 +199,38 @@
 
 }
 
+#annual-reports{
+
+	.annual-report{
+		@extend .col-sm-6;
+		//@extend .col-md-4;
+		@extend .col-xl-3;
+		//display: flex;
+		//@extend .align-items-center;
+		margin-bottom: 2em;
+
+		a{
+			padding: 30px;
+			flex: 0 0 100%;
+			display: block;
+			background: $brand;
+			border-radius: 8px;
+
+			&:hover{
+				@extend .shadowed;
+			}
+
+			@media screen and (max-width: $sm) {
+				padding: 15px;
+			}
+		}
+
+		&:first-child{
+			//@extend .col-12;
+		}
+
+
+	}
+}
+
 

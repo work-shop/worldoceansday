@@ -89,8 +89,16 @@
 	endif;
 	?>
 
+	<?php 
+	if( is_user_logged_in() ): 
+		$logged_in_classes = ' user_logged_in ';
+	else:
+		$logged_in_classes = ' user_logged_out ';
+	endif; 
+	?>
+
 </head>
-<body <?php body_class('loading before-scroll modal-off menu-closed dropdown-off mobile-dropdown-off curve-off ' . $sitewide_alert_class . ' '); ?>>
+<body <?php body_class('loading before-scroll modal-off menu-closed dropdown-off mobile-dropdown-off curve-off ' . $sitewide_alert_class . ' ' . $logged_in_classes . ' '); ?>>
 
 	<?php get_template_part('partials/sitewide_alert'); ?>
 	<?php get_template_part('partials/nav'); ?>

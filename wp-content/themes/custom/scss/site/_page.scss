@@ -146,6 +146,10 @@ $page-nav-height: 52px;
 	background: $ultra-light;
 }
 
+.page-hero + .block{
+	background: $ultra-light;
+}
+
 
 
 //FLEXIBLE CONTENT MODIFICATIONS
@@ -153,7 +157,7 @@ $page-nav-height: 52px;
 .page-template-default{
 	#flexible-content{
 		.block:first-child{
-			background: $ultra-light;
+			//background: $ultra-light;
 		}
 	}
 }
@@ -197,7 +201,7 @@ $page-nav-height: 52px;
 .section-heading{
 	margin-bottom: 3em;
 	@extend .h3;
-	@extend .bold;
+	@extend .font-black;
 	@extend .brand-tint;
 }
 

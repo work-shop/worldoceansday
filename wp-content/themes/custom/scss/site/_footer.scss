@@ -78,7 +78,7 @@
 			margin-right: 0;
 
 			img{
-				width: 21px;
+				width: 25px;
 				@media screen and (max-width: $sm) {
 					width: 20px;
 				}
@@ -113,10 +113,17 @@
 			
 		}
 
+		.gform_footer,.gform_body{
+			float: none;
+			width: auto;
+		}
+
 		input[type="email"]{
 			font-size: 13px;
 			border: 1px solid $light;
 			color: $dark;
+			border-radius: 50px;
+			max-width: 100%;
 			@media screen and (max-width: $lg) {
 				display: block;
 				width: 100%;
@@ -128,7 +135,10 @@
 		input[type="submit"]{
 			font-size: 12px;
 			width: 120px;
-			border: 1px solid $light;
+			//border: 1px solid $light;
+			background: $brand-secondary;
+			padding: 10px;
+			border-radius: 50px;
 
 			@media screen and (max-width: $lg) {
 				margin: 1em auto;

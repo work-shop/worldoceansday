@@ -1,0 +1,103 @@
+
+
+.page-id-554{
+
+	#user-registration .user-registration-MyAccount-content{
+		text-align: left;
+		padding: 0;
+		width: 100%;
+	}
+
+	#my-account-content{
+
+		input{
+			background: white;
+			border-radius: 8px;
+			padding: 10px;
+			margin-bottom: 20px;
+			border-color: $brand;
+
+			&[type="submit"]{
+				margin-bottom: 20px;
+				display: block;
+				@extend .button;
+				max-width: none;
+			}
+		}
+	}
+
+	&.user_logged_out{
+		#my-account-content{
+			@extend .vhfull;
+			display: flex;
+			@extend .flex-center;
+
+			//login form
+			.ur-frontend-form.login{
+				width: 360px;
+				border-radius: 8px;
+				padding-top: 30px;
+				padding-bottom: 30px;
+				background: $ultra-light;
+
+				@media screen and (max-width: $sm) {
+					width: 300px;
+				}
+
+				.form-row{
+					//margin-bottom: 25px;
+				}
+
+				.user-registration-form__label-for-checkbox.inline{
+					text-align: center;
+					margin-top: 30px;
+
+					input{
+						position: relative;
+						top: 8px;
+						padding: 0;
+						margin-right: 0;
+					}
+				}
+
+				.lost_password{
+					text-align: center;
+					margin-top: -10px;
+				}
+			}
+
+			//password change form
+			.user-registration-EditAccountForm.edit-password{
+				
+			}
+
+		}
+	}
+
+
+	&.user-registration-edit-password{
+		.user-registration-MyAccount-content{
+			@extend .vhfull;
+			display: flex;
+			@extend .flex-center;
+		}
+
+		.ur-frontend-form.login{
+			width: 360px;
+
+			[type="submit"]{
+				margin-top: 20px;
+			}
+		}
+	}
+
+
+	#user-registration{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+
+
+}
+

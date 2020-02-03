@@ -32,9 +32,9 @@ function slickSlideshows( config ) {
 			slidesToScroll: 6,
 			dots: config.dots,
 			arrows: config.arrows,
-			autoplay: false,
+			autoplay: true,
 			fade: false,
-			autoplaySpeed: config.autoplaySpeed,
+			autoplaySpeed: 5000,
 			speed: config.speed
 		});
 

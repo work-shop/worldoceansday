@@ -1,13 +1,50 @@
 
 .home-section-heading{
-	@extend .h4;
 	@extend .uppercase;
 	@extend .font-black;
 	@extend .tracked-less;
+	font-size: 21px;
+	@media screen and (max-width: $lg) {
+		font-size: 19px;
+	}	
+
+	@media screen and (max-width: $md) {
+		font-size: 17px;
+	}
+
+	@media screen and (max-width: $sm) {
+		font-size: 16px;
+	}
+
+	@media screen and (max-width: $xs) {
+		font-size: 14px;
+	}	
+}
+
+.home{
+	.block h3{
+		font-size: 2vw;
+
+		@media screen and (max-width: $lg) {
+			font-size: 2.3vw;
+		}	
+
+		@media screen and (max-width: $md) {
+			font-size: 3vw;
+		}
+
+		@media screen and (max-width: $sm) {
+			font-size: 3.5vw;
+		}
+
+		@media screen and (max-width: $xs) {
+			font-size: 4vw;
+		}	
+	}
 }
 
 .container-fluid-home{
-	max-width: 1400px;
+	max-width: 1480px;
 }
 
 #home-hero{
@@ -41,11 +78,6 @@
 		z-index: 1;
 	}
 
-	.tagline-date{
-		//margin-bottom: 30px;
-		//@extend .uppercase;
-	}
-
 	.tagline{
 		margin-bottom: 40px;
 		//opacity: .9;
@@ -61,6 +93,13 @@
 		}
 	}
 
+	.tagline-date{
+	}
+
+	.tertiary-text{
+		margin-top: 40px;
+	}
+
 	.background-links{
 		margin-top: 40px;
 	}
@@ -72,57 +111,98 @@
 }
 
 
-#home-overview{
-	background: #E1F0F5;
+#home-social{
 
-	.home-overview-block{
-		img{
-			width: 50px;
-			margin-bottom: 30px;
-			display: block;
-		}
-		.home-overview-link-container{
-			//display: flex;
-			//@extend .justify-content-center;
-			margin-bottom: 30px;
-		}
-		.home-overview-block-text{
-			//text-align: center;
-			max-width: 250px;
+	.social-left{
+		@media screen and (max-width: $sm) {
+			margin-bottom: 3em;
 		}
 	}
+
+	.social-text{
+		font-size: 21px;
+		@media screen and (max-width: $lg) {
+			font-size: 19px;
+		}	
+
+		@media screen and (max-width: $md) {
+			font-size: 17px;
+		}
+
+		@media screen and (max-width: $sm) {
+			font-size: 16px;
+		}
+
+		@media screen and (max-width: $xs) {
+			font-size: 14px;
+		}	
+	}
+
+	.social-right{
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		@media screen and (max-width: $md) {
+			justify-content: flex-start;
+			align-items: none;
+		}
+	}
+
+	.home-social-follow{
+
+		a{
+			display: inline-block;
+			padding-right: 12px;
+			margin-right: 0;
+			margin-left: 5px;
+
+			&:first-child{
+				margin-left: 20px;
+			}
+
+			img{
+				width: 30px;
+				position: relative;
+				top: -6px;
+				@media screen and (max-width: $sm) {
+					width: 20px;
+				}
+			}
+		}		
+	}
+
 }
 
 
+#home-take-action{
 
-#home-who-we-are{
 
-	.who-we-are-background-image{
-		@extend .background;
-		bottom: 0;
-		left: 0;
-		top: auto;
-	}
-	.block-text{
-		width: 100%;
-	}
+}
 
-	.who-we-are-image{
-		border-radius: 8px;
-	}
-
-	.who-we-are-text-1,.who-we-are-text-2,.link-container{
-		margin-bottom: 60px;
-	}
-
-	.who-we-are-text-1,.who-we-are-text-2{
-		*{
-			color: white;
+#home-youth{
+	.block-background{
+		&:after{
+			background: transparentize($brand, .65);
 		}
+
 	}
 }
+
 
 #home-stories{
+
+	.supporters-stories-heading{
+		@extend .h3;
+		@extend .font-black;
+		color: $brand;
+	}
+
+	.card-supporter-title{
+		@extend .h4;
+		margin-bottom: 35px;
+
+	}
 	.block-background{
 		background-position: center center;
 	}
@@ -166,31 +246,4 @@
 			margin: 0 auto;
 		}
 	}
-}
-
-
-
-.take-action-card{
-
-	&.card-style-image-brand{
-		.card-title{
-			color: white;
-		}
-
-		.button{
-			background: $interactive;
-		}
-	}
-
-	&.card-style-image-interactive{
-		.card-title{
-			color: white;
-		}
-
-		.button{
-			background: darken($pink,5%);
-		}
-	}
-
-
 }

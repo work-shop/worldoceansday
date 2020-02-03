@@ -39,7 +39,7 @@
 		}
 
 		#nav{
-			box-shadow: 0 5px 15px darken($brand,5%);
+			box-shadow: 0 5px 15px darken($brand-secondary,15%);
 			//overflow: visible;
 		}
 	}
@@ -102,11 +102,11 @@
 
 
 	.menu-left{
-		padding: 90px 50px 50px 50px;
+		padding: 60px 50px 50px 50px;
 
 		@media screen and (max-width: $md) {
 			padding: 30px 15px;
-			background: lighten($brand,3%);
+			background: darken($brand-secondary,6%);
 			*{
 				color: white;
 			}
@@ -167,7 +167,7 @@
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background: $ultra-light;
-		padding: 90px 50px 50px 50px;
+		padding: 60px 50px 50px 50px;
 
 		@media screen and (max-width: $md) {
 			display: none;
@@ -197,7 +197,7 @@
 .menu-title,.mobile-menu-secondary-link{
 	display: none;
 	position: relative;
-	background: $brand;
+	background: darken($brand-secondary,3%);
 
 	@media screen and (max-width: $md) {
 		display: block;

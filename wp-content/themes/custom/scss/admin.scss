@@ -48,3 +48,28 @@
 #menu-posts-shop_order,#menu-posts-shop_coupon{
 	display: none;
 }
+
+.wod-alert{
+	padding: 20px;
+	border: 1px solid;
+	border-radius: 8px;
+
+	background: #cce5ff;
+	color: $brand;
+	border-color: $brand;
+
+	&.wod-alert-success{
+		color: darken(#d4edda, 55%);
+		background: #d4edda;
+		border-color: darken(#d4edda, 55%);
+
+	}
+
+	&.wod-alert-error{
+		color: darken($error, 10%);
+		background: lighten($error,30%);
+		border-color: darken($error, 10%);
+
+	}
+
+}

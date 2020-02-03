@@ -47,9 +47,9 @@ $fc_background_classes = 'fc-background-' . $section_type . ' ';
 $fc_background_classes .= 'vh' . $section_height . ' ';
 
 if( $section_height === 'natural' ){
-	$fc_background_classes .= ' fc-background-natural';	
+	$fc_background_classes .= ' fc-background-natural ';	
 } else{
-	$fc_background_classes .= ' fc-background-not-natural';	
+	$fc_background_classes .= ' fc-background-not-natural ';	
 }
 
 if( $section_id == NULL || $section_id == false ){

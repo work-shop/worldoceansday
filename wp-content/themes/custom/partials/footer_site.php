@@ -1,4 +1,4 @@
-<footer class="block pt5 pb1 bg-brand-tint" id="footer">
+<footer class="pt5 pb1 bg-brand" id="footer">
 	<div class="container-fluid">
 		<div class="row mb2 footer-primary">
 			<div class="col-lg-3 footer-col">

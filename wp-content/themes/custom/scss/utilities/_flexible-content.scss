@@ -332,6 +332,16 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 
 }
 
+.fc-background-natural{
+	padding: $fc-padding;
+
+	.fc-background-text{
+		position: static;
+		transform: none;
+	}
+
+}
+
 .fc-background-heading,.fc-background-subheading,.fc-background-link{
 	width: 61%;
 
@@ -616,9 +626,9 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 		}
 
 		.card-title{
-			@extend .bold;
+			@extend .font-black;
 			@extend .brand;
-			padding: 15px 30px 0px 30px;
+			padding: 30px 30px 0px 30px;
 
 			@media screen and (max-width: $xl) {
 				padding: 25px 25px 0 25px;
@@ -635,10 +645,10 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 			width: 100%;
 			margin-bottom: 0;
 			flex: 1 0 auto;
-			padding: 0px 30px 15px 30px;
+			padding: 0px 30px 35px 30px;
 
 			@media screen and (max-width: $xl) {
-				padding: 0px 25px 25px 25px;
+				padding: 0px 25px 30px 25px;
 				width: 100%;
 			}
 			@media screen and (max-width: $md) {
@@ -680,9 +690,10 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 .fc-overview-blocks{
 
 	.fc-overview-block{
-		margin-bottom: 14vh;
+		margin-bottom: 13vh;
 		position: relative;
-		width: 83%;
+		width: 90%;
+		max-width: 1280px;
 		margin-left: auto;
 		margin-right: auto;
 		display: flex;
@@ -742,8 +753,8 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 	}
 
 	.overview-block-text{
-		width: 70%;
-		padding: 10vh 0px;
+		width: 90%;
+		padding: 9vh 0px;
 		position: relative;
 		z-index: 3;
 
@@ -752,7 +763,7 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 		}
 
 		@media screen and (max-width: $md) {
-			width: 80%;
+			width: 90%;
 		}
 
 		@media screen and (max-width: $sm) {
@@ -762,7 +773,12 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 		.overview-block-text-inner{
 			@extend .shadowed;
 			border-radius: 8px;
-			padding: 60px;
+			padding: 50px;
+
+			p{
+				line-height: 1.7 !important;
+				@extend .font-medium;
+			}
 
 			@media screen and (max-width: $md) {
 				padding: 40px;
@@ -774,12 +790,12 @@ $fc-padding: $fc-padding-value 0 $fc-padding-value 0;
 		}
 
 		.block-heading{
-			@extend .bold;
+			@extend .font-black;
 			margin-bottom: 1em;	
 		}
 
 		.block-text{
-			width: 80%;
+			width: 95%;
 
 			@media screen and (max-width: $md) {
 				width: 100%;

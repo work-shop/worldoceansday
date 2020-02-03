@@ -1,21 +1,25 @@
-<section class="block vh100" id="events-test">
+<section class="block" id="events-test">
 	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
 	</script>
-	<div class="map" id="alumni-map">
+	<div class="map">
 		<?php
 		$count = 0;
 		$mapOptions = array( 'data' => array() );
 		$my_query = new WP_Query( array(
-			'post_type' => 'event-test',
+			'post_type' => 'event_listing',
 			'posts_per_page' => '-1',
 		) );
 		while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+
 			<?php 
+			$post_id = $post->ID;
+			$location = get_post_meta($post_id,'location');
+			//print_r($location);
 			$id = 'marker-' . $count;
-			//$lat = get_field('lat');
-			//$lng = get_field('lng');
-			$lat = rand(-180,180);
-			$lng = rand(-180,180);
+			$lat = $location[0]['lat'];
+			$lng = $location[0]['lng'];
+			// $lat = rand(-180,180);
+			// $lng = rand(-180,180);
 			if ( $lat && $lng ) {
 				$location = array(
 					'marker' => array(
@@ -29,8 +33,11 @@
 				$mapOptions['data'][] = $location;
 			}
 			?>
+
 			<?php $count++; ?>
+
 		<?php endwhile; ?>
+
 		<script>
 			var mapOptions = <?php echo json_encode( $mapOptions, JSON_UNESCAPED_SLASHES ); ?>;
 	        // Okay, we got the data. Now we just need to build the html, and parse

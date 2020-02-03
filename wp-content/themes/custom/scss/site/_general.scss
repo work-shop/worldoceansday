@@ -148,7 +148,7 @@ input{
 }
 
 .brand-secondary{
-	color: $light-blue;
+	color: $brand-secondary;
 }
 
 .interactive{
@@ -210,15 +210,23 @@ input{
 /* sitewide button styles */
 
 $text-button: (
+	xs: (11px, 12px),
+	sm: (11px, 12px),
+	md: (12px, 12px),
+	lg: (13px, 12px),
+	xl: (14px, 12px)
+	);
+
+$text-button-small: (
 	xs: (9px, 12px),
-	sm: (10px, 12px),
-	md: (11px, 12px),
-	lg: (12px, 12px),
-	xl: (13px, 12px)
+	sm: (9px, 12px),
+	md: (10px, 12px),
+	lg: (11px, 12px),
+	xl: (12px, 12px)
 	);
 
 .button{
-	padding: 16px 25px 14px 25px;
+	padding: 20px 25px 18px 25px;
 	color: white;
 	@extend .font-black;
 	@extend .uppercase;	
@@ -228,21 +236,21 @@ $text-button: (
 	@include text-size($text-button);	
 	background-size: 100% 100%;
 	background: $interactive;
-	border-radius: 8px;
+	border-radius: 16px;
 	transform: scale(1);
 	transition: transform .1s;
 
 	@media screen and (max-width: $md) {
-		padding: 8px 12px 6px 12px;
+		padding: 15px 20px 13px 20px;
 	}
 
 	@media screen and (max-width: $sm) {
-		padding: 8px 12px 6px 12px;
+		padding: 10px 15px 8px 20px;
 	}
 
 	&.button-small{
-		padding: 5px 8px 2px 8px;
-		font-size: 13px;
+		padding: 10px 15px 8px 20px;
+		@include text-size($text-button-small);	
 	}
 
 	&.button-large{
@@ -299,7 +307,7 @@ $text-button: (
 }
 
 .shadowed{
-	box-shadow: 1px 2px 8px transparentize($dark, .3);
+	box-shadow: 1px 2px 4px transparentize($dark, .5);
 }
 
 
@@ -379,10 +387,10 @@ $text-button: (
 		width: 100%;
 		margin-bottom: 0;
 		flex: 1 0 auto;
-		padding: 0px 30px 50px 30px;
+		padding: 0px 30px 30px 30px;
 
 		@media screen and (max-width: $xl) {
-			padding: 0px 15px 7px 15px;
+			padding: 0px 15px 15px 15px;
 			width: 100%;
 		}
 		@media screen and (max-width: $md) {
@@ -402,13 +410,13 @@ $text-button: (
 			font-size: 13px;
 			@extend .uppercase;
 
-			@media screen and (max-width: $lg) {
-				padding: 7px 20px;
+			@media screen and (max-width: $xl) {
+				padding: 7px 15px;
 				font-size: 11px;
 			}
 
 			@media screen and (max-width: $md) {
-				padding: 5px 15px;
+				padding: 5px 10px;
 				font-size: 10px;
 			}
 		}
@@ -643,6 +651,34 @@ $text-button: (
 
 
 
+
+//FLEXIBLE CONTENT OVERRIDES
+
+#flexible-content{
+
+
+	.fc-background{
+		h2{
+			@extend .font-black;
+		}
+	}
+
+	.fc-button a{
+		@extend .button;
+		text-decoration: none;
+		@extend .font-black;
+		color: white;
+
+		&:hover{
+			text-decoration: none;
+		}
+	}
+}
+
+
+
+
+
 .slick-dots{
 
 	li{
@@ -656,9 +692,9 @@ $text-button: (
 				background: $brand;
 
 				@media screen and (max-width: $sm) {
-						width: 10px;
-						height: 10px;
-					}	
+					width: 10px;
+					height: 10px;
+				}	
 			}
 
 		}

@@ -21,6 +21,11 @@
 								<?php endif; ?>
 							</li>
 						<?php endwhile; ?>
+						<li class="nav-account-item">
+							<a href="<?php echo bloginfo('url'); ?>/my-account" class="menu-link account-link">
+								<?php if( is_user_logged_in() ): ?>My Account<?php else: ?>Login<?php endif; ?>
+							</a>
+						</li>
 					</ul>
 				<?php endif; ?>
 			</div>
@@ -31,6 +36,11 @@
 							Take Action
 						</a>
 					</li>
+					<li class="has-sub-menu closed nav-menu-primary-item">
+						<a href="<?php echo bloginfo('url'); ?>/news" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(13) ): echo ' nav-current '; endif; ?>" id="nav-link-events" data-dropdown-target="blog">
+							Blog
+						</a>
+					</li>	
 					<li class="has-sub-menu closed nav-menu-primary-item">
 						<a href="<?php echo bloginfo('url'); ?>/events" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(13) ): echo ' nav-current '; endif; ?>" id="nav-link-events" data-dropdown-target="events">
 							Events

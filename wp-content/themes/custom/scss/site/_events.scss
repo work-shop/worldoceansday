@@ -39,50 +39,103 @@ $events-nav-height: 60px;
 #events{
 	//height: calc(100vh - #{$events-nav-height} - #{$nav-height});
 	
-	.events-container{
-		display: flex;
-		height: inherit;
-	}
+	// .events-container{
+	// 	display: flex;
+	// 	height: inherit;
+	// }
 
-	.events-list{
-		flex: 0 0 50%;
-		height: inherit;
-	}
+	// .events-list{
+	// 	flex: 0 0 50%;
+	// 	height: inherit;
+	// }
 
-	.events-map{
-		height: inherit;
-		flex: 0 0 50%;
-	}
+	// .events-map{
+	// 	height: inherit;
+	// 	flex: 0 0 50%;
+	// }
 
-	#googleMap{
-		//height: inherit !important;
+}
+
+#events-container{
+	display: flex;
+	position: relative;
+
+	&.loading{
+		.events-main{
+			opacity: .5;
+		}
+
+		.lds-ring{
+			display: inline-block;
+		}
 	}
 }
 
-
-.wpgmza_map {
-	position: absolute !important;
-	right: 0;
-	top: 0;
-	height: 100% !important;
-	width: 50% !important;
+#events-list{
+	height: calc(100vh - #{$events-nav-height} - #{$nav-height});
+	flex: 0 0 50%;
+	background: $ultra-light;
 }
-
-.wpgmza_map + div {
-	position: absolute !important;
-	top: 0;
-	left: 0;
-	height: 100% !important;
-	width:50% !important;
-}
-
-
 
 #events-map{
-	height: 400px;
-	width: 100%;
+	flex: 0 0 50%;
+	height: calc(100vh - #{$events-nav-height} - #{$nav-height});
 }
 
-#events-map .cluster img {
-    max-width: 100%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.lds-ring {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -40px;
+	margin-top: -40px;
+	z-index: 7;
+	display: none;
 }
+.lds-ring div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border: 8px solid $brand;
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: $brand transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+	animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+	animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+	animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+

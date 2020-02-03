@@ -2,24 +2,16 @@
 	<div class="row mb4">
 		<div class="col-lg-4 col-xl-4 supporters-stories-text mb3">
 			<?php if( get_field('supporters_stories_heading', 105 )): ?>
-				<h3 class="brand font-black">
+				<h3 class="brand font-black supporters-stories-heading">
 					<?php the_field('supporters_stories_heading', 105); ?>
 				</h3>
 			<?php endif; ?>
-			<?php if( is_front_page() && get_field('stories_link')): ?>
-			<?php $link = get_field('stories_link'); ?>
-			<div class="link-container mt3">
-				<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="button button-pink">
-					<?php echo $link['title']; ?>
-				</a>
-			</div>	
-		<?php endif; ?>
-	</div>
-	<div class="col-lg-8 col-xl-7 offset-xl-1 supporters-stories">
-		<div class="<?php if( is_front_page() === false ){ ?> slick-supporters slick <?php  } else{ ?> supporters-stories-home <?php } ?> ">
-			<?php $stories = get_field('supporters_stories', 105); ?>
-			<?php $count = 0; ?>
-			<?php if( is_front_page() ): $stories = array_slice($stories, 0, 1); endif; ?>
+		</div>
+		<div class="col-lg-8 col-xl-7 offset-xl-1 supporters-stories">
+			<div class="<?php if( is_front_page() === false ){ ?> slick-supporters slick <?php  } else{ ?> supporters-stories-home <?php } ?> ">
+				<?php $stories = get_field('supporters_stories', 105); ?>
+				<?php $count = 0; ?>
+				<?php if( is_front_page() ): $stories = array_slice($stories, 0, 1); endif; ?>
 				<?php foreach( $stories as $story): ?>
 					<?php 
 					$post = $story;	
@@ -43,7 +35,7 @@
 											<?php the_title(); ?>
 										</h3>
 										<div class="card-supporter-button">
-											<span class="button">
+											<span class="button button-small">
 												Read The Story
 											</span>
 										</div>
