@@ -32,48 +32,11 @@
 				<?php endif; ?>
 			</div>
 			<div class="col-lg-6">
-				<div class="map" id="alumni-map">
-					<?php
-					$count = 0;
-					$mapOptions = array( 'data' => array() );
-					?>
-					<?php if( have_rows('alumni_map') ){ ?>
-						<?php  while ( have_rows('alumni_map') ) : the_row(); ?>
-							<?php 
-							$location = get_sub_field('country');
-							$id = 'marker-' . $count;
-							$lat = $location['lat'];
-							$lng = $location['lng'];
-							if ( $location && ($location['lat'] && $location['lng']) ) {
-								$location = array(
-									'marker' => array(
-										'position' => array(
-											'lat' => $lat,
-											'lng' => $lng
-										),
-										'popup' => false
-									)
-								);
-								$mapOptions['data'][] = $location;
-							}
-							?>
-							<?php $count++; ?>
-						<?php endwhile; ?>
-					<?php } ?>
-					<script>
-						var mapOptions = <?php echo json_encode( $mapOptions, JSON_UNESCAPED_SLASHES ); ?>;
-				        // Okay, we got the data. Now we just need to build the html, and parse
-				        // the latitude and longitude as integers.
-				        mapOptions.data.forEach( function( location ) {
-				        	console.log(location.marker);
-				        	location.marker.position.lat = parseFloat(location.marker.position.lat);
-				        	location.marker.position.lng = parseFloat(location.marker.position.lng);
-				        });
-				        mapOptions.render = { zoom: 2 };
-				    </script>
-				    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCUZ88sqTgo2gkvg-5q6xxawt9wZkTRCv8" async defer></script>
-				    <div class="ws-map" data-options="mapOptions"></div>
-				</div>
+				<?php if(get_field('alumni_map_image')): ?>
+					<?php $image = get_field('alumni_map_image');
+					$image = $image['sizes']['lg']; ?>
+					<img src="<?php echo $image; ?>">
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>

@@ -136,16 +136,20 @@ $text-nav: (
 				}
 
 				@media screen and (max-width: $lg) {
-					margin-left: 15px;
+					margin-left: 12px;
 				}
 
 				&.nav-take-action-item{
 					a{
 						background: darken($brand,0%);
 						border-radius: 16px;
-						padding-left: 13px; 
-						padding-right: 13px;
+						//padding-left: 13px; 
+						//padding-right: 13px;
 						background: $brand;
+						padding: 6px 13px 4px 13px;
+
+						&.nav-current{
+													}
 						
 						//background-size: 200% auto;
 						// background-size: 300% 300%;
@@ -198,9 +202,18 @@ $text-nav: (
 				a{
 					//border: 1px solid black;
 					font-size: 18px;
-					padding: 7px 8px 7px 8px;
+					padding: 7px 8px 16px 8px;
 					color: white;
 					font-weight: 700;
+					border-bottom: 3px solid transparent;
+
+					&.nav-current{
+						border-color: white;
+					}
+
+					&:hover{
+						border-color: transparentize(white, .5);
+					}
 
 					@media screen and (max-width: $xl) {
 						font-size: 17px;
@@ -208,7 +221,7 @@ $text-nav: (
 
 					@media screen and (max-width: $lg) {
 						font-size: 16px;
-						padding: 7px 6px 7px 6px;
+						padding: 7px 5px 18px 5px;
 					}
 				}
 			}

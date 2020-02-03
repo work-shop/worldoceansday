@@ -1,0 +1,232 @@
+
+$search-height: 80px;
+
+#search-box {
+    position: fixed;
+    padding: 0px;
+    width: 100%;
+    height: $search-height;
+    z-index: 6;
+    transform: translateX(0);
+    transition: top .5s;
+    overflow-x: hidden;
+    top: -200px;
+
+    &.on {
+       transition: top .5s;
+       top: $nav-height;
+
+       @media screen and (max-width: $sm) {
+        top: $nav-height-mobile;
+
+
+        .col-xs-12{
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+}
+
+#overlay-search{
+    position: fixed;
+    width: 100%;
+    @extend .vhfull;
+    opacity: 1;
+    top: $nav-height;
+    left: 0;
+    z-index: -5;
+    opacity: 0;
+    background: transparentize($brand, .7);
+    transition: transform .5s;
+    transition: opacity .5s;
+
+    &.on{
+     transition: opacity .5s;
+     z-index: 5;
+     opacity: 1;
+ }
+
+ @media screen and (max-width: $sm) {
+    top: $nav-height-mobile;
+}
+
+}
+
+
+//input
+#ajaxsearchpro1_1, #ajaxsearchpro1_2, div.asp_m.asp_m_1{
+    //padding: 0 30px;
+    box-shadow: inset 0px 0px 7px transparentize($dark,.8) !important;
+
+    input{
+        text-indent: 15px;
+        font-size: 20px !important;
+        color: $dark !important;
+       // font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
+
+       &::placeholder{
+          font-size: 20px !important;
+          color: $medium !important;
+      }
+  }
+
+  @media screen and (max-width: $sm) {
+    padding: 0 5px;
+
+}
+
+div.asp_simple-circle{
+    width: 16px !important;
+    height: 16px !important;
+    padding-top: 22px !important;
+    padding-left: 22px !important;
+}
+
+}
+
+
+//results
+#ajaxsearchprores1_1{
+    margin-top: 0 !important;
+    top: $nav-height + $search-height !important;
+    padding-top: 20px !important;
+    border: none !important;
+    border-top: 1px solid #ccc !important;
+    border-bottom: 3px solid #555 !important;
+
+    .asp_nores_header{
+        font-size: 20px !important;
+        color: $brand !important;
+        margin-bottom: 10px !important;
+    }
+
+    @media screen and (max-width: $sm) {
+        top: $nav-height-mobile + $search-height !important;
+        padding-top: 10px !important;
+    }
+
+    .item{
+        padding: 20px 30px !important;
+
+        @media screen and (max-width: $sm) {
+            padding: 15px 10px !important;
+        }
+
+        .asp_content{
+            @media screen and (max-width: $sm) {
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+            }
+        }
+
+        .asp_res_image_url{
+            width: 100% !important;
+            display: block !important;
+
+        }
+
+        .asp_image{
+            margin-right: 30px !important;
+            display: block !important;
+
+            @media screen and (max-width: $sm) {
+                margin-right: 15px !important;
+                width: 50px !important;
+                height: 50px !important;
+                display: block !important;
+            }
+        }
+
+        .asp_res_url{
+            color: $dark !important;
+            font-size: 20px !important;
+            //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
+            line-height: 1.1 !important;
+
+            .highlighted{
+                //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
+                font-weight: normal !important;
+                font-weight: normal !important;
+                background: lighten(yellow, 30%) !important;
+                color: inherit !important;
+            }
+
+            @media screen and (max-width: $sm) {
+                font-size: 16px !important;
+            }
+
+        }
+
+        .asp_res_text{
+            font-size: 18px !important;
+            //font-family: "SimplonNormLight", Helvetica, arial, sans-serif !important;
+            line-height: 1.3 !important;
+            max-width: 1024px;
+            margin-top: 5px !important;
+
+            .highlighted{
+                //font-family: "SimplonNormLight", Helvetica, arial, sans-serif !important;
+                font-weight: normal !important;
+                background: lighten(yellow, 30%) !important;
+                color: inherit !important;
+            }
+
+            @media screen and (max-width: $sm) {
+                font-size: 14px !important;
+            }
+
+        }
+
+        .result-type{
+            text-transform: uppercase;
+            color: #555;
+            //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
+            font-size: 12px !important;
+            margin-right: 10px;
+            //padding: 4px 5px 2px 5px;
+            //display: inline-block;
+
+            @media screen and (max-width: $sm) {
+                font-size: 11px !important;
+            }
+        }
+
+        // .result-updates{
+        //     .result-type{
+        //         color: $updates-color;
+        //        // color: white;
+        //     }
+        // }
+
+        // .result-research{
+        //     .result-type{
+        //         color: $research-color;
+        //         //color: white;
+        //     }
+        // }
+
+        // .result-results{
+        //     .result-type{
+        //         color: $results-color;
+        //         //color: white;
+        //     }
+        // }
+
+        .asp_date{
+            font-size: 13px !important;
+            text-transform: uppercase;
+            color: #999 !important;
+            margin-left: 0 !important;
+            //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
+            line-height: 1.2;
+
+            @media screen and (max-width: $sm) {
+                font-size: 11px !important;
+            }
+        }
+
+    }
+
+}

@@ -15,7 +15,11 @@ function scrollSpy( config ){
 
 		scrollSpyProperties.targets = $(config.spyTargetSelector);
 		scrollSpyProperties.links = $(config.spyLinkSelector);
-		scrollSpyProperties.offset = config.spyOffset;
+		if($('body').hasClass('home')){
+			scrollSpyProperties.offset = 0;
+		} else{
+			scrollSpyProperties.offset = config.spyOffset;
+		}
 		scrollSpyProperties.spyActiveClass = config.spyActiveClass;
 
 		if( config.firstElementSelector ){

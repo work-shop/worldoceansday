@@ -7,6 +7,11 @@ function menuToggle( config ) {
 		$(config.menuToggleSelector).click(function(e) {
 			e.preventDefault();
 			menuToggle();
+		});		
+
+		$('.search-trigger').click(function(e) {
+			e.preventDefault();
+			searchToggle();
 		});				
 		
 	});
@@ -26,6 +31,20 @@ function menuToggle( config ) {
 			$('body').removeClass(config.bodyOnClass).addClass(config.bodyOffClass);
 			$('body').removeClass('dropdown-on').addClass('dropdown-off');
 			$('.has-sub-menu').removeClass('open').addClass('closed');
+		}
+
+	}	
+
+	function searchToggle(){
+
+		if($('#search-box').hasClass('off')){
+			$('input.orig').focus();
+			$('#search-box').removeClass('off').addClass('on');
+			$('#overlay-search').removeClass('off').addClass('on');						
+		}
+		else if($('#search-box').hasClass('on')){
+			$('#search-box').removeClass('on').addClass('off');
+			$('#overlay-search').removeClass('on').addClass('off');						
 		}
 
 	}	

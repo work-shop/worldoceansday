@@ -37,7 +37,7 @@
 						</a>
 					</li>
 					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/news" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(13) ): echo ' nav-current '; endif; ?>" id="nav-link-events" data-dropdown-target="blog">
+						<a href="<?php echo bloginfo('url'); ?>/news" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(69) || is_single('post') ): echo ' nav-current '; endif; ?>" id="nav-link-events" data-dropdown-target="blog">
 							Blog
 						</a>
 					</li>	
@@ -47,27 +47,27 @@
 						</a>
 					</li>
 					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/resources" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(161) ): echo ' nav-current '; endif; ?>" id="nav-link-resources" data-dropdown-target="resources">
+						<a href="<?php echo bloginfo('url'); ?>/resources" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(49) ): echo ' nav-current '; endif; ?>" id="nav-link-resources" data-dropdown-target="resources">
 							Resources
 						</a>
 					</li>
 					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/youth" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(161) ): echo ' nav-current '; endif; ?>" id="nav-link-youth" data-dropdown-target="youth">
+						<a href="<?php echo bloginfo('url'); ?>/youth" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(53) ): echo ' nav-current '; endif; ?>" id="nav-link-youth" data-dropdown-target="youth">
 							Youth
 						</a>
 					</li>
 					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/support" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(161) ): echo ' nav-current '; endif; ?>" id="nav-link-support" data-dropdown-target="support">
+						<a href="<?php echo bloginfo('url'); ?>/support" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(97) ): echo ' nav-current '; endif; ?>" id="nav-link-support" data-dropdown-target="support">
 							Support
 						</a>
 					</li>
 					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/about" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(161) ): echo ' nav-current '; endif; ?>" id="nav-link-about" data-dropdown-target="about">
+						<a href="<?php echo bloginfo('url'); ?>/about" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(73) ): echo ' nav-current '; endif; ?>" id="nav-link-about" data-dropdown-target="about">
 							About
 						</a>
 					</li>
 					<li class="nav-menu-primary-item nav-menu-search-item">
-						<a href="#search" class="search-toggle" id="nav-link-search">
+						<a href="#search" class="search-toggle search-button search-trigger" id="search-trigger-button">
 							<span class="icon search-icon" data-icon="s"></span>
 						</a>
 					</li>

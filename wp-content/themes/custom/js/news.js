@@ -7,16 +7,17 @@ var updating = false;
 var full = false;
 
 function news() {
-	//console.log('filter-blog.js loaded');
+	console.log('filter-blog.js loaded');
 
 	var categoryFiltered = false;
 	var categoryFilteredCurrent = 'all';
 
 	$(document).ready( function() {
 
-		if( $('body').hasClass('blog') ){
+		if( $('body').hasClass('page-id-69') ){
 
 			//initialization
+			console.log('on news ');
 
 			var categoryStart;
 			var urlVars = getUrlVars();
@@ -64,7 +65,7 @@ function news() {
 
 			window.addEventListener('popstate', function(e) {
 	  			// e.state is equal to the data-attribute of the last image we clicked
-	  			console.log(e.state);
+	  			//console.log(e.state);
 
 	  			if( e.state == null ){
 
@@ -92,7 +93,7 @@ function news() {
 
 
 	function filterCategories( category ) {
-		console.log('filterCategories: ' + category);
+		//console.log('filterCategories: ' + category);
 		currentCategory = category;
 		pagination = 1;
 		
@@ -210,6 +211,8 @@ function news() {
 
 	function renderPost( post ){
 
+		//console.log(post);
+
 		var root = $('<article>')
 		.addClass('news-post');
 
@@ -218,8 +221,6 @@ function news() {
 
 		var imageContainer = $('<div>')
 		.addClass('card-image');
-
-		console.log(post);
 
 		var imageSrc;
 		if( typeof post._embedded['wp:featuredmedia'][0].media_details.sizes.md.source_url === 'undefined' ){

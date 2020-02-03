@@ -55,7 +55,7 @@ dropdowns(config.dropdowns);
 menuToggle(config.menuToggle);
 
 $(document).ready( function() {
-	if( $('body').hasClass('blog')){
+	if( $('body').hasClass('page-id-69')){
 		news();
 	}
 });

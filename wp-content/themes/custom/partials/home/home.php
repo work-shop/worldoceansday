@@ -153,7 +153,7 @@
 		</div>
 	</section>
 
-	<section class="block pt3 pb7" id="home-supporters">
+	<section class="block pt3 pb7 home-supporters-section" id="home-supporters">
 		<div class="container-fluid container-fluid-home">
 			<div class="row section-content-row partners-list mb3">
 				<div class="col">
