@@ -13,19 +13,19 @@ $search-height: 80px;
     top: -200px;
 
     &.on {
-       transition: top .5s;
-       top: $nav-height;
+        transition: top .5s;
+        top: $nav-height;
 
-       @media screen and (max-width: $sm) {
-        top: $nav-height-mobile;
+        @media screen and (max-width: $md) {
+            top: $nav-height-mobile;
 
 
-        .col-xs-12{
-            padding-top: 0;
-            padding-bottom: 0;
+            .col-xs-12{
+                padding-top: 0;
+                padding-bottom: 0;
+            }
         }
     }
-}
 
 }
 
@@ -43,95 +43,101 @@ $search-height: 80px;
     transition: opacity .5s;
 
     &.on{
-     transition: opacity .5s;
-     z-index: 5;
-     opacity: 1;
- }
+        transition: opacity .5s;
+        z-index: 5;
+        opacity: 1;
+    }
 
- @media screen and (max-width: $sm) {
-    top: $nav-height-mobile;
+    @media screen and (max-width: $md) {
+        top: $nav-height-mobile;
+    }
+
 }
 
+#ajaxsearchprores1_1.vertical{
+    padding: 0 !important;
 }
 
 
-//input
+
 #ajaxsearchpro1_1, #ajaxsearchpro1_2, div.asp_m.asp_m_1{
-    //padding: 0 30px;
-    box-shadow: inset 0px 0px 7px transparentize($dark,.8) !important;
+    box-shadow: inset 1px 1px 9px transparentize($dark,.8) !important;
+    background: $ultra-light;
 
     input{
         text-indent: 15px;
         font-size: 20px !important;
         color: $dark !important;
-       // font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
+        font-weight: 500 !important;
 
-       &::placeholder{
-          font-size: 20px !important;
-          color: $medium !important;
-      }
-  }
+        &::placeholder{
+            font-size: 20px !important;
+            color: $medium !important;
+        }
+    }
 
-  @media screen and (max-width: $sm) {
-    padding: 0 5px;
+    @media screen and (max-width: $md) {
+        padding: 0 5px;
+    }
+
+    div.asp_simple-circle{
+        width: 16px !important;
+        height: 16px !important;
+        padding-top: 22px !important;
+        padding-left: 22px !important;
+    }
 
 }
 
-div.asp_simple-circle{
-    width: 16px !important;
-    height: 16px !important;
-    padding-top: 22px !important;
-    padding-left: 22px !important;
-}
+.asp_results_top{
+    padding: 13px 12px 10px 12px !important;
+    border-bottom: 1px solid $light !important;
+    font-family: $font-main !important;
+    font-weight: 500 !important;
 
+    strong{
+        font-weight: 800 !important;
+    }
 }
-
 
 //results
 #ajaxsearchprores1_1{
     margin-top: 0 !important;
     top: $nav-height + $search-height !important;
-    padding-top: 20px !important;
+    //padding-top: 15px !important;
     border: none !important;
-    border-top: 1px solid #ccc !important;
-    border-bottom: 3px solid #555 !important;
+    border-radius: 0 !important;
+
 
     .asp_nores_header{
-        font-size: 20px !important;
+        font-size: 19px !important;
         color: $brand !important;
-        margin-bottom: 10px !important;
     }
 
-    @media screen and (max-width: $sm) {
+    @media screen and (max-width: $md) {
         top: $nav-height-mobile + $search-height !important;
         padding-top: 10px !important;
     }
 
     .item{
-        padding: 20px 30px !important;
+        padding: 23px 15px 15px 15px;
+        border-bottom: 1px solid $light;
 
-        @media screen and (max-width: $sm) {
-            padding: 15px 10px !important;
+        @media screen and (max-width: $md) {
+
         }
 
         .asp_content{
-            @media screen and (max-width: $sm) {
-                padding-left: 5px !important;
-                padding-right: 5px !important;
+            @media screen and (max-width: $md) {
+
             }
-        }
-
-        .asp_res_image_url{
-            width: 100% !important;
-            display: block !important;
-
         }
 
         .asp_image{
             margin-right: 30px !important;
             display: block !important;
 
-            @media screen and (max-width: $sm) {
+            @media screen and (max-width: $md) {
                 margin-right: 15px !important;
                 width: 50px !important;
                 height: 50px !important;
@@ -140,93 +146,58 @@ div.asp_simple-circle{
         }
 
         .asp_res_url{
-            color: $dark !important;
-            font-size: 20px !important;
-            //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
+            color: $brand !important;
+            font-size: 19px !important;
             line-height: 1.1 !important;
+            font-weight: 800 !important;
+            margin-bottom: 0 !important;
 
             .highlighted{
-                //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
-                font-weight: normal !important;
-                font-weight: normal !important;
-                background: lighten(yellow, 30%) !important;
-                color: inherit !important;
-            }
+              font-weight: 800 !important;
+              background: lighten(yellow, 35%) !important;
+              padding-left: 3px;
+              padding-right: 3px;
+              color: inherit !important;
+          }
 
-            @media screen and (max-width: $sm) {
-                font-size: 16px !important;
-            }
-
-        }
-
-        .asp_res_text{
-            font-size: 18px !important;
-            //font-family: "SimplonNormLight", Helvetica, arial, sans-serif !important;
-            line-height: 1.3 !important;
-            max-width: 1024px;
-            margin-top: 5px !important;
-
-            .highlighted{
-                //font-family: "SimplonNormLight", Helvetica, arial, sans-serif !important;
-                font-weight: normal !important;
-                background: lighten(yellow, 30%) !important;
-                color: inherit !important;
-            }
-
-            @media screen and (max-width: $sm) {
-                font-size: 14px !important;
-            }
-
-        }
-
-        .result-type{
-            text-transform: uppercase;
-            color: #555;
-            //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
-            font-size: 12px !important;
-            margin-right: 10px;
-            //padding: 4px 5px 2px 5px;
-            //display: inline-block;
-
-            @media screen and (max-width: $sm) {
-                font-size: 11px !important;
-            }
-        }
-
-        // .result-updates{
-        //     .result-type{
-        //         color: $updates-color;
-        //        // color: white;
-        //     }
-        // }
-
-        // .result-research{
-        //     .result-type{
-        //         color: $research-color;
-        //         //color: white;
-        //     }
-        // }
-
-        // .result-results{
-        //     .result-type{
-        //         color: $results-color;
-        //         //color: white;
-        //     }
-        // }
-
-        .asp_date{
-            font-size: 13px !important;
-            text-transform: uppercase;
-            color: #999 !important;
-            margin-left: 0 !important;
-            //font-family: "SimplonNormMedium", Helvetica, arial, sans-serif !important;
-            line-height: 1.2;
-
-            @media screen and (max-width: $sm) {
-                font-size: 11px !important;
-            }
+          @media screen and (max-width: $md) {
+            font-size: 15px !important;
         }
 
     }
+
+    .etc{
+        margin-bottom: 0 !important;
+    }
+
+    .asp_res_text{
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+        max-width: 1024px;
+        margin-top: 5px !important;
+
+        .highlighted{
+            font-weight: 800 !important;
+            background: lighten(yellow, 30%) !important;
+            color: inherit !important;
+        }
+
+        @media screen and (max-width: $md) {
+            font-size: 14px !important;
+        }
+
+    }
+
+    &.asp_r_page{
+        .asp_image{
+            display: none !important;
+        }
+        //border: 10px solid yellow !important;
+    }
+
+
+
+
+}
 
 }

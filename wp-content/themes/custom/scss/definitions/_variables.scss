@@ -4,6 +4,7 @@
 //brand colors
 $brand: #164579; //dark blue
 $brand-tint: #364f6a; //dark blue
+$brand-tint: lighten($brand-tint,7%);
 $brand-secondary: #19bae3; //light blue
 $interactive: $brand-secondary;
 $light-blue: #9FDBED;

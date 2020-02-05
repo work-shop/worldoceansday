@@ -4,7 +4,7 @@
 @for $i from 1 through 20 {
 	.vh#{$i*5}{ 
 		height: 5vh * $i;
-		height: calc(var(--vh, (5vh * #{$i})) * 100);
+		//height: calc(var(--vh, (5vh * #{$i})) * 100);
 	}
 }
 
@@ -17,14 +17,14 @@
 @for $i from 1 through 20 {
 	.vhmin#{$i*5}{ 
 		min-height: 5vh * $i;
-		min-height: calc(var(--vh, (5vh * #{$i})) * 100);
+		//min-height: calc(var(--vh, (5vh * #{$i})) * 100);
 	}
 }
 
 @for $i from 1 through 20 {
 	.vhmax#{$i*5}{ 
 		max-height: 5vh * $i;
-		max-height: calc(var(--vh, (5vh * #{$i})) * 100);
+		//max-height: calc(var(--vh, (5vh * #{$i})) * 100);
 	}
 }
 

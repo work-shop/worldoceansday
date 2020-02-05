@@ -26,6 +26,13 @@ function modals( config ) {
 		$( '.' + modalProperties.modalToggleClass ).click(function(e){
 			e.preventDefault();
 			var target = $(this).data('modal-target');
+
+			if($(this).hasClass('resource-preview')){
+				var url = $(this).data('file-url');
+				var iframe = '<iframe id="resource-iframe" class="resource-iframe" frameborder="0" vspace="0" hspace="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allowtransparency="true" src="' + url + '" scrolling="auto"></iframe>';
+				$('#resource-modal-inner').html(iframe);
+			}
+
 			modalToggle(target, false);	
 		});
 
@@ -51,7 +58,7 @@ function modals( config ) {
 			}
 		});
 
-			});
+	});
 
 }
 

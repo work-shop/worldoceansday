@@ -368,8 +368,9 @@ $text-button-small: (
 
 	.card-title{
 		//@extend .bold;
+		@extend .h3;
 		@extend .font-black;
-		@extend .brand;
+		@extend .brand-tint;
 		padding: 30px 30px 0px 30px;
 
 		@media screen and (max-width: $xl) {
@@ -382,7 +383,8 @@ $text-button-small: (
 	}
 
 	.card-description{
-		@extend .dark;
+		@extend .brand-tint;
+		@extend .font-medium;
 		@extend .small;
 		width: 100%;
 		margin-bottom: 0;

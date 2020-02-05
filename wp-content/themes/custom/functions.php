@@ -11,6 +11,7 @@ require_once( __ROOT__ . '/functions/library/class-ws-flexible-content.php' );
 require_once( __ROOT__ . '/functions/library/class-helpers.php' );
 
 require_once( __ROOT__ . '/functions/library/map_functions.php' );
+require_once( __ROOT__ . '/functions/library/resources_functions.php' );
 
 new WS_Site();
 new WS_Site_Admin();

@@ -20,14 +20,16 @@ import { vh } from './vh.js';
 import { livereload } from './livereload-client.js';
 import { nav } from './nav.js';
 import { news } from './news.js';
-//import { makeMap } from './map.js';
 import { scrollSpy } from './scroll-spy.js';
 import { events } from './events.js';
+import { resources } from './resources.js';
 
 //optional
 import { stickyNav } from './sticky-nav.js';
 import { dropdowns } from './dropdowns.js';
 import { menuToggle } from './menu-toggle.js';
+//import { makeMap } from './map.js';
+
 
 
 //must use 
@@ -45,9 +47,7 @@ slickSlideshows(config.slickSlideshows);
 sitewideAlert();
 progressiveImages();
 vh();
-//makeMap();
 stickyNav(config.stickyNav);
-events(config.stickyNav);
 
 
 //optional
@@ -57,5 +57,11 @@ menuToggle(config.menuToggle);
 $(document).ready( function() {
 	if( $('body').hasClass('page-id-69')){
 		news();
+	}
+	if( $('body').hasClass('post-type-archive-resources')){
+		resources(modals);
+	}
+	if( $('body').hasClass('page-id-13')){
+		events(config.stickyNav);
 	}
 });

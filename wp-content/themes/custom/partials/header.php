@@ -8,13 +8,11 @@
 		<?php 
 		if( is_front_page() ){
 			bloginfo( 'name' ); echo ' - ';  bloginfo( 'description' );
-		} elseif ( is_home() ){
-			echo 'News - ';  bloginfo( 'name' );
 		} elseif( is_404() ){
 			bloginfo( 'name' );
 		} 
 		else{
-			wp_title( false ); 
+			wp_title(false); echo ' - '; bloginfo( 'name' );
 		}
 		?>
 	</title>

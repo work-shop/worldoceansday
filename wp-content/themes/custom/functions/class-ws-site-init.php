@@ -23,43 +23,72 @@ class WS_Site {
         // WS_Custom_Category::register();
         // WS_Custom_Post::register();
 
-        // register_post_type( 'event-test',
-        //     array(
-        //         'labels' => array(
-        //             'name' => 'Event Test',
-        //             'singular_name' =>'Event Test',
-        //             'add_new' => 'Add New',
-        //             'add_new_item' => 'Add New Event Test',
-        //             'edit_item' => 'Edit Event Test',
-        //             'new_item' => 'New Event Test',
-        //             'all_items' => 'All Event Tests',
-        //             'view_item' => 'View Event Test',
-        //             'search_items' => 'Search Event Tests',
-        //             'not_found' =>  'No Event Tests found',
-        //             'not_found_in_trash' => 'No Event Tests found in Trash',
-        //         ),
-        //         'public' => true,
-        //         'has_archive' => true,
-        //         'rewrite' => array('slug' => 'event-test'),
-        //         'show_in_rest'       => true,
-        //         'rest_base'          => 'event-test',
-        //         'rest_controller_class' => 'WP_REST_Posts_Controller',
-        //         'supports' => array( 'title', 'thumbnail')
-        //     ));
+        register_post_type( 'resources',
+            array(
+                'labels' => array(
+                    'name' => 'Resources',
+                    'singular_name' =>'Resource',
+                    'add_new' => 'Add New',
+                    'add_new_item' => 'Add Resource',
+                    'edit_item' => 'Edit Resource',
+                    'new_item' => 'New Resource',
+                    'all_items' => 'All Resource',
+                    'view_item' => 'View Resources',
+                    'search_items' => 'Search Resources',
+                    'not_found' =>  'No Resources found',
+                    'not_found_in_trash' => 'No Resources found in Trash',
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'resources'),
+                'show_in_rest'       => true,
+                'rest_base'          => 'resources',
+                'rest_controller_class' => 'WP_REST_Posts_Controller',
+                'supports' => array( 'title', 'thumbnail'),
+                'menu_icon'   => 'dashicons-media-document'
+            ));
 
-        // register_taxonomy(
-        //     'event-test-categories',
-        //     'event-test',
-        //     array(
-        //         'hierarchical' => true,
-        //         'label' => 'Event Test Categories',
-        //         'query_var' => true,
-        //         'show_admin_column' => true,
-        //         'rewrite' => array('slug' => 'event-test-categories'),
-        //         'rest_base'          => 'event-test-categories',
-        //         'rest_controller_class' => 'WP_REST_Terms_Controller',
-        //     )
-        // );
+        register_taxonomy(
+            'resources-topics',
+            'resources',
+            array(
+                'hierarchical' => true,
+                'label' => 'Resource Topics',
+                'query_var' => true,
+                'show_admin_column' => true,
+                'rewrite' => array('slug' => 'resource-topics'),
+                'rest_base'          => 'resource-topics',
+                'rest_controller_class' => 'WP_REST_Terms_Controller',
+            )
+        );
+
+        register_taxonomy(
+            'resources-type',
+            'resources',
+            array(
+                'hierarchical' => true,
+                'label' => 'Resource Type',
+                'query_var' => true,
+                'show_admin_column' => true,
+                'rewrite' => array('slug' => 'resource-type'),
+                'rest_base'          => 'resource-type',
+                'rest_controller_class' => 'WP_REST_Terms_Controller',
+            )
+        );
+
+        register_taxonomy(
+            'resources-language',
+            'resources',
+            array(
+                'hierarchical' => true,
+                'label' => 'Resource Language',
+                'query_var' => true,
+                'show_admin_column' => true,
+                'rewrite' => array('slug' => 'resource-language'),
+                'rest_base'          => 'resource-language',
+                'rest_controller_class' => 'WP_REST_Terms_Controller',
+            )
+        );
 
         
 
@@ -100,6 +129,8 @@ class WS_Site {
             add_theme_support('post-thumbnails');
             add_theme_support( 'menus' );
         }
+        
+        add_post_type_support( 'page', 'excerpt' );
     }
 
 
