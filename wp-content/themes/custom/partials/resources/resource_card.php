@@ -13,7 +13,7 @@
 				<?php if( !is_singular() ): ?>
 				</a>
 			<?php endif; ?>
-			<h4 class="resource-description text-fade">
+			<h4 class="resource-description">
 				<?php the_field('resource_description'); ?>
 			</h4>
 			<div class="card-links">

@@ -46,7 +46,7 @@ var config = {
         preventUrlChange: false
     },
     loading: {
-        loadDelay: 1500,
+        loadDelay: 200,
         loadingClass: 'loading',
         loadedClass: 'loaded',
     },

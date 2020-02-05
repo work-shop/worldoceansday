@@ -51,7 +51,6 @@ function get_resources_list( $request ){
 		}
 	}
 
-	$count = 0;
 	$resources = array( 'data' => array() );
 	$my_query = new WP_Query( array(
 		'post_type' => 'resources',
@@ -85,9 +84,7 @@ function get_resources_list( $request ){
 			ob_start();
 			get_template_part('partials/resources/resource_card');
 			$resource_html = ob_get_clean();
-			//array_push( $resources['data'], $resource_html );
 			$html .= $resource_html;
-			$count++;
 		}
 		$results['html'] = $html;
 		return $results;

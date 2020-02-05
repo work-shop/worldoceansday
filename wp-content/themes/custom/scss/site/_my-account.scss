@@ -1,6 +1,129 @@
 
+#content #my-account-content .ur-frontend-form{
+	border-radius: 8px;
+	padding: 30px 15px 20px 15px;
+	background: white;
+	border: 1px solid $light !important;
 
-.page-id-554{
+	@media screen and (max-width: $sm) {
+		padding: 20px 7px 10px 7px;
+		margin: 0 10px;
+	}
+
+
+	label{
+		margin-top: 0;
+		margin-bottom: 5px;
+		color: $brand-tint;
+		font-weight: 700;
+
+		@media screen and (max-width: $sm) {
+			font-size: 12px;
+		}
+	}
+
+	input{
+		background: white;
+		border-radius: 8px !important;
+		padding: 10px;
+		margin-bottom: 20px;
+		border-color: $brand;
+
+		&:focus{
+			@extend .shadowed;
+		}
+
+		@media screen and (max-width: $sm) {
+			padding: 4px 10px;
+			font-size: 14px;
+			margin-bottom: 15px;
+		}
+	}
+
+	[type="submit"]{
+		display: block;
+		@extend .button;
+		max-width: none;
+		float: none;
+		margin-bottom: 30px;
+		padding-top: 18px;
+		padding-bottom: 16px;
+
+		@media screen and (max-width: $sm) {
+			padding-top: 10px;
+			padding-bottom: 8px;
+		}
+	}
+}
+
+.my-account-heading{
+	flex: 0 0 100%;
+	width: 100%;
+}
+
+.user-registration-message{
+	font-weight: 700;
+	padding: 15px;
+	*{
+		font-weight: 700;
+	}
+
+	@media screen and (max-width: $sm) {
+		font-size: 11px !important;
+	}
+}
+
+.user-registration-error{
+	border-top: none;
+	border-radius: 8px;
+	padding: 15px;
+	color: $error !important;
+	font-weight: 700;
+
+	@media screen and (max-width: $sm) {
+		font-size: 13px !important;
+		padding: 10px;
+	}
+}
+
+.user-registration-password-strength{
+	margin-bottom: 20px;
+	border-radius: 8px;
+	max-width: 150px;
+	
+}
+
+.user-registration-password-hint{
+	font-size: 12px;
+	line-height: 1.2;
+	margin-top: -10px;
+	margin-bottom: 20px;
+
+	@media screen and (max-width: $sm) {
+		font-size: 10px;
+	}
+}
+
+.user-registration-MyAccount-navigation-link{
+
+	&.is-active{
+		a{
+			color: $brand;
+			border-color: $brand-secondary;
+		}
+	}
+}
+
+.page-id-554,.page-id-22{
+
+	.wpem-responsive-table-wrapper{
+		width: 100%
+	}
+
+	#user-registration{
+		background: none;
+		display: block;
+	}
 
 	#user-registration .user-registration-MyAccount-content{
 		text-align: left;
@@ -9,36 +132,30 @@
 	}
 
 	#my-account-content{
-
-		input{
-			background: white;
-			border-radius: 8px;
-			padding: 10px;
-			margin-bottom: 20px;
-			border-color: $brand;
-
-			&[type="submit"]{
-				margin-bottom: 20px;
-				display: block;
-				@extend .button;
-				max-width: none;
-			}
-		}
+		background: $ultra-light;
 	}
 
 	&.user_logged_out{
+		
 		#my-account-content{
-			@extend .vhfull;
 			display: flex;
 			@extend .flex-center;
+			@extend .padded;
 
 			//login form
 			.ur-frontend-form.login{
 				width: 360px;
-				border-radius: 8px;
-				padding-top: 30px;
-				padding-bottom: 30px;
-				background: $ultra-light;
+
+				*{
+					font-weight: 500;
+				}
+
+
+				.button{
+					font-weight: 800;
+					@extend .button-brand;
+					max-width: 200px;
+				}
 
 				@media screen and (max-width: $sm) {
 					width: 300px;
@@ -50,9 +167,11 @@
 
 				.user-registration-form__label-for-checkbox.inline{
 					text-align: center;
-					margin-top: 30px;
+					margin-top: 20px;
+					color: $brand-tint;
 
 					input{
+						width: 25px;
 						position: relative;
 						top: 8px;
 						padding: 0;
@@ -62,7 +181,12 @@
 
 				.lost_password{
 					text-align: center;
-					margin-top: -10px;
+					margin-top: -12px;
+					margin-bottom: 0;
+
+					a{
+						color: $brand-tint;
+					}
 				}
 			}
 
@@ -74,12 +198,74 @@
 		}
 	}
 
+	.registration-button,.login-button{
+		margin-top: 40px;
+		@extend .centered;
+	}
+
+	#user-registration-form-20{
+		max-width: 480px;
+		border-radius: 8px;
+		padding: 30px 15px 20px 15px;
+		background: white;
+		@extend .shadowed;
+
+		@media screen and (max-width: $sm) {
+			margin: 0 !important;
+		}
+
+		*{
+			font-weight: 500;
+		}
+
+		label{
+			margin-bottom: 5px;
+			color: $brand-tint;
+			font-weight: 700;
+		}
+
+		[type="submit"]{
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 0;
+			width: 200px;
+			@extend .button-brand;
+			background: $brand !important;
+		}
+	}
+
+	&.user-registration-ur-lost-password{
+		#user-registration{
+			width: 100%;
+			max-width: 360px;
+		}
+
+		.user-registration-message{
+			border-top: none;
+			border-radius: 8px;
+			margin-bottom: 30px;
+		}
+
+		[type="submit"]{
+			max-width: none !important;
+		}
+	}
 
 	&.user-registration-edit-password{
+
+		#my-account-content fieldset legend{
+			@extend .h3;
+			color: $brand-tint;
+			font-weight: 800 !important;
+			margin-bottom: 30px;
+		}
+
 		.user-registration-MyAccount-content{
-			@extend .vhfull;
+			//@extend .vhfull;
 			display: flex;
 			@extend .flex-center;
+			padding-top: 60px !important;
+			padding-bottom: 60px !important;
 		}
 
 		.ur-frontend-form.login{
@@ -88,6 +274,23 @@
 			[type="submit"]{
 				margin-top: 20px;
 			}
+		}
+	}
+
+	&.user-registration-edit-profile{
+
+		.user-registration-MyAccount-content{
+			//@extend .vhfull;
+			display: flex;
+			@extend .flex-center;
+		}
+
+		.edit-profile-heading{
+			margin-bottom: 30px;
+		}
+
+		.ur-frontend-form{
+			max-width: 480px;
 		}
 	}
 

@@ -62,6 +62,6 @@ $(document).ready( function() {
 		resources(modals);
 	}
 	if( $('body').hasClass('page-id-13')){
-		events(config.stickyNav);
+		events();
 	}
 });

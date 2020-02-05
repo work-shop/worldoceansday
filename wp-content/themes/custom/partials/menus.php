@@ -1,4 +1,11 @@
 <div id="menus">
+	<ul class="mobile-menu-secondary">
+		<li class="mobile-menu-secondary-link">
+			<a href="<?php echo bloginfo('url'); ?>/my-account" class="menu-link account-link">
+				<?php if( is_user_logged_in() ): ?>My Account<?php else: ?>Login<?php endif; ?>
+			</a>
+		</li>
+	</ul>
 	<?php if( have_rows('menus','option') ): ?>
 		<?php  while ( have_rows('menus','option') ) : the_row(); ?>
 			<?php if(get_sub_field('active')) : ?>
@@ -97,22 +104,22 @@
 				</menu>	
 			<?php endif; ?>			
 		<?php endwhile; ?>
-		<?php if( have_rows('secondary_navigation_buttons','option') ): ?>
-			<div class="mobile-menu-secondary">
-				<ul class="mobile-menu-secondary-links">
-					<?php  while ( have_rows('secondary_navigation_buttons','option') ) : the_row(); ?>
-						<li class="mobile-menu-secondary-link">
-							<?php $link = get_sub_field('link'); ?>
-							<?php if( $link ): ?>
-								<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-link">
-									<?php echo $link['title']; ?>
-								</a>
-							<?php endif; ?>
-						</li>
-					<?php endwhile; ?>
-				</ul>
-			</div>
-		<?php endif; ?>
+	<?php endif; ?>
+	<?php if( have_rows('secondary_navigation_buttons','option') ): ?>
+		<div class="mobile-menu-secondary">
+			<ul class="mobile-menu-secondary-links">
+				<?php  while ( have_rows('secondary_navigation_buttons','option') ) : the_row(); ?>
+					<li class="mobile-menu-secondary-link">
+						<?php $link = get_sub_field('link'); ?>
+						<?php if( $link ): ?>
+							<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="menu-link">
+								<?php echo $link['title']; ?>
+							</a>
+						<?php endif; ?>
+					</li>
+				<?php endwhile; ?>
+			</ul>
+		</div>
 	<?php endif; ?>
 	<div id="blanket-dropdown" class="dropdown-close"></div>
 </div>

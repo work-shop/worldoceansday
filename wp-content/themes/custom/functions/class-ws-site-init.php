@@ -90,6 +90,19 @@ class WS_Site {
             )
         );
 
+        register_taxonomy(
+            'event_listing_country',
+            'event_listing',
+            array(
+                'hierarchical' => true,
+                'label' => 'Event Country',
+                'query_var' => true,
+                'rewrite' => array('slug' => 'event_listing_country'),
+                'rest_base'          => 'event_listing_country',
+                'rest_controller_class' => 'WP_REST_Terms_Controller',
+            )
+        );
+
         
 
     }

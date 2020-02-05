@@ -19,7 +19,7 @@ $interactivea: transparentize($interactive, .25);
 //grays
 $dark: #1B334D;
 $ultra-light: #FAFBFC;
-$light: #E7E8EA;
+$light: darken(#E7E8EA,2%);
 $medium-light: #697B90;
 $medium: #364F6A;
 $medium-dark: #364F6A;

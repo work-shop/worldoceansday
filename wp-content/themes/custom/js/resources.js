@@ -13,7 +13,7 @@ if(  ( window.location.href.indexOf('localhost') !== -1 ) ){
 	local = false;
 }
 var baseUrl = siteUrl + '/wp-json/wod-resources/v1/resources';
-var perPage = 3;
+var perPage = 10;
 var page = 1;
 var totalItems = 0;
 var currentItems = 0;
@@ -33,20 +33,14 @@ var errorMessage = '<div class="col"><div class="error"><h3>Oops, something went
 function resources() {
 	//console.log('resources.js loaded');
 
-	var categoryFiltered = false;
-	var categoryFilteredCurrent = 'all';
-
 	$(document).ready( function() {
 
 		if( $('body').hasClass('post-type-archive-resources') ){
 
-			console.log('----- Initializing resources page -----');
+			//console.clear();
+			//console.log('----- Initializing resources -----');
 
 			initialRequest();
-
-			setTimeout(function() {
-				//getResources('wildlife','all','all')
-			}, 7000);
 
 			$('.filter-menu-button').click(function() {
 				toggleFilterMenu($(this));
@@ -72,17 +66,9 @@ function resources() {
 				e.preventDefault();
 
 				if( !full ){
-
 					page++;
 					adding = true;
 					getResources(currentTopic, currentType, currentLanguage);
-
-					// if(page === totalPages){
-					// 	console.log('full');
-					// 	full = true;
-					// 	$('.load-more-button').removeClass('active');
-					// }
-
 				}
 
 			});
@@ -115,17 +101,23 @@ function resources() {
 		var type = initialUrlVars.type;
 		var language = initialUrlVars.language;
 
-		if( topic !== 'all' ){
-			filtered = true;
-			updateButtons( $('.filter-button-topic[data-slug="' + topic + '"]' ) , true );
+		if( !isEmpty(topic) ){
+			if( topic !== 'all' ){
+				filtered = true;
+				updateButtons( $('.filter-button-topic[data-slug="' + topic + '"]' ) , true );
+			}
 		}
-		if( type !== 'all' ){
-			filtered = true;
-			updateButtons( $('.filter-button-type[data-slug="' + type + '"]' ) , true );
+		if( !isEmpty(type) ){
+			if( type !== 'all' ){
+				filtered = true;
+				updateButtons( $('.filter-button-type[data-slug="' + type + '"]' ) , true );
+			}
 		}
-		if( language !== 'all' ){
-			filtered = true;
-			updateButtons( $('.filter-button-language[data-slug="' + language + '"]' ) , true );
+		if( !isEmpty(language) ){
+			if( language !== 'all' ){
+				filtered = true;
+				updateButtons( $('.filter-button-language[data-slug="' + language + '"]' ) , true );
+			}
 		}
 
 		getResources(topic, type, language);
@@ -141,9 +133,9 @@ function resources() {
 		updateUrl();
 
 		var parameters = '?topic=' + topic + '&type=' + type + '&language=' + language;
-		var additionalParameters = '&_embed&per_page=' + perPage + '&page=' + page;
+		var additionalParameters = '&per_page=' + perPage + '&page=' + page;
 		var endpoint = baseUrl + parameters + additionalParameters;
-		console.log(endpoint);
+		//console.log(endpoint);
 
 		$.ajax({
 			url: endpoint,
@@ -167,15 +159,15 @@ function resources() {
 					$('#resources-container').html(html);
 				}
 
-				console.log('page: ' + page);
-				console.log('totalPages: ' + totalPages);
+				//console.log('page: ' + page);
+				//console.log('totalPages: ' + totalPages);
 
 				if(page === totalPages){
-					console.log('full');
+					//console.log('full');
 					full = true;
 					$('.load-more-button').removeClass('active');
 				} else{
-					console.log('not full');
+					//console.log('not full');
 					full = false;
 					$('.load-more-button').addClass('active');
 				}
@@ -300,32 +292,6 @@ function resources() {
 			$('#filter-menu-button-label-' + filterType).html('');
 		}
 
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	function filterButtonActivate(button){
-		$('.filters .filter-active').removeClass('filter-active');
-		button.addClass('filter-active');		
-	}
-
-
-	function scrollToFilter(){
-		var offset = 150;
-		$('html,body').animate({
-			scrollTop: $('.filters').offset().top - offset
-		}, 100);
 	}
 
 

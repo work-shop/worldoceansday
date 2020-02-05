@@ -28,70 +28,122 @@
 	@extend .align-items-center;
 }
 
-$events-nav-height: 60px;
 
-#events-nav{
-	border-top: 1px solid $light;
-	border-bottom: 1px solid $light;
-	height: $events-nav-height;
-}
 
-#events{
-	//height: calc(100vh - #{$events-nav-height} - #{$nav-height});
-	
-	// .events-container{
-	// 	display: flex;
-	// 	height: inherit;
-	// }
-
-	// .events-list{
-	// 	flex: 0 0 50%;
-	// 	height: inherit;
-	// }
-
-	// .events-map{
-	// 	height: inherit;
-	// 	flex: 0 0 50%;
-	// }
-
-}
-
-#events-container{
+#events-wrapper{
 	display: flex;
 	position: relative;
 
-	&.loading{
+	.events-main{
+		opacity: 1;
+		transition: opacity .2s 1.5s;
+	}
+
+	&.filter-loading{
 		.events-main{
+			transition: opacity .2s 1.5s;
 			opacity: .5;
 		}
 
 		.lds-ring{
-			display: inline-block;
+			//display: inline-block;
 		}
 	}
 }
 
 #events-list{
-	height: calc(100vh - #{$events-nav-height} - #{$nav-height});
+	height: calc(100vh - #{$filter-nav-height} - #{$nav-height});
 	flex: 0 0 50%;
 	background: $ultra-light;
+	//padding: 30px 25px;
+	border-right: 1px solid $light;
+
+	.filter-summary{
+		//padding: 50px 50px 13px 50px;
+		//border-bottom: 1px solid $light;
+		//box-shadow: 0px 3px 3px transparentize($dark, .9);
+		//background: white;
+		margin-bottom: 30px;
+	}
+
+	#events-scroll{
+		height: 100%;
+		overflow: scroll;
+		padding: 50px 50px 100px 50px;
+	}
 }
 
 #events-map{
 	flex: 0 0 50%;
-	height: calc(100vh - #{$events-nav-height} - #{$nav-height});
+	height: calc(100vh - #{$filter-nav-height} - #{$nav-height});
 }
 
 
 
 
 
+//event card
 
+$card-event-spacing: 35px;
 
+.card-event{
+	margin-bottom: $card-event-spacing;
 
+	&:hover{
+		.card-inner{
+			@extend .shadowed;
+		}
+	}
 
+	.card-inner{
+		display: flex;
+		background: white;
+		border: 1px solid $light;
+		border-radius: 8px;
 
+		.card-image{
+			flex: 0 0 22%;
+			border-radius: 8px 0px 0px 8px;
+			background-size: cover;
+		}
 
+		.card-text{
+			flex: 0 0 78%;
+			padding: $card-event-spacing*.6 $card-event-spacing*.6 $card-event-spacing*.6 $card-event-spacing;
+
+			.event-categories{
+				display: block;
+				@extend .font-bold;
+				color: lighten($brand-tint,12%);
+				@extend .uppercase;
+				@extend .tracked-less;
+				font-size: 12px;
+				margin-bottom: $card-event-spacing*.2;
+			}
+
+			.event-title{
+				font-size: 19px;
+				line-height: 1.2;
+				margin-bottom: $card-event-spacing*.4;
+			}
+
+			.event-date{
+				margin-bottom: 0;
+				font-size: 15px;
+				font-weight: 400;
+				color: desaturate($brand-tint, 0%);
+			}
+
+			.event-location{
+				font-size: 15px;
+				font-weight: 400;
+				color: desaturate($brand-tint, 0%);
+				margin-bottom: 0;
+			}
+
+		}
+	}
+}
 
 
 

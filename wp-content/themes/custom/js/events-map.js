@@ -3,11 +3,12 @@ var mapInitialized = false;
 
 $(document).ready( function() {
 
-	//updateView();
+	updateView();
 
 });
 
 function initMap() {
+	//console.clear();
 	console.log('init map');
 
 	mapOptions.data.forEach( function( location ) {
@@ -78,7 +79,7 @@ function initMap() {
 
 function updateView(){
 	console.log('updateView');
-	if(mapInitialized && $('#events-container').hasClass('loading') ){
-		$('#events-container').removeClass('loading'); 
+	if(mapInitialized && $('#events-wrapper').hasClass('filter-loading') ){
+		$('#events-wrapper').removeClass('filter-loading'); 
 	}
 }

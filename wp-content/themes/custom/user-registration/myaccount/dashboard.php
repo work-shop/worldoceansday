@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 </div>
-<div class="container-fluid padded">
+<div class="container-fluid padded bg-white">
 	<div class="row">
 		<div class="col">
 			<h3 class="brand-tint font-black">Your Events</h4>
