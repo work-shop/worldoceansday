@@ -215,12 +215,14 @@ function get_event_search( $request ){
 
 //update map location field from organizer entered address on post save
 // acf/update_value/name={$field_name} - filter for a specific field based on it's name
-add_filter('acf/update_value/name=location', 'my_acf_update_value', 10, 3);
-function my_acf_update_value( $value, $post_id, $field  ) {
+//add_filter('acf/update_value/name=location', 'my_acf_update_value', 10, 3);
+//add_action('acf/save_post', 'my_acf_update_value');
+add_action('save_post', 'my_acf_update_value',10,3);
+function my_acf_update_value($post_id, $post, $update ) {
 
-	$original_value = $value;
+	$original_value = get_field('location');
 
-	if(get_field('override_organizer_input_address', $post_id) === false){
+	if( get_field('override_organizer_input_address', $post_id) == false || $update == false ){
 
 		$location = get_post_meta($post_id,'_event_location');
 		$provided_location = $location;
@@ -303,6 +305,8 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 
 					$success = 'Map location successfully determined by Google Maps';
 					$message = '<div class="wod-alert wod-alert-success success">' . $success . '</div>';
+
+					update_field('location', $value, $post_id);
 					update_field('location_messages_admin', $message, $post_id);
 
 					// ob_start();

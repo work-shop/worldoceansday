@@ -2,26 +2,8 @@
 	<a href="<?php the_permalink(); ?>">
 		<div class="card-inner event-card-inner">
 			<?php 
-			?>
-			<?php 
-				// $banner_url = get_event_banner(); 
-				// var_dump($banner_url);
-				// if($banner_url){
-
-				// }
-			// $data = get_post_meta( $post->ID, '_event_banner', false);
-			// var_dump($data);
-			// $image_url = $data[0];
-			// var_dump($image_url);
-			// $image_id = attachment_url_to_postid($image_url);
-			// var_dump($image_id);
-			// update_post_meta( $post->ID, '_thumbnail_id', $image_id );
-
-			//display_event_banner('xs');
-
 			$banner = get_event_banner();
 			$banner_url = event_manager_get_resized_image( $banner, 'sm' );
-			//var_dump($banner_url);
 			?>
 			<div class="card-image" style="background-image: url('<?php echo $banner_url; ?>');">
 			</div>
@@ -46,16 +28,23 @@
 				</h4>
 				<?php 
 				$location = get_post_meta($post->ID,'_event_location');
+				$venue = get_post_meta($post->ID,'_event_venue');
 				if( $location[0] ):  ?>
-					<h4 class="event-location event-location-not-online">
-						<?php echo get_event_location(); ?>
-					</h4>
-					<?php else: ?>
-						<h4 class="event-location event-location-online">
-							Virtual Event
+					<?php if( $venue[0] ): ?>
+						<h4 class="event-location event-location-not-online">
+							<?php echo $venue[0]; ?>
 						</h4>
-					<?php endif; ?>
+						<?php else: ?>
+							<h4 class="event-location event-location-not-online">
+								<?php echo get_event_location(); ?>
+							</h4>
+						<?php endif; ?>
+						<?php else: ?>
+							<h4 class="event-location event-location-online">
+								Virtual Event
+							</h4>
+						<?php endif; ?>
+					</div>
 				</div>
-			</div>
-		</a>
-	</article>
+			</a>
+		</article>
