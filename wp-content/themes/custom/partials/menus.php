@@ -87,7 +87,7 @@
 							<?php $menu_image_link = get_sub_field('menu_image_link'); ?>
 							<a href="<?php echo $link['url']; ?>">
 								<?php $image = get_sub_field('menu_image'); ?>
-								<img src="<?php echo $image['sizes']['md_landscape']; ?>">
+								<img src="<?php echo $image['sizes']['sm_landscape']; ?>">
 								<?php if( get_sub_field('menu_image_heading') ): ?>
 									<h4 class="menu-graphic-heading bold">
 										<?php the_sub_field('menu_image_heading'); ?>

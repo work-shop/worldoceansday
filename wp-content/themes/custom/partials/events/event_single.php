@@ -2,7 +2,10 @@
 	<section class="block" id="single-event-hero">	
 		<div class="row">
 			<div class="col-lg-7 event-single-hero-image">
-				<?php $banner_url = get_event_banner(); ?>
+				<?php 
+				$banner = get_event_banner();
+				$banner_url = event_manager_get_resized_image( $banner, 'lg' );
+				?>
 				<div class="block-background" style="background-image: url('<?php echo $banner_url; ?>');">
 				</div>
 			</div>

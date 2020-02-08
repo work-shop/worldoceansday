@@ -2,15 +2,28 @@
 	<a href="<?php the_permalink(); ?>">
 		<div class="card-inner event-card-inner">
 			<?php 
-			//$banner = get_post_meta($post->ID,'_event_banner'); 
-			//print_r($banner);
-
-			//$start_date = get_post_meta($post->ID,'_event_start_date'); 
-			//print_r($start_date);
 			?>
-			<?php $banner_url = get_event_banner(); ?>
+			<?php 
+				// $banner_url = get_event_banner(); 
+				// var_dump($banner_url);
+				// if($banner_url){
+
+				// }
+			// $data = get_post_meta( $post->ID, '_event_banner', false);
+			// var_dump($data);
+			// $image_url = $data[0];
+			// var_dump($image_url);
+			// $image_id = attachment_url_to_postid($image_url);
+			// var_dump($image_id);
+			// update_post_meta( $post->ID, '_thumbnail_id', $image_id );
+
+			//display_event_banner('xs');
+
+			$banner = get_event_banner();
+			$banner_url = event_manager_get_resized_image( $banner, 'sm' );
+			//var_dump($banner_url);
+			?>
 			<div class="card-image" style="background-image: url('<?php echo $banner_url; ?>');">
-				<?php //var_dump(get_event_banner()[0]); ?>
 			</div>
 			<div class="card-text">
 				<small class="event-categories">

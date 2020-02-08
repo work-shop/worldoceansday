@@ -2,7 +2,6 @@
 
 
 var getUrl = window.location;
-//var siteUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 var siteUrl = '';
 var local = false;
 if(  ( window.location.href.indexOf('localhost') !== -1 ) ){
@@ -14,7 +13,7 @@ if(  ( window.location.href.indexOf('localhost') !== -1 ) ){
 }
 var baseUrl = siteUrl + '/wp-json/wod-events/v1/list';
 var baseMapUrl = siteUrl + '/wp-json/wod-events/v1/map-locations';
-var perPage = 3;
+var perPage = 10;
 var page = 1;
 var totalItems = 0;
 var currentItems = 0;
@@ -416,7 +415,7 @@ function events() {
 		];
 
 		var mcOptions = {
-			gridSize: 100,
+			gridSize: 75,
 			styles: clusterStyles
 		};
 

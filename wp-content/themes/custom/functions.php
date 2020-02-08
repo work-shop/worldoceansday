@@ -12,6 +12,7 @@ require_once( __ROOT__ . '/functions/library/class-helpers.php' );
 
 require_once( __ROOT__ . '/functions/library/events_functions.php' );
 require_once( __ROOT__ . '/functions/library/resources_functions.php' );
+require_once( __ROOT__ . '/functions/library/partials_functions.php' );
 
 
 function my_mce4_options($init) {

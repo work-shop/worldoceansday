@@ -13,49 +13,54 @@
   --medium:  #364F6A;
 }
 
-/* line 6, wp-content/themes/custom/scss/admin.scss */
+/* line 4, wp-content/themes/custom/scss/admin.scss */
+.acf-field-5e3de7fdda967 {
+  display: none !important;
+}
+
+/* line 11, wp-content/themes/custom/scss/admin.scss */
 .acf-field-5da7c569980ef .acf-row .acf-fields {
   border-bottom: 3px solid #7E8993;
 }
 
-/* line 11, wp-content/themes/custom/scss/admin.scss */
+/* line 16, wp-content/themes/custom/scss/admin.scss */
 .acf-field-5da7c569980ef .acf-row-handle.order {
   border-bottom: 3px solid #7E8993;
 }
 
-/* line 17, wp-content/themes/custom/scss/admin.scss */
+/* line 22, wp-content/themes/custom/scss/admin.scss */
 .acf-field-5da7c569980ef .acf-repeater .acf-row-handle.order {
   border-bottom: 1px solid #eee;
 }
 
-/* line 25, wp-content/themes/custom/scss/admin.scss */
+/* line 30, wp-content/themes/custom/scss/admin.scss */
 .layout[data-layout="multi_column"] .acf-row .acf-fields {
   border-bottom: 3px solid #7E8993;
 }
 
-/* line 30, wp-content/themes/custom/scss/admin.scss */
+/* line 35, wp-content/themes/custom/scss/admin.scss */
 .layout[data-layout="multi_column"] .acf-row-handle.order {
   border-bottom: 3px solid #7E8993;
 }
 
-/* line 36, wp-content/themes/custom/scss/admin.scss */
+/* line 41, wp-content/themes/custom/scss/admin.scss */
 .layout[data-layout="multi_column"] .acf-repeater .acf-row-handle.order {
   border-bottom: 1px solid #eee;
 }
 
-/* line 42, wp-content/themes/custom/scss/admin.scss */
+/* line 47, wp-content/themes/custom/scss/admin.scss */
 .acf-fc-layout-handle.ui-sortable-handle {
   background: #f3f8fa;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-/* line 48, wp-content/themes/custom/scss/admin.scss */
+/* line 53, wp-content/themes/custom/scss/admin.scss */
 #menu-posts-shop_order, #menu-posts-shop_coupon {
   display: none;
 }
 
-/* line 52, wp-content/themes/custom/scss/admin.scss */
+/* line 57, wp-content/themes/custom/scss/admin.scss */
 .wod-alert {
   padding: 20px;
   border: 1px solid;
@@ -65,18 +70,23 @@
   border-color: #164579;
 }
 
-/* line 61, wp-content/themes/custom/scss/admin.scss */
+/* line 66, wp-content/themes/custom/scss/admin.scss */
 .wod-alert.wod-alert-success {
   color: #327742;
   background: #d4edda;
   border-color: #327742;
 }
 
-/* line 68, wp-content/themes/custom/scss/admin.scss */
+/* line 73, wp-content/themes/custom/scss/admin.scss */
 .wod-alert.wod-alert-error {
   color: #e72d2d;
   background: #fce4e4;
   border-color: #e72d2d;
+}
+
+/* line 82, wp-content/themes/custom/scss/admin.scss */
+#PO_override.column-PO_override, .PO_override.column-PO_override, .column-PO_override {
+  display: none;
 }
 
 /*# sourceMappingURL=admin-bundle.css.map */

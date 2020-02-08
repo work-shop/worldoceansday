@@ -5,6 +5,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url(../fonts/fonts.css);
 /* line 1, wp-content/themes/custom/scss/bootstrap/_root.scss */
 :root {
   --blue: #007bff;
@@ -14300,15 +14301,16 @@ body.dropdown-on #blanket-dropdown {
   flex: 0 0 22%;
   border-radius: 8px 0px 0px 8px;
   background-size: cover;
+  background-position: center center;
 }
 
-/* line 132, wp-content/themes/custom/scss/site/_events.scss */
+/* line 133, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text {
   flex: 0 0 78%;
   padding: 21px 21px 21px 35px;
 }
 
-/* line 136, wp-content/themes/custom/scss/site/_events.scss */
+/* line 137, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-categories {
   display: block;
   color: #577faa;
@@ -14316,14 +14318,14 @@ body.dropdown-on #blanket-dropdown {
   margin-bottom: 7px;
 }
 
-/* line 146, wp-content/themes/custom/scss/site/_events.scss */
+/* line 147, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-title {
   font-size: 19px;
   line-height: 1.2;
   margin-bottom: 14px;
 }
 
-/* line 152, wp-content/themes/custom/scss/site/_events.scss */
+/* line 153, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-date {
   margin-bottom: 0;
   font-size: 15px;
@@ -14331,7 +14333,7 @@ body.dropdown-on #blanket-dropdown {
   color: #426182;
 }
 
-/* line 159, wp-content/themes/custom/scss/site/_events.scss */
+/* line 160, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-location {
   font-size: 15px;
   font-weight: 400;
@@ -14339,55 +14341,55 @@ body.dropdown-on #blanket-dropdown {
   margin-bottom: 0;
 }
 
-/* line 172, wp-content/themes/custom/scss/site/_events.scss */
+/* line 173, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-event {
   margin-bottom: 0;
 }
 
-/* line 175, wp-content/themes/custom/scss/site/_events.scss */
+/* line 176, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-event:hover .card-inner {
   box-shadow: none;
 }
 
-/* line 181, wp-content/themes/custom/scss/site/_events.scss */
+/* line 182, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-inner {
   border: none;
   padding: 0;
   display: block;
 }
 
-/* line 186, wp-content/themes/custom/scss/site/_events.scss */
+/* line 187, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-inner .card-image {
   display: none;
 }
 
-/* line 189, wp-content/themes/custom/scss/site/_events.scss */
+/* line 190, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-inner .card-text {
   padding: 6px;
 }
 
-/* line 192, wp-content/themes/custom/scss/site/_events.scss */
+/* line 193, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-inner .card-text .event-categories {
   font-size: 10px;
 }
 
-/* line 196, wp-content/themes/custom/scss/site/_events.scss */
+/* line 197, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-inner .card-text .event-title {
   font-size: 15px;
   margin-bottom: 7px;
 }
 
-/* line 201, wp-content/themes/custom/scss/site/_events.scss */
+/* line 202, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-inner .card-text .event-date {
   font-size: 12px;
 }
 
-/* line 205, wp-content/themes/custom/scss/site/_events.scss */
+/* line 206, wp-content/themes/custom/scss/site/_events.scss */
 .marker-card .card-inner .card-text .event-location {
   font-size: 12px;
 }
 
-/* line 217, wp-content/themes/custom/scss/site/_events.scss */
+/* line 218, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -14402,7 +14404,7 @@ body.dropdown-on #blanket-dropdown {
   display: none;
 }
 
-/* line 230, wp-content/themes/custom/scss/site/_events.scss */
+/* line 231, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -14416,17 +14418,17 @@ body.dropdown-on #blanket-dropdown {
   border-color: #164579 transparent transparent transparent;
 }
 
-/* line 242, wp-content/themes/custom/scss/site/_events.scss */
+/* line 243, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }
 
-/* line 245, wp-content/themes/custom/scss/site/_events.scss */
+/* line 246, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
 }
 
-/* line 248, wp-content/themes/custom/scss/site/_events.scss */
+/* line 249, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
@@ -14442,77 +14444,77 @@ body.dropdown-on #blanket-dropdown {
 
 /* LIST YOUR EVENT */
 /* body classes */
-/* line 283, wp-content/themes/custom/scss/site/_events.scss */
+/* line 284, wp-content/themes/custom/scss/site/_events.scss */
 .event-submit-preview #submit-event-intro {
   display: none;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 287, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 288, wp-content/themes/custom/scss/site/_events.scss */
   .event-submit-preview .container-fluid-submit-event {
     padding: 5px;
   }
 }
 
-/* line 297, wp-content/themes/custom/scss/site/_events.scss */
+/* line 298, wp-content/themes/custom/scss/site/_events.scss */
 .event-submit-success #submit-event-intro {
   display: none;
 }
 
-/* line 300, wp-content/themes/custom/scss/site/_events.scss */
+/* line 301, wp-content/themes/custom/scss/site/_events.scss */
 .event-submit-success #submit-event-thanks {
   display: block;
 }
 
-/* line 304, wp-content/themes/custom/scss/site/_events.scss */
+/* line 305, wp-content/themes/custom/scss/site/_events.scss */
 .event-submit-success #submit-event {
   display: none;
 }
 
-/* line 326, wp-content/themes/custom/scss/site/_events.scss */
+/* line 327, wp-content/themes/custom/scss/site/_events.scss */
 .page-id-554 #submit-event-form .wpem-form-group:first-child {
   display: none;
 }
 
 /* submit page intro */
-/* line 340, wp-content/themes/custom/scss/site/_events.scss */
+/* line 341, wp-content/themes/custom/scss/site/_events.scss */
 .submit-event-buttons .button, .submit-event-buttons #flexible-content .fc-button a, #flexible-content .fc-button .submit-event-buttons a, .submit-event-buttons #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in .submit-event-buttons a, .submit-event-buttons #content #submit-event-form input[type="submit"], #content #submit-event-form .submit-event-buttons input[type="submit"], .submit-event-buttons #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .submit-event-buttons .button, .submit-event-buttons #event_preview .event_listing_preview_title .card-resource .card-links a, #event_preview .event_listing_preview_title .card-resource .card-links .submit-event-buttons a, .submit-event-buttons .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links #event_preview .event_listing_preview_title .submit-event-buttons a, .submit-event-buttons .card-resource .card-links a, .card-resource .card-links .submit-event-buttons a, .submit-event-buttons #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form .submit-event-buttons [type="submit"] {
   display: block;
   margin: 0 10px;
 }
 
-/* line 346, wp-content/themes/custom/scss/site/_events.scss */
+/* line 347, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .account-sign-in {
   display: none;
 }
 
-/* line 351, wp-content/themes/custom/scss/site/_events.scss */
+/* line 352, wp-content/themes/custom/scss/site/_events.scss */
 .submit-event-buttons {
   display: flex;
 }
 
-/* line 356, wp-content/themes/custom/scss/site/_events.scss */
+/* line 357, wp-content/themes/custom/scss/site/_events.scss */
 .submit-event-instructions {
   display: none;
 }
 
-/* line 360, wp-content/themes/custom/scss/site/_events.scss */
+/* line 361, wp-content/themes/custom/scss/site/_events.scss */
 .submit-event-instructions.on {
   display: block;
 }
 
-/* line 365, wp-content/themes/custom/scss/site/_events.scss */
+/* line 366, wp-content/themes/custom/scss/site/_events.scss */
 .account-creation-message {
   margin-bottom: 60px;
 }
 
-/* line 369, wp-content/themes/custom/scss/site/_events.scss */
+/* line 370, wp-content/themes/custom/scss/site/_events.scss */
 #submit-event-thanks {
   display: none;
 }
 
 /* submit event form overrides */
-/* line 380, wp-content/themes/custom/scss/site/_events.scss */
+/* line 381, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .account-sign-in a {
   padding: 6px 15px;
   font-size: 12px;
@@ -14522,49 +14524,49 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 380, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 381, wp-content/themes/custom/scss/site/_events.scss */
   #content #submit-event-form .account-sign-in a {
     float: none;
     top: 0;
   }
 }
 
-/* line 397, wp-content/themes/custom/scss/site/_events.scss */
+/* line 398, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form h2 {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-/* line 405, wp-content/themes/custom/scss/site/_events.scss */
+/* line 406, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-wrapper .wpem-form-group .wpem-form-label-text {
   font-weight: 800 !important;
   color: #426182 !important;
 }
 
-/* line 410, wp-content/themes/custom/scss/site/_events.scss */
+/* line 411, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form label {
   font-weight: 700 !important;
   color: #344c67;
 }
 
-/* line 416, wp-content/themes/custom/scss/site/_events.scss */
+/* line 417, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form input:focus {
   background: white;
 }
 
-/* line 421, wp-content/themes/custom/scss/site/_events.scss */
+/* line 422, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form input[type="checkbox"]:focus {
   box-shadow: none;
 }
 
-/* line 427, wp-content/themes/custom/scss/site/_events.scss */
+/* line 428, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .checkbox-label {
   color: #164579 !important;
   font-weight: 700 !important;
   display: inline !important;
 }
 
-/* line 433, wp-content/themes/custom/scss/site/_events.scss */
+/* line 434, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .description {
   line-height: 1.2 !important;
   margin-top: 7px;
@@ -14573,101 +14575,101 @@ body.dropdown-on #blanket-dropdown {
   display: block;
 }
 
-/* line 442, wp-content/themes/custom/scss/site/_events.scss */
+/* line 443, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-create_account_email {
   margin-bottom: 100px;
 }
 
-/* line 450, wp-content/themes/custom/scss/site/_events.scss */
+/* line 451, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_category {
   margin-bottom: 60px;
 }
 
-/* line 453, wp-content/themes/custom/scss/site/_events.scss */
+/* line 454, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_category .event-manager-term-checklist-event_category {
   margin-top: 10px;
   columns: 2;
 }
 
-/* line 456, wp-content/themes/custom/scss/site/_events.scss */
+/* line 457, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_category .event-manager-term-checklist-event_category li label {
   font-weight: 500 !important;
 }
 
-/* line 467, wp-content/themes/custom/scss/site/_events.scss */
+/* line 468, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_online label[for="event_online"] {
   margin-bottom: 7px;
   display: block;
 }
 
-/* line 472, wp-content/themes/custom/scss/site/_events.scss */
+/* line 473, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_online label {
   display: inline;
   margin-right: 30px;
 }
 
-/* line 477, wp-content/themes/custom/scss/site/_events.scss */
+/* line 478, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_online input {
   width: auto;
   margin-right: 5px;
 }
 
-/* line 487, wp-content/themes/custom/scss/site/_events.scss */
+/* line 488, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_country {
   margin-bottom: 60px;
 }
 
-/* line 491, wp-content/themes/custom/scss/site/_events.scss */
+/* line 492, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_timezone {
   margin-bottom: 100px;
 }
 
-/* line 495, wp-content/themes/custom/scss/site/_events.scss */
+/* line 496, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-i_agree_to_allow_world_oceans_day_to_use_this_image_in_their_marketing_and_communications_materials {
   margin-bottom: 60px;
 }
 
-/* line 498, wp-content/themes/custom/scss/site/_events.scss */
+/* line 499, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-i_agree_to_allow_world_oceans_day_to_use_this_image_in_their_marketing_and_communications_materials .description {
   display: inline;
   color: #164579;
   font-weight: 700;
 }
 
-/* line 505, wp-content/themes/custom/scss/site/_events.scss */
+/* line 506, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_registration_link {
   margin-bottom: 60px;
 }
 
-/* line 509, wp-content/themes/custom/scss/site/_events.scss */
+/* line 510, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_start_date, #content #submit-event-form .wpem-form-group.fieldset-event_start_time, #content #submit-event-form .wpem-form-group.fieldset-event_end_date, #content #submit-event-form .wpem-form-group.fieldset-event_end_time {
   display: inline-block;
   width: 46%;
 }
 
-/* line 514, wp-content/themes/custom/scss/site/_events.scss */
+/* line 515, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-event_start_date, #content #submit-event-form .wpem-form-group.fieldset-event_end_date {
   margin-right: 6%;
 }
 
-/* line 518, wp-content/themes/custom/scss/site/_events.scss */
+/* line 519, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-group.fieldset-organizer_description {
   margin-bottom: 60px;
 }
 
-/* line 522, wp-content/themes/custom/scss/site/_events.scss */
+/* line 523, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form .wpem-form-footer {
   text-align: center;
   margin-top: 60px;
 }
 
-/* line 527, wp-content/themes/custom/scss/site/_events.scss */
+/* line 528, wp-content/themes/custom/scss/site/_events.scss */
 #content #submit-event-form input[type="submit"] {
   border: none;
 }
 
 /* event preview page */
-/* line 540, wp-content/themes/custom/scss/site/_events.scss */
+/* line 541, wp-content/themes/custom/scss/site/_events.scss */
 #event_preview .event_listing_preview_title {
   padding: 0;
   background: none !important;
@@ -14675,7 +14677,7 @@ body.dropdown-on #blanket-dropdown {
   margin-top: 0;
 }
 
-/* line 546, wp-content/themes/custom/scss/site/_events.scss */
+/* line 547, wp-content/themes/custom/scss/site/_events.scss */
 #event_preview .event_listing_preview_title #flexible-content .fc-button a, #flexible-content .fc-button #event_preview .event_listing_preview_title a, #event_preview .event_listing_preview_title #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in #event_preview .event_listing_preview_title a, #event_preview .event_listing_preview_title #content #submit-event-form input[type="submit"], #content #submit-event-form #event_preview .event_listing_preview_title input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, #event_preview .event_listing_preview_title #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form #event_preview .event_listing_preview_title [type="submit"] {
   background: #19bae3;
   color: white;
@@ -14683,18 +14685,18 @@ body.dropdown-on #blanket-dropdown {
   margin: 0 15px;
 }
 
-/* line 553, wp-content/themes/custom/scss/site/_events.scss */
+/* line 554, wp-content/themes/custom/scss/site/_events.scss */
 #event_preview .event_listing_preview_title #flexible-content .fc-button a:hover, #flexible-content .fc-button #event_preview .event_listing_preview_title a:hover, #event_preview .event_listing_preview_title #content #submit-event-form .account-sign-in a:hover, #content #submit-event-form .account-sign-in #event_preview .event_listing_preview_title a:hover, #event_preview .event_listing_preview_title #content #submit-event-form input:hover[type="submit"], #content #submit-event-form #event_preview .event_listing_preview_title input:hover[type="submit"], #event_preview .event_listing_preview_title .button:hover, #event_preview .event_listing_preview_title .card-resource .card-links a:hover, .card-resource .card-links #event_preview .event_listing_preview_title a:hover, #event_preview .event_listing_preview_title #content #my-account-content .ur-frontend-form :hover[type="submit"], #content #my-account-content .ur-frontend-form #event_preview .event_listing_preview_title :hover[type="submit"] {
   cursor: pointer;
 }
 
-/* line 558, wp-content/themes/custom/scss/site/_events.scss */
+/* line 559, wp-content/themes/custom/scss/site/_events.scss */
 #event_preview .event_listing_preview_title .preview-title {
   color: #426182;
   margin-bottom: 30px;
 }
 
-/* line 564, wp-content/themes/custom/scss/site/_events.scss */
+/* line 565, wp-content/themes/custom/scss/site/_events.scss */
 #event_preview .event_listing_preview {
   border: 2px solid #426182;
   border-radius: 8px;
@@ -14705,7 +14707,7 @@ body.dropdown-on #blanket-dropdown {
 
 /* EVENT SINGLE */
 @media screen and (max-width: 991px) {
-  /* line 589, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 590, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .padded, #event-single-wrapper .page-id-554.user_logged_out #my-account-content, .page-id-554.user_logged_out #event-single-wrapper #my-account-content, #event-single-wrapper .page-id-22.user_logged_out #my-account-content, .page-id-22.user_logged_out #event-single-wrapper #my-account-content {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -14713,48 +14715,48 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 595, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 596, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .padded-top {
     padding-top: 30px;
   }
 }
 
 @media screen and (max-width: 991px) {
-  /* line 601, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 602, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-hero-image {
     height: 40vh;
   }
 }
 
-/* line 607, wp-content/themes/custom/scss/site/_events.scss */
+/* line 608, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .block-background {
   background-position: center center;
 }
 
-/* line 611, wp-content/themes/custom/scss/site/_events.scss */
+/* line 612, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-hero-meta {
   background: #f7f8fa;
   padding: 60px 60px 60px 45px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 611, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 612, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-hero-meta {
     padding: 30px;
   }
 }
 
-/* line 620, wp-content/themes/custom/scss/site/_events.scss */
+/* line 621, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-meta-row {
   margin-bottom: 30px;
 }
 
-/* line 623, wp-content/themes/custom/scss/site/_events.scss */
+/* line 624, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-meta-row:last-child {
   margin-bottom: 0;
 }
 
-/* line 628, wp-content/themes/custom/scss/site/_events.scss */
+/* line 629, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-title {
   color: #395471;
   line-height: 1.3;
@@ -14764,7 +14766,7 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 628, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 629, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-title {
     font-size: 21px;
     width: 100%;
@@ -14772,20 +14774,20 @@ body.dropdown-on #blanket-dropdown {
   }
 }
 
-/* line 644, wp-content/themes/custom/scss/site/_events.scss */
+/* line 645, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-meta-icon .icon:before {
   font-size: 35px;
   color: #395471;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 644, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 645, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-meta-icon .icon:before {
     font-size: 30px;
   }
 }
 
-/* line 654, wp-content/themes/custom/scss/site/_events.scss */
+/* line 655, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-meta-heading {
   color: #395471;
   font-size: 17px;
@@ -14793,13 +14795,13 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 654, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 655, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-meta-heading {
     font-size: 13px;
   }
 }
 
-/* line 666, wp-content/themes/custom/scss/site/_events.scss */
+/* line 667, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-meta-secondary {
   color: #395471;
   font-size: 16px;
@@ -14807,13 +14809,13 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 666, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 667, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-meta-secondary {
     font-size: 12px;
   }
 }
 
-/* line 675, wp-content/themes/custom/scss/site/_events.scss */
+/* line 676, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-meta-link {
   margin-bottom: 0;
   color: #19bae3;
@@ -14822,13 +14824,13 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 675, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 676, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-meta-link {
     font-size: 13px;
   }
 }
 
-/* line 684, wp-content/themes/custom/scss/site/_events.scss */
+/* line 685, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-meta-link a {
   color: #19bae3;
   font-weight: 500;
@@ -14836,20 +14838,20 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 684, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 685, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .event-single-meta-link a {
     font-size: 13px;
   }
 }
 
 @media screen and (max-width: 991px) {
-  /* line 694, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 695, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .single-event-description {
     margin-bottom: 30px;
   }
 }
 
-/* line 700, wp-content/themes/custom/scss/site/_events.scss */
+/* line 701, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .single-event-separator {
   height: 2px;
   background: #9FDBED;
@@ -14857,63 +14859,63 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 700, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 701, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .single-event-separator {
     margin-top: 30px;
   }
 }
 
-/* line 711, wp-content/themes/custom/scss/site/_events.scss */
+/* line 712, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .single-event-categories {
   margin-bottom: 30px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 711, wp-content/themes/custom/scss/site/_events.scss */
+  /* line 712, wp-content/themes/custom/scss/site/_events.scss */
   #event-single-wrapper .single-event-categories {
     margin-bottom: 15px;
   }
 }
 
-/* line 717, wp-content/themes/custom/scss/site/_events.scss */
+/* line 718, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .single-event-categories .button, #event-single-wrapper .single-event-categories #flexible-content .fc-button a, #flexible-content .fc-button #event-single-wrapper .single-event-categories a, #event-single-wrapper .single-event-categories #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in #event-single-wrapper .single-event-categories a, #event-single-wrapper .single-event-categories #content #submit-event-form input[type="submit"], #content #submit-event-form #event-single-wrapper .single-event-categories input[type="submit"], #event-single-wrapper .single-event-categories .card-resource .card-links a, .card-resource .card-links #event-single-wrapper .single-event-categories a, #event-single-wrapper .single-event-categories #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form #event-single-wrapper .single-event-categories [type="submit"] {
   margin-bottom: 15px;
   margin-right: 20px;
 }
 
-/* line 724, wp-content/themes/custom/scss/site/_events.scss */
+/* line 725, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .single-event-website a {
   color: #19bae3;
   font-weight: 500;
 }
 
-/* line 730, wp-content/themes/custom/scss/site/_events.scss */
+/* line 731, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .single-event-organized-by {
   margin-bottom: 30px;
 }
 
-/* line 733, wp-content/themes/custom/scss/site/_events.scss */
+/* line 734, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .single-event-organized-by .event-single-meta-heading {
   margin-bottom: 10px;
 }
 
-/* line 738, wp-content/themes/custom/scss/site/_events.scss */
+/* line 739, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .single-event-organizer-label {
   color: #4b6d93;
   margin-bottom: 0;
 }
 
-/* line 746, wp-content/themes/custom/scss/site/_events.scss */
+/* line 747, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper #single-event-map-map iframe {
   height: 350px;
 }
 
-/* line 751, wp-content/themes/custom/scss/site/_events.scss */
+/* line 752, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .event-single-share-container {
   margin-top: 30px;
 }
 
-/* line 755, wp-content/themes/custom/scss/site/_events.scss */
+/* line 756, wp-content/themes/custom/scss/site/_events.scss */
 #event-single-wrapper .addthis_inline_share_toolbox_84zx {
   display: flex;
 }
@@ -15665,6 +15667,11 @@ body.dropdown-on #blanket-dropdown {
 
 /* line 192, wp-content/themes/custom/scss/site/_search.scss */
 #ajaxsearchprores1_1 .item.asp_r_page .asp_image {
+  display: none !important;
+}
+
+/* line 196, wp-content/themes/custom/scss/site/_search.scss */
+#ajaxsearchprores1_1 .item.asp_r_page .asp_res_text {
   display: none !important;
 }
 

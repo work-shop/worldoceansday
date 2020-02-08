@@ -100,7 +100,8 @@ module.exports = function(grunt) {
                         debug: true // sourcemaps
                     },
                     transform: [
-                        ['babelify', {presets: 'env'}]
+                        ['babelify', {presets: 'env'}],
+                         ['uglifyify', {global: true}]
                     ]
                 }
             },

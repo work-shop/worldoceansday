@@ -1,5 +1,10 @@
 @import "definitions/variables";
 
+//hide map data admin field
+.acf-field-5e3de7fdda967{
+	display: none !important;
+}
+
 //make navigation menus easier to read
 .acf-field-5da7c569980ef{
 	.acf-row{
@@ -72,4 +77,8 @@
 
 	}
 
+}
+
+#PO_override.column-PO_override,.PO_override.column-PO_override,.column-PO_override{
+	display: none;
 }

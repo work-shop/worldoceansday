@@ -49,7 +49,7 @@ $count = 1;
 							</div>
 						</div>
 						<?php $image = $block['block_image'];
-						$image = $image['sizes']['lg']; ?>
+						$image = $image['sizes']['md']; ?>
 						<div class="overview-block-image" style="background-image: url('<?php echo $image; ?>');">
 							<?php if( $block['block_image'] ): ?>
 							<?php endif; ?>

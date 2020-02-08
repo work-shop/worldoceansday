@@ -71,12 +71,12 @@ class WS_Site_Admin {
     }
 
     public function admin_css( ) {
-        wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/bundles/admin-bundle.css' );
+        $ver = rand(100,999);
+        wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/bundles/admin-bundle.css', $ver );
     }
 
     public function admin_js() {
-       // wp_enqueue_script( 'admin', get_template_directory_uri() . '/js/admin.js', array('jquery'));
-
+        wp_enqueue_script( 'admin', get_template_directory_uri() . '/js/admin.js', array('jquery'));
     }
 
     /**

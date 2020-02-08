@@ -249,7 +249,7 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 			if( is_wp_error( $response ) ){
 				$error = 'Somethign went wrong while processing the request for the location. wp_error on $response';
 				$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-				update_message_field('field_5e3442a5e4f45', $message);
+				update_field('location_messages_admin', $message, $post_id);
 				return;
 			}
 
@@ -258,7 +258,7 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 			if( is_wp_error( $body ) ){
 				$error = 'Somethign went wrong while processing the request for the location. wp_error on $body';
 				$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-				update_message_field('field_5e3442a5e4f45', $message);
+				update_field('location_messages_admin', $message, $post_id);
 				return;
 			}
 
@@ -301,13 +301,9 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 					);
 					$value = $location;
 
-					$success = $post_id . ' Map location successfully determined by Google Maps';
+					$success = 'Map location successfully determined by Google Maps';
 					$message = '<div class="wod-alert wod-alert-success success">' . $success . '</div>';
-					//update_message_field('field_5e3442a5e4f45', $message);
-
 					update_field('location_messages_admin', $message, $post_id);
-
-
 
 					// ob_start();
 					// var_dump($location);
@@ -355,6 +351,7 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 	} //close if overriding organizer input address
 
 }
+
 
 
 ?>
