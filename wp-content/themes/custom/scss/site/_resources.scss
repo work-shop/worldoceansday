@@ -1,6 +1,6 @@
 
 
-.page-id-49,.single-resources{
+.post-type-archive-resources,.single-resources{
 	#blanket{
 		background: transparentize($brand, .2);
 	}
@@ -26,7 +26,7 @@
 		}
 
 		#resource-modal-inner{
-			height: inherit;
+			height: 100%;
 		}
 
 		iframe{
@@ -35,6 +35,7 @@
 		}
 	}
 }
+
 
 #resources,.single-resources{
 	.container-fluid{

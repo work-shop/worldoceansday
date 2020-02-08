@@ -1131,10 +1131,7 @@ if (!class_exists("ASP_Helpers")) {
                 $args['peepso_groups_limit_override'] = $sd['peepso_groups_limit_override'];
             }
 
-            if (
-                ($sd['peep_s_posts'] == 1 || $sd['peep_s_comments'] == 1) &&
-                ($sd['peep_pc_public'] == 1 || $sd['peep_pc_closed'] == 1 || $sd['peep_pc_secret'] == 1)
-            ) {
+            if ( $sd['peep_s_posts'] == 1 || $sd['peep_s_comments'] == 1 ) {
                 $args['search_type'][] = "peepso_activities";
                 $args['peepso_activity_types'] = array();
                 if ( $sd['peep_s_posts'] == 1)

@@ -683,6 +683,7 @@ if ( ! class_exists( 'asp_indexTable' ) ) {
                 $this->abort = false; // Reset the abort flag, as no document was processed
             }
 
+            $contents = apply_filters( 'asp_file_contents_before_tokenize', $contents, $the_post );
             $keywords = $this->tokenize( $contents );
 
             foreach ( $keywords as $keyword ) {

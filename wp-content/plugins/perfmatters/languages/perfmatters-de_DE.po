@@ -1,0 +1,1090 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Perfmatters\n"
+"POT-Creation-Date: 2019-12-08 14:01-0800\n"
+"PO-Revision-Date: 2020-01-28 11:05+0100\n"
+"Last-Translator: Daniel <daniel@dlutt.de>\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: perfmatters.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Loco-Version: 2.3.1; wp-5.3.2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/EDD_SL_Plugin_Updater.php:207
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+"Es ist eine neue Version von %1$s verfügbar. %2$sDetails zu Version %3$s "
+"anzeigen%4$s."
+
+#: inc/EDD_SL_Plugin_Updater.php:215
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+"Es ist eine neue Version von %1$s verfügbar. %2$sDetails zu Version %3$s "
+"anzeigen%4$s oder %5$sjetzt updaten%6$s."
+
+#: inc/EDD_SL_Plugin_Updater.php:405
+msgid "You do not have permission to install plugin updates"
+msgstr "Du hast keine Berechtigung, Plugin-Updates zu installieren"
+
+#: inc/EDD_SL_Plugin_Updater.php:405
+msgid "Error"
+msgstr "Fehler"
+
+#: inc/admin.php:10
+msgid "Perfmatters Settings"
+msgstr "Perfmatters-Einstellungen"
+
+#: inc/admin.php:14 inc/settings.php:9
+msgid "Options"
+msgstr "Optionen"
+
+#: inc/admin.php:15
+msgid "CDN"
+msgstr "CDN"
+
+#: inc/admin.php:16 inc/settings.php:541
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: inc/admin.php:17 inc/settings.php:667
+msgid "Extras"
+msgstr "Extras"
+
+#: inc/admin.php:19 inc/network.php:184
+msgid "License"
+msgstr "Lizenz"
+
+#: inc/admin.php:21 inc/admin.php:63 inc/network.php:185 inc/network.php:315
+#: perfmatters.php:120
+msgid "Support"
+msgstr "Support"
+
+#: inc/admin.php:64 inc/network.php:316
+msgid ""
+"For plugin support and documentation, please visit <a href='https://"
+"perfmatters.io/' title='perfmatters' target='_blank'>perfmatters.io</a>."
+msgstr ""
+"Für Plugin-Unterstützung und Dokumentation besuche bitte <a href='https://"
+"perfmatters.io/' title='perfmatters' target='_blank'>perfmatters.io (EN)</a>."
+
+#: inc/admin.php:73 inc/network.php:323
+msgid "Click on tooltip icons to view full documentation."
+msgstr ""
+"Klicke auf die Tooltip-Symbole, um die vollständige Dokumentation anzuzeigen."
+
+#: inc/functions.php:82
+#, php-format
+msgid "No feed available, please visit the <a href='%s'>homepage</a>!"
+msgstr "Kein Feed verfügbar, bitte besuche die <a href=\"%s\">Homepage</a>!"
+
+#: inc/functions.php:129
+msgid "Sorry, you do not have permission to make REST API requests."
+msgstr ""
+"Es tut uns leid, dass du keine Berechtigung hast, REST API-Anfragen zu "
+"stellen."
+
+#: inc/functions.php:241 inc/functions.php:334 inc/functions.php:339
+msgid "Comments are disabled."
+msgstr "Kommentare sind deaktiviert."
+
+#: inc/functions.php:804 inc/functions.php:822
+msgid "Perfmatters Warning"
+msgstr "Perfmatters-Warnung"
+
+#: inc/functions.php:805
+msgid ""
+"WP_POST_REVISIONS is already enabled somewhere else on your site. We suggest "
+"only enabling this feature in one place."
+msgstr ""
+"WP_POST_REVISIONS ist bereits an anderer Stelle auf Ihrer Website aktiviert. "
+"Wir empfehlen, diese Funktion nur an einer Stelle zu aktivieren."
+
+#: inc/functions.php:823
+msgid ""
+"AUTOSAVE_INTERVAL is already enabled somewhere else on your site. We suggest "
+"only enabling this feature in one place."
+msgstr ""
+"AUTOSAVE_INTERVAL ist bereits an anderer Stelle auf Ihrer Website aktiviert. "
+"Wir empfehlen, diese Funktion nur an einer Stelle zu aktivieren."
+
+#: inc/functions.php:1097 inc/functions.php:1110 inc/functions.php:1137
+msgid "This has been disabled."
+msgstr "Dies wurde deaktiviert."
+
+#: inc/functions.php:1393 inc/functions.php:1410 inc/functions.php:1445
+#: inc/script_manager.php:89 inc/script_manager.php:115 inc/settings.php:672
+msgid "Script Manager"
+msgstr "Script-Manager"
+
+#: inc/functions.php:1413
+msgid "Close Script Manager"
+msgstr "Script-Manager schließen"
+
+#: inc/functions.php:1569
+msgid "Status"
+msgstr "Status"
+
+#: inc/functions.php:1570 inc/script_manager.php:186
+msgid "Script"
+msgstr "Script"
+
+#: inc/functions.php:1571 inc/script_manager.php:185
+msgid "Type"
+msgstr "Typ"
+
+#: inc/functions.php:1572
+msgid "Size"
+msgstr "Größe"
+
+#: inc/functions.php:1704 inc/script_manager_css.php:425
+msgid "ON"
+msgstr "AN"
+
+#: inc/functions.php:1705 inc/script_manager_css.php:439
+msgid "OFF"
+msgstr "AUS"
+
+#: inc/functions.php:1724
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: inc/functions.php:1729
+msgid "Everywhere"
+msgstr "Überall"
+
+#: inc/functions.php:1736 inc/functions.php:1777
+msgid "Current URL"
+msgstr "Aktuelle URL"
+
+#: inc/functions.php:1744 inc/functions.php:1749 inc/functions.php:1857
+msgid "Regex"
+msgstr "Regex"
+
+#: inc/functions.php:1766
+msgid "Exceptions"
+msgstr "Ausnahmen"
+
+#: inc/functions.php:2051
+msgid "Settings Saved!"
+msgstr "Einstellungen gespeichert!"
+
+#: inc/license.php:13 inc/network.php:243
+msgid "License Key"
+msgstr "Lizenzschlüssel"
+
+#: inc/license.php:17 inc/network.php:246
+msgid "Enter your license key"
+msgstr "Lizenzschlüssel eingeben"
+
+#: inc/license.php:25 inc/license.php:34 inc/network.php:254
+#: inc/network.php:262 perfmatters.php:132
+msgid "Activate License"
+msgstr "Lizenz aktivieren"
+
+#: inc/license.php:30 inc/network.php:258
+msgid "Deactivate License"
+msgstr "Lizenz deaktivieren"
+
+#: inc/license.php:31 inc/network.php:259
+msgid "License is activated."
+msgstr "Lizenz ist aktiviert."
+
+#: inc/license.php:35 inc/network.php:263
+msgid "License is not activated."
+msgstr "Lizenz ist nicht aktiviert."
+
+#: inc/license.php:44 inc/network.php:277
+msgid "Customer Email"
+msgstr "Kunden-E-Mail"
+
+#: inc/license.php:52 inc/network.php:285
+msgid "License Status"
+msgstr "Lizenz-Status"
+
+#: inc/license.php:56 inc/network.php:289
+msgid "Renew Your License for Updates + Support!"
+msgstr "Erneuere deine Lizenz für Updates und Support!"
+
+#: inc/license.php:65 inc/network.php:298
+msgid "Licenses Used"
+msgstr "Verwendete Lizenzen"
+
+#: inc/license.php:77 inc/network.php:308
+msgid "Save License"
+msgstr "﻿Lizenz speichern"
+
+#: inc/network.php:18
+msgid "Network Access"
+msgstr "Netzwerk-Zugriff"
+
+#: inc/network.php:26
+msgid "Network Default"
+msgstr "Netzwerk-Standards"
+
+#: inc/network.php:35 inc/settings.php:760
+msgid "Clean Uninstall"
+msgstr "Saubere Deinstallation"
+
+#: inc/network.php:42 inc/settings.php:767
+msgid ""
+"When enabled, this will cause all Perfmatters options data to be removed "
+"from your database when the plugin is uninstalled."
+msgstr ""
+"Wenn aktiviert, werden bei der Deinstallation des Plugins alle Perfmatters-"
+"Optionen aus der Datenbank entfernt."
+
+#: inc/network.php:53
+msgid "Manage network access control and setup a network default site."
+msgstr ""
+"Verwalte deine Netzwerkzugriffskontrolle und richte eine Netzwerk-Standard-"
+"Seite ein."
+
+#: inc/network.php:62
+msgid "Site Admins (Default)"
+msgstr "Seiten-Administrator (Standard)"
+
+#: inc/network.php:63
+msgid "Super Admins Only"
+msgstr "Nur Super-Administratoren"
+
+#: inc/network.php:70
+msgid "Choose who has access to manage Perfmatters plugin settings."
+msgstr ""
+"Wähle aus, wer Zugriff auf die Einstellungen des Perfmatters-Plugin hat."
+
+#: inc/network.php:86
+msgid "None"
+msgstr "Keine"
+
+#: inc/network.php:97
+msgid "Choose a subsite that you want to pull default settings from."
+msgstr ""
+"Wähle eine Unterwebseite, von der du die Standardeinstellungen übernehmen "
+"möchtest."
+
+#: inc/network.php:146
+msgid "Default settings applied!"
+msgstr "Standardeinstellungen übernommen!"
+
+#: inc/network.php:150
+msgid "Select a site that is not already the Network Default."
+msgstr "Wähle eine Seite aus, die nicht bereits der Netzwerk-Standard ist."
+
+#: inc/network.php:155
+msgid "Network Default not set."
+msgstr "Standard-Netzwerk nicht gesetzt."
+
+#: inc/network.php:161
+msgid "Error: Blog Not Found."
+msgstr "Fehler: Blog nicht gefunden."
+
+#: inc/network.php:168
+msgid "Options saved."
+msgstr "Einstellungen gespeichert."
+
+#: inc/network.php:179
+msgid "Perfmatters Network Settings"
+msgstr "Perfmatters-Netzwerk-Einstellungen"
+
+#: inc/network.php:183
+msgid "Network"
+msgstr "Netzwerk"
+
+#: inc/network.php:199 inc/network.php:215
+msgid "Apply Default Settings"
+msgstr "Standardeinstellungen anwenden"
+
+#: inc/network.php:200
+msgid "Choose a site to apply the settings from your network default site."
+msgstr ""
+"Wähle eine Webseite aus, um die Einstellungen von deiner Netzwerk-"
+"Standardseite zu übernehmen."
+
+#: inc/network.php:203
+msgid ""
+"Select a site from the dropdown and click to apply the settings from your "
+"network default (above)."
+msgstr ""
+"Wähle eine Website aus der Dropdown-Liste aus und klicke auf "
+"\"Standardeinstellungen anwenden\", um die Einstellungen des Netzwerks "
+"anzuwenden (siehe oben)."
+
+#: inc/network.php:208
+msgid "Select a Site"
+msgstr "Website wählen"
+
+#: inc/network.php:266
+msgid ""
+"Unlimited License needed for use in a multisite environment. Please contact "
+"support to upgrade."
+msgstr ""
+"Eine Unlimited-License ist für den Einsatz in Multisite-Umgebungen "
+"erforderlich. Bitte kontaktiere den Support, um ein Upgrade durchzuführen."
+
+#: inc/script_manager.php:90 inc/script_manager.php:174
+msgid "Global View"
+msgstr "Globale Ansicht"
+
+#: inc/script_manager.php:91 inc/script_manager.php:263 perfmatters.php:155
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: inc/script_manager.php:101
+msgid ""
+"Below you can disable/enable CSS and JS files on a per page/post basis, as "
+"well as by custom post types. We recommend testing this locally or on a "
+"staging site first, as you could break the appearance of your live site. If "
+"you aren't sure about a certain script, you can try clicking on it, as a lot "
+"of authors will mention their plugin or theme in the header of the source "
+"code."
+msgstr ""
+"Im Folgenden kannst du CSS- und JS-Dateien Seiten- oder Beitragsweise und "
+"auch für benutzerdefinierte Beitragstypen aktivieren/deaktivieren. Wir "
+"empfehlen, dies zuerst auf einer lokalen oder Staging-Seite zu testen, da "
+"Darstellungs- und Funktionsfehler entstehen können. Wenn du dir bei einem "
+"bestimmten Script nicht sicher bist, kannst du versuchen, es anzuklicken. "
+"Entwickler geben meist im Header der Script-Dateien Hinweise auf das "
+"zugehörige Plugin/Theme."
+
+#: inc/script_manager.php:104
+msgid ""
+"If for some reason you run into trouble, you can always enable everything "
+"again to reset the settings. Make sure to check out the <a href='https://"
+"perfmatters.io/docs/' target='_blank' title='Perfmatters Knowledge "
+"Base'>Perfmatters knowledge base</a> for more information."
+msgstr ""
+"Wenn du aus irgendeinem Grund auf Schwierigkeiten stoßen solltest, aktiviere "
+"alles um die Einstellungen zurückzusetzen. Besuche die <a href='https://"
+"perfmatters.io/docs/' target='_blank' title='Perfmatters Knowledge "
+"Base'>Perfmatters Knowledge Base (EN)</a> für weitere Informationen."
+
+#: inc/script_manager.php:116
+msgid "Manage scripts loading on the current page."
+msgstr "Laden von Skripten auf der aktuellen Seite verwalten."
+
+#: inc/script_manager.php:158 inc/script_manager.php:322
+msgid "Save"
+msgstr "Speichern"
+
+#: inc/script_manager.php:175
+msgid ""
+"This is a visual representation of the Script Manager configuration across "
+"your entire site."
+msgstr ""
+"Dies ist eine visuelle Darstellung der Script-Manager-Konfiguration für die "
+"gesamte Seite."
+
+#: inc/script_manager.php:187
+msgid "Setting"
+msgstr "Einstellung"
+
+#: inc/script_manager.php:241
+msgid "You don't have any scripts disabled yet."
+msgstr "Du hast noch keine Skripte deaktiviert."
+
+#: inc/script_manager.php:264
+msgid "View and manage all of your Script Manager settings."
+msgstr "Betrachte und verwalte alle Script-Manager-Einstellungen."
+
+#: inc/script_manager.php:277
+msgid "Hide Disclaimer"
+msgstr "Disclaimer ausblenden"
+
+#: inc/script_manager.php:283
+msgid "Hide the disclaimer message box across all Script Manager views."
+msgstr ""
+"Disclaimer-Hinweisfenster in allen Ansichten des Skript-Managers ausblenden."
+
+#: inc/script_manager.php:289
+msgid "Display Archives"
+msgstr "Archive anzeigen"
+
+#: inc/script_manager.php:294
+msgid ""
+"Add WordPress archives to your Script Manager selection options. Archive "
+"posts will no longer be grouped with their post type."
+msgstr ""
+"Füge WordPress-Archive zu deinen Script Manager-Auswahloptionen hinzu. "
+"Archivbeiträge werden nicht mehr nach ihrem Beitragstyp gruppiert."
+
+#: inc/script_manager.php:300 inc/script_manager.php:304
+msgid "Reset Script Manager"
+msgstr "Script-Manager zurücksetzen"
+
+#: inc/script_manager.php:307
+msgid "Remove and reset all of your existing Script Manager settings."
+msgstr ""
+"Entfernen und zurücksetzen all ihrer existierenden Script-Manager-"
+"Einstellungen."
+
+#: inc/script_manager.php:336
+msgid ""
+"Are you sure? This will remove and reset all of your existing Script Manager "
+"settings and cannot be undone!"
+msgstr ""
+"Bist du sicher? Dies entfernt und setzt alle Ihre bestehenden Skript-Manager-"
+"Einstellungen zurück und kann nicht rückgängig gemacht werden!"
+
+#: inc/settings.php:14
+msgid "Disable Emojis"
+msgstr "Emojis deaktivieren"
+
+#: inc/settings.php:20
+msgid "Removes WordPress Emojis JavaScript file (wp-emoji-release.min.js)."
+msgstr ""
+"Entfernt die WordPress-Emojis-JavaScript-Datei (wp-emoji-release.min.js)."
+
+#: inc/settings.php:27
+msgid "Disable Embeds"
+msgstr "Embeds deaktivieren"
+
+#: inc/settings.php:33
+msgid "Removes WordPress Embed JavaScript file (wp-embed.min.js)."
+msgstr "Entfernt die WordPress Embed JavaScript-Datei (wp-embed.min.js)."
+
+#: inc/settings.php:40
+msgid "Remove Query Strings"
+msgstr "Query-Strings entfernen"
+
+#: inc/settings.php:46
+msgid "Remove query strings from static resources (CSS, JS)."
+msgstr "Entfernt Query-Strings von statischen Ressourcen (CSS, JS)."
+
+#: inc/settings.php:53
+msgid "Disable XML-RPC"
+msgstr "XML-RPC deaktivieren"
+
+#: inc/settings.php:59
+msgid "Disables WordPress XML-RPC functionality."
+msgstr "Deaktiviert die WordPress-XML-RPC-Funktionalität."
+
+#: inc/settings.php:66
+msgid "Remove jQuery Migrate"
+msgstr "jQuery-Migrate entfernen"
+
+#: inc/settings.php:72
+msgid "Removes jQuery Migrate JavaScript file (jquery-migrate.min.js)."
+msgstr "Entfernt die jQuery-Migrate-JavaScript-Datei (jquery-migrate.min.js)."
+
+#: inc/settings.php:79
+msgid "Hide WP Version"
+msgstr "WordPress-Version verbergen"
+
+#: inc/settings.php:85
+msgid "Removes WordPress version meta tag."
+msgstr "Entfernt den WordPress-Version-Meta-Tag."
+
+#: inc/settings.php:92
+msgid "Remove wlwmanifest Link"
+msgstr "wlwmanifest-Link entfernen"
+
+#: inc/settings.php:98
+msgid "Remove wlwmanifest (Windows Live Writer) link tag."
+msgstr "Entfernt den wlwmanifest (Windows-Live-Writer) Link-Tag."
+
+#: inc/settings.php:105
+msgid "Remove RSD Link"
+msgstr "RSD-Link entfernen"
+
+#: inc/settings.php:111
+msgid "Remove RSD (Real Simple Discovery) link tag."
+msgstr "Entfernt den RSD (Real Simple Discovery) Link-Tag."
+
+#: inc/settings.php:118
+msgid "Remove Shortlink"
+msgstr "Shortlink entfernen"
+
+#: inc/settings.php:124
+msgid "Remove Shortlink link tag."
+msgstr "Entfernt den Shortlink-Link-Tag."
+
+#: inc/settings.php:131
+msgid "Disable RSS Feeds"
+msgstr "RSS-Feeds deaktivieren"
+
+#: inc/settings.php:137
+msgid "Disable WordPress generated RSS feeds and 301 redirect URL to parent."
+msgstr ""
+"Deaktiviert die von WordPress generierten RSS-Feeds und leitet zur Basis um "
+"(301 Redirect)."
+
+#: inc/settings.php:144
+msgid "Remove RSS Feed Links"
+msgstr "RSS-Feed-Links entfernen"
+
+#: inc/settings.php:150
+msgid "Disable WordPress generated RSS feed link tags."
+msgstr "Deaktiviere die von WordPress generierten RSS-Feed-Link-Tags."
+
+#: inc/settings.php:157
+msgid "Disable Self Pingbacks"
+msgstr "Self-Pingbacks deaktivieren"
+
+#: inc/settings.php:163
+msgid ""
+"Disable Self Pingbacks (generated when linking to an article on your own "
+"blog)."
+msgstr ""
+"Self-Pingbacks deaktivieren (wird erzeugt, wenn du einen Artikel in deinem "
+"eigenen Blog verlinkst)."
+
+#: inc/settings.php:170
+msgid "Disable REST API"
+msgstr "REST-API deaktivieren"
+
+#: inc/settings.php:178
+msgid "Default (Enabled)"
+msgstr "Standard (aktiviert)"
+
+#: inc/settings.php:179
+msgid "Disable for Non-Admins"
+msgstr "Für Nicht-Administratoren deaktivieren"
+
+#: inc/settings.php:180
+msgid "Disable When Logged Out"
+msgstr "Deaktivieren, wenn abgemeldet"
+
+#: inc/settings.php:182
+msgid ""
+"Disables REST API requests and displays an error message if the requester "
+"doesn't have permission."
+msgstr ""
+"Deaktiviert die REST-API-Anforderungen und zeigt eine Fehlermeldung an, wenn "
+"der Anforderer keine Berechtigung hat."
+
+#: inc/settings.php:189
+msgid "Remove REST API Links"
+msgstr "REST-API-Links entfernen"
+
+#: inc/settings.php:195
+msgid ""
+"Removes REST API link tag from the front end and the REST API header link "
+"from page requests."
+msgstr ""
+"Entfernt den REST-API-Link-Tag vom Frontend und REST-API-Header-Link von "
+"Seitenanfragen."
+
+#: inc/settings.php:202
+msgid "Disable Dashicons"
+msgstr "Dashicons deaktivieren"
+
+#: inc/settings.php:208
+msgid "Disables dashicons on the front end when not logged in."
+msgstr "Deaktiviert Dashicons im Frontend für nicht eingeloggte Besucher."
+
+#: inc/settings.php:215
+msgid "Disable Google Maps"
+msgstr "Google Maps deaktivieren"
+
+#: inc/settings.php:221
+msgid ""
+"Removes any instances of Google Maps being loaded across your entire site."
+msgstr ""
+"Entfernt alle Instanzen von Google Maps, die auf Ihrer gesamten Website "
+"geladen werden."
+
+#: inc/settings.php:228
+msgid "Disable Google Fonts"
+msgstr "Google Fonts deaktivieren"
+
+#: inc/settings.php:234
+msgid ""
+"Removes any instances of Google Fonts being loaded across your entire site."
+msgstr ""
+"Entfernt alle Instanzen von Google Fonts, die auf Ihrer gesamten Website "
+"geladen werden."
+
+#: inc/settings.php:241
+msgid "Disable Password Strength Meter"
+msgstr "Passwortstärke-Anzeige deaktivieren"
+
+#: inc/settings.php:247
+msgid ""
+"Removes WordPress and WooCommerce Password Strength Meter scripts from non "
+"essential pages."
+msgstr ""
+"Entfernt das Passwortstärke-Anzeige-Script von WordPress und WooCommerce von "
+"unwichtigen Seiten."
+
+#: inc/settings.php:254
+msgid "Disable Comments"
+msgstr "Kommentare deaktivieren"
+
+#: inc/settings.php:260
+msgid "Disables WordPress comments across your entire site."
+msgstr "Deaktiviert WordPress-Kommentare auf der gesamten Seite."
+
+#: inc/settings.php:267
+msgid "Remove Comment URLs"
+msgstr "Kommentar-URLs entfernen"
+
+#: inc/settings.php:273
+msgid ""
+"Removes the WordPress comment author link and website field from blog posts."
+msgstr ""
+"Entfernt den WordPress-Autor-Kommentar-Link und das Website-Feld aus den "
+"Blog-Beiträgen."
+
+#: inc/settings.php:280
+msgid "Lazy Loading"
+msgstr "Lazy-Loading"
+
+#: inc/settings.php:286
+msgid "Enable lazy loading on images."
+msgstr "Lazy-Load von Bildern aktivieren."
+
+#: inc/settings.php:293
+msgid "Use Native"
+msgstr "Natives Lazy-Loading verwenden"
+
+#: inc/settings.php:299
+msgid "Use browser-level native lazy loading when available."
+msgstr "Wenn verfügbar, das native Lazy-Loading des Webbrowsers verwenden."
+
+#: inc/settings.php:306
+msgid "Disable Heartbeat"
+msgstr "Heartbeat-API deaktivieren"
+
+#: inc/settings.php:314 inc/settings.php:333 inc/settings.php:353
+#: inc/settings.php:381 inc/settings.php:584
+msgid "Default"
+msgstr "Standard"
+
+#: inc/settings.php:315
+msgid "Disable Everywhere"
+msgstr "Überall deaktivieren"
+
+#: inc/settings.php:316
+msgid "Only Allow When Editing Posts/Pages"
+msgstr "Nur bei Bearbeitung von Beiträgen/Seiten zulassen"
+
+#: inc/settings.php:318
+msgid ""
+"Disable WordPress Heartbeat everywhere or in certain areas (used for auto "
+"saving and revision tracking)."
+msgstr ""
+"Deaktiviert die WordPress-Heartbeat-API überall oder in bestimmten Bereichen "
+"(wird für die automatische Speicherung und Revisionsverfolgung verwendet)."
+
+#: inc/settings.php:325
+msgid "Heartbeat Frequency"
+msgstr "Heartbeat-API-Frequenz"
+
+#: inc/settings.php:333 inc/settings.php:334 inc/settings.php:335
+#: inc/settings.php:336
+#, php-format
+msgid "%s Seconds"
+msgstr "%s Sekunden"
+
+#: inc/settings.php:338
+msgid "Controls how often the WordPress Heartbeat API is allowed to run."
+msgstr "Legt fest, wie oft die WordPress-Heartbeat-API ausgeführt werden darf."
+
+#: inc/settings.php:345
+msgid "Limit Post Revisions"
+msgstr "Limitiere Beitrags-Revisionen"
+
+#: inc/settings.php:354
+msgid "Disable Post Revisions"
+msgstr "Post-Revisionen deaktivieren"
+
+#: inc/settings.php:366
+msgid ""
+"Limits the maximum amount of revisions that are allowed for posts and pages."
+msgstr ""
+"Beschränkt die maximale Anzahl der Revisionen, die für Beiträge und Seiten "
+"erlaubt sind."
+
+#: inc/settings.php:373
+msgid "Autosave Interval"
+msgstr "Autosave-Intervall"
+
+#: inc/settings.php:381
+msgid "1 Minute"
+msgstr "1 Minute"
+
+#: inc/settings.php:382 inc/settings.php:383 inc/settings.php:384
+#: inc/settings.php:385
+#, php-format
+msgid "%s Minutes"
+msgstr "%s Minuten"
+
+#: inc/settings.php:387
+msgid ""
+"Controls how often WordPress will auto save posts and pages while editing."
+msgstr ""
+"Legt fest, wie häufig WordPress Beiträge und Seiten automatisch während der "
+"Bearbeitung speichert."
+
+#: inc/settings.php:394
+msgid "Change Login URL"
+msgstr "Login-URL ändern"
+
+#: inc/settings.php:402
+msgid ""
+"When set, this will change your WordPress login URL (slug) to the provided "
+"string and will block wp-admin and wp-login endpoints from being directly "
+"accessed."
+msgstr ""
+"Wenn gesetzt, ändert dies Ihre WordPress-Anmelde-URL (Slug) in die "
+"angegebene Zeichenfolge und blockiert den direkten Zugriff auf die "
+"Webadressen wp-admin und wp-login."
+
+#: inc/settings.php:412
+msgid "Disable Scripts"
+msgstr "Skripte deaktivieren"
+
+#: inc/settings.php:418
+msgid ""
+"Disables WooCommerce scripts and styles except on product, cart, and "
+"checkout pages."
+msgstr ""
+"Deaktiviert WooCommerce-Skripte und Styles außer auf Produkt-, Warenkorb- "
+"und Checkout-Seiten."
+
+#: inc/settings.php:425
+msgid "Disable Cart Fragmentation"
+msgstr "Warenkorb-Fragmentation deaktivieren"
+
+#: inc/settings.php:431
+msgid "Completely disables WooCommerce cart fragmentation script."
+msgstr ""
+"Deaktiviert das Skript zur Warenkorbfragmentierung von WooCommerce "
+"vollständig."
+
+#: inc/settings.php:438
+msgid "Disable Status Meta Box"
+msgstr "Status-Meta-Box deaktivieren"
+
+#: inc/settings.php:444
+msgid "Disables WooCommerce status meta box from the WP Admin Dashboard."
+msgstr "Deaktiviert die WooCommerce-Status-Meta-Box im WP-Admin-Dashboard."
+
+#: inc/settings.php:451
+msgid "Disable Widgets"
+msgstr "Widgets deaktivieren"
+
+#: inc/settings.php:457
+msgid "Disables all WooCommerce widgets."
+msgstr "Deaktiviert alle WooCommerce-Widgets."
+
+#: inc/settings.php:474
+msgid "Enable CDN Rewrite"
+msgstr "CDN-Rewrite aktivieren"
+
+#: inc/settings.php:481
+msgid ""
+"Enables rewriting of your site URLs with your CDN URLs which can be "
+"configured below."
+msgstr ""
+"Ermöglicht das Umschreiben Ihrer Website-URLs mit Ihren CDN-URLs, die unten "
+"konfiguriert werden können."
+
+#: inc/settings.php:488
+msgid "CDN URL"
+msgstr "CDN-URL"
+
+#: inc/settings.php:497
+msgid ""
+"Enter your CDN URL without the trailing backslash. Example: https://cdn."
+"example.com"
+msgstr ""
+"Gebe deine CDN-URL ohne den abschließenden Backslash ein. Beispiel: https://"
+"cdn.example.com"
+
+#: inc/settings.php:504
+msgid "Included Directories"
+msgstr "Eingeschlossene Verzeichnisse"
+
+#: inc/settings.php:513
+msgid ""
+"Enter any directories you would like to be included in CDN rewriting, "
+"separated by commas (,). Default: wp-content,wp-includes"
+msgstr ""
+"Gebe alle Verzeichnisse, getrennt durch Kommata (,) ein, die du in das CDN-"
+"Rewriting miteinbeziehen möchtest. Standard: wp-content,wp-includes"
+
+#: inc/settings.php:520
+msgid "CDN Exclusions"
+msgstr "CDN-Ausschlüsse"
+
+#: inc/settings.php:529
+msgid ""
+"Enter any directories or file extensions you would like to be excluded from "
+"CDN rewriting, separated by commas (,). Default: .php"
+msgstr ""
+"Gebe alle Verzeichnisse oder Dateierweiterungen, getrennt durch Kommata (,) "
+"ein, die du vom CDN-Rewriting ausschließen möchtest. Standard: .php"
+
+#: inc/settings.php:546
+msgid "Enable Local Analytics"
+msgstr "Analytics lokal aktivieren"
+
+#: inc/settings.php:553
+msgid "Enable syncing of the Google Analytics script to your own server."
+msgstr ""
+"Aktiviert die Synchronisation des Google-Analytics-Scripts mit dem eigenen "
+"Server."
+
+#: inc/settings.php:560
+msgid "Tracking ID"
+msgstr "Tracking ID"
+
+#: inc/settings.php:568
+msgid "Input your Google Analytics tracking ID."
+msgstr "Google-Analytics-Tracking-ID angeben."
+
+#: inc/settings.php:575
+msgid "Tracking Code Position"
+msgstr "Position des Trackingscodes"
+
+#: inc/settings.php:584
+msgid "Header"
+msgstr "Header"
+
+#: inc/settings.php:585
+msgid "Footer"
+msgstr "Footer"
+
+#: inc/settings.php:587
+msgid ""
+"Load your analytics script in the header (default) or footer of your site. "
+"Default: Header"
+msgstr ""
+"Analytics-Script im Header (Standard) oder im Footer der Seite laden. "
+"Standard: Header"
+
+#: inc/settings.php:594
+msgid "Disable Display Features"
+msgstr "Anzeigefunktionen deaktivieren"
+
+#: inc/settings.php:601
+msgid "Disable remarketing and advertising which generates a 2nd HTTP request."
+msgstr ""
+"Remarketing und Advertising deaktivieren, die einen zweiten HTTP Request "
+"nutzen."
+
+#: inc/settings.php:608
+msgid "Anonymize IP"
+msgstr "IP anonymisieren"
+
+#: inc/settings.php:615
+msgid ""
+"Shorten visitor IP to comply with privacy restrictions in some countries."
+msgstr ""
+"Kürze Besucher-IP um Datenschutz-Vorgaben in diversen Ländern gerecht zu "
+"werden."
+
+#: inc/settings.php:622
+msgid "Track Logged In Admins"
+msgstr "Eingeloggte Admins tracken"
+
+#: inc/settings.php:629
+msgid "Include logged-in WordPress admins in your Google Analytics reports."
+msgstr "Eingeloggte WordPress-Admin in Google-Analytics-Reports einschließen."
+
+#: inc/settings.php:636
+msgid "Adjusted Bounce Rate"
+msgstr "Absprungrate anpassen"
+
+#: inc/settings.php:644
+msgid ""
+"Set a timeout limit in seconds to better evaluate the quality of your "
+"traffic. (1-100)"
+msgstr ""
+"Setze ein Timeout-Limit in Sekunden um die Qualität des Traffics zu "
+"bewerten. (1-100)"
+
+#: inc/settings.php:651
+msgid "Use MonsterInsights"
+msgstr "Monsterinsights verwenden"
+
+#: inc/settings.php:658
+msgid ""
+"Allows MonsterInsights to manage your Google Analaytics while still using "
+"the locally hosted analytics.js file generated by Perfmatters."
+msgstr ""
+"Ermöglicht MonsterInsights, Ihr Google Analytics während der Verwendung "
+"einer lokal gehosteten analytics.js-Datei, die von Perfmatters generiert "
+"wurde, zu verwalten."
+
+#: inc/settings.php:679
+msgid ""
+"Enables the Perfmatters Script Manager, which gives you the ability to "
+"disable CSS and JS files on a page by page basis."
+msgstr ""
+"Aktiviert den Perfmatters-Script-Manager, der Ihnen die Möglichkeit gibt, "
+"CSS- und JS-Dateien seitenweise zu deaktivieren."
+
+#: inc/settings.php:686
+msgid "DNS Prefetch"
+msgstr "DNS-Prefetch"
+
+#: inc/settings.php:693
+msgid ""
+"Resolve domain names before a user clicks. Format: //domain.tld (one per "
+"line)"
+msgstr ""
+"Löse Domänennamen auf, bevor ein Benutzer klickt. Format: //domain.tld (eine "
+"pro Zeile)"
+
+#: inc/settings.php:700
+msgid "Preconnect"
+msgstr "Preconnect"
+
+#: inc/settings.php:707
+msgid ""
+"Preconnect allows the browser to set up early connections before an HTTP "
+"request, eliminating roundtrip latency and saving time for users. Format: "
+"scheme://domain.tld"
+msgstr ""
+"Preconnect erlaubt es dem Browser frühzeitig Verbindungen herzustellen, die "
+"für HTTP Requests genutzt werden. Reduziert die Ladezeit für Besucher durch "
+"die Reduktion von Verbindungsverzögerungen. Format: scheme://domain.tld "
+"(eine pro Zeile)"
+
+#: inc/settings.php:714
+msgid "Add Blank Favicon"
+msgstr "Leeres Favicon hinzufügen"
+
+#: inc/settings.php:721
+msgid ""
+"Adds a blank favicon to your WordPress header which will prevent a Missing "
+"Favicon or 404 error from showing up on certain website speed testing tools."
+msgstr ""
+"Fügt dem WordPress-Header ein leeres Favicon hinzu das verhindert, dass ein "
+"fehlendes Favicon oder ein 404-Fehler bei bestimmten Tools zum Testen der "
+"Website-Geschwindigkeit angezeigt wird."
+
+#: inc/settings.php:728
+msgid "Add Header Code"
+msgstr "Header-Code hinzufügen"
+
+#: inc/settings.php:736
+msgid ""
+"Code added here will be printed in the head section on every page of your "
+"website."
+msgstr ""
+"Der hier hinzugefügte Code wird auf jeder Seite Ihrer Website im Kopfbereich "
+"ausgegeben."
+
+#: inc/settings.php:743
+msgid "Add Footer Code"
+msgstr "Footer-Code hinzufügen"
+
+#: inc/settings.php:751
+msgid ""
+"Code added here will be printed above the closing body tag on every page of "
+"your website."
+msgstr ""
+"Der hier hinzugefügte Code wird auf jeder Seite Ihrer Website über dem "
+"abschließenden Body-Tag ausgegeben."
+
+#: inc/settings.php:776
+msgid "Accessibility Mode"
+msgstr "Barrierefreiheit-Modus"
+
+#: inc/settings.php:784
+msgid ""
+"Disable the use of visual UI elements in the plugin settings such as "
+"checkbox toggles and hovering tooltips."
+msgstr ""
+"Deaktiviere die Verwendung von visuellen UI-Elementen in den Plugin-"
+"Einstellungen, wie z.B. Checkbox-Toggles und Hovering-Tooltips."
+
+#: inc/settings.php:895
+msgid "Select which performance options you would like to enable."
+msgstr "Wähle aus, welche Performance-Optionen du aktivieren möchtest."
+
+#: inc/settings.php:900
+msgid "Disable specific elements of WooCommerce."
+msgstr "Deaktiviere bestimmte Elemente von WooCommerce."
+
+#: inc/settings.php:905
+msgid ""
+"CDN options that allow you to rewrite your site URLs with your CDN URLs."
+msgstr ""
+"CDN-Optionen, die Website-URLs mit Ihren CDN-URLs überschreiben können."
+
+#: inc/settings.php:910
+msgid "Optimization options for Google Analytics."
+msgstr "Optimierungs-Optionen für Google Analytics."
+
+#: inc/settings.php:915
+msgid "Extra options that pertain to Perfmatters plugin functionality."
+msgstr ""
+"Zusätzliche Optionen, die sich auf die Plugin-Funktionalität von Perfmatters "
+"beziehen."
+
+#: inc/settings.php:1066 inc/settings.php:1079
+msgid "Remove"
+msgstr "Entfernen"
+
+#: inc/settings.php:1085
+msgid "Add New"
+msgstr "Neu hinzufügen"
+
+#: inc/settings.php:1138
+msgid "View Documentation"
+msgstr "Dokumentation aufrufen"
+
+#: perfmatters.php:126
+msgid "License is Activated"
+msgstr "Lizenz ist aktiviert"
+
+#: perfmatters.php:129
+msgid "Renew License"
+msgstr "Lizenz erneuern"
+
+#: perfmatters.php:167
+msgid ""
+"Check out our <a href='https://woorkup.com/speed-up-wordpress/' "
+"title='WordPress Optimization Guide' target='_blank'>complete optimization "
+"guide</a> for more ways to speed up WordPress."
+msgstr ""
+"Schaue dir unsere <a href=\"https://woorkup.com/speed-up-wordpress/\" title="
+"\"WordPress Optimization Guide\" target=\"_blank\">komplette "
+"Optimierungsanleitung (EN)</a> an, um mehr Möglichkeiten zur Beschleunigung "
+"von WordPress zu finden."
+
+#. Plugin Name of the plugin/theme
+msgid "Perfmatters"
+msgstr "Perfmatters"
+
+#. Plugin URI of the plugin/theme
+msgid "https://perfmatters.io/"
+msgstr "https://perfmatters.io/"
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin adds an assortment of performance and speed improvements to your "
+"WordPress installation."
+msgstr ""
+"Dieses Plugin fügt eine Reihe von Performance- und "
+"Geschwindigkeitsverbesserungen zu Ihrer WordPress-Installation hinzu."
+
+#. Author of the plugin/theme
+msgid "forgemedia"
+msgstr "forgemedia"
+
+#. Author URI of the plugin/theme
+msgid "https://forgemedia.io/"
+msgstr "https://forgemedia.io/"

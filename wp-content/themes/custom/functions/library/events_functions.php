@@ -9,6 +9,10 @@ add_action( 'rest_api_init', function () {
 		'methods' => WP_REST_Server::ALLMETHODS,
 		'callback' => 'get_event_map_locations',
 	) );
+	register_rest_route( 'wod-events/v1', '/search', array(
+		'methods' => WP_REST_Server::ALLMETHODS,
+		'callback' => 'get_event_search',
+	) );
 } );
 
 
@@ -140,18 +144,27 @@ function get_event_map_locations( $request ){
 	while ( $my_query->have_posts() ) : $my_query->the_post();
 		$post_id = get_the_ID();
 		$location = get_post_meta($post_id,'location');
-		//print_r($location);
-		//$id = 'marker-' . $post->post_name;
+		$title = get_the_title();
+		$id = 'marker-' . get_post_field( 'post_name', get_post() );
+		ob_start();
+		echo '<div class="marker-card" id=". $id .">';
+		get_template_part('partials/events/event_card');
+		echo '</div>';
+		$marker_card = ob_get_clean();
 		$lat = $location[0]['lat'];
 		$lng = $location[0]['lng'];
 		if ( $lat && $lng ) {
 			$location = array(
 				'marker' => array(
+					'title' => $title,
 					'position' => array(
 						'lat' => $lat,
 						'lng' => $lng
 					),
-					'popup' => false
+					'popup' => array(
+						'id' => $id,
+						'marker_card' => $marker_card
+					)
 				)
 			);
 			$mapOptions['data'][] = $location;
@@ -166,7 +179,43 @@ function get_event_map_locations( $request ){
 
 
 
+function get_event_search( $request ){
+
+	$html = '';
+	$results = array();
+
+	$my_query = new WP_Query( array(
+		'post_type' => 'event_listing',
+		'status' => 'active',
+		's' => 'carara',
+		'meta_key' => '_event_start_date',
+		'order_by' => 'meta_key',
+		'order' => 'ASC'
+	) );
+
+	$results['found_posts'] = $my_query->found_posts;
+	$results['post_count'] = $my_query->post_count;
+
+	if( $my_query->have_posts() ){
+		while ( $my_query->have_posts() ) { $my_query->the_post();
+			ob_start();
+			get_template_part('partials/events/event_card');
+			$event_html = ob_get_clean();
+			$html .= $event_html;
+		}
+		$results['html'] = $html;
+		return $results;
+	} else{
+		return false;
+	}
+
+}
+
+
+
 //update map location field from organizer entered address on post save
+// acf/update_value/name={$field_name} - filter for a specific field based on it's name
+add_filter('acf/update_value/name=location', 'my_acf_update_value', 10, 3);
 function my_acf_update_value( $value, $post_id, $field  ) {
 
 	$original_value = $value;
@@ -252,9 +301,13 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 					);
 					$value = $location;
 
-					$success = 'Map location successfully determined by Google Maps';
+					$success = $post_id . ' Map location successfully determined by Google Maps';
 					$message = '<div class="wod-alert wod-alert-success success">' . $success . '</div>';
-					update_message_field('field_5e3442a5e4f45', $message);
+					//update_message_field('field_5e3442a5e4f45', $message);
+
+					update_field('location_messages_admin', $message, $post_id);
+
+
 
 					// ob_start();
 					// var_dump($location);
@@ -265,67 +318,42 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 				} elseif ( $data->status === 'ZERO_RESULTS' ) {
 					$error = 'No location found for the provided address.' . $data->status;
 					$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-					update_message_field('field_5e3442a5e4f45', $message);
+					update_field('location_messages_admin', $message, $post_id);
 				} elseif( $data->status === 'INVALID_REQUEST' ) {
 					$error = 'Invalid request, it is likely a proper address was not entered.' . $data->status;
 					$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-					update_message_field('field_5e3442a5e4f45', $message);
+					update_field('location_messages_admin', $message, $post_id);
 				} elseif ( $data->status === 'OVER_QUERY_LIMIT' ) { 
 					$error = 'Over Google API Query Limit.' . $data->status;
 					$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-					update_message_field('field_5e3442a5e4f45', $message);
+					update_field('location_messages_admin', $message, $post_id);
 				} else {
 					$error = 'Something went wrong while retrieving the location.' . $data->status;
 					$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-					update_message_field('field_5e3442a5e4f45', $message);
+					update_field('location_messages_admin', $message, $post_id);
 				} //end body status okay
 
 			} else{
 				$body = json_decode($body);
 				$error = 'Error ' . $response['response']['code'] . '. ' . $body->error_message . ' Location provided: ' . var_dump($provided_location);
 				$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-				update_message_field('field_5e3442a5e4f45', $message);
+				update_field('location_messages_admin', $message, $post_id);
 			} //close response code 200
 
 		} else{
 			$error = 'Something went wrong while retrieving the location, likely the location is empty.';
 			$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
-			update_message_field('field_5e3442a5e4f45', $message);
+			update_field('location_messages_admin', $message, $post_id);
 		} //close if location[0]
 
 	//overriding organizer input address
 	} else{
 		$success = 'Map location manually set, overriding organizer input address.';
 		$message = '<div class="wod-alert">' . $success . '</div>';
-		update_message_field('field_5e3442a5e4f45', $message);
+		update_field('location_messages_admin', $message, $post_id);
 		return $original_value;
 	} //close if overriding organizer input address
 
-}
-
-
-// acf/update_value/name={$field_name} - filter for a specific field based on it's name
-add_filter('acf/update_value/name=location', 'my_acf_update_value', 10, 3);
-
-
-function update_message_field($field_key='', $message='') {
-	global $wpdb;
-
-	$table = $wpdb->prefix.'posts';
-	$field = $wpdb->get_results("SELECT * FROM $table WHERE post_name = '$field_key' AND post_type='acf-field'");
-	if($field)
-	{
-		$meta = unserialize($field[0]->post_content);
-		$meta['message'] = $message;
-		$wpdb->update(
-			$table,
-			array(
-				'post_content'=>serialize($meta)
-			),
-			array('post_name'=>$field_key, 'post_type'=>'acf-field'),
-			array('%s')
-		);
-	}
 }
 
 

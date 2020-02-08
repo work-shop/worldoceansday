@@ -1,0 +1,214 @@
+.perfmatters-admin h2 {
+	font-size: 24px;
+	line-height: normal;
+	margin: 25px 0px 0px 0px;
+}
+
+.perfmatters-admin p.perfmatters-subheading {
+	font-size: 12px;
+	line-height: normal;
+	font-style: italic;
+	margin: 5px 0px 0px 0px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.perfmatters-admin .switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  font-size: 1px;
+}
+
+.perfmatters-admin .switch input {
+  display: block;
+  margin: 0px;
+}
+
+.perfmatters-admin .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.perfmatters-admin .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.perfmatters-admin input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.perfmatters-admin input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.perfmatters-admin input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.perfmatters-admin input[type="text"], .perfmatters-admin select, .perfmatters-admin textarea {
+  min-width: 300px;
+}
+
+.perfmatters-admin textarea {
+  resize: both;
+  min-height: 150px;
+}
+
+.perfmatters-admin .form-table th label {
+  vertical-align: top;
+}
+
+.perfmatters-admin .perfmatters-tooltip{
+  /*position: relative;*/
+  display: inline-block;
+  margin-left: 5px;
+  height: 15px;
+  width: 15px;
+  vertical-align: top;
+  text-align: center;
+  line-height: 15px;
+  font-size: 12px;
+  background: #e7e7e7;
+  color: #bbbbbb;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  text-decoration: none;
+}
+.perfmatters-admin .perfmatters-tooltip:hover {
+  background: #cccccc;
+  color:#777777;
+}
+.perfmatters-admin .perfmatters-input-wrapper {
+  white-space: nowrap;
+}
+.perfmatters-admin .perfmatters-tooltip-text-wrapper {
+  position: relative;
+  display: table-cell;
+  width: 100%;
+}
+.perfmatters-admin .perfmatters-tooltip-text-container {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  bottom: 0px;
+  left: 15px;
+  right: 0px;
+}
+.perfmatters-admin .perfmatters-tooltip-text {
+  display: inline-block;
+  background-color: #23282D;
+  color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 20px;
+  font-style: italic;
+}
+
+.perfmatters-admin .perfmatters-tooltip-text::after {
+  content: " ";
+  position: absolute;
+  top: 10px;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.perfmatters-beta {
+  background: #ED5464;
+  color: #ffffff;
+  padding: 5px;
+  vertical-align: middle;
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.perfmatters-admin p.submit, .wp-coupons-admin #perfmatters-restore {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+
+.perfmatters-admin p.submit .button, .perfmatters-admin #perfmatters-restore .button {
+  margin: 10px 10px 0px 0px;
+}
+
+.perfmatters-admin #perfmatters-legend {
+  float: right;
+  padding-top: 20px;
+  font-size: 12px;
+  line-height: 15px;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+.perfmatters-admin #perfmatters-tooltip-legend span {
+  display: inline-block;
+  margin-right: 5px;
+  height: 15px;
+  width: 15px;
+  vertical-align: top;
+  text-align: center;
+  line-height: 15px;
+  font-size: 12px;
+  background: #e7e7e7;
+  color: #bbbbbb;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.perfmatters-preconnect-row {
+  margin-bottom: 5px;
+}
+
+.perfmatters-preconnect-row label{
+  margin: 0px 5px;
+  font-size: 12px;
+}
+
+.perfmatters-preconnect-row input[type="checkbox"] {
+  margin-right: 0px;
+}
+
+a.perfmatters-delete-preconnect {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+a.perfmatters-delete-preconnect span.dashicons-no {
+  color: red;
+  text-decoration: none;
+}
+
+a#perfmatters-add-preconnect {
+  white-space: nowrap;
+  text-decoration: none;
+}

@@ -23,6 +23,7 @@ import { news } from './news.js';
 import { scrollSpy } from './scroll-spy.js';
 import { events } from './events.js';
 import { resources } from './resources.js';
+import { submitEvent } from './submit-event.js';
 
 //optional
 import { stickyNav } from './sticky-nav.js';
@@ -63,5 +64,8 @@ $(document).ready( function() {
 	}
 	if( $('body').hasClass('page-id-13')){
 		events();
+	}
+	if( $('body').hasClass('page-id-11')){
+		submitEvent();
 	}
 });

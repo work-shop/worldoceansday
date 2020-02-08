@@ -23,16 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="container-fluid padded-top pb5 bg-ultra-light">
-	<div class="row mb2">
+<div class="container-fluid padded-top pb3 bg-ultra-light">
+	<div class="row mb1">
 		<div class="col">
 			<h3 class="my-account-dashboard-heading font-black brand-tint">
-				<?php
-				printf(
-					__( 'Welcome, %1$s', 'user-registration' ),
-					esc_html( $current_user->display_name )
-				);
-				?>
+				Welcome Back!
 			</h3>
 		</div>
 	</div>

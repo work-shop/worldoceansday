@@ -9,56 +9,48 @@
 
         "errors": {
             "noui": {
-                "msg": "Warning: Seems like you are using sliders in search settings,\n" +
-                "but NoUI Slider script is not loaded!\n\n" +
-                "Go to Ajax Search Pro -> Compatibility settings submenu to enable it!",
+                "msg": "NOUI script is not loaded, try saving the search settings and clearing the cache",
                 "raised": false,
                 "repeat": false
             },
             "isotope": {
-                "msg": "Warning: Seems like you are using isotopic layout,\n" +
-                "but the Isotope JS script is not enabled!\n\n" +
-                "Go to Ajax Search Pro -> Compatibility settings submenu to enable it!",
+                "msg": "Isotope script is not loaded, try saving the search settings and clearing the cache",
                 "raised": false,
                 "repeat": false
             },
             "polaroid": {
-                "msg": "Warning: Seems like you are using polaroid layout,\n" +
-                "but the Ploaroid gallery JS script is not enabled!\n\n" +
-                "Go to Ajax Search Pro -> Compatibility settings submenu to enable it!",
+                "msg": "Polaroid script is not loaded, try saving the search settings and clearing the cache",
                 "raised": false,
                 "repeat": false
             },
             "datepicker": {
-                "msg": "Warning: Seems like you are using datepicker in search settings,\n" +
-                "but the UI DatePicker script is not loaded!\n\n" +
-                "Go to Ajax Search Pro -> Compatibility settings submenu to enable it!",
+                "msg": "Datepicker script is not loaded, try saving the search settings and clearing the cache",
                 "raised": false,
                 "repeat": false
             },
             "chosen": {
-                "msg": "Warning: Seems like you are using the Search feature (Chosen script) in search settings,\n" +
-                "but the Chosen jQuery script is not loaded!\n\n" +
-                "Go to Ajax Search Pro -> Compatibility settings submenu to enable it!",
+                "msg": "Chosen script is not loaded, try saving the search settings and clearing the cache",
                 "raised": false,
                 "repeat": false
             },
             "missing_response": {
-                "msg": "Warning: The response data is missing from the ajax request!\n" +
+                "msg": "The response data is missing from the ajax request!\n" +
                 "This could mean a server related issue.\n\n" +
                 "Check your .htaccess configuration and try disabling all other plugins to see if the problem persists.",
                 "raised": false,
-                "repeat": true
+                "repeat": true,
+                "force": true
             }
         },
 
         raiseError: function( error ) {
             var $this = this;
-
             // Prevent alert and console flooding
             if ( !$this.errors[error].raised || $this.errors[error].repeat ) {
-                alert($this.errors[error].msg);
-                console.log($this.errors[error].msg);
+                var msg = 'Ajax Search Pro Warning: ' + $this.errors[error].msg;
+                if ( ASP.debug || typeof $this.errors[error].force != 'undefined' )
+                    alert(msg);
+                console.log(msg);
                 $this.errors[error].raised = true;
             }
         },
@@ -124,15 +116,15 @@
 
             // Mobile changes
             if ( isMobile() ) {
-                $this.o.triggerontype = $this.o.mobile.trigger_on_type;
-                $this.o.redirectClickTo = $this.o.mobile.click_action;
-                $this.o.redirectClickLoc = $this.o.mobile.click_action_location;
-                $this.o.redirectEnterTo = $this.o.mobile.return_action;
-                $this.o.redirectEnterLoc = $this.o.mobile.return_action_location;
-                $this.o.redirect_url = $this.o.mobile.redirect_url;
-                $this.o.redirectonclick = $this.o.redirectClickTo == 'ajax_search' ? 0 : 1;
-                $this.o.redirect_on_enter = $this.o.redirectEnterTo == 'ajax_search' ? 0 : 1;
+                $this.o.trigger.type = $this.o.mobile.trigger_on_type;
+                $this.o.trigger.click = $this.o.mobile.click_action;
+                $this.o.trigger.click_location = $this.o.mobile.click_action_location;
+                $this.o.trigger.return= $this.o.mobile.return_action;
+                $this.o.trigger.return_location = $this.o.mobile.return_action_location;
+                $this.o.trigger.redirect_url = $this.o.mobile.redirect_url;
             }
+            $this.o.redirectOnClick = $this.o.trigger.click != 'ajax_search' && $this.o.trigger.click != 'nothing';
+            $this.o.redirectOnEnter = $this.o.trigger.return != 'ajax_search' && $this.o.trigger.return != 'nothing';
 
             /**
              * on IOS touch (iPhone, iPad etc..) the 'click' event does not fire, when not bound to a clickable element
@@ -218,7 +210,7 @@
             $this.asp_lazy = false;
 
             // A weird way of fixing HTML entity decoding from the parameter
-            $this.o.redirect_url = decodeHTMLEntities($this.o.redirect_url);
+            $this.o.trigger.redirect_url = decodeHTMLEntities($this.o.trigger.redirect_url);
 
 
             /**
@@ -769,7 +761,7 @@
                 e.preventDefault();
                 // Mobile keyboard search icon and search button
                 if ( isMobile() ) {
-                    if ( $this.o.redirect_on_enter ) {
+                    if ( $this.o.redirectOnEnter ) {
                         var _e = jQuery.Event("keyup");
                         _e.keyCode = _e.which = 13;
                         $this.n.text.trigger(_e);
@@ -1106,13 +1098,13 @@
                 var isInput = $(this).hasClass("orig");
 
                 if ( $this.n.text.val().length >= $this.o.charcount && isInput && $this.ktype == 'keyup' && $this.keycode == 13 ) {
-                    if ( $this.o.redirect_on_enter == 1 ) {
-                        if ($this.o.redirectEnterTo != 'first_result') {
+                    if ( $this.o.redirectOnEnter == 1 ) {
+                        if ($this.o.trigger.return != 'first_result') {
                             $this.doRedirectToResults($this.ktype);
                         } else {
                             $this.search();
                         }
-                    } else {
+                    } else if ( $this.o.trigger.return == 'ajax_search' ) {
                         if (
                             ($('form', $this.n.searchsettings).serialize() + $this.n.text.val().trim()) != $this.lastSuccesfulSearch ||
                             !$this.resultsOpened
@@ -1124,9 +1116,20 @@
                 }
             });
 
+            var previousInputValue = $this.n.text.val();
             $this.n.promagnifier.add($this.n.text).on('click input', function (e) {
                 $this.keycode =  e.keyCode || e.which;
                 $this.ktype = e.type;
+
+                // IE <= 11, on click, triggers the input event, and starts the search automatically
+                if ( $this.ktype == 'input' && detectIE() ) {
+                    if ( previousInputValue == $this.n.text.val() ) {
+                        return false;
+                    } else {
+                        previousInputValue = $this.n.text.val();
+                    }
+                }
+
                 var isInput = $(this).hasClass("orig");
                 $this.hideArrowBox();
                 // Show the results if the query does not change
@@ -1165,7 +1168,7 @@
                 // If redirection is set to the results page, or custom URL
                 if (
                     $this.n.text.val().length >= $this.o.charcount &&
-                    (!isInput && $this.o.redirectonclick == 1 && $this.ktype == 'click' && $this.o.redirectClickTo != 'first_result')
+                    (!isInput && $this.o.redirectOnClick == 1 && $this.ktype == 'click' && $this.o.trigger.click != 'first_result')
                 ) {
                     $this.doRedirectToResults($this.ktype);
                     clearTimeout(t);
@@ -1173,13 +1176,13 @@
                 }
 
                 // ..if no redirection, then check if specific actions are not forbidden
-                if ($this.ktype == 'input' && $this.o.triggerontype == 0) {
+                if ($this.ktype == 'input' && $this.o.trigger.type == 0) {
                     return;
-                } else if ( $this.ktype == 'click' && !$this.o.trigger_on_click ) {
+                } else if ( $this.ktype == 'click' && !( $this.o.trigger.click == 'ajax_search' || $this.o.trigger.click == 'first_result' ) ) {
                     return;
                 }
 
-                //if (($this.o.triggerontype == 0 && $this.ktype == 'keyup') || ($this.ktype == 'keyup' && is_touch_device())) return;
+                //if (($this.o.trigger.type == 0 && $this.ktype == 'keyup') || ($this.ktype == 'keyup' && is_touch_device())) return;
 
                 if ( $this.n.text.val().length < $this.o.charcount ) {
                     $this.n.proloading.css('display', 'none');
@@ -1216,8 +1219,8 @@
             if (
                 $('.asp_res_url', $this.n.resultsDiv).length > 0 &&
                 (
-                    ($this.o.redirectonclick == 1 && $this.ktype == 'click' && $this.o.redirectClickTo == 'first_result' ) ||
-                    ($this.o.redirect_on_enter == 1 && ($this.ktype == 'input' || $this.ktype == 'keyup') && $this.keycode == 13 && $this.o.redirectEnterTo == 'first_result' ) ||
+                    ($this.o.redirectOnClick == 1 && $this.ktype == 'click' && $this.o.trigger.click == 'first_result' ) ||
+                    ($this.o.redirectOnEnter == 1 && ($this.ktype == 'input' || $this.ktype == 'keyup') && $this.keycode == 13 && $this.o.trigger.return == 'first_result' ) ||
                     ($this.ktype == 'button' && $this.o.sb.redirect_action == 'first_result' )
                 )
             ) {
@@ -1231,11 +1234,11 @@
             var _loc;
 
             if ( $this.ktype == 'click' ) {
-                _loc = $this.o.redirectClickLoc;
+                _loc = $this.o.trigger.click_location;
             } else if ( $this.ktype == 'button' ) {
                 _loc = $this.o.sb.redirect_location;
             } else {
-                _loc = $this.o.redirectEnterLoc;
+                _loc = $this.o.trigger.return_location;
             }
 
             if ( _loc == 'same' )
@@ -1258,11 +1261,11 @@
             }
 
             if ( ktype == 'click' ) {
-                _loc = $this.o.redirectClickLoc;
+                _loc = $this.o.trigger.click_location;
             } else if ( ktype == 'button' ) {
                 _loc = $this.o.sb.redirect_location;
             } else {
-                _loc = $this.o.redirectEnterLoc;
+                _loc = $this.o.trigger.return_location;
             }
             var url = $this.getRedirectURL(ktype);
 
@@ -1461,7 +1464,7 @@
                     if ($this.keycode == thekey && $this.n.textAutocomplete.val() != "") {
                         e.preventDefault();
                         $this.n.text.val($this.n.textAutocomplete.val());
-                        if ( $this.o.triggerontype != 0 ) {
+                        if ( $this.o.trigger.type != 0 ) {
                             $this.searchAbort();
                             $this.search();
                         }
@@ -1914,12 +1917,12 @@
                 }
                 $this.n.searchsettings.find('input[name=filters_changed]').val(1);
                 $this.setFilterStateInput(65);
-                if ( $this.o.triggerOnFacetChange != 0 )
+                if ( $this.o.trigger.facet != 0 )
                     $this.searchWithCheck(240);
             });
 
             // This needs to be here, submit prevention on input text fields is still needed
-            if ($this.o.triggerOnFacetChange == 0) return;
+            if ($this.o.trigger.facet == 0) return;
 
             $('input[type!=checkbox][type!=text], select', $this.n.searchsettings).on('change slidechange', function(){
                 $this.n.searchsettings.find('input[name=filters_changed]').val(1);
@@ -2259,7 +2262,7 @@
             $this.showLoader( recall );
 
             // If blocking, or hover but facetChange activated, dont hide the settings for better UI
-            if ( $this.o.blocking == false && $this.o.triggerOnFacetChange == 0 ) $this.hideSettings();
+            if ( $this.o.blocking == false && $this.o.trigger.facet == 0 ) $this.hideSettings();
 
             if ( recall ) {
                 $this.call_num++;
@@ -2314,9 +2317,9 @@
                         $this.n.text.val( decodeHTMLEntities($(this).text()) );
                         $this.n.textAutocomplete.val('');
                         // Is any ajax trigger enabled?
-                        if ( $this.o.redirectonclick == 0 ||
-                            $this.o.redirect_on_enter == 0 ||
-                            $this.o.triggerontype == 1) {
+                        if ( $this.o.redirectOnClick == 0 ||
+                            $this.o.redirectOnEnter == 0 ||
+                            $this.o.trigger.type == 1) {
                             $this.search();
                         }
                     });
@@ -3678,11 +3681,11 @@
             ktype = typeof ktype !== 'undefined' ? ktype : 'enter';
 
             if ( ktype == 'click' ) {
-                source = $this.o.redirectClickTo;
+                source = $this.o.trigger.click;
             } else if ( ktype == 'button' ) {
                 source = $this.o.sb.redirect_action;
             } else {
-                source = $this.o.redirectEnterTo;
+                source = $this.o.trigger.return;
             }
 
             if ( source == 'results_page' ) {
@@ -3693,7 +3696,7 @@
                 if ( ktype == 'button' )
                     url = $this.parseCustomRedirectURL($this.o.sb.redirect_url, $this.n.text.val());
                 else
-                    url = $this.parseCustomRedirectURL($this.o.redirect_url, $this.n.text.val());
+                    url = $this.parseCustomRedirectURL($this.o.trigger.redirect_url, $this.n.text.val());
             }
             // Is this an URL like xy.com/?x=y
             if ( $this.o.homeurl.indexOf('?') > 1 && url.indexOf('?') === 0 ) {
@@ -3911,7 +3914,7 @@
             var rid = $(this).attr('id').match(/^ajaxsearchpro(.*)/)[1];
             if ( typeof instData[rid] != 'undefined' ) {
                 var $this = instData[rid];
-                var url = $this.parseCustomRedirectURL($this.o.redirect_url, phrase);
+                var url = $this.parseCustomRedirectURL($this.o.trigger.redirect_url, phrase);
 
                 // Is this an URL like xy.com/?x=y
                 if ( $this.o.homeurl.indexOf('?') > 1 && url.indexOf('?') == 0 ) {
@@ -4087,26 +4090,22 @@
     }
 
     function isScrolledToTop(el, tolerance) {
-        var $el = $(el);
-        return $el.scrollTop() < tolerance;
+        return $(el).scrollTop() < tolerance;
     }
 
     function isScrolledToBottom(el, tolerance) {
-        var $el = $(el);
-        return el.scrollHeight - $el.scrollTop() - $el.outerHeight() < tolerance;
+        return el.scrollHeight - $(el).scrollTop() - $(el).outerHeight() < tolerance;
     }
 
     function isScrolledToRight(el) {
-        $el = $(el);
-        if ( el.scrollWidth - $el.outerWidth() === $el.scrollLeft() ){
+        if ( el.scrollWidth - $(el).outerWidth() === $(el).scrollLeft() ){
             return true;
         }
         return false;
     }
 
     function isScrolledToLeft(el) {
-        $el = $(el);
-        if ( $el.scrollLeft() === 0 ){
+        if ( $(el).scrollLeft() === 0 ){
             return true;
         }
         return false;
@@ -4120,13 +4119,16 @@
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf('MSIE ');         // <10
         var trident = ua.indexOf('Trident/');   // 11
-        var edge = ua.indexOf('Edge/');         // EDGE (12)
 
-        if (msie > 0 || trident > 0 || edge > 0)
+        if ( msie > 0 || trident > 0 )
             return true;
 
         // other browser
         return false;
+    }
+
+    function detectEdge() {
+        return window.navigator.userAgent.indexOf('Edge/') > 0;
     }
 
     function detectIOS() {

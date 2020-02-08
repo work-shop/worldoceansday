@@ -2807,7 +2807,6 @@ if ( !function_exists("asp_get_unused_assets") ) {
             'chosen', 'isotope', 'simplebar'
         );
         $filters_may_require_simplebar = false;
-
         if ( $return_stored !== false ) {
             return get_option('asp_unused_assets', array(
                 'internal' => $dependencies,
@@ -3015,6 +3014,8 @@ if (!function_exists("asp_css_minify")) {
         $css = preg_replace( '/(,|:|;|\{|}|\*\/|>) /', '$1', $css );
         // Remove space before , ; { } ( ) >
         $css = preg_replace( '/ (,|;|\{|}|\(|\)|>)/', '$1', $css );
+        // Add back the space for media queries operator
+        $css = preg_replace( '/and\(/', 'and (', $css );
         // Strips leading 0 on decimal values (converts 0.5px into .5px)
         $css = preg_replace( '/(:| )0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
         // Strips units if value is 0 (converts 0px to 0)

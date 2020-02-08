@@ -239,6 +239,7 @@ $text-button-small: (
 	border-radius: 16px;
 	transform: scale(1);
 	transition: transform .1s;
+	line-height: 1.4 !important;
 
 	@media screen and (max-width: $md) {
 		padding: 15px 20px 13px 20px;
@@ -649,6 +650,32 @@ $text-button-small: (
 	width: auto;
 	z-index: 0;
 	opacity: .15;
+}
+
+
+.wod-alert{
+	padding: 20px;
+	border: 1px solid;
+	border-radius: 8px;
+
+	background: #cce5ff;
+	color: $brand;
+	border-color: $brand;
+
+	&.wod-alert-success{
+		color: darken(#d4edda, 55%);
+		background: #d4edda;
+		border-color: darken(#d4edda, 55%);
+
+	}
+
+	&.wod-alert-error{
+		color: darken($error, 10%);
+		background: lighten($error,30%);
+		border-color: darken($error, 10%);
+
+	}
+
 }
 
 

@@ -75,7 +75,8 @@ class WS_Site_Admin {
     }
 
     public function admin_js() {
-        wp_enqueue_script( 'admin', get_template_directory_uri() . '/js/admin.js');
+       // wp_enqueue_script( 'admin', get_template_directory_uri() . '/js/admin.js', array('jquery'));
+
     }
 
     /**

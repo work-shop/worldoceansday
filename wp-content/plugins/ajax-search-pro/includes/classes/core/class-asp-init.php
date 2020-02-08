@@ -500,7 +500,8 @@ class WD_ASP_Init {
             'scrollbar' => $load_mcustom,
             'css_loaded' => $css_async_load == 1 ? 0 : 1,
             'js_retain_popstate' => w_isset_def($comp_settings['js_retain_popstate'], 1),
-            'fix_duplicates' => w_isset_def($comp_settings['js_fix_duplicates'], 1)
+            'fix_duplicates' => w_isset_def($comp_settings['js_fix_duplicates'], 1),
+            'debug' => ASP_DEBUG == 1 || defined('WP_ASP_TEST_ENV')
         ));
     }
 

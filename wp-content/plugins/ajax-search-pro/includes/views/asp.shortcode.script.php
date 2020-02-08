@@ -39,22 +39,19 @@ defined('ABSPATH') or die("You can't access this file directly.");
         "lang": "<?php echo w_isset_def($style['autocomplete_google_lang'], 'en'); ?>",
         "mobile": <?php echo $style['autocomplete'] == 1 || $style['autocomplete'] == 3 ? 1 : 0; ?>
     },
-    "triggerontype": <?php echo $style['triggerontype'] == 1 ? 1 : 0; ?>,
-    "trigger_on_click": <?php echo $style['click_action'] == 'ajax_search' || $style['click_action'] == 'first_result' ? 1 : 0; ?>,
-    "triggerOnFacetChange": <?php echo w_isset_def($style['trigger_on_facet'], 0); ?>,
     "trigger": {
         "delay": <?php echo $style['trigger_delay']; ?>,
-        "autocomplete_delay": <?php echo $style['autocomplete_trigger_delay']; ?>
+        "autocomplete_delay": <?php echo $style['autocomplete_trigger_delay']; ?>,
+        "facet": <?php echo w_isset_def($style['trigger_on_facet'], 0); ?>,
+        "type": <?php echo $style['triggerontype'] == 1 ? 1 : 0; ?>,
+        "click": "<?php echo $style['click_action']; ?>",
+        "click_location": "<?php echo $style['return_action_location']; ?>",
+        "return": "<?php echo $style['return_action']; ?>",
+        "return_location": "<?php echo $style['return_action_location']; ?>",
+        "redirect_url": "<?php echo apply_filters( "asp_redirect_url", w_isset_def($style['redirect_url'], '?s={phrase}') ); ?>"
     },
     "overridewpdefault": <?php echo w_isset_def($style['override_default_results'], 0); ?>,
     "override_method": "<?php echo $style['override_method']; ?>",
-    "redirectonclick": <?php echo $style['click_action'] != 'ajax_search' && $style['click_action'] != 'nothing' ? 1 : 0; ?>,
-    "redirectClickTo": "<?php echo $style['click_action']; ?>",
-    "redirectClickLoc": "<?php echo $style['click_action_location']; ?>",
-    "redirect_on_enter": <?php echo $style['return_action'] != 'ajax_search' && $style['return_action'] != 'nothing' ? 1 : 0; ?>,
-    "redirectEnterTo": "<?php echo $style['return_action']; ?>",
-    "redirectEnterLoc": "<?php echo $style['return_action_location']; ?>",
-    "redirect_url": "<?php echo apply_filters( "asp_redirect_url", w_isset_def($style['redirect_url'], '?s={phrase}') ); ?>",
     "settings": {
         "hideChildren": <?php echo $style['frontend_terms_hide_children']; ?>
     },

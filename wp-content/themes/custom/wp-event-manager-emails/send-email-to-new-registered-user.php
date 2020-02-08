@@ -29,38 +29,14 @@ a:hover, a:active {
             <!-- text container start-->	
 	    <div style="background-color:#fff;margin-top:0px; border-left: 1px solid #ccc;border-right: 1px solid #ccc;">      			
 		    	 <br>	
-		    	 <h2 style="font-family:bitter;" >Hey there - welcome to <?php bloginfo('name'); ?>.</h2>	 		
-			 <span> <?php $part= explode(" ", get_option( 'blogname' ) ); echo $part[0];?>&#39;s leading event site for all your Events, Business Conferences, Expo & Trade Fairs.</span> <br><br>
-			 <p>With your new account, you can now create event listings for your organizer and/or register for events.</p><br>
+		    	 <h2>Welcome to <?php bloginfo('name'); ?></h2>	 		
+			 <p>With your new account, you can now create event listings</p><br>
 		         <p style="padding:25px;color:#fff;border:1px solid #777;border-radius:5px; width:50%; margin:0px auto;background-color:#000000;"> 
 		               <font style="color: #ff7200; font-size:18px;font-family:bitter;">Your login information </font><br>
 		               <font style="color: #fff !important; text-decoration:none;"> Email : <?php echo esc_html($user_email); ?></font><br>
 			       <font style="color: #fff;"> Username : <?php echo $user_name; ?></font><br>
-			  </p><br>			  
-		          <p><?php bloginfo('name'); ?> is the Fastest growing B2B Event Discovery Platform that connects Exhibitors, Organizers and Event Attendees all at one Place.</p>
-		          <p>We Mean Business and helps Businesses across the Globe to Find Latest and Most Innovative Events in your Industry.</p><br>		         
-		          <p>Get Started : <a href="<?php echo site_url(); ?>" style="color:#F36D00 !important;"><?php bloginfo('name'); ?></a></p><br>
-		          <p>we look forward to having you onboard!</p><br>
-		              Best wishes,<br>
-		              <?php bloginfo('name'); ?>			
-		        <br><br>		
-	   </div>  
-	   <!-- text container end-->
-      	   <!-- social container start-->	
-			<div style="background-color:#1F1F1F; width:100%; display: inline-block;">
-				<h5 style="color:#939393; font-size:12px; font-family:Verdana, Geneva, sans-serif;  ">
-					<?php _e( '&quot;We do all the work, and you get all the credit.&quot;', 'wp-event-manager-emails' ); ?></h5>
-			
-		
-			</div>
-			<!-- social container end-->			
-		      <!-- copyright container start-->	
-		      <div>
-			   <div style="background-color:#151515;border-radius:0 0 10px 10px;min-height:25px;">
-				<h6 style="color:#939393;vertical-align:middle; text-align:center;padding-top:5px; margin:0px;"><?php echo date("Y"); ?> @ <?php bloginfo('name'); ?>, All Right Reserved.</h6>
-			  </div>
-		     </div>
-		     <!-- copyright container end-->				
+			  </p>		
+	   </div>  			
 	</div>
 	<!-- middel width container end-->			
   </div>

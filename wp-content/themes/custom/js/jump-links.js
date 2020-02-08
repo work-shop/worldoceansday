@@ -48,6 +48,16 @@ function jumpLinks(config){
 
 		});
 
+		$('.jump-submit').click(function(e){
+
+			e.preventDefault();
+
+			$('html,body').animate({
+				scrollTop: $( $(this).attr('href') ).offset().top - 100
+			}, config.transitionDuration);
+
+		});
+
 	});
 
 }

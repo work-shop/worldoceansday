@@ -417,7 +417,7 @@ template {
 
 /* line 7, wp-content/themes/custom/scss/bootstrap/_type.scss */
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend, .h4, #home-stories .card-supporter-title, .h5, .h6 {
+.h1, .h2, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, #content #submit-event-form h2, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend, .h4, #home-stories .card-supporter-title, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-family: inherit;
   font-weight: 500;
@@ -436,7 +436,7 @@ h2, .h2 {
 }
 
 /* line 18, wp-content/themes/custom/scss/bootstrap/_type.scss */
-h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
+h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, #content #submit-event-form h2, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
   font-size: 1.75rem;
 }
 
@@ -710,7 +710,7 @@ pre code {
 /* line 8, wp-content/themes/custom/scss/bootstrap/mixins/_grid-framework.scss */
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, #annual-reports .annual-report, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
-.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .event-submit-submit .submit-event-form-col, .page-id-554 .event-manager-message, .page-id-554 #submit-event-form, .col-md-11, .col-md-12, .col-md,
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
 .col-xl-auto {
@@ -1179,7 +1179,7 @@ pre code {
     max-width: 75%;
   }
   /* line 44, wp-content/themes/custom/scss/bootstrap/mixins/_grid-framework.scss */
-  .col-md-10 {
+  .col-md-10, .event-submit-submit .submit-event-form-col, .page-id-554 .event-manager-message, .page-id-554 #submit-event-form {
     flex: 0 0 83.3333333333%;
     max-width: 83.3333333333%;
   }
@@ -1258,7 +1258,7 @@ pre code {
     margin-left: 0;
   }
   /* line 60, wp-content/themes/custom/scss/bootstrap/mixins/_grid-framework.scss */
-  .offset-md-1 {
+  .offset-md-1, .event-submit-submit .submit-event-form-col, .page-id-554 .event-manager-message, .page-id-554 #submit-event-form {
     margin-left: 8.3333333333%;
   }
   /* line 60, wp-content/themes/custom/scss/bootstrap/mixins/_grid-framework.scss */
@@ -1342,7 +1342,7 @@ pre code {
     max-width: 41.6666666667%;
   }
   /* line 44, wp-content/themes/custom/scss/bootstrap/mixins/_grid-framework.scss */
-  .col-lg-6 {
+  .col-lg-6, .event-submit-submit .submit-event-form-col, .page-id-554 .event-manager-message, .page-id-554 #submit-event-form {
     flex: 0 0 50%;
     max-width: 50%;
   }
@@ -1449,7 +1449,7 @@ pre code {
     margin-left: 16.6666666667%;
   }
   /* line 60, wp-content/themes/custom/scss/bootstrap/mixins/_grid-framework.scss */
-  .offset-lg-3 {
+  .offset-lg-3, .event-submit-submit .submit-event-form-col, .page-id-554 .event-manager-message, .page-id-554 #submit-event-form {
     margin-left: 25%;
   }
   /* line 60, wp-content/themes/custom/scss/bootstrap/mixins/_grid-framework.scss */
@@ -4219,7 +4219,7 @@ button.bg-dark:focus {
 }
 
 /* line 27, wp-content/themes/custom/scss/bootstrap/utilities/_flex.scss */
-.justify-content-center, .flex-center, .page-id-554.user_logged_out #my-account-content, .page-id-22.user_logged_out #my-account-content, .page-id-554.user-registration-edit-password .user-registration-MyAccount-content, .page-id-22.user-registration-edit-password .user-registration-MyAccount-content, .page-id-554.user-registration-edit-profile .user-registration-MyAccount-content, .page-id-22.user-registration-edit-profile .user-registration-MyAccount-content, .flex-center-vertical, .sitewide-alert-message {
+.justify-content-center, .flex-center, .page-id-554.user_logged_out #my-account-content, .page-id-22.user_logged_out #my-account-content, .page-id-554.user-registration-edit-password .user-registration-MyAccount-content, .page-id-22.user-registration-edit-password .user-registration-MyAccount-content, .page-id-554.user-registration-edit-profile .user-registration-MyAccount-content, .page-id-22.user-registration-edit-profile .user-registration-MyAccount-content, .flex-center-vertical, .sitewide-alert-message, .submit-event-buttons, #event-single-wrapper .addthis_inline_share_toolbox_84zx {
   justify-content: center !important;
 }
 
@@ -8229,7 +8229,7 @@ ol, ul {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 0;
   background-size: cover;
   background-position: center top;
 }
@@ -10264,35 +10264,35 @@ h2, .h2 {
 }
 
 /* line 88, wp-content/themes/custom/scss/site/_typography.scss */
-h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
+h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, #content #submit-event-form h2, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
   font-size: 1.7vw;
   line-height: 1.4;
 }
 
 @media screen and (max-width: 1199px) {
   /* line 88, wp-content/themes/custom/scss/site/_typography.scss */
-  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
+  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, #content #submit-event-form h2, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
     font-size: 1.9vw;
   }
 }
 
 @media screen and (max-width: 991px) {
   /* line 88, wp-content/themes/custom/scss/site/_typography.scss */
-  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
+  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, #content #submit-event-form h2, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
     font-size: 2.5vw;
   }
 }
 
 @media screen and (max-width: 767px) {
   /* line 88, wp-content/themes/custom/scss/site/_typography.scss */
-  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
+  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, #content #submit-event-form h2, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
     font-size: 2.7vw;
   }
 }
 
 @media screen and (max-width: 575px) {
   /* line 88, wp-content/themes/custom/scss/site/_typography.scss */
-  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
+  h3, .h3, .card .card-title, .gform_confirmation_message, .wysiwyg blockquote p, .wysiwyg blockquote p span, .page-introduction h2, .fc-cards .fc-section-heading-text, .section-heading, #home-stories .supporters-stories-heading, #content #submit-event-form h2, .page-id-554.user-registration-edit-password #my-account-content fieldset legend, .page-id-22.user-registration-edit-password #my-account-content fieldset legend {
     font-size: 3.5vw;
   }
 }
@@ -10481,7 +10481,7 @@ p {
 }
 
 /* line 143, wp-content/themes/custom/scss/site/_typography.scss */
-.uppercase, .fc-rich-text .fc-sidebar .fc-sidebar-button, .fc-cards .card .card-button-container .card-button-text, .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"], .card .card-button-container .card-button-text, .gfield_label_before_complex, .menu-title a, .mobile-menu-secondary-link a, .page-hero .subpage-title, .home-section-heading, .subscribe-form input[type="submit"], .news-post .card-post-date, .card-event .card-inner .card-text .event-categories {
+.uppercase, .fc-rich-text .fc-sidebar .fc-sidebar-button, .fc-cards .card .card-button-container .card-button-text, .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"], .card .card-button-container .card-button-text, .gfield_label_before_complex, .menu-title a, .mobile-menu-secondary-link a, .page-hero .subpage-title, .home-section-heading, .subscribe-form input[type="submit"], .news-post .card-post-date, .card-event .card-inner .card-text .event-categories, #event-single-wrapper .single-event-organizer-label {
   text-transform: uppercase;
 }
 
@@ -10501,12 +10501,12 @@ p {
 }
 
 /* line 159, wp-content/themes/custom/scss/site/_typography.scss */
-.tracked-less, .fc-rich-text .fc-sidebar .fc-sidebar-button, .gfield_label_before_complex, .menu-title a, .mobile-menu-secondary-link a, .filter-menu li a, .page-hero .subpage-title, .home-section-heading, .subscribe-form input[type="submit"], .card-event .card-inner .card-text .event-categories {
+.tracked-less, .fc-rich-text .fc-sidebar .fc-sidebar-button, .gfield_label_before_complex, .menu-title a, .mobile-menu-secondary-link a, .filter-menu li a, .page-hero .subpage-title, .home-section-heading, .subscribe-form input[type="submit"], .card-event .card-inner .card-text .event-categories, #event-single-wrapper .single-event-organizer-label {
   letter-spacing: .06em;
 }
 
 /* line 163, wp-content/themes/custom/scss/site/_typography.scss */
-.tracked, .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"], #nav .nav-right .nav-menu-upper li a {
+.tracked, .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"], #nav .nav-right .nav-menu-upper li a {
   letter-spacing: .09em;
 }
 
@@ -10605,7 +10605,7 @@ body {
 
 @media screen and (max-width: 767px) {
   /* line 32, wp-content/themes/custom/scss/site/_general.scss */
-  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-xs, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, #annual-reports .annual-report, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-xl, .col-xl-1, .col-xl-2, .col-xl-3, #annual-reports .annual-report, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-xs, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, #annual-reports .annual-report, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .event-submit-submit .submit-event-form-col, .page-id-554 .event-manager-message, .page-id-554 #submit-event-form, .col-md-11, .col-md-12, .col-lg, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .event-submit-submit .submit-event-form-col, .page-id-554 .event-manager-message, .page-id-554 #submit-event-form, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-xl, .col-xl-1, .col-xl-2, .col-xl-3, #annual-reports .annual-report, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -10756,7 +10756,7 @@ input:focus {
 }
 
 /* line 162, wp-content/themes/custom/scss/site/_general.scss */
-.brand-tint, .card .card-title, .card .card-description, .filter-summary, .section-heading, .fc-cards .fc-section-heading-text {
+.brand-tint, .card .card-title, .card .card-description, .filter-summary, .section-heading, .fc-cards .fc-section-heading-text, #content #submit-event-form h2 {
   color: #426182;
 }
 
@@ -10806,13 +10806,13 @@ input:focus {
 }
 
 /* line 203, wp-content/themes/custom/scss/site/_general.scss */
-.font-black, .fc-cards .card .card-title, .fc-overview-blocks .overview-block-text .block-heading, .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"], .card .card-title, .card.card-style-image .card-title, #flexible-content .fc-background h2, #footer .footer-secondary ul a, .filter-menu li a, .filter-summary, .section-heading, .fc-cards .fc-section-heading-text, .home-section-heading, #home-stories .supporters-stories-heading, #news .filter-button.filter-active, .news-post .card-post-title a, #current-council .person-name, .card-resource .card-text .resource-title {
+.font-black, .fc-cards .card .card-title, .fc-overview-blocks .overview-block-text .block-heading, .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"], .card .card-title, .card.card-style-image .card-title, #flexible-content .fc-background h2, #footer .footer-secondary ul a, .filter-menu li a, .filter-summary, .section-heading, .fc-cards .fc-section-heading-text, .home-section-heading, #home-stories .supporters-stories-heading, #news .filter-button.filter-active, .news-post .card-post-title a, #current-council .person-name, #content #submit-event-form h2, #event-single-wrapper .event-single-title, #event-single-wrapper .event-single-meta-heading, .card-resource .card-text .resource-title {
   font-weight: 800;
 }
 
 /* sitewide button styles */
 /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-.button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+.button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
   padding: 20px 25px 18px 25px;
   color: white;
   display: inline-block;
@@ -10822,11 +10822,12 @@ input:focus {
   border-radius: 16px;
   transform: scale(1);
   transition: transform .1s;
+  line-height: 1.4 !important;
 }
 
 @media screen and (min-width: 1px) {
   /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-  .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+  .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
     font-size: 11px;
     line-height: calc(12 / 11);
   }
@@ -10834,7 +10835,7 @@ input:focus {
 
 @media screen and (min-width: 576px) {
   /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-  .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+  .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
     font-size: 11px;
     line-height: calc(12 / 11);
   }
@@ -10842,7 +10843,7 @@ input:focus {
 
 @media screen and (min-width: 768px) {
   /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-  .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+  .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
     font-size: 12px;
     line-height: calc(12 / 12);
   }
@@ -10850,7 +10851,7 @@ input:focus {
 
 @media screen and (min-width: 992px) {
   /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-  .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+  .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
     font-size: 13px;
     line-height: calc(12 / 13);
   }
@@ -10858,7 +10859,7 @@ input:focus {
 
 @media screen and (min-width: 1200px) {
   /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-  .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+  .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
     font-size: 14px;
     line-height: calc(12 / 14);
   }
@@ -10866,162 +10867,162 @@ input:focus {
 
 @media screen and (max-width: 991px) {
   /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-  .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+  .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
     padding: 15px 20px 13px 20px;
   }
 }
 
 @media screen and (max-width: 767px) {
   /* line 228, wp-content/themes/custom/scss/site/_general.scss */
-  .button, #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
+  .button, #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a, #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form [type="submit"] {
     padding: 10px 15px 8px 20px;
   }
 }
 
-/* line 251, wp-content/themes/custom/scss/site/_general.scss */
-.button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
+/* line 252, wp-content/themes/custom/scss/site/_general.scss */
+.button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a.button-small, #content #submit-event-form .account-sign-in .card-resource .card-links a, .card-resource .card-links #content #submit-event-form .account-sign-in a, #content #submit-event-form input.button-small[type="submit"], #event_preview .event_listing_preview_title .button-small.button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
   padding: 10px 15px 8px 20px;
 }
 
 @media screen and (min-width: 1px) {
-  /* line 251, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
+  /* line 252, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a.button-small, #content #submit-event-form .account-sign-in .card-resource .card-links a, .card-resource .card-links #content #submit-event-form .account-sign-in a, #content #submit-event-form input.button-small[type="submit"], #event_preview .event_listing_preview_title .button-small.button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
     font-size: 9px;
     line-height: calc(12 / 9);
   }
 }
 
 @media screen and (min-width: 576px) {
-  /* line 251, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
+  /* line 252, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a.button-small, #content #submit-event-form .account-sign-in .card-resource .card-links a, .card-resource .card-links #content #submit-event-form .account-sign-in a, #content #submit-event-form input.button-small[type="submit"], #event_preview .event_listing_preview_title .button-small.button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
     font-size: 9px;
     line-height: calc(12 / 9);
   }
 }
 
 @media screen and (min-width: 768px) {
-  /* line 251, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
+  /* line 252, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a.button-small, #content #submit-event-form .account-sign-in .card-resource .card-links a, .card-resource .card-links #content #submit-event-form .account-sign-in a, #content #submit-event-form input.button-small[type="submit"], #event_preview .event_listing_preview_title .button-small.button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
     font-size: 10px;
     line-height: calc(12 / 10);
   }
 }
 
 @media screen and (min-width: 992px) {
-  /* line 251, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
+  /* line 252, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a.button-small, #content #submit-event-form .account-sign-in .card-resource .card-links a, .card-resource .card-links #content #submit-event-form .account-sign-in a, #content #submit-event-form input.button-small[type="submit"], #event_preview .event_listing_preview_title .button-small.button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
     font-size: 11px;
     line-height: calc(12 / 11);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  /* line 251, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
+  /* line 252, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-small, #flexible-content .fc-button a.button-small, #flexible-content .fc-button .card-resource .card-links a, .card-resource .card-links #flexible-content .fc-button a, #content #submit-event-form .account-sign-in a.button-small, #content #submit-event-form .account-sign-in .card-resource .card-links a, .card-resource .card-links #content #submit-event-form .account-sign-in a, #content #submit-event-form input.button-small[type="submit"], #event_preview .event_listing_preview_title .button-small.button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links a, #content #my-account-content .ur-frontend-form .button-small[type="submit"], #content #my-account-content .ur-frontend-form .card-resource .card-links a[type="submit"], .card-resource .card-links #content #my-account-content .ur-frontend-form a[type="submit"] {
     font-size: 12px;
     line-height: calc(12 / 12);
   }
 }
 
-/* line 256, wp-content/themes/custom/scss/site/_general.scss */
-.button.button-large, #flexible-content .fc-button a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
+/* line 257, wp-content/themes/custom/scss/site/_general.scss */
+.button.button-large, #flexible-content .fc-button a.button-large, #content #submit-event-form .account-sign-in a.button-large, #content #submit-event-form input.button-large[type="submit"], #event_preview .event_listing_preview_title .button-large.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-large, .card-resource .card-links #event_preview .event_listing_preview_title a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
   padding: 20px;
 }
 
 @media screen and (min-width: 1px) {
-  /* line 256, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-large, #flexible-content .fc-button a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
+  /* line 257, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-large, #flexible-content .fc-button a.button-large, #content #submit-event-form .account-sign-in a.button-large, #content #submit-event-form input.button-large[type="submit"], #event_preview .event_listing_preview_title .button-large.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-large, .card-resource .card-links #event_preview .event_listing_preview_title a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
     font-size: 13px;
     line-height: calc(12 / 13);
   }
 }
 
 @media screen and (min-width: 576px) {
-  /* line 256, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-large, #flexible-content .fc-button a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
+  /* line 257, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-large, #flexible-content .fc-button a.button-large, #content #submit-event-form .account-sign-in a.button-large, #content #submit-event-form input.button-large[type="submit"], #event_preview .event_listing_preview_title .button-large.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-large, .card-resource .card-links #event_preview .event_listing_preview_title a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
     font-size: 14px;
     line-height: calc(12 / 14);
   }
 }
 
 @media screen and (min-width: 768px) {
-  /* line 256, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-large, #flexible-content .fc-button a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
+  /* line 257, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-large, #flexible-content .fc-button a.button-large, #content #submit-event-form .account-sign-in a.button-large, #content #submit-event-form input.button-large[type="submit"], #event_preview .event_listing_preview_title .button-large.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-large, .card-resource .card-links #event_preview .event_listing_preview_title a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
     font-size: 15px;
     line-height: calc(12 / 15);
   }
 }
 
 @media screen and (min-width: 992px) {
-  /* line 256, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-large, #flexible-content .fc-button a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
+  /* line 257, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-large, #flexible-content .fc-button a.button-large, #content #submit-event-form .account-sign-in a.button-large, #content #submit-event-form input.button-large[type="submit"], #event_preview .event_listing_preview_title .button-large.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-large, .card-resource .card-links #event_preview .event_listing_preview_title a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
     font-size: 16px;
     line-height: calc(12 / 16);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  /* line 256, wp-content/themes/custom/scss/site/_general.scss */
-  .button.button-large, #flexible-content .fc-button a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
+  /* line 257, wp-content/themes/custom/scss/site/_general.scss */
+  .button.button-large, #flexible-content .fc-button a.button-large, #content #submit-event-form .account-sign-in a.button-large, #content #submit-event-form input.button-large[type="submit"], #event_preview .event_listing_preview_title .button-large.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-large, .card-resource .card-links #event_preview .event_listing_preview_title a.button-large, .card-resource .card-links a.button-large, #content #my-account-content .ur-frontend-form .button-large[type="submit"] {
     font-size: 17px;
     line-height: calc(12 / 17);
   }
 }
 
-/* line 268, wp-content/themes/custom/scss/site/_general.scss */
-.button.button-brand, #flexible-content .fc-button a.button-brand, #flexible-content .fc-button .page-id-554 #user-registration-form-20 a[type="submit"], .page-id-554 #user-registration-form-20 #flexible-content .fc-button a[type="submit"], #flexible-content .fc-button .page-id-22 #user-registration-form-20 a[type="submit"], .page-id-22 #user-registration-form-20 #flexible-content .fc-button a[type="submit"], .card-resource .card-links a.button-brand, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .card-resource .card-links .page-id-554 #user-registration-form-20 a[type="submit"], .page-id-554 #user-registration-form-20 .card-resource .card-links a[type="submit"], .card-resource .card-links .page-id-22 #user-registration-form-20 a[type="submit"], .page-id-22 #user-registration-form-20 .card-resource .card-links a[type="submit"], #content #my-account-content .ur-frontend-form .button-brand[type="submit"], #content #my-account-content .ur-frontend-form .page-id-554 #user-registration-form-20 [type="submit"], .page-id-554 #user-registration-form-20 #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form .page-id-22 #user-registration-form-20 [type="submit"], .page-id-22 #user-registration-form-20 #content #my-account-content .ur-frontend-form [type="submit"], .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login #flexible-content .fc-button a, #flexible-content .fc-button .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-554.user_logged_out #content #my-account-content .ur-frontend-form.login [type="submit"], #content .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login [type="submit"], .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login #flexible-content .fc-button a, #flexible-content .fc-button .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #content #my-account-content .ur-frontend-form.login [type="submit"], #content .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login [type="submit"], .page-id-554 #user-registration-form-20 .button[type="submit"], .page-id-22 #user-registration-form-20 .button[type="submit"] {
+/* line 269, wp-content/themes/custom/scss/site/_general.scss */
+.button.button-brand, #flexible-content .fc-button a.button-brand, #flexible-content .fc-button .page-id-554 #user-registration-form-20 a[type="submit"], .page-id-554 #user-registration-form-20 #flexible-content .fc-button a[type="submit"], #flexible-content .fc-button .page-id-22 #user-registration-form-20 a[type="submit"], .page-id-22 #user-registration-form-20 #flexible-content .fc-button a[type="submit"], #content #submit-event-form .account-sign-in a, #content #submit-event-form input.button-brand[type="submit"], .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login #content #submit-event-form input.button[type="submit"], .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login #content #submit-event-form input.button[type="submit"], #content #submit-event-form .page-id-554 #user-registration-form-20 input[type="submit"], .page-id-554 #user-registration-form-20 #content #submit-event-form input[type="submit"], #content #submit-event-form .page-id-22 #user-registration-form-20 input[type="submit"], .page-id-22 #user-registration-form-20 #content #submit-event-form input[type="submit"], #event_preview .event_listing_preview_title .button-brand.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-brand, .card-resource .card-links #event_preview .event_listing_preview_title a.button-brand, .card-resource .card-links a.button-brand, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .card-resource .card-links .page-id-554 #user-registration-form-20 a[type="submit"], .page-id-554 #user-registration-form-20 .card-resource .card-links a[type="submit"], .card-resource .card-links .page-id-22 #user-registration-form-20 a[type="submit"], .page-id-22 #user-registration-form-20 .card-resource .card-links a[type="submit"], #content #my-account-content .ur-frontend-form .button-brand[type="submit"], #content #my-account-content .ur-frontend-form #submit-event-form .account-sign-in a[type="submit"], #content #submit-event-form .account-sign-in #my-account-content .ur-frontend-form a[type="submit"], #content .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .button[type="submit"], .page-id-554.user_logged_out #content #my-account-content .ur-frontend-form.login .button[type="submit"], #content .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a[type="submit"], .page-id-554.user_logged_out #content #my-account-content .ur-frontend-form.login .card-resource .card-links a[type="submit"], #content .card-resource .card-links .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a[type="submit"], .card-resource .card-links .page-id-554.user_logged_out #content #my-account-content .ur-frontend-form.login a[type="submit"], #content .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .button[type="submit"], .page-id-22.user_logged_out #content #my-account-content .ur-frontend-form.login .button[type="submit"], #content .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a[type="submit"], .page-id-22.user_logged_out #content #my-account-content .ur-frontend-form.login .card-resource .card-links a[type="submit"], #content .card-resource .card-links .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a[type="submit"], .card-resource .card-links .page-id-22.user_logged_out #content #my-account-content .ur-frontend-form.login a[type="submit"], #content #my-account-content .ur-frontend-form .page-id-554 #user-registration-form-20 [type="submit"], .page-id-554 #user-registration-form-20 #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form .page-id-22 #user-registration-form-20 [type="submit"], .page-id-22 #user-registration-form-20 #content #my-account-content .ur-frontend-form [type="submit"], .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-554 #user-registration-form-20 .button[type="submit"], .page-id-22 #user-registration-form-20 .button[type="submit"] {
   background: #164579;
 }
 
-/* line 272, wp-content/themes/custom/scss/site/_general.scss */
-.button.button-pink, #flexible-content .fc-button a.button-pink, .card-resource .card-links a.button-pink, #content #my-account-content .ur-frontend-form .button-pink[type="submit"] {
+/* line 273, wp-content/themes/custom/scss/site/_general.scss */
+.button.button-pink, #flexible-content .fc-button a.button-pink, #content #submit-event-form .account-sign-in a.button-pink, #content #submit-event-form input.button-pink[type="submit"], #event_preview .event_listing_preview_title .button-pink.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-pink, .card-resource .card-links #event_preview .event_listing_preview_title a.button-pink, .card-resource .card-links a.button-pink, #content #my-account-content .ur-frontend-form .button-pink[type="submit"] {
   background: #FFB5D8;
   color: #164579;
 }
 
-/* line 276, wp-content/themes/custom/scss/site/_general.scss */
-.button.button-pink:hover, #flexible-content .fc-button a.button-pink:hover, .card-resource .card-links a.button-pink:hover, #content #my-account-content .ur-frontend-form .button-pink:hover[type="submit"] {
+/* line 277, wp-content/themes/custom/scss/site/_general.scss */
+.button.button-pink:hover, #flexible-content .fc-button a.button-pink:hover, #content #submit-event-form .account-sign-in a.button-pink:hover, #content #submit-event-form input.button-pink:hover[type="submit"], #event_preview .event_listing_preview_title .button-pink.button:hover, #event_preview .event_listing_preview_title .card-resource .card-links a.button-pink:hover, .card-resource .card-links #event_preview .event_listing_preview_title a.button-pink:hover, .card-resource .card-links a.button-pink:hover, #content #my-account-content .ur-frontend-form .button-pink:hover[type="submit"] {
   color: #164579;
 }
 
-/* line 281, wp-content/themes/custom/scss/site/_general.scss */
-.button.button-centered, #flexible-content .fc-button a.button-centered, .card-resource .card-links a.button-centered, #content #my-account-content .ur-frontend-form .button-centered[type="submit"] {
+/* line 282, wp-content/themes/custom/scss/site/_general.scss */
+.button.button-centered, #flexible-content .fc-button a.button-centered, #content #submit-event-form .account-sign-in a.button-centered, #content #submit-event-form input.button-centered[type="submit"], #event_preview .event_listing_preview_title .button-centered.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-centered, .card-resource .card-links #event_preview .event_listing_preview_title a.button-centered, .card-resource .card-links a.button-centered, #content #my-account-content .ur-frontend-form .button-centered[type="submit"] {
   margin: auto;
   display: block;
 }
 
-/* line 286, wp-content/themes/custom/scss/site/_general.scss */
-.button.button-full, #flexible-content .fc-button a.button-full, .card-resource .card-links a.button-full, #content #my-account-content .ur-frontend-form .button-full[type="submit"] {
+/* line 287, wp-content/themes/custom/scss/site/_general.scss */
+.button.button-full, #flexible-content .fc-button a.button-full, #content #submit-event-form .account-sign-in a.button-full, #content #submit-event-form input.button-full[type="submit"], #event_preview .event_listing_preview_title .button-full.button, #event_preview .event_listing_preview_title .card-resource .card-links a.button-full, .card-resource .card-links #event_preview .event_listing_preview_title a.button-full, .card-resource .card-links a.button-full, #content #my-account-content .ur-frontend-form .button-full[type="submit"] {
   width: 100%;
   padding: 20px 0;
   border-radius: 0;
 }
 
-/* line 292, wp-content/themes/custom/scss/site/_general.scss */
-.button:hover, #flexible-content .fc-button a:hover, .card-resource .card-links a:hover, #content #my-account-content .ur-frontend-form :hover[type="submit"] {
+/* line 293, wp-content/themes/custom/scss/site/_general.scss */
+.button:hover, #flexible-content .fc-button a:hover, #content #submit-event-form .account-sign-in a:hover, #content #submit-event-form input:hover[type="submit"], #event_preview .event_listing_preview_title .button:hover, #event_preview .event_listing_preview_title .card-resource .card-links a:hover, .card-resource .card-links #event_preview .event_listing_preview_title a:hover, .card-resource .card-links a:hover, #content #my-account-content .ur-frontend-form :hover[type="submit"] {
   transition: transform .1s;
   transform: scale(1.05);
   color: white;
 }
 
-/* line 299, wp-content/themes/custom/scss/site/_general.scss */
-.button:focus, #flexible-content .fc-button a:focus, .card-resource .card-links a:focus, #content #my-account-content .ur-frontend-form :focus[type="submit"] {
+/* line 300, wp-content/themes/custom/scss/site/_general.scss */
+.button:focus, #flexible-content .fc-button a:focus, #content #submit-event-form .account-sign-in a:focus, #content #submit-event-form input:focus[type="submit"], #event_preview .event_listing_preview_title .button:focus, #event_preview .event_listing_preview_title .card-resource .card-links a:focus, .card-resource .card-links #event_preview .event_listing_preview_title a:focus, .card-resource .card-links a:focus, #content #my-account-content .ur-frontend-form :focus[type="submit"] {
   outline: none;
   box-shadow: none;
 }
 
-/* line 309, wp-content/themes/custom/scss/site/_general.scss */
-.shadowed, .fc-cards .card .card-inner:hover, .fc-overview-blocks .overview-block-text .overview-block-text-inner, .card .card-inner:hover, .overview-block-text .overview-block-text-inner, .ws-map-popup-content-wrapper, input:focus, textarea:focus, select:focus, .filter-menu, #annual-reports .annual-report a:hover, .news-post:hover .card-image, .supporter-story:hover, .card-event:hover .card-inner, .card-resource:hover .card-inner, #content #my-account-content .ur-frontend-form input:focus, .page-id-554 #user-registration-form-20, .page-id-22 #user-registration-form-20 {
+/* line 310, wp-content/themes/custom/scss/site/_general.scss */
+.shadowed, .fc-cards .card .card-inner:hover, .fc-overview-blocks .overview-block-text .overview-block-text-inner, .card .card-inner:hover, .overview-block-text .overview-block-text-inner, .ws-map-popup-content-wrapper, input:focus, textarea:focus, select:focus, .filter-menu, #annual-reports .annual-report a:hover, .news-post:hover .card-image, .supporter-story:hover, .card-event:hover .card-inner, #event_preview .event_listing_preview, .card-resource:hover .card-inner, #content #my-account-content .ur-frontend-form input:focus, .page-id-554 #user-registration-form-20, .page-id-22 #user-registration-form-20 {
   box-shadow: 1px 2px 4px rgba(27, 51, 77, 0.5);
 }
 
-/* line 314, wp-content/themes/custom/scss/site/_general.scss */
+/* line 315, wp-content/themes/custom/scss/site/_general.scss */
 .ws-map {
   height: 100%;
 }
 
 /* CARDS */
-/* line 322, wp-content/themes/custom/scss/site/_general.scss */
+/* line 323, wp-content/themes/custom/scss/site/_general.scss */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -11030,14 +11031,14 @@ input:focus {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 322, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 323, wp-content/themes/custom/scss/site/_general.scss */
   .cards-container {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
 
-/* line 334, wp-content/themes/custom/scss/site/_general.scss */
+/* line 335, wp-content/themes/custom/scss/site/_general.scss */
 .card {
   margin-bottom: 3em;
   display: flex;
@@ -11045,19 +11046,19 @@ input:focus {
   z-index: 1;
 }
 
-/* line 340, wp-content/themes/custom/scss/site/_general.scss */
+/* line 341, wp-content/themes/custom/scss/site/_general.scss */
 .card.mb0 {
   margin-bottom: 0;
 }
 
-/* line 344, wp-content/themes/custom/scss/site/_general.scss */
+/* line 345, wp-content/themes/custom/scss/site/_general.scss */
 .card .card-inner-link {
   display: flex;
   width: 100%;
   height: 100%;
 }
 
-/* line 350, wp-content/themes/custom/scss/site/_general.scss */
+/* line 351, wp-content/themes/custom/scss/site/_general.scss */
 .card .card-inner {
   border-radius: 8px;
   background: white;
@@ -11067,32 +11068,32 @@ input:focus {
   border: 1px solid #e2e3e5;
 }
 
-/* line 364, wp-content/themes/custom/scss/site/_general.scss */
+/* line 365, wp-content/themes/custom/scss/site/_general.scss */
 .card .card-image {
   width: 100%;
   border-radius: 8px 8px 0px 0px;
 }
 
-/* line 369, wp-content/themes/custom/scss/site/_general.scss */
+/* line 370, wp-content/themes/custom/scss/site/_general.scss */
 .card .card-title {
   padding: 30px 30px 0px 30px;
 }
 
 @media screen and (max-width: 1379px) {
-  /* line 369, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 370, wp-content/themes/custom/scss/site/_general.scss */
   .card .card-title {
     padding: 15px 15px 0 15px;
   }
 }
 
 @media screen and (max-width: 991px) {
-  /* line 369, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 370, wp-content/themes/custom/scss/site/_general.scss */
   .card .card-title {
     padding: 10px 10px 0 10px;
   }
 }
 
-/* line 385, wp-content/themes/custom/scss/site/_general.scss */
+/* line 386, wp-content/themes/custom/scss/site/_general.scss */
 .card .card-description {
   width: 100%;
   margin-bottom: 0;
@@ -11101,7 +11102,7 @@ input:focus {
 }
 
 @media screen and (max-width: 1379px) {
-  /* line 385, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 386, wp-content/themes/custom/scss/site/_general.scss */
   .card .card-description {
     padding: 0px 15px 15px 15px;
     width: 100%;
@@ -11109,18 +11110,18 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 385, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 386, wp-content/themes/custom/scss/site/_general.scss */
   .card .card-description {
     padding: 0px 10px 10px 10px;
   }
 }
 
-/* line 403, wp-content/themes/custom/scss/site/_general.scss */
+/* line 404, wp-content/themes/custom/scss/site/_general.scss */
 .card .card-button-container {
   width: 100%;
 }
 
-/* line 406, wp-content/themes/custom/scss/site/_general.scss */
+/* line 407, wp-content/themes/custom/scss/site/_general.scss */
 .card .card-button-container .card-button-text {
   border-top: 1px solid #e2e3e5;
   display: block;
@@ -11131,7 +11132,7 @@ input:focus {
 }
 
 @media screen and (max-width: 1379px) {
-  /* line 406, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 407, wp-content/themes/custom/scss/site/_general.scss */
   .card .card-button-container .card-button-text {
     padding: 7px 15px;
     font-size: 11px;
@@ -11139,14 +11140,14 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 406, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 407, wp-content/themes/custom/scss/site/_general.scss */
   .card .card-button-container .card-button-text {
     padding: 5px 10px;
     font-size: 10px;
   }
 }
 
-/* line 428, wp-content/themes/custom/scss/site/_general.scss */
+/* line 429, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-featured {
   padding: 50px;
   min-height: 55vh;
@@ -11154,19 +11155,19 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 428, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 429, wp-content/themes/custom/scss/site/_general.scss */
   .card.card-style-featured {
     min-height: 0;
   }
 }
 
-/* line 442, wp-content/themes/custom/scss/site/_general.scss */
+/* line 443, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-featured .card-featured-link {
   display: inline-block;
 }
 
 @media screen and (max-width: 1199px) {
-  /* line 428, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 429, wp-content/themes/custom/scss/site/_general.scss */
   .card.card-style-featured {
     padding-left: 35px;
     padding-right: 35px;
@@ -11174,30 +11175,30 @@ input:focus {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 428, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 429, wp-content/themes/custom/scss/site/_general.scss */
   .card.card-style-featured {
     padding-left: 15px;
     padding-right: 15px;
   }
 }
 
-/* line 458, wp-content/themes/custom/scss/site/_general.scss */
+/* line 459, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image {
   border-radius: 8px;
 }
 
-/* line 461, wp-content/themes/custom/scss/site/_general.scss */
+/* line 462, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image .block-background {
   border-radius: 8px;
   background-position: center center;
 }
 
-/* line 465, wp-content/themes/custom/scss/site/_general.scss */
+/* line 466, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image .block-background:after {
   border-radius: 8px;
 }
 
-/* line 470, wp-content/themes/custom/scss/site/_general.scss */
+/* line 471, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image .card-inner {
   flex-direction: row;
   background: none;
@@ -11209,23 +11210,23 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 470, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 471, wp-content/themes/custom/scss/site/_general.scss */
   .card.card-style-image .card-inner {
     padding: 60px 20px 30px 20px;
   }
-  /* line 482, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 483, wp-content/themes/custom/scss/site/_general.scss */
   .card.card-style-image .card-inner .card-title {
     font-size: 18px;
   }
 }
 
-/* line 488, wp-content/themes/custom/scss/site/_general.scss */
+/* line 489, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image .card-title {
   padding: 0;
   margin-bottom: 50px;
 }
 
-/* line 494, wp-content/themes/custom/scss/site/_general.scss */
+/* line 495, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image.card-style-image-pink .block-background:after {
   background: -moz-linear-gradient(top, rgba(255, 181, 216, 0.4) 0%, #ffb5d8 95%, #ffb5d8 100%);
   background: -webkit-linear-gradient(top, rgba(255, 181, 216, 0.4) 0%, #ffb5d8 95%, #ffb5d8 100%);
@@ -11233,7 +11234,7 @@ input:focus {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffb5d8', endColorstr='#a6ffb5d8',GradientType=0 );
 }
 
-/* line 501, wp-content/themes/custom/scss/site/_general.scss */
+/* line 502, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image.card-style-image-brand .block-background:after {
   background: -moz-linear-gradient(top, rgba(22, 69, 121, 0.4) 0%, #164579 95%, #164579 100%);
   background: -webkit-linear-gradient(top, rgba(22, 69, 121, 0.4) 0%, #164579 95%, #164579 100%);
@@ -11241,7 +11242,7 @@ input:focus {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00164579', endColorstr='#a6164579',GradientType=0 );
 }
 
-/* line 508, wp-content/themes/custom/scss/site/_general.scss */
+/* line 509, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image.card-style-image-interactive .block-background:after {
   background: -moz-linear-gradient(top, rgba(25, 186, 227, 0.4) 0%, #19bae3 95%, #19bae3 100%);
   background: -webkit-linear-gradient(top, rgba(25, 186, 227, 0.4) 0%, #19bae3 95%, #19bae3 100%);
@@ -11249,7 +11250,7 @@ input:focus {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00164579', endColorstr='#a6164579',GradientType=0 );
 }
 
-/* line 515, wp-content/themes/custom/scss/site/_general.scss */
+/* line 516, wp-content/themes/custom/scss/site/_general.scss */
 .card.card-style-image.card-style-image-orange .block-background:after {
   background: -moz-linear-gradient(top, rgba(254, 242, 221, 0.4) 0%, rgba(254, 242, 221, 0.8) 39%, #fef2dd 100%);
   background: -webkit-linear-gradient(top, rgba(254, 242, 221, 0.4) 0%, #fef2dd 95%, #fef2dd 100%);
@@ -11257,7 +11258,7 @@ input:focus {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F9A619', endColorstr='#F9A619',GradientType=0 );
 }
 
-/* line 527, wp-content/themes/custom/scss/site/_general.scss */
+/* line 528, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block {
   margin-bottom: 14vh;
   position: relative;
@@ -11268,47 +11269,47 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 527, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 528, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block {
     width: 100%;
     margin-bottom: 10vh;
   }
 }
 
-/* line 546, wp-content/themes/custom/scss/site/_general.scss */
+/* line 547, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block:nth-child(even) .overview-block-image {
   order: 1;
   margin-left: 0;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 546, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 547, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block:nth-child(even) .overview-block-image {
     margin-left: 0;
   }
 }
 
-/* line 554, wp-content/themes/custom/scss/site/_general.scss */
+/* line 555, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block:nth-child(even) .overview-block-text {
   order: 2;
   margin-left: -20%;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 554, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 555, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block:nth-child(even) .overview-block-text {
     margin-left: -50%;
   }
 }
 
 @media screen and (max-width: 767px) {
-  /* line 554, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 555, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block:nth-child(even) .overview-block-text {
     margin-left: -60%;
   }
 }
 
-/* line 568, wp-content/themes/custom/scss/site/_general.scss */
+/* line 569, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block-image {
   width: 55%;
   margin-left: -20%;
@@ -11321,7 +11322,7 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 568, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 569, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-image {
     width: 70%;
     margin-left: -50%;
@@ -11329,14 +11330,14 @@ input:focus {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 568, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 569, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-image {
     width: 70%;
     margin-left: -60%;
   }
 }
 
-/* line 589, wp-content/themes/custom/scss/site/_general.scss */
+/* line 590, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block-text {
   width: 70%;
   padding: 10vh 0px;
@@ -11345,27 +11346,27 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 589, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 590, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-text {
     padding: 7vh 0;
   }
 }
 
 @media screen and (max-width: 991px) {
-  /* line 589, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 590, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-text {
     width: 80%;
   }
 }
 
 @media screen and (max-width: 767px) {
-  /* line 589, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 590, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-text {
     width: 90%;
   }
 }
 
-/* line 607, wp-content/themes/custom/scss/site/_general.scss */
+/* line 608, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block-text .overview-block-text-inner {
   border-radius: 8px;
   padding: 60px;
@@ -11373,37 +11374,37 @@ input:focus {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 607, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 608, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-text .overview-block-text-inner {
     padding: 40px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  /* line 607, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 608, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-text .overview-block-text-inner {
     padding: 20px;
   }
 }
 
-/* line 622, wp-content/themes/custom/scss/site/_general.scss */
+/* line 623, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block-text .block-heading {
   margin-bottom: 1em;
 }
 
-/* line 627, wp-content/themes/custom/scss/site/_general.scss */
+/* line 628, wp-content/themes/custom/scss/site/_general.scss */
 .overview-block-text .block-text {
   width: 80%;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 627, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 628, wp-content/themes/custom/scss/site/_general.scss */
   .overview-block-text .block-text {
     width: 100%;
   }
 }
 
-/* line 644, wp-content/themes/custom/scss/site/_general.scss */
+/* line 645, wp-content/themes/custom/scss/site/_general.scss */
 .fish-strip {
   position: absolute;
   bottom: 0;
@@ -11414,23 +11415,47 @@ input:focus {
   opacity: .15;
 }
 
-/* line 668, wp-content/themes/custom/scss/site/_general.scss */
+/* line 656, wp-content/themes/custom/scss/site/_general.scss */
+.wod-alert {
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 8px;
+  background: #cce5ff;
+  color: #164579;
+  border-color: #164579;
+}
+
+/* line 665, wp-content/themes/custom/scss/site/_general.scss */
+.wod-alert.wod-alert-success {
+  color: #327742;
+  background: #d4edda;
+  border-color: #327742;
+}
+
+/* line 672, wp-content/themes/custom/scss/site/_general.scss */
+.wod-alert.wod-alert-error {
+  color: #e72d2d;
+  background: #fce4e4;
+  border-color: #e72d2d;
+}
+
+/* line 695, wp-content/themes/custom/scss/site/_general.scss */
 #flexible-content .fc-button a {
   text-decoration: none;
   color: white;
 }
 
-/* line 674, wp-content/themes/custom/scss/site/_general.scss */
+/* line 701, wp-content/themes/custom/scss/site/_general.scss */
 #flexible-content .fc-button a:hover {
   text-decoration: none;
 }
 
-/* line 686, wp-content/themes/custom/scss/site/_general.scss */
+/* line 713, wp-content/themes/custom/scss/site/_general.scss */
 .slick-dots li {
   margin-right: 13px;
 }
 
-/* line 690, wp-content/themes/custom/scss/site/_general.scss */
+/* line 717, wp-content/themes/custom/scss/site/_general.scss */
 .slick-dots li.slick-active button {
   width: 14px;
   height: 14px;
@@ -11439,14 +11464,14 @@ input:focus {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 690, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 717, wp-content/themes/custom/scss/site/_general.scss */
   .slick-dots li.slick-active button {
     width: 10px;
     height: 10px;
   }
 }
 
-/* line 704, wp-content/themes/custom/scss/site/_general.scss */
+/* line 731, wp-content/themes/custom/scss/site/_general.scss */
 .slick-dots li button {
   width: 14px;
   height: 14px;
@@ -11455,7 +11480,7 @@ input:focus {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 704, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 731, wp-content/themes/custom/scss/site/_general.scss */
   .slick-dots li button {
     width: 10px;
     height: 10px;
@@ -11463,7 +11488,7 @@ input:focus {
 }
 
 /* LOADER */
-/* line 721, wp-content/themes/custom/scss/site/_general.scss */
+/* line 748, wp-content/themes/custom/scss/site/_general.scss */
 .loader-icon {
   width: 50px;
   height: 50px;
@@ -11472,7 +11497,7 @@ input:focus {
   display: none;
 }
 
-/* line 728, wp-content/themes/custom/scss/site/_general.scss */
+/* line 755, wp-content/themes/custom/scss/site/_general.scss */
 .loader-icon.active {
   display: block;
 }
@@ -11487,13 +11512,13 @@ input:focus {
 }
 
 /* site credit */
-/* line 745, wp-content/themes/custom/scss/site/_general.scss */
+/* line 772, wp-content/themes/custom/scss/site/_general.scss */
 .site-credit h4 {
   font-size: 13px;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 745, wp-content/themes/custom/scss/site/_general.scss */
+  /* line 772, wp-content/themes/custom/scss/site/_general.scss */
   .site-credit h4 {
     font-size: 10px;
   }
@@ -12951,45 +12976,49 @@ body.dropdown-on #blanket-dropdown {
 /* line 17, wp-content/themes/custom/scss/site/_page.scss */
 .page-hero.page-hero-with-image .subpage-title {
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
-/* line 20, wp-content/themes/custom/scss/site/_page.scss */
+/* line 22, wp-content/themes/custom/scss/site/_page.scss */
 .page-hero.page-hero-with-image .page-hero-title {
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
-/* line 25, wp-content/themes/custom/scss/site/_page.scss */
+/* line 30, wp-content/themes/custom/scss/site/_page.scss */
 .page-hero .page-title-container {
   padding-top: 10vh;
   padding-bottom: 6vh;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 25, wp-content/themes/custom/scss/site/_page.scss */
+  /* line 30, wp-content/themes/custom/scss/site/_page.scss */
   .page-hero .page-title-container {
     padding-top: 8vh;
     padding-bottom: 4vh;
   }
 }
 
-/* line 35, wp-content/themes/custom/scss/site/_page.scss */
+/* line 40, wp-content/themes/custom/scss/site/_page.scss */
 .page-hero .subpage-title {
   color: #164579;
   margin-bottom: 0;
 }
 
-/* line 43, wp-content/themes/custom/scss/site/_page.scss */
+/* line 48, wp-content/themes/custom/scss/site/_page.scss */
 .page-hero .page-hero-title {
   color: #164579;
 }
 
-/* line 51, wp-content/themes/custom/scss/site/_page.scss */
+/* line 56, wp-content/themes/custom/scss/site/_page.scss */
 .page-introduction {
   background: #9FDBED;
   padding: 5vh 0;
 }
 
-/* line 55, wp-content/themes/custom/scss/site/_page.scss */
+/* line 60, wp-content/themes/custom/scss/site/_page.scss */
 .page-introduction h2 {
   font-weight: 400;
   width: 75%;
@@ -12997,26 +13026,26 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 55, wp-content/themes/custom/scss/site/_page.scss */
+  /* line 60, wp-content/themes/custom/scss/site/_page.scss */
   .page-introduction h2 {
     width: 100%;
     line-height: 1.5;
   }
 }
 
-/* line 70, wp-content/themes/custom/scss/site/_page.scss */
+/* line 75, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav {
   height: 52px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 70, wp-content/themes/custom/scss/site/_page.scss */
+  /* line 75, wp-content/themes/custom/scss/site/_page.scss */
   .page-nav {
     height: auto;
   }
 }
 
-/* line 77, wp-content/themes/custom/scss/site/_page.scss */
+/* line 82, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav .page-nav-inner {
   width: 100%;
   height: 52px;
@@ -13028,25 +13057,25 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 77, wp-content/themes/custom/scss/site/_page.scss */
+  /* line 82, wp-content/themes/custom/scss/site/_page.scss */
   .page-nav .page-nav-inner {
     height: auto;
   }
 }
 
-/* line 93, wp-content/themes/custom/scss/site/_page.scss */
+/* line 98, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav.after .page-nav-inner {
   position: fixed;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 93, wp-content/themes/custom/scss/site/_page.scss */
+  /* line 98, wp-content/themes/custom/scss/site/_page.scss */
   .page-nav.after .page-nav-inner {
     position: static;
   }
 }
 
-/* line 102, wp-content/themes/custom/scss/site/_page.scss */
+/* line 107, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav li {
   display: inline-block;
   margin-right: 20px;
@@ -13054,19 +13083,19 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 102, wp-content/themes/custom/scss/site/_page.scss */
+  /* line 107, wp-content/themes/custom/scss/site/_page.scss */
   .page-nav li {
     height: auto;
     margin-right: 15px;
   }
 }
 
-/* line 112, wp-content/themes/custom/scss/site/_page.scss */
+/* line 117, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav li:first-child a {
   padding-left: 0;
 }
 
-/* line 116, wp-content/themes/custom/scss/site/_page.scss */
+/* line 121, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav li a {
   font-size: 13px;
   text-transform: uppercase;
@@ -13079,14 +13108,14 @@ body.dropdown-on #blanket-dropdown {
   height: 52px;
 }
 
-/* line 128, wp-content/themes/custom/scss/site/_page.scss */
+/* line 133, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav li a.spy-active {
   color: #164579;
   border-color: #19bae3;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 116, wp-content/themes/custom/scss/site/_page.scss */
+  /* line 121, wp-content/themes/custom/scss/site/_page.scss */
   .page-nav li a {
     font-size: 10px;
     padding: 7px 6px 7px 0px;
@@ -13095,22 +13124,22 @@ body.dropdown-on #blanket-dropdown {
   }
 }
 
-/* line 145, wp-content/themes/custom/scss/site/_page.scss */
+/* line 150, wp-content/themes/custom/scss/site/_page.scss */
 .page-nav + .block {
   background: #FAFBFC;
 }
 
-/* line 149, wp-content/themes/custom/scss/site/_page.scss */
+/* line 154, wp-content/themes/custom/scss/site/_page.scss */
 .page-hero + .block {
   background: #FAFBFC;
 }
 
-/* line 173, wp-content/themes/custom/scss/site/_page.scss */
+/* line 178, wp-content/themes/custom/scss/site/_page.scss */
 .fc-cards .fc-section-heading {
   margin-bottom: 0;
 }
 
-/* line 201, wp-content/themes/custom/scss/site/_page.scss */
+/* line 206, wp-content/themes/custom/scss/site/_page.scss */
 .section-heading, .fc-cards .fc-section-heading-text {
   margin-bottom: 3em;
 }
@@ -14155,7 +14184,7 @@ body.dropdown-on #blanket-dropdown {
 }
 
 /* line 5, wp-content/themes/custom/scss/site/_events.scss */
-#list-your-event-banner .button, #list-your-event-banner #flexible-content .fc-button a, #flexible-content .fc-button #list-your-event-banner a, #list-your-event-banner .card-resource .card-links a, .card-resource .card-links #list-your-event-banner a, #list-your-event-banner #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form #list-your-event-banner [type="submit"] {
+#list-your-event-banner .button, #list-your-event-banner #flexible-content .fc-button a, #flexible-content .fc-button #list-your-event-banner a, #list-your-event-banner #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in #list-your-event-banner a, #list-your-event-banner #content #submit-event-form input[type="submit"], #content #submit-event-form #list-your-event-banner input[type="submit"], #list-your-event-banner #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title #list-your-event-banner .button, #list-your-event-banner .card-resource .card-links a, .card-resource .card-links #list-your-event-banner a, #list-your-event-banner #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form #list-your-event-banner [type="submit"] {
   border-radius: 50px;
 }
 
@@ -14188,50 +14217,77 @@ body.dropdown-on #blanket-dropdown {
   position: relative;
 }
 
-/* line 37, wp-content/themes/custom/scss/site/_events.scss */
+/* line 41, wp-content/themes/custom/scss/site/_events.scss */
 #events-wrapper .events-main {
   opacity: 1;
-  transition: opacity .2s 1.5s;
+  transition: opacity .2s 1s;
 }
 
-/* line 43, wp-content/themes/custom/scss/site/_events.scss */
+/* line 47, wp-content/themes/custom/scss/site/_events.scss */
 #events-wrapper.filter-loading .events-main {
-  transition: opacity .2s 1.5s;
+  transition: opacity .2s 1s;
   opacity: .5;
 }
 
-/* line 54, wp-content/themes/custom/scss/site/_events.scss */
+/* line 58, wp-content/themes/custom/scss/site/_events.scss */
 #events-list {
   height: calc(100vh - 75px - 100px);
   flex: 0 0 50%;
   background: #FAFBFC;
   border-right: 1px solid #e2e3e5;
+  order: 1;
 }
 
-/* line 61, wp-content/themes/custom/scss/site/_events.scss */
+@media screen and (max-width: 991px) {
+  /* line 58, wp-content/themes/custom/scss/site/_events.scss */
+  #events-list {
+    flex: 0 0 100%;
+    order: initial;
+    height: auto;
+  }
+}
+
+/* line 72, wp-content/themes/custom/scss/site/_events.scss */
 #events-list .filter-summary {
   margin-bottom: 30px;
 }
 
-/* line 69, wp-content/themes/custom/scss/site/_events.scss */
+/* line 80, wp-content/themes/custom/scss/site/_events.scss */
 #events-list #events-scroll {
   height: 100%;
   overflow: scroll;
   padding: 50px 50px 100px 50px;
 }
 
-/* line 76, wp-content/themes/custom/scss/site/_events.scss */
+@media screen and (max-width: 1199px) {
+  /* line 80, wp-content/themes/custom/scss/site/_events.scss */
+  #events-list #events-scroll {
+    padding: 30px 30px 100px 30px;
+  }
+}
+
+/* line 91, wp-content/themes/custom/scss/site/_events.scss */
 #events-map {
   flex: 0 0 50%;
   height: calc(100vh - 75px - 100px);
+  order: 2;
 }
 
-/* line 89, wp-content/themes/custom/scss/site/_events.scss */
+@media screen and (max-width: 991px) {
+  /* line 91, wp-content/themes/custom/scss/site/_events.scss */
+  #events-map {
+    flex: 0 0 100%;
+    height: calc(100vh - 100px);
+    order: initial;
+  }
+}
+
+/* line 111, wp-content/themes/custom/scss/site/_events.scss */
 .card-event {
   margin-bottom: 35px;
 }
 
-/* line 98, wp-content/themes/custom/scss/site/_events.scss */
+/* line 120, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner {
   display: flex;
   background: white;
@@ -14239,20 +14295,20 @@ body.dropdown-on #blanket-dropdown {
   border-radius: 8px;
 }
 
-/* line 104, wp-content/themes/custom/scss/site/_events.scss */
+/* line 126, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-image {
   flex: 0 0 22%;
   border-radius: 8px 0px 0px 8px;
   background-size: cover;
 }
 
-/* line 110, wp-content/themes/custom/scss/site/_events.scss */
+/* line 132, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text {
   flex: 0 0 78%;
   padding: 21px 21px 21px 35px;
 }
 
-/* line 114, wp-content/themes/custom/scss/site/_events.scss */
+/* line 136, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-categories {
   display: block;
   color: #577faa;
@@ -14260,14 +14316,14 @@ body.dropdown-on #blanket-dropdown {
   margin-bottom: 7px;
 }
 
-/* line 124, wp-content/themes/custom/scss/site/_events.scss */
+/* line 146, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-title {
   font-size: 19px;
   line-height: 1.2;
   margin-bottom: 14px;
 }
 
-/* line 130, wp-content/themes/custom/scss/site/_events.scss */
+/* line 152, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-date {
   margin-bottom: 0;
   font-size: 15px;
@@ -14275,7 +14331,7 @@ body.dropdown-on #blanket-dropdown {
   color: #426182;
 }
 
-/* line 137, wp-content/themes/custom/scss/site/_events.scss */
+/* line 159, wp-content/themes/custom/scss/site/_events.scss */
 .card-event .card-inner .card-text .event-location {
   font-size: 15px;
   font-weight: 400;
@@ -14283,7 +14339,55 @@ body.dropdown-on #blanket-dropdown {
   margin-bottom: 0;
 }
 
-/* line 151, wp-content/themes/custom/scss/site/_events.scss */
+/* line 172, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-event {
+  margin-bottom: 0;
+}
+
+/* line 175, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-event:hover .card-inner {
+  box-shadow: none;
+}
+
+/* line 181, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-inner {
+  border: none;
+  padding: 0;
+  display: block;
+}
+
+/* line 186, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-inner .card-image {
+  display: none;
+}
+
+/* line 189, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-inner .card-text {
+  padding: 6px;
+}
+
+/* line 192, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-inner .card-text .event-categories {
+  font-size: 10px;
+}
+
+/* line 196, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-inner .card-text .event-title {
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+/* line 201, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-inner .card-text .event-date {
+  font-size: 12px;
+}
+
+/* line 205, wp-content/themes/custom/scss/site/_events.scss */
+.marker-card .card-inner .card-text .event-location {
+  font-size: 12px;
+}
+
+/* line 217, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -14298,7 +14402,7 @@ body.dropdown-on #blanket-dropdown {
   display: none;
 }
 
-/* line 164, wp-content/themes/custom/scss/site/_events.scss */
+/* line 230, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -14312,17 +14416,17 @@ body.dropdown-on #blanket-dropdown {
   border-color: #164579 transparent transparent transparent;
 }
 
-/* line 176, wp-content/themes/custom/scss/site/_events.scss */
+/* line 242, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }
 
-/* line 179, wp-content/themes/custom/scss/site/_events.scss */
+/* line 245, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
 }
 
-/* line 182, wp-content/themes/custom/scss/site/_events.scss */
+/* line 248, wp-content/themes/custom/scss/site/_events.scss */
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
@@ -14336,53 +14440,531 @@ body.dropdown-on #blanket-dropdown {
   }
 }
 
+/* LIST YOUR EVENT */
+/* body classes */
+/* line 283, wp-content/themes/custom/scss/site/_events.scss */
+.event-submit-preview #submit-event-intro {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 287, wp-content/themes/custom/scss/site/_events.scss */
+  .event-submit-preview .container-fluid-submit-event {
+    padding: 5px;
+  }
+}
+
+/* line 297, wp-content/themes/custom/scss/site/_events.scss */
+.event-submit-success #submit-event-intro {
+  display: none;
+}
+
+/* line 300, wp-content/themes/custom/scss/site/_events.scss */
+.event-submit-success #submit-event-thanks {
+  display: block;
+}
+
+/* line 304, wp-content/themes/custom/scss/site/_events.scss */
+.event-submit-success #submit-event {
+  display: none;
+}
+
+/* line 326, wp-content/themes/custom/scss/site/_events.scss */
+.page-id-554 #submit-event-form .wpem-form-group:first-child {
+  display: none;
+}
+
+/* submit page intro */
+/* line 340, wp-content/themes/custom/scss/site/_events.scss */
+.submit-event-buttons .button, .submit-event-buttons #flexible-content .fc-button a, #flexible-content .fc-button .submit-event-buttons a, .submit-event-buttons #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in .submit-event-buttons a, .submit-event-buttons #content #submit-event-form input[type="submit"], #content #submit-event-form .submit-event-buttons input[type="submit"], .submit-event-buttons #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .submit-event-buttons .button, .submit-event-buttons #event_preview .event_listing_preview_title .card-resource .card-links a, #event_preview .event_listing_preview_title .card-resource .card-links .submit-event-buttons a, .submit-event-buttons .card-resource .card-links #event_preview .event_listing_preview_title a, .card-resource .card-links #event_preview .event_listing_preview_title .submit-event-buttons a, .submit-event-buttons .card-resource .card-links a, .card-resource .card-links .submit-event-buttons a, .submit-event-buttons #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form .submit-event-buttons [type="submit"] {
+  display: block;
+  margin: 0 10px;
+}
+
+/* line 346, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .account-sign-in {
+  display: none;
+}
+
+/* line 351, wp-content/themes/custom/scss/site/_events.scss */
+.submit-event-buttons {
+  display: flex;
+}
+
+/* line 356, wp-content/themes/custom/scss/site/_events.scss */
+.submit-event-instructions {
+  display: none;
+}
+
+/* line 360, wp-content/themes/custom/scss/site/_events.scss */
+.submit-event-instructions.on {
+  display: block;
+}
+
+/* line 365, wp-content/themes/custom/scss/site/_events.scss */
+.account-creation-message {
+  margin-bottom: 60px;
+}
+
+/* line 369, wp-content/themes/custom/scss/site/_events.scss */
+#submit-event-thanks {
+  display: none;
+}
+
+/* submit event form overrides */
+/* line 380, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .account-sign-in a {
+  padding: 6px 15px;
+  font-size: 12px;
+  float: right;
+  position: relative;
+  top: 2px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 380, wp-content/themes/custom/scss/site/_events.scss */
+  #content #submit-event-form .account-sign-in a {
+    float: none;
+    top: 0;
+  }
+}
+
+/* line 397, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form h2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* line 405, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-wrapper .wpem-form-group .wpem-form-label-text {
+  font-weight: 800 !important;
+  color: #426182 !important;
+}
+
+/* line 410, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form label {
+  font-weight: 700 !important;
+  color: #344c67;
+}
+
+/* line 416, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form input:focus {
+  background: white;
+}
+
+/* line 421, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form input[type="checkbox"]:focus {
+  box-shadow: none;
+}
+
+/* line 427, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .checkbox-label {
+  color: #164579 !important;
+  font-weight: 700 !important;
+  display: inline !important;
+}
+
+/* line 433, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .description {
+  line-height: 1.2 !important;
+  margin-top: 7px;
+  color: #426182;
+  font-weight: 500;
+  display: block;
+}
+
+/* line 442, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-create_account_email {
+  margin-bottom: 100px;
+}
+
+/* line 450, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_category {
+  margin-bottom: 60px;
+}
+
+/* line 453, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_category .event-manager-term-checklist-event_category {
+  margin-top: 10px;
+  columns: 2;
+}
+
+/* line 456, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_category .event-manager-term-checklist-event_category li label {
+  font-weight: 500 !important;
+}
+
+/* line 467, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_online label[for="event_online"] {
+  margin-bottom: 7px;
+  display: block;
+}
+
+/* line 472, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_online label {
+  display: inline;
+  margin-right: 30px;
+}
+
+/* line 477, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_online input {
+  width: auto;
+  margin-right: 5px;
+}
+
+/* line 487, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_country {
+  margin-bottom: 60px;
+}
+
+/* line 491, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_timezone {
+  margin-bottom: 100px;
+}
+
+/* line 495, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-i_agree_to_allow_world_oceans_day_to_use_this_image_in_their_marketing_and_communications_materials {
+  margin-bottom: 60px;
+}
+
+/* line 498, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-i_agree_to_allow_world_oceans_day_to_use_this_image_in_their_marketing_and_communications_materials .description {
+  display: inline;
+  color: #164579;
+  font-weight: 700;
+}
+
+/* line 505, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_registration_link {
+  margin-bottom: 60px;
+}
+
+/* line 509, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_start_date, #content #submit-event-form .wpem-form-group.fieldset-event_start_time, #content #submit-event-form .wpem-form-group.fieldset-event_end_date, #content #submit-event-form .wpem-form-group.fieldset-event_end_time {
+  display: inline-block;
+  width: 46%;
+}
+
+/* line 514, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-event_start_date, #content #submit-event-form .wpem-form-group.fieldset-event_end_date {
+  margin-right: 6%;
+}
+
+/* line 518, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-group.fieldset-organizer_description {
+  margin-bottom: 60px;
+}
+
+/* line 522, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form .wpem-form-footer {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* line 527, wp-content/themes/custom/scss/site/_events.scss */
+#content #submit-event-form input[type="submit"] {
+  border: none;
+}
+
+/* event preview page */
+/* line 540, wp-content/themes/custom/scss/site/_events.scss */
+#event_preview .event_listing_preview_title {
+  padding: 0;
+  background: none !important;
+  margin-bottom: 60px;
+  margin-top: 0;
+}
+
+/* line 546, wp-content/themes/custom/scss/site/_events.scss */
+#event_preview .event_listing_preview_title #flexible-content .fc-button a, #flexible-content .fc-button #event_preview .event_listing_preview_title a, #event_preview .event_listing_preview_title #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in #event_preview .event_listing_preview_title a, #event_preview .event_listing_preview_title #content #submit-event-form input[type="submit"], #content #submit-event-form #event_preview .event_listing_preview_title input[type="submit"], #event_preview .event_listing_preview_title .button, #event_preview .event_listing_preview_title .card-resource .card-links a, .card-resource .card-links #event_preview .event_listing_preview_title a, #event_preview .event_listing_preview_title #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form #event_preview .event_listing_preview_title [type="submit"] {
+  background: #19bae3;
+  color: white;
+  border: none !important;
+  margin: 0 15px;
+}
+
+/* line 553, wp-content/themes/custom/scss/site/_events.scss */
+#event_preview .event_listing_preview_title #flexible-content .fc-button a:hover, #flexible-content .fc-button #event_preview .event_listing_preview_title a:hover, #event_preview .event_listing_preview_title #content #submit-event-form .account-sign-in a:hover, #content #submit-event-form .account-sign-in #event_preview .event_listing_preview_title a:hover, #event_preview .event_listing_preview_title #content #submit-event-form input:hover[type="submit"], #content #submit-event-form #event_preview .event_listing_preview_title input:hover[type="submit"], #event_preview .event_listing_preview_title .button:hover, #event_preview .event_listing_preview_title .card-resource .card-links a:hover, .card-resource .card-links #event_preview .event_listing_preview_title a:hover, #event_preview .event_listing_preview_title #content #my-account-content .ur-frontend-form :hover[type="submit"], #content #my-account-content .ur-frontend-form #event_preview .event_listing_preview_title :hover[type="submit"] {
+  cursor: pointer;
+}
+
+/* line 558, wp-content/themes/custom/scss/site/_events.scss */
+#event_preview .event_listing_preview_title .preview-title {
+  color: #426182;
+  margin-bottom: 30px;
+}
+
+/* line 564, wp-content/themes/custom/scss/site/_events.scss */
+#event_preview .event_listing_preview {
+  border: 2px solid #426182;
+  border-radius: 8px;
+  margin: 0;
+  padding-top: 0;
+  overflow: hidden;
+}
+
+/* EVENT SINGLE */
+@media screen and (max-width: 991px) {
+  /* line 589, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .padded, #event-single-wrapper .page-id-554.user_logged_out #my-account-content, .page-id-554.user_logged_out #event-single-wrapper #my-account-content, #event-single-wrapper .page-id-22.user_logged_out #my-account-content, .page-id-22.user_logged_out #event-single-wrapper #my-account-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  /* line 595, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .padded-top {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  /* line 601, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-hero-image {
+    height: 40vh;
+  }
+}
+
+/* line 607, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .block-background {
+  background-position: center center;
+}
+
+/* line 611, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-hero-meta {
+  background: #f7f8fa;
+  padding: 60px 60px 60px 45px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 611, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-hero-meta {
+    padding: 30px;
+  }
+}
+
+/* line 620, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-meta-row {
+  margin-bottom: 30px;
+}
+
+/* line 623, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-meta-row:last-child {
+  margin-bottom: 0;
+}
+
+/* line 628, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-title {
+  color: #395471;
+  line-height: 1.3;
+  margin-bottom: 45px;
+  width: 66%;
+  font-size: 27px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 628, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-title {
+    font-size: 21px;
+    width: 100%;
+    margin-bottom: 22.5px;
+  }
+}
+
+/* line 644, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-meta-icon .icon:before {
+  font-size: 35px;
+  color: #395471;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 644, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-meta-icon .icon:before {
+    font-size: 30px;
+  }
+}
+
+/* line 654, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-meta-heading {
+  color: #395471;
+  font-size: 17px;
+  margin-bottom: 3px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 654, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-meta-heading {
+    font-size: 13px;
+  }
+}
+
+/* line 666, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-meta-secondary {
+  color: #395471;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 666, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-meta-secondary {
+    font-size: 12px;
+  }
+}
+
+/* line 675, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-meta-link {
+  margin-bottom: 0;
+  color: #19bae3;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 675, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-meta-link {
+    font-size: 13px;
+  }
+}
+
+/* line 684, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-meta-link a {
+  color: #19bae3;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 684, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .event-single-meta-link a {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  /* line 694, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .single-event-description {
+    margin-bottom: 30px;
+  }
+}
+
+/* line 700, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .single-event-separator {
+  height: 2px;
+  background: #9FDBED;
+  margin-top: 90px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 700, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .single-event-separator {
+    margin-top: 30px;
+  }
+}
+
+/* line 711, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .single-event-categories {
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 991px) {
+  /* line 711, wp-content/themes/custom/scss/site/_events.scss */
+  #event-single-wrapper .single-event-categories {
+    margin-bottom: 15px;
+  }
+}
+
+/* line 717, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .single-event-categories .button, #event-single-wrapper .single-event-categories #flexible-content .fc-button a, #flexible-content .fc-button #event-single-wrapper .single-event-categories a, #event-single-wrapper .single-event-categories #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in #event-single-wrapper .single-event-categories a, #event-single-wrapper .single-event-categories #content #submit-event-form input[type="submit"], #content #submit-event-form #event-single-wrapper .single-event-categories input[type="submit"], #event-single-wrapper .single-event-categories .card-resource .card-links a, .card-resource .card-links #event-single-wrapper .single-event-categories a, #event-single-wrapper .single-event-categories #content #my-account-content .ur-frontend-form [type="submit"], #content #my-account-content .ur-frontend-form #event-single-wrapper .single-event-categories [type="submit"] {
+  margin-bottom: 15px;
+  margin-right: 20px;
+}
+
+/* line 724, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .single-event-website a {
+  color: #19bae3;
+  font-weight: 500;
+}
+
+/* line 730, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .single-event-organized-by {
+  margin-bottom: 30px;
+}
+
+/* line 733, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .single-event-organized-by .event-single-meta-heading {
+  margin-bottom: 10px;
+}
+
+/* line 738, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .single-event-organizer-label {
+  color: #4b6d93;
+  margin-bottom: 0;
+}
+
+/* line 746, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper #single-event-map-map iframe {
+  height: 350px;
+}
+
+/* line 751, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .event-single-share-container {
+  margin-top: 30px;
+}
+
+/* line 755, wp-content/themes/custom/scss/site/_events.scss */
+#event-single-wrapper .addthis_inline_share_toolbox_84zx {
+  display: flex;
+}
+
 /* line 4, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 #blanket, .single-resources #blanket {
+.post-type-archive-resources #blanket, .single-resources #blanket {
   background: rgba(22, 69, 121, 0.8);
 }
 
 /* line 8, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 #modal-close, .single-resources #modal-close {
+.post-type-archive-resources #modal-close, .single-resources #modal-close {
   right: 42px;
 }
 
 @media screen and (max-width: 767px) {
   /* line 8, wp-content/themes/custom/scss/site/_resources.scss */
-  .page-id-49 #modal-close, .single-resources #modal-close {
+  .post-type-archive-resources #modal-close, .single-resources #modal-close {
     right: 15px;
   }
 }
 
 /* line 17, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 .modal, .single-resources .modal {
+.post-type-archive-resources .modal, .single-resources .modal {
   background: none;
   border-radius: 0;
 }
 
 /* line 28, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 .modal #resource-modal-inner, .single-resources .modal #resource-modal-inner {
-  height: inherit;
+.post-type-archive-resources .modal #resource-modal-inner, .single-resources .modal #resource-modal-inner {
+  height: 100%;
 }
 
 /* line 32, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 .modal iframe, .single-resources .modal iframe {
+.post-type-archive-resources .modal iframe, .single-resources .modal iframe {
   width: 100%;
   height: 100%;
 }
 
-/* line 40, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 41, wp-content/themes/custom/scss/site/_resources.scss */
 #resources .container-fluid, #resources #flexible-content .container-fc, #flexible-content #resources .container-fc, .single-resources .container-fluid, .single-resources #flexible-content .container-fc, #flexible-content .single-resources .container-fc {
   max-width: 1480px;
 }
 
-/* line 55, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 56, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource {
   border-radius: 8px;
   margin-bottom: 5vh;
   display: flex;
 }
 
-/* line 66, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 67, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-inner {
   border-radius: 8px;
   border: 1px solid #e2e3e5;
@@ -14390,14 +14972,14 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 66, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 67, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-inner {
     display: block;
     border-color: #d4d6d9;
   }
 }
 
-/* line 77, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 78, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-image {
   background-size: cover;
   background-position: center center;
@@ -14405,7 +14987,7 @@ body.dropdown-on #blanket-dropdown {
   border-radius: 8px 8px 0px 0px;
 }
 
-/* line 82, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 83, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-image:after {
   content: '';
   display: block;
@@ -14413,25 +14995,25 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 575px) {
-  /* line 82, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 83, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-image:after {
     padding-top: 40%;
   }
 }
 
-/* line 93, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 94, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-text {
   padding: 30px 25px 25px 25px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 93, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 94, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text {
     padding: 16.6666666667px 12.5px 12.5px 12.5px;
   }
 }
 
-/* line 100, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 101, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-text .resource-title {
   line-height: 1.25;
   margin-bottom: 25px;
@@ -14439,13 +15021,13 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 100, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 101, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text .resource-title {
     margin-bottom: 16.6666666667px;
   }
 }
 
-/* line 111, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 112, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-text .resource-description {
   margin-bottom: 25px;
   font-size: 14px;
@@ -14453,44 +15035,44 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 111, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 112, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text .resource-description {
     font-size: 11px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  /* line 111, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 112, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text .resource-description {
     margin-bottom: 16.6666666667px;
   }
 }
 
-/* line 127, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 128, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-links .resource-preview {
   margin-right: 25px;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 127, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 128, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-links .resource-preview {
     margin-right: 12.5px;
   }
 }
 
-/* line 134, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 135, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-links a {
   margin-bottom: 7.5px;
 }
 
-/* line 145, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 146, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource {
   flex: 0 0 100% !important;
   width: 100%;
   max-width: none;
 }
 
-/* line 150, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 151, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-inner {
   width: 100%;
   display: flex;
@@ -14498,18 +15080,18 @@ body.dropdown-on #blanket-dropdown {
   background: white;
 }
 
-/* line 156, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 157, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-inner:hover {
   box-shadow: none;
 }
 
-/* line 160, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 161, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-image {
   flex: 0 0 31%;
   border-radius: 8px;
 }
 
-/* line 164, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 165, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-text {
   flex: 0 0 69%;
   padding: 50px;
@@ -14729,7 +15311,7 @@ body.dropdown-on #blanket-dropdown {
 }
 
 /* line 154, wp-content/themes/custom/scss/site/_my-account.scss */
-.page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login #flexible-content .fc-button a, #flexible-content .fc-button .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-554.user_logged_out #content #my-account-content .ur-frontend-form.login [type="submit"], #content .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login [type="submit"], .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login #flexible-content .fc-button a, #flexible-content .fc-button .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #content #my-account-content .ur-frontend-form.login [type="submit"], #content .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login [type="submit"] {
+.page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login #flexible-content .fc-button a, #flexible-content .fc-button .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login #content #submit-event-form input[type="submit"], .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-554.user_logged_out #content #my-account-content .ur-frontend-form.login [type="submit"], #content .page-id-554.user_logged_out #my-account-content .ur-frontend-form.login [type="submit"], .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .button, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login #flexible-content .fc-button a, #flexible-content .fc-button .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login #content #submit-event-form .account-sign-in a, #content #submit-event-form .account-sign-in .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login #content #submit-event-form input[type="submit"], .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login .card-resource .card-links a, .card-resource .card-links .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login a, .page-id-22.user_logged_out #content #my-account-content .ur-frontend-form.login [type="submit"], #content .page-id-22.user_logged_out #my-account-content .ur-frontend-form.login [type="submit"] {
   font-weight: 800;
   max-width: 200px;
 }
@@ -15087,52 +15669,52 @@ body.dropdown-on #blanket-dropdown {
 }
 
 /* line 4, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 #blanket, .single-resources #blanket {
+.post-type-archive-resources #blanket, .single-resources #blanket {
   background: rgba(22, 69, 121, 0.8);
 }
 
 /* line 8, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 #modal-close, .single-resources #modal-close {
+.post-type-archive-resources #modal-close, .single-resources #modal-close {
   right: 42px;
 }
 
 @media screen and (max-width: 767px) {
   /* line 8, wp-content/themes/custom/scss/site/_resources.scss */
-  .page-id-49 #modal-close, .single-resources #modal-close {
+  .post-type-archive-resources #modal-close, .single-resources #modal-close {
     right: 15px;
   }
 }
 
 /* line 17, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 .modal, .single-resources .modal {
+.post-type-archive-resources .modal, .single-resources .modal {
   background: none;
   border-radius: 0;
 }
 
 /* line 28, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 .modal #resource-modal-inner, .single-resources .modal #resource-modal-inner {
-  height: inherit;
+.post-type-archive-resources .modal #resource-modal-inner, .single-resources .modal #resource-modal-inner {
+  height: 100%;
 }
 
 /* line 32, wp-content/themes/custom/scss/site/_resources.scss */
-.page-id-49 .modal iframe, .single-resources .modal iframe {
+.post-type-archive-resources .modal iframe, .single-resources .modal iframe {
   width: 100%;
   height: 100%;
 }
 
-/* line 40, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 41, wp-content/themes/custom/scss/site/_resources.scss */
 #resources .container-fluid, #resources #flexible-content .container-fc, #flexible-content #resources .container-fc, .single-resources .container-fluid, .single-resources #flexible-content .container-fc, #flexible-content .single-resources .container-fc {
   max-width: 1480px;
 }
 
-/* line 55, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 56, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource {
   border-radius: 8px;
   margin-bottom: 5vh;
   display: flex;
 }
 
-/* line 66, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 67, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-inner {
   border-radius: 8px;
   border: 1px solid #e2e3e5;
@@ -15140,14 +15722,14 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 66, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 67, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-inner {
     display: block;
     border-color: #d4d6d9;
   }
 }
 
-/* line 77, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 78, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-image {
   background-size: cover;
   background-position: center center;
@@ -15155,7 +15737,7 @@ body.dropdown-on #blanket-dropdown {
   border-radius: 8px 8px 0px 0px;
 }
 
-/* line 82, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 83, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-image:after {
   content: '';
   display: block;
@@ -15163,25 +15745,25 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 575px) {
-  /* line 82, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 83, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-image:after {
     padding-top: 40%;
   }
 }
 
-/* line 93, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 94, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-text {
   padding: 30px 25px 25px 25px;
 }
 
 @media screen and (max-width: 991px) {
-  /* line 93, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 94, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text {
     padding: 16.6666666667px 12.5px 12.5px 12.5px;
   }
 }
 
-/* line 100, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 101, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-text .resource-title {
   line-height: 1.25;
   margin-bottom: 25px;
@@ -15189,13 +15771,13 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 767px) {
-  /* line 100, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 101, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text .resource-title {
     margin-bottom: 16.6666666667px;
   }
 }
 
-/* line 111, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 112, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-text .resource-description {
   margin-bottom: 25px;
   font-size: 14px;
@@ -15203,44 +15785,44 @@ body.dropdown-on #blanket-dropdown {
 }
 
 @media screen and (max-width: 991px) {
-  /* line 111, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 112, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text .resource-description {
     font-size: 11px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  /* line 111, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 112, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-text .resource-description {
     margin-bottom: 16.6666666667px;
   }
 }
 
-/* line 127, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 128, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-links .resource-preview {
   margin-right: 25px;
 }
 
 @media screen and (max-width: 767px) {
-  /* line 127, wp-content/themes/custom/scss/site/_resources.scss */
+  /* line 128, wp-content/themes/custom/scss/site/_resources.scss */
   .card-resource .card-links .resource-preview {
     margin-right: 12.5px;
   }
 }
 
-/* line 134, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 135, wp-content/themes/custom/scss/site/_resources.scss */
 .card-resource .card-links a {
   margin-bottom: 7.5px;
 }
 
-/* line 145, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 146, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource {
   flex: 0 0 100% !important;
   width: 100%;
   max-width: none;
 }
 
-/* line 150, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 151, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-inner {
   width: 100%;
   display: flex;
@@ -15248,18 +15830,18 @@ body.dropdown-on #blanket-dropdown {
   background: white;
 }
 
-/* line 156, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 157, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-inner:hover {
   box-shadow: none;
 }
 
-/* line 160, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 161, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-image {
   flex: 0 0 31%;
   border-radius: 8px;
 }
 
-/* line 164, wp-content/themes/custom/scss/site/_resources.scss */
+/* line 165, wp-content/themes/custom/scss/site/_resources.scss */
 #resource-single-main .card-resource .card-text {
   flex: 0 0 69%;
   padding: 50px;

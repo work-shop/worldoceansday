@@ -25,7 +25,7 @@ var adding = false;
 var currentCategory = 'all';
 var currentCountry = 'all';
 var filtered = false;
-var eventsMap;
+var eventsMap, popup, Popup;
 var mapInitialized = false;
 
 var emptyMessage = '<div class="col"><div class="error"><h3>No events found with those parameters</h3></div></div>';
@@ -39,7 +39,7 @@ function events() {
 
 		if( $('body').hasClass('page-id-13') ){
 
-			console.clear();
+			//console.clear();
 			console.log('----- Initializing events -----');
 
 			initialRequest();
@@ -196,12 +196,14 @@ function events() {
 						adding = false;
 						updating = false;
 						updateView();
+						//console.log('adding');
 					} else{
 						totalItems = data.found_posts;
 						totalPages = Math.ceil(totalItems / currentItems);
 						$('#events-container').html(html);
 						updating = false;
 						updateView();
+						//console.log('notadding');
 					}
 
 					updatePagination();
@@ -211,6 +213,7 @@ function events() {
 					console.log('no events found with this request');
 					updating = false;
 					updateView();
+					console.log('no events');
 					$('#events-container').html(emptyMessage);
 				}
 
@@ -220,6 +223,7 @@ function events() {
 				$('#events-container').html(emptyMessage);
 				updating = false;
 				updateView();
+				console.log('error');
 			})
 			.always(function() {
 				//console.log('completed request for events');
@@ -234,12 +238,15 @@ function events() {
 
 
 	function updateView(){
+		
 		//console.log('updateView');
-		if(mapInitialized && $('#events-wrapper').hasClass('filter-loading') ){
+		
+		if($('#events-wrapper').hasClass('filter-loading') ){
 			$('#events-wrapper').removeClass('filter-loading'); 
 		} else{
 			$('#events-wrapper').addClass('filter-loading'); 
 		}
+
 	}
 
 
@@ -347,52 +354,62 @@ function events() {
 	function initMap(mapData) {
 		//console.log('init map');
 
-		mapData.data.forEach( function( location ) {
-			//console.log(location.marker);
+		var locations = mapData.data; 
+		//console.log(locations);
+
+		locations.forEach( function( location ) {
 			location.marker.position.lat = parseFloat(location.marker.position.lat);
 			location.marker.position.lng = parseFloat(location.marker.position.lng);
+			var popupContent = location.marker.popup.marker_card;
+			location.marker.popup.content = popupContent;
 		});
-
-		var locations = mapData.data; 
 
 		var center = {lat: 0, lng: 0};
 
-		eventsMap = new google.maps.Map( document.getElementById('events-map'), {zoom: 2, center: center} );
+		eventsMap = new google.maps.Map( document.getElementById('events-map'), {
+			zoom: 2, 
+			center: center,
+			mapTypeControl: false,
+			streetViewControl: false,
+			rotateControl: false
+		} );
 
 		var markers = locations.map(function(location, i) {
 			return new google.maps.Marker({
-				position: location.marker.position
+				position: location.marker.position,
+				content: location.marker.popup.marker_card//,
+				//icon: siteUrl + '/wp-content/themes/custom/images/marker_v-07.svg'
 			});
 		});
 
 		var clusterStyles = [
 		{
 			textColor: 'white',
-			url: 'http://localhost/worldoceansday/wp-content/themes/custom/images/m/m1.svg',
+			url: siteUrl + '/wp-content/themes/custom/images/m/m1.svg',
 			height: 50,
 			width: 50
 		},
 		{
 			textColor: 'white',
-			url: 'http://localhost/worldoceansday/wp-content/themes/custom/images/m/m1.svg',
+			url: siteUrl + '/wp-content/themes/custom/images/m/m1.svg',
 			height: 50,
 			width: 50
 		},
 		{
 			textColor: 'white',
-			url: 'http://localhost/worldoceansday/wp-content/themes/custom/images/m/m2.svg',
+			url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
 			height: 50,
 			width: 50
 		},
 		{
 			textColor: 'white',
-			url: 'http://localhost/worldoceansday/wp-content/themes/custom/images/m/m2.svg',
+			url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
 			height: 50,
 			width: 50
 		},
 		{
 			textColor: 'white',
-			url: 'http://localhost/worldoceansday/wp-content/themes/custom/images/m/m2.svg',
+			url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
 			height: 50,
 			width: 50
 		}
@@ -403,15 +420,22 @@ function events() {
 			styles: clusterStyles
 		};
 
-		var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+		var markerCluster = new MarkerClusterer(eventsMap, markers, mcOptions);
+
+		markers.forEach(function (marker) {
+			var infowindow = new google.maps.InfoWindow({
+				content: marker.content
+			});
+			marker.addListener('click', function() {
+				infowindow.open(eventsMap, marker);
+			});
+		});
 
 		if(mapInitialized === false){
 			mapInitialized = true;
-			updateView();
 		}
 
 	}
-
 
 
 
