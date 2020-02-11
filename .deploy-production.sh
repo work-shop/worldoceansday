@@ -21,7 +21,7 @@ scp -P $KINSTA_PRODUCTION_PORT -r wp-content/themes/custom $KINSTA_PRODUCTION_US
 #scp -P $KINSTA_PRODUCTION_PORT -r wp-content/plugins/wp-all-import-pro $KINSTA_PRODUCTION_USER@$KINSTA_PRODUCTION_IP:./public/wp-content/plugins
 
 #specific files
-#scp -P $KINSTA_PRODUCTION_PORT wp-content/themes/custom/functions/post-types/classes/class-nam-class.php $KINSTA_PRODUCTION_USER@$KINSTA_PRODUCTION_IP:./public/wp-content/themes/custom/functions/post-types/classes/
+#scp -P $KINSTA_PRODUCTION_PORT wp-content/themes/custom/functions/library/partials_functions.php $KINSTA_PRODUCTION_USER@$KINSTA_PRODUCTION_IP:./public/wp-content/themes/custom/functions/library/
 
 #functions.php
 #scp -P $KINSTA_PRODUCTION_PORT wp-content/themes/custom/functions.php $KINSTA_PRODUCTION_USER@$KINSTA_PRODUCTION_IP:./public/wp-content/themes/custom/

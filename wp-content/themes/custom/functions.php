@@ -38,6 +38,7 @@ function my_mce4_options($init) {
 }
 add_filter('tiny_mce_before_init', 'my_mce4_options');
 
+
 new WS_Site();
 new WS_Site_Admin();
 

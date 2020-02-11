@@ -30,19 +30,6 @@ function slickSlideshows( config ) {
 			speed: config.speed
 		});
 
-		// setTimeout(function(){
-		// 	slickHomeSuppporters = $('.slick-home-supporters').slick({
-		// 		slidesToShow: 6,
-		// 		slidesToScroll: 6,
-		// 		dots: config.dots,
-		// 		arrows: config.arrows,
-		// 		autoplay: false,
-		// 		fade: false,
-		// 		autoplaySpeed: 5000,
-		// 		speed: config.speed
-		// 	});		
-		// }, 2000 );
-
 
 		$('.slick-history').slick({
 			slidesToShow: 3,
@@ -75,10 +62,10 @@ function slickSlideshows( config ) {
 			]
 		});
 
-		if($('body').hasClass('home')){
+		//if($('body').hasClass('home')){
 			//window.addEventListener('scroll', checkViewport);
 			//window.addEventListener('resize', checkViewport);	
-		}
+		//}
 
 
 	});

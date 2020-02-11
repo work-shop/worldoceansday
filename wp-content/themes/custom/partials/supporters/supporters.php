@@ -13,7 +13,7 @@
 		<?php $count = 1; ?>
 		<div class="row section-content-row partners-list">
 			<?php while ( have_rows('sustaining_partners') ) : the_row(); ?>
-				<div class="col-6 col-xl-2 col-sm-3 mb3 partner">
+				<div class="col-3 col-xl-2 col-sm-3 mb3 partner">
 					<?php if( get_sub_field('supporter_link') ): ?>
 						<a href="<?php the_sub_field('supporter_link'); ?>" class="partner-link">
 						<?php endif; ?>
@@ -40,7 +40,7 @@
 		<?php $count = 1; ?>
 		<div class="row section-content-row partners-list mb4">
 			<?php while ( have_rows('supporters') ) : the_row(); ?>
-				<div class="col-6 col-xl-2 col-sm-3 mb3 partner">
+				<div class="col-3 col-xl-2 col-sm-3 mb3 partner">
 					<?php if( get_sub_field('supporter_link') ): ?>
 						<a href="<?php the_sub_field('supporter_link'); ?>" class="partner-link">
 						<?php endif; ?>

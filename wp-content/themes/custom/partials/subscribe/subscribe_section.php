@@ -11,8 +11,26 @@
 			<div class="col">
 				<h2 class="white mb1 font-black">
 					<?php echo $background_text; ?>
+
 				</h2>
-				<?php get_template_part('/partials/subscribe_form'); ?>
+				<?php if(true): ?>
+					<?php 
+					if(is_page(33) || is_page(61)):
+						$id = get_the_ID(); 
+				else: 
+					$id = 33;
+				endif;
+				$form_id = get_field('form_to_display', $id); 
+				global $wp;
+				$home_url = home_url( $wp->request ); 
+				$site_url = get_bloginfo('url'); 
+				$currentPage = str_replace($site_url, '', $home_url);
+				?>
+				<div id="subscribe-form-target" class="subscribe-form-target subscribe-form" data-form-id="<?php echo $form_id; ?>" data-page="<?php echo $currentPage; ?>/">
+				</div>
+				<?php else: ?>
+					<?php get_template_part('partials/subscribe_form'); ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

@@ -34,8 +34,8 @@
 	display: flex;
 	position: relative;
 
-	@media screen and (max-width: $md) {
-		//display: block;
+	@media screen and (max-width: $sm) {
+		display: block;
 	}
 
 	.events-main{
@@ -63,7 +63,7 @@
 	border-right: 1px solid $light;
 	order: 1;
 
-	@media screen and (max-width: $md) {
+	@media screen and (max-width: $sm) {
 		flex: 0 0 100%;
 		order: initial;
 		height: auto;
@@ -85,6 +85,10 @@
 		@media screen and (max-width: $lg) {
 			padding: 30px 30px 100px 30px;
 		}
+
+		@media screen and (max-width: $sm) {
+			padding: 30px 15px 100px 15px;
+		}
 	}
 }
 
@@ -93,9 +97,9 @@
 	height: calc(100vh - #{$filter-nav-height} - #{$nav-height});
 	order: 2;
 
-	@media screen and (max-width: $md) {
+	@media screen and (max-width: $sm) {
 		flex: 0 0 100%;
-		height: calc(100vh - #{$nav-height});
+		height: calc(100vh - #{$nav-height} - 180px);
 		order: initial;
 	}
 }
@@ -123,16 +127,30 @@ $card-event-spacing: 35px;
 		border: 1px solid $light;
 		border-radius: 8px;
 
+		@media screen and (max-width: $sm) {
+			display: block;
+		}
+
 		.card-image{
-			flex: 0 0 22%;
+			flex: 0 0 20%;
 			border-radius: 8px 0px 0px 8px;
 			background-size: cover;
 			background-position: center center;
+
+			@media screen and (max-width: $sm) {
+				height: 20vh;
+				border-radius: 8px 8px 0 0;
+			}
+			
 		}
 
 		.card-text{
-			flex: 0 0 78%;
+			flex: 0 0 80%;
 			padding: $card-event-spacing*.6 $card-event-spacing*.6 $card-event-spacing*.6 $card-event-spacing;
+
+			@media screen and (max-width: $sm) {
+				padding: 15px;
+			}
 
 			.event-categories{
 				display: block;
@@ -142,12 +160,21 @@ $card-event-spacing: 35px;
 				@extend .tracked-less;
 				font-size: 12px;
 				margin-bottom: $card-event-spacing*.2;
+
+				@media screen and (max-width: $sm) {
+					font-size: 10px;
+				}
 			}
 
 			.event-title{
 				font-size: 19px;
 				line-height: 1.2;
 				margin-bottom: $card-event-spacing*.4;
+
+				@media screen and (max-width: $sm) {
+					font-size: 15px;
+					margin-bottom: $card-event-spacing*.2;
+				}
 			}
 
 			.event-date{
@@ -155,6 +182,10 @@ $card-event-spacing: 35px;
 				font-size: 15px;
 				font-weight: 400;
 				color: desaturate($brand-tint, 0%);
+
+				@media screen and (max-width: $sm) {
+					font-size: 13px;
+				}
 			}
 
 			.event-location{
@@ -162,6 +193,10 @@ $card-event-spacing: 35px;
 				font-weight: 400;
 				color: desaturate($brand-tint, 0%);
 				margin-bottom: 0;
+
+				@media screen and (max-width: $sm) {
+					font-size: 13px;
+				}
 			}
 
 		}
@@ -278,7 +313,6 @@ $card-event-spacing: 35px;
 	}
 }
 
-
 .event-submit-preview{
 
 	#submit-event-intro{
@@ -298,10 +332,9 @@ $card-event-spacing: 35px;
 	#submit-event-intro{
 		display: none;
 	}
-	#submit-event-thanks{
+	#submit-event-thanks,#submit-event-badges{
 		display: block;
 	}
-
 	#submit-event{
 		display: none;
 	}
@@ -309,12 +342,12 @@ $card-event-spacing: 35px;
 
 .page-id-554{
 
-		.event-manager-message{
-			@extend .col-md-10; 
-			@extend .offset-md-1; 
-			@extend .col-lg-6;
-			@extend .offset-lg-3;	
-		}
+	.event-manager-message{
+		@extend .col-md-10; 
+		@extend .offset-md-1; 
+		@extend .col-lg-6;
+		@extend .offset-lg-3;	
+	}
 	
 	#submit-event-form{
 		@extend .col-md-10; 
@@ -365,9 +398,13 @@ $card-event-spacing: 35px;
 
 .account-creation-message{
 	margin-bottom: 60px;
+
+	h4{
+		margin-bottom: 0;
+	}
 }
 
-#submit-event-thanks{
+#submit-event-thanks, #submit-event-badges{
 	display: none;
 }
 
@@ -575,6 +612,15 @@ $card-event-spacing: 35px;
 }
 
 
+/* success */
+.submit-event-badge{
+	margin-bottom: 60px;
+	.submit-event-badge-link{
+		margin-top: 10px;
+	}
+}
+
+
 
 
 
@@ -725,6 +771,13 @@ $event-meta-color: darken($brand-tint,5%);
 		a{
 			color: $brand-secondary;
 			font-weight: 500;
+		}
+	}
+
+	.single-event-organizer-logo{
+		img{
+			width: 70px;
+			margin-bottom: 10px;
 		}
 	}
 

@@ -3,7 +3,14 @@
 		<div class="card-inner event-card-inner">
 			<?php 
 			$banner = get_event_banner();
-			$banner_url = event_manager_get_resized_image( $banner, 'sm' );
+			if(!$banner || !strpos($banner, 'wp-event-manager/assets') ){
+				$banner_url = event_manager_get_resized_image( $banner, 'xs' );
+			} else{
+				$fallback_images = get_field('event_fallback_images', 13);
+				$length = count($fallback_images);
+				$rand = rand(0, ($length - 1) );
+				$banner_url = $fallback_images[$rand]['image']['sizes']['xs'];
+			}
 			?>
 			<div class="card-image" style="background-image: url('<?php echo $banner_url; ?>');">
 			</div>

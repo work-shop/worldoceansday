@@ -4,7 +4,14 @@
 			<div class="col-lg-7 event-single-hero-image">
 				<?php 
 				$banner = get_event_banner();
-				$banner_url = event_manager_get_resized_image( $banner, 'xl' );
+				if(!$banner || !strpos($banner, 'wp-event-manager/assets') ){
+					$banner_url = event_manager_get_resized_image( $banner, 'xl_landscape' );
+				} else{
+					$fallback_images = get_field('event_fallback_images', 13);
+					$length = count($fallback_images);
+					$rand = rand(0, ($length - 1) );
+					$banner_url = $fallback_images[$rand]['image']['sizes']['xl_landscape'];
+				}
 				?>
 				<div class="block-background" style="background-image: url('<?php echo $banner_url; ?>');">
 				</div>
@@ -23,7 +30,7 @@
 						$venue = get_post_meta($post->ID,'_event_venue');
 						if( $location[0] ):  ?>
 							<?php $online_event = false; ?>
-							<?php if( $venue[0] ): ?>
+							<?php if( $venue ): ?>
 								<h3 class="event-single-meta-heading event-single-meta-heading-location">
 									<?php echo $venue[0]; ?>
 								</h3>
@@ -62,7 +69,7 @@
 								</h4>
 							</div>
 						</div>
-						<div class="row event-meta-row">
+						<div class="row event-meta-row">								
 							<div class="col-2 col-xl-1 event-single-meta-icon">
 								<span class="icon" data-icon="♁"></span>
 							</div>
@@ -122,6 +129,11 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-4 single-event-organized-by">
+								<?php if( get_organizer_logo() ): ?>
+									<div class="single-event-organizer-logo">
+										<?php display_organizer_logo('xs'); ?>
+									</div>
+								<?php endif; ?>
 								<h5 class="single-event-organizer-label">
 									Organized By
 								</h5>

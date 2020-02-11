@@ -11,8 +11,8 @@
 			background-position: center center;
 		}
 
-		@media screen and (max-width: $md) {
-			height: auto;
+		@media screen and (max-width: $sm) {
+			height: 39vh;
 		}
 		.subpage-title{
 			color: white;
@@ -23,6 +23,7 @@
 			color: white;
 			position: relative;
 			z-index: 1;
+			text-shadow: 0px 0px 6vw transparentize($dark, .1);
 
 		}
 	}
@@ -47,7 +48,9 @@
 
 	.page-hero-title{
 		color: $brand;
-		@extend .bold;
+		@extend .font-black;
+		line-height: 1.2;
+
 	}
 
 

@@ -46,7 +46,7 @@ $button-color-default: lighten($brand-tint, 01%);
 	@media screen and (max-width: $sm) {
 		padding: 2px 7px;
 		margin-top: 10px;
-		font-size: 10px;
+		font-size: 12px;
 	}
 
 	span{
@@ -124,7 +124,7 @@ $button-color-default: lighten($brand-tint, 01%);
 			//border: 1px solid blue;
 
 			@media screen and (max-width: $sm) {
-				font-size: 9px;
+				font-size: 10px;
 				padding: 2px 0;
 			}
 
@@ -168,7 +168,7 @@ $button-color-default: lighten($brand-tint, 01%);
 		text-transform: uppercase;
 
 		@media screen and (max-width: $sm) {
-			font-size: 9px;
+			font-size: 10px;
 			padding: 2px 7px 0px 7px;
 
 			.icon:before{
@@ -231,4 +231,8 @@ $button-color-default: lighten($brand-tint, 01%);
 	@extend .brand-tint;
 	//margin-bottom: 20px;
 	font-size: 22px;
+
+	@media screen and (max-width: $sm) {
+		font-size: 16px;
+	}
 }

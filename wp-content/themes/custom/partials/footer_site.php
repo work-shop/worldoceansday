@@ -103,7 +103,17 @@
 						<h4 class="footer-subscribe-text">
 							<?php the_field('subscribe_text','33'); ?>
 						</h4>
-						<?php get_template_part('/partials/subscribe_form'); ?>
+						<?php if(true): ?>
+						<?php 
+						$form_id = get_field('form_to_display', 33); 
+						global $wp;
+						$home_url = home_url( $wp->request ); 
+						$site_url = get_bloginfo('url'); 
+						$currentPage = str_replace($site_url, '', $home_url);
+						?>
+						<div id="footer-form-target" class="subscribe-form-target subscribe-form" data-page="<?php echo basename(get_permalink()); ?>" data-form-id="1">
+						</div>
+					<?php endif; ?>
 					</li>
 				</ul>
 			</div>

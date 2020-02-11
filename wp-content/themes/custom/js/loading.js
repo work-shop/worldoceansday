@@ -22,7 +22,23 @@ function loading( config ){
 			$( '.' + config.loadingClass ).addClass( config.loadedClass );
 		}, config.loadDelay );
 
-		getPartial('supporters-slideshow', $('#supporters-slideshow-target'));
+		if( $('body').hasClass('home')){
+			getPartial('supporters-slideshow', $('#supporters-slideshow-target'));
+		}
+
+		if( $('.subscribe-form-target').length > 0 ){
+			$('.subscribe-form-target').each(function(index, el) {
+				var currentPage = $(this).data('page');
+				var formID = $(this).data('form-id');
+				console.log(currentPage);
+				var partialEndpoint = 'subscribe-form?currentPage=' + currentPage + '&formId=' + formID;
+				var target = $('#' + $(this).attr('id'));
+				//console.log(target);
+				getPartial(partialEndpoint, target);
+			});
+			
+		}
+
 
 	});
 
@@ -31,6 +47,7 @@ function loading( config ){
 	function getPartial( endpoint, target ){
 
 		var url = baseUrl + endpoint;
+		console.log(url);
 
 		$.ajax({
 			url: url,
@@ -38,7 +55,7 @@ function loading( config ){
 		})
 		.done(function(data) {
 			//console.log('successful request for partial');
-			//console.log(data);
+			console.log(data);
 
 			if( data ){
 

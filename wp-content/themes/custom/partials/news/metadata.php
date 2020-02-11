@@ -1,8 +1,8 @@
-<section class="block padded-less">
+<section class="block" id="news-post-metadata">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col news-post-metadata">
-				<h4 class="news-post-meta">
+				<h4 class="news-post-meta mb0">
 					<?php if( get_field('publish_date')): ?>
 						<?php the_field('publish_date'); ?>
 					<?php endif; ?>

@@ -19,7 +19,11 @@
 				<h2 class="white mb1 bold">
 					<?php echo $background_text; ?>
 				</h2>
-				<?php get_template_part('/partials/subscribe_form'); ?>
+				<?php 
+				$form_id = get_field('form_to_display', $id); 
+				?>
+				<div id="subscribe-form-target" class="subscribe-form-target" data-form-id="<?php echo $form_id; ?>" data-page="<?php echo basename(get_permalink()); ?>">
+				</div>
 			</div>
 		</div>
 	</div>

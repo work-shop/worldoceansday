@@ -157,6 +157,10 @@ $resource-card-spacing: 25px;
 			&:hover{
 				box-shadow: none;
 			}
+
+			@media screen and (max-width: $sm) {
+				display: block;
+			}
 		}
 		.card-image{
 			flex: 0 0 31%;
@@ -165,6 +169,10 @@ $resource-card-spacing: 25px;
 		.card-text{
 			flex: 0 0 69%;
 			padding: 50px;
+
+			@media screen and (max-width: $sm) {
+				padding: 30px 0px;
+			}
 		}
 	}
 }

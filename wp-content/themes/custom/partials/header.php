@@ -12,7 +12,7 @@
 			bloginfo( 'name' );
 		} 
 		else{
-			wp_title(false); echo ' - '; bloginfo( 'name' );
+			wp_title(false, true); echo ' - '; bloginfo( 'name' );
 		}
 		?>
 	</title>
@@ -21,7 +21,7 @@
 	if( get_field('social_media_title') ):
 		$social_title = get_field('social_media_title'); 
 	else:
-		$social_title = get_bloginfo( 'name' );
+		$social_title = wp_title(' - ', false);
 	endif;
 	if( get_field('social_media_description') ):
 		$social_description = get_field('social_media_description');
@@ -37,7 +37,12 @@
 		$social_image_array = get_field('social_media_image');
 		$social_image = $social_image_array['sizes']['fb'];
 	else:
-		$social_image = get_bloginfo( 'template_directory' ) . '/images/social_card_v1.jpg';
+		if( is_singular('event_listing')):
+			$banner = get_event_banner();
+			$social_image = event_manager_get_resized_image( $banner, 'fb' ); 
+		else:
+			$social_image = '';
+		endif;
 	endif;
 
 	?>
@@ -77,14 +82,14 @@
 	<?php wp_head(); ?>
 
 	<?php
-	$sitewide_alert_on = get_field('show_sitewide_alert', 'option');
+	//$sitewide_alert_on = get_field('show_sitewide_alert', 'option');
 	$sitewide_alert_class = 'sitewide-alert-off';
-	if( $sitewide_alert_on === true ):
-		if( !isset($_COOKIE['ws_show_sitewide_alert']) || $_COOKIE['ws_show_sitewide_alert'] === false ):
-			$sitewide_alert_class = 'sitewide-alert-on';
-			$show_sitewide_alert = true;
-		endif;
-	endif;
+	//if( $sitewide_alert_on === true ):
+		//if( !isset($_COOKIE['ws_show_sitewide_alert']) || $_COOKIE['ws_show_sitewide_alert'] === false ):
+			//$sitewide_alert_class = 'sitewide-alert-on';
+			//$show_sitewide_alert = true;
+		//endif;
+	//endif;
 	?>
 
 	<?php 
@@ -98,7 +103,7 @@
 </head>
 <body <?php body_class('loading before-scroll modal-off menu-closed dropdown-off mobile-dropdown-off curve-off ' . $sitewide_alert_class . ' ' . $logged_in_classes . ' '); ?>>
 
-	<?php get_template_part('partials/sitewide_alert'); ?>
+	<?php //get_template_part('partials/sitewide_alert'); ?>
 	<?php get_template_part('partials/nav'); ?>
 	<?php get_template_part('partials/menus'); ?>
 

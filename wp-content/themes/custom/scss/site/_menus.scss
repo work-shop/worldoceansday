@@ -3,16 +3,16 @@
 	overflow: hidden;
 
 	.hl-1{
-		@include transform(rotate( 45deg ));
+		transform: rotate( 45deg );
 		top: 10px;
 
 	}
 	.hl-2{
-		@include transform(rotate( -45deg ));
+		transform: rotate( -45deg );
 		top: 0px;
 	}	
 	.hl-3{
-		@include transform(rotate( -45deg ));
+		transform: rotate( -45deg );
 		top: -10px;	
 	}
 

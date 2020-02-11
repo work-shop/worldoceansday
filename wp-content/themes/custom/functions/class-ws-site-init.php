@@ -128,8 +128,8 @@ class WS_Site {
             // add_image_size('lg_landscape', 1280, 800, true); //1.6:1
             // add_image_size('lg_portrait', 800, 1200, true); //1.6:1
             //add_image_size('lg_square', 1280, 1280, true);   
-            add_image_size('xl', 1920, 1200, false); //1.6:1
-            add_image_size('xl_landscape', 1920, 1200, true); //1.6:1
+            add_image_size('xl', 1680, 1050, false); //1.6:1
+            add_image_size('xl_landscape', 1680, 1050, true); //1.6:1
             //add_image_size('xl_portrait', 1200, 1920, true); //1.6:1
             //add_image_size('xl_square', 1920, 1920, true);  
             add_image_size('fb', 1200, 630, true);

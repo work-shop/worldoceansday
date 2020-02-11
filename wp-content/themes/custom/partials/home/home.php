@@ -157,25 +157,6 @@
 		<div class="container-fluid container-fluid-home">
 			<div class="row section-content-row partners-list mb3">
 				<div class="col" id="supporters-slideshow-target">
-					<?php if(false): ?>
-						<div class="slick-home-supporters">
-							<?php $count = 1; ?>
-							<?php while ( have_rows('sustaining_partners',105) ) : the_row(); ?>
-								<div class="home-supporters-slide">
-									<?php $link = get_field('link'); ?>
-									<?php if( $link ): ?>
-										<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="">
-										<?php endif; ?>
-										<?php $image = get_sub_field('supporter_image'); ?>
-										<img src="<?php echo $image['sizes']['sm']; ?>" alt="<?php echo $image['alt']; ?>" class="">
-										<?php if( $link ): ?>
-										</a>
-									<?php endif; ?>
-								</div>
-								<?php $count++; ?>
-							<?php endwhile; ?>
-						</div>
-					<?php endif; ?>
 				</div>
 			</div>
 			<?php if( get_field('sustaining_partners_link') ): ?>

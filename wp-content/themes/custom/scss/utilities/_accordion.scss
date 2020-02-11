@@ -26,7 +26,7 @@
 			top: 50%;
 			height: 20px;
 			margin-top: -10px;
-			@include transform( rotate( 0deg));
+			transform: rotate( 0deg);
 			transition: all .3s;
 
 			&:before{
@@ -69,7 +69,7 @@
 		[data-control]{
 			border-bottom: none;
 			.icon{
-				@include transform( rotate(180deg) );
+				transform: rotate(180deg) ;
 				margin-top: -8px
 			}
 		}

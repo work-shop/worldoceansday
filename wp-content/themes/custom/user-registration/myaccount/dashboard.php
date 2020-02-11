@@ -23,6 +23,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
+<?php 
+$action = false; 
+if ( isset($_GET['action']) ): 
+	$action = $_GET['action'];
+endif; 
+?>
+<?php if( $action != 'edit' ): ?>
 <div class="container-fluid padded-top pb3 bg-ultra-light">
 	<div class="row mb1">
 		<div class="col">
@@ -37,10 +44,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 <div class="container-fluid padded bg-white">
 	<div class="row">
 		<div class="col">
-			<h3 class="brand-tint font-black">Your Events</h4>
+			<?php if( $action == 'edit' ): ?>
+				<div class="back-to-manage-events-button mb3">
+					<a href="<?php bloginfo('url'); ?>/my-account" class="button">Back to All Events</a>
+				</div>
+			<?php else: ?>
+				<h3 class="brand-tint font-black manage-your-events-heading">Manage Your Events</h3>
+			<?php endif; ?>
 			<?php echo do_shortcode( '[event_dashboard]'); ?>
 		</div>
 	</div>
