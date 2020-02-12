@@ -25,6 +25,8 @@
 			z-index: 1;
 			text-shadow: 0px 0px 6vw transparentize($dark, .1);
 
+
+
 		}
 	}
 
@@ -49,8 +51,16 @@
 	.page-hero-title{
 		color: $brand;
 		@extend .font-black;
-		line-height: 1.2;
+		line-height: 1.1;
+		width: 69%;
 
+		@media screen and (max-width: $lg) {
+			width: 90%;
+		}
+
+		@media screen and (max-width: $md) {
+			width: 100%;
+		}
 	}
 
 

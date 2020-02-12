@@ -60,7 +60,7 @@
 						</div>
 						<?php else: ?>
 							<div class="submit-event-intro-logged-in-buttons submit-event-buttons mt3">
-								<a href="<?php get_the_permalink(); ?>" class="button jump-submit">List another Event</a>
+								<a href="<?php the_permalink(); ?>" class="button">List another Event</a>
 							</div>
 						<?php endif; ?>
 					</div>
@@ -74,11 +74,11 @@
 						<h3 class="font-black brand centered submit-event-badges-heading">
 							<?php the_field('badges_heading'); ?>
 						</h3>
-						<?php //if(get_field('badges_subheading')): ?>
+						<?php if(get_field('badges_subheading')): ?>
 							<h4 class="font-black brand-tint centered submit-event-badges-subheading">
-								<?php the_field('badges_subheading'); ?>Pick an image from below and share on social media with #togetherwecan
+								<?php the_field('badges_subheading'); ?>
 							</h4>
-						<?php// endif; ?>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="row mt4 submit-event-badges">

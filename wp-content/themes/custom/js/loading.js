@@ -30,10 +30,8 @@ function loading( config ){
 			$('.subscribe-form-target').each(function(index, el) {
 				var currentPage = $(this).data('page');
 				var formID = $(this).data('form-id');
-				console.log(currentPage);
 				var partialEndpoint = 'subscribe-form?currentPage=' + currentPage + '&formId=' + formID;
 				var target = $('#' + $(this).attr('id'));
-				//console.log(target);
 				getPartial(partialEndpoint, target);
 			});
 			
@@ -47,7 +45,7 @@ function loading( config ){
 	function getPartial( endpoint, target ){
 
 		var url = baseUrl + endpoint;
-		console.log(url);
+		//console.log(url);
 
 		$.ajax({
 			url: url,
@@ -55,7 +53,7 @@ function loading( config ){
 		})
 		.done(function(data) {
 			//console.log('successful request for partial');
-			console.log(data);
+			//console.log(data);
 
 			if( data ){
 

@@ -1,20 +1,24 @@
+<?php 
+$banner = get_post_meta($post->ID,'_event_banner');
+$banner_fallback = get_field('event_banner_fallback');
+if( !$banner || !$banner[0] ){
+	$banner_url = get_field('event_banner_fallback_image');
+} else{
+	$banner = get_event_banner();
+	$banner_url = event_manager_get_resized_image( $banner, 'xl_landscape' );
+}
+?>
 <div id="event-single-wrapper">
 	<section class="block" id="single-event-hero">	
 		<div class="row">
 			<div class="col-lg-7 event-single-hero-image">
-				<?php 
-				$banner = get_event_banner();
-				if(!$banner || !strpos($banner, 'wp-event-manager/assets') ){
-					$banner_url = event_manager_get_resized_image( $banner, 'xl_landscape' );
-				} else{
-					$fallback_images = get_field('event_fallback_images', 13);
-					$length = count($fallback_images);
-					$rand = rand(0, ($length - 1) );
-					$banner_url = $fallback_images[$rand]['image']['sizes']['xl_landscape'];
-				}
-				?>
 				<div class="block-background" style="background-image: url('<?php echo $banner_url; ?>');">
 				</div>
+				<?php if( is_page(11) && $banner_fallback ): ?>
+					<div class="event-single-preview-fallback-image-note wod-alert wod-alert-error">
+						An image has been automatically added to your event from our image library. To provide your own image, click "Edit Listing" to return to the event form, then upload an image.
+					</div>
+				<?php endif; ?>
 			</div>
 			<div class="col-lg-5 event-single-hero-meta">
 				<h2 class="event-single-title">
@@ -28,7 +32,8 @@
 						<?php 
 						$location = get_post_meta($post->ID,'_event_location');
 						$venue = get_post_meta($post->ID,'_event_venue');
-						if( $location[0] ):  ?>
+						$online = get_post_meta($post->ID,'_event_online');
+						if( $online[0] == 'no' ):  ?>
 							<?php $online_event = false; ?>
 							<?php if( $venue ): ?>
 								<h3 class="event-single-meta-heading event-single-meta-heading-location">

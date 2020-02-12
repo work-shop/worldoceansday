@@ -18,7 +18,8 @@
 		//margin-right: 1em;
 		display: block;
 		margin-bottom: .5em;
-		@extend .font-bold;
+		@extend .font-medium;
+		color: $brand-tint;
 
 		&.filter-active{
 			@extend .font-black;

@@ -4,12 +4,12 @@
 	<section class="block padded-less" id="list-your-event-banner">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-4 offset-lg-2 list-your-event-banner-1">
+				<div class="col-10 col-lg-4 offset-lg-2 list-your-event-banner-1">
 					<h3 class="brand font-black">
 						<?php the_field('list_your_event_banner_text', 13); ?>
 					</h3>
 				</div>
-				<div class="col-lg-3 offset-lg-1 list-your-event-banner-2">
+				<div class="col-10 col-lg-3 offset-lg-1 list-your-event-banner-2">
 					<?php $link = get_field('list_your_event_banner_link', 13); ?>
 					<?php if( $link ): ?>
 						<div class="link-container">

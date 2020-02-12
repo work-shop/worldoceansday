@@ -28,8 +28,6 @@
 	@extend .align-items-center;
 }
 
-
-
 #events-wrapper{
 	display: flex;
 	position: relative;
@@ -127,7 +125,7 @@ $card-event-spacing: 35px;
 		border: 1px solid $light;
 		border-radius: 8px;
 
-		@media screen and (max-width: $sm) {
+		@media screen and (max-width: $xs) {
 			display: block;
 		}
 
@@ -569,6 +567,14 @@ $card-event-spacing: 35px;
 
 }
 
+.wpem-alert{
+	@extend .font-medium;
+
+	&.wpem-alert-danger{
+		border: 1px solid darken($error,30%);
+	}
+}
+
 
 /* event preview page */
 
@@ -578,7 +584,7 @@ $card-event-spacing: 35px;
 	.event_listing_preview_title{
 		padding: 0;
 		background: none !important;
-		margin-bottom: 60px;
+		margin-bottom: 40px;
 		margin-top: 0;
 
 		.button{
@@ -586,7 +592,7 @@ $card-event-spacing: 35px;
 			color: white;
 			border: none !important;
 			@extend .button;
-			margin: 0 15px;
+			margin: 0 15px 20px 0;
 
 			&:hover{
 				cursor: pointer;
@@ -606,6 +612,18 @@ $card-event-spacing: 35px;
 		padding-top: 0;
 		overflow: hidden;
 		@extend .shadowed;
+
+		@media screen and (max-width: $sm) {
+			padding: 0;
+		}
+	}
+
+	.event-single-preview-fallback-image-note{
+		position: absolute;
+		bottom: 15px;
+		width: calc(100% - 40px);
+		z-index: 1;
+		font-size: 16px;
 	}
 
 

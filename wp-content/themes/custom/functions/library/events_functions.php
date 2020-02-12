@@ -220,26 +220,48 @@ function get_event_search( $request ){
 add_action('save_post', 'my_acf_update_value',10,3);
 function my_acf_update_value($post_id, $post, $update ) {
 
+
+	//update the banner with a fallback image if the organizer did not provide an image
+	$banner = get_post_meta($post->ID,'_event_banner');
+	if( !$banner || !$banner[0] ){
+		$fallback_images = get_field('event_fallback_images', 13);
+		$length = count($fallback_images);
+		$rand = rand(0, ($length - 1) );
+		$banner_url = $fallback_images[$rand]['image']['sizes']['xl_landscape'];
+		$bannerArray = array();
+		$bannerArray[] = $banner_url;
+		update_post_meta($post_id, '_event_banner', $bannerArray);
+		update_field('field_5e43f31f9b260', 1, $post_id); //fallback check
+		update_field('field_5e4403ee81804', $banner_url, $post_id); //fallback image
+	} else{
+		update_field('field_5e43f31f9b260', 0, $post_id);
+		update_field('field_5e4403ee81804', '', $post_id);
+	}
+
+
+	$online = get_post_meta($post_id,'_event_online');
+	$online = $online[0];
 	$original_value = get_field('location');
+
 
 	if( get_field('override_organizer_input_address', $post_id) == false || $update == false ){
 
-		$location = get_post_meta($post_id,'_event_location');
-		$provided_location = $location;
+		$address;
 
-		//if not an online event
-		if($location){
-
-			if($location[0]){
-				$address = $location[0];
-			} else{
-				$terms = get_the_terms( $post->ID , 'event_listing_country' ); 
-				foreach( $terms as $term ) { 
-					$address = $term->name;
-					break;
-					unset($term);
-				}
+		if( $online == 'yes' || $online == 'Yes' || $online == 'YES' ){
+			$terms = get_the_terms( $post->ID , 'event_listing_country' ); 
+			foreach( $terms as $term ) { 
+				$address = $term->name;
+				break;
+				unset($term);
 			}
+		} else{
+			$location = get_post_meta($post_id,'_event_location');
+			$provided_location = $location;
+			$address = $location[0];
+		}
+
+		if($address){
 
 			//print_r($address);
 			$base = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
@@ -303,7 +325,10 @@ function my_acf_update_value($post_id, $post, $update ) {
 					);
 					$value = $location;
 
-					$success = 'Map location successfully determined by Google Maps';
+					$success = 'Map location successfully determined by Google Maps. ';
+					if( $online == 'yes' || $online == 'Yes' || $online == 'YES' ){
+						$success .= ' This is an Online Event, so the Event Country setting has been used for the map location.';
+					}
 					$message = '<div class="wod-alert wod-alert-success success">' . $success . '</div>';
 
 					update_field('location', $value, $post_id);
@@ -344,7 +369,7 @@ function my_acf_update_value($post_id, $post, $update ) {
 			$error = 'Something went wrong while retrieving the location, likely the location is empty.';
 			$message = '<div class="wod-alert wod-alert-error">' . $error . '</div>';
 			update_field('location_messages_admin', $message, $post_id);
-		} //close if location[0]
+		} //close if address
 
 	//overriding organizer input address
 	} else{

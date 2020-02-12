@@ -10,14 +10,14 @@ function submitEvent() {
 	$(document).ready( function() {
 
 		if( $('#event_preview').length > 0){
-			console.log('on preview page');
+			//console.log('on preview page');
 			$('body').addClass('event-submit-preview');
 		} else if( $('.post-submitted-success-green-message').length > 0 ){
-			console.log('on success page');
+			//console.log('on success page');
 			$('body').addClass('event-submit-success');
 		}
 		else{
-			console.log('on submit page');
+			//console.log('on submit page');
 			$('body').addClass('event-submit-submit');
 		}
 
@@ -32,21 +32,29 @@ function submitEvent() {
 
 		$('.submit-event-button-create').click(function(e) {
 			e.preventDefault();
-			if (accountCreationActivated === false){
-				accountCreationActivated = true;
-				$('.fieldset-create_account_email').removeClass('hidden');
-				var accountCreationMessage = $('#create-account-message-placeholder');
-				accountCreationMessage.removeClass('hidden');
-				$('#submit-event-form').prepend(accountCreationMessage);
-			}
-
+			activateAccountCreation();
 		});
+
+		if( $('body').hasClass('event-submit-submit') && $('.event-manager-error.wpem-alert').length > 0 ){
+			$('body').addClass('event-submit-submit-error');
+			activateAccountCreation();
+		}
 
 
 		//$('.fieldset-create_account_email .field').append(emailMarkup);
 
 		
 	});
+
+	function activateAccountCreation(){
+		if (accountCreationActivated === false){
+			accountCreationActivated = true;
+			$('.fieldset-create_account_email').removeClass('hidden');
+			var accountCreationMessage = $('#create-account-message-placeholder');
+			accountCreationMessage.removeClass('hidden');
+			$('#submit-event-form').prepend(accountCreationMessage);
+		}
+	}
 }
 
 export { submitEvent };

@@ -662,6 +662,8 @@ $text-button-small: (
 	background: #cce5ff;
 	color: $brand;
 	border-color: $brand;
+	@extend .font-medium;
+	line-height: 1.4;
 
 	&.wod-alert-success{
 		color: darken(#d4edda, 55%);
@@ -671,9 +673,9 @@ $text-button-small: (
 	}
 
 	&.wod-alert-error{
-		color: darken($error, 10%);
+		color: darken($error, 25%);
 		background: lighten($error,30%);
-		border-color: darken($error, 10%);
+		border-color: darken($error, 25%);
 
 	}
 
@@ -693,6 +695,12 @@ $text-button-small: (
 		}
 	}
 
+	.fc-section-heading-text{
+		@extend .font-black;
+		@extend .section-heading;
+		margin-bottom: 0 !important;
+	}
+
 	.fc-button a{
 		@extend .button;
 		text-decoration: none;
@@ -702,6 +710,23 @@ $text-button-small: (
 		&:hover{
 			text-decoration: none;
 		}
+	}
+}
+
+.wysiwyg{
+	h1,h2,h3,h4,h5,h6,strong,b{
+		@extend .font-black;
+		*{
+			@extend .font-black;
+		}
+	}
+
+	a{
+		text-decoration: underline;
+	}
+
+	p{
+		line-height: 1.8 !important;
 	}
 }
 

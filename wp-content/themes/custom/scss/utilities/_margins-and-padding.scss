@@ -75,6 +75,11 @@
 .padded-less{
 	padding-top: $container-fluid-padding-md;
 	padding-bottom: $container-fluid-padding-md;
+
+  @media screen and (max-width: $sm) {
+    padding-top: $container-fluid-padding-md*.75;
+  padding-bottom: $container-fluid-padding-md*.75;
+  }
 }
 
 .padded{
