@@ -55,6 +55,13 @@
 							</ul>
 						</menu>
 					</div>
+					<?php // echo date("Y-m-d"); ?>
+					<?php if(true): ?>
+						<div class="filter" id="filter-date">
+							<input id="litepicker" class="filter-input filter-input-date" value="Date" autocomplete="off">
+							<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js" async defer></script>
+						</div>
+					<?php endif; ?>
 					<div class="filter" id="filter-clear">
 						<button class="filter-clear-button filter-clear"><span class="icon" data-icon="x"></span> Clear Filters</button>
 					</div>

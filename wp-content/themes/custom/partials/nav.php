@@ -31,41 +31,38 @@
 			</div>
 			<div class="nav-menu-lower">
 				<ul class="nav-menus-list">
-					<li class="has-sub-menu closed nav-menu-primary-item nav-take-action-item">
-						<a href="<?php echo bloginfo('url'); ?>/take-action" class="nav-primary-link dropdown-link closed mobile-closed <?php if( Helpers::is_tree(14) ): echo ' nav-current '; endif; ?>" id="nav-link-take-action" data-dropdown-target="take-action">
-							Take Action
-						</a>
-					</li>
-					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/news" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(69) || is_single('post') ): echo ' nav-current '; endif; ?>" id="nav-link-events" data-dropdown-target="blog">
-							Blog
-						</a>
-					</li>	
-					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/events" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(13) ): echo ' nav-current '; endif; ?>" id="nav-link-events" data-dropdown-target="events">
-							Events
-						</a>
-					</li>
-					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/resources" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(49) ): echo ' nav-current '; endif; ?>" id="nav-link-resources" data-dropdown-target="resources">
-							Resources
-						</a>
-					</li>
-					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/youth" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(53) ): echo ' nav-current '; endif; ?>" id="nav-link-youth" data-dropdown-target="youth">
-							Youth
-						</a>
-					</li>
-					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/support" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(97) ): echo ' nav-current '; endif; ?>" id="nav-link-support" data-dropdown-target="support">
-							Support
-						</a>
-					</li>
-					<li class="has-sub-menu closed nav-menu-primary-item">
-						<a href="<?php echo bloginfo('url'); ?>/about" class="dropdown-link closed mobile-closed <?php if( Helpers::is_tree(73) ): echo ' nav-current '; endif; ?>" id="nav-link-about" data-dropdown-target="about">
-							About
-						</a>
-					</li>
+					<?php if( have_rows('menus','option') ): ?>
+						<?php  while ( have_rows('menus','option') ) : the_row(); ?>
+							<?php if(get_sub_field('active')) : ?>
+								<?php $slug = get_sub_field('menu_slug'); ?>
+								<li class="has-sub-menu closed nav-menu-primary-item nav-<?php echo $slug; ?>-item">
+									<?php $link = get_sub_field('menu_title'); ?>
+									<?php 
+									if( Helpers::is_tree(14) && $slug === 'take-action'){
+										$nav_current_classes = ' nav-current ';
+									} elseif( ( Helpers::is_tree(69) || is_single('post') ) && $slug === 'blog'){
+										$nav_current_classes = ' nav-current ';
+									} elseif( ( Helpers::is_tree(13) || is_singular('event_listing') ) && $slug === 'events'){
+										$nav_current_classes = ' nav-current ';
+									} elseif( ( is_archive('resources') || is_singular('resources') ) && $slug === 'resources'){
+										$nav_current_classes = ' nav-current ';
+									} elseif( ( Helpers::is_tree(53) ) && $slug === 'youth'){
+										$nav_current_classes = ' nav-current ';
+									} elseif( ( Helpers::is_tree(97) ) && $slug === 'support'){
+										$nav_current_classes = ' nav-current ';
+									} elseif( ( Helpers::is_tree(73) ) && $slug === 'about'){
+										$nav_current_classes = ' nav-current ';
+									} else{
+										$nav_current_classes = ' ';
+									}
+									?>
+									<a href="<?php echo $link['url']; ?>" class="nav-primary-link dropdown-link closed mobile-closed <?php echo $nav_current_classes; ?> " id="nav-link-<?php the_sub_field('menu_slug'); ?>" data-dropdown-target="<?php the_sub_field('menu_slug'); ?>">
+										<?php echo $link['title']; ?>
+									</a>
+								</li>
+							<?php endif; ?>
+						<?php endwhile; ?>
+					<?php endif; ?>
 					<li class="nav-menu-primary-item nav-menu-search-item">
 						<a href="#search" class="search-toggle search-button search-trigger" id="search-trigger-button">
 							<span class="icon search-icon" data-icon="s"></span>

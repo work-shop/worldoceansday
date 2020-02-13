@@ -27,4 +27,4 @@ scp -P $KINSTA_PRODUCTION_PORT -r wp-content/themes/custom $KINSTA_PRODUCTION_US
 #scp -P $KINSTA_PRODUCTION_PORT wp-content/themes/custom/functions.php $KINSTA_PRODUCTION_USER@$KINSTA_PRODUCTION_IP:./public/wp-content/themes/custom/
 
 
-curl -L $PRODUCTION_SITE_URL/kinsta-clear-cache-all/
+curl -L $PRODUCTION_SITE_URL/kinsta-clear-cache/

@@ -2,14 +2,13 @@
 	<a href="<?php the_permalink(); ?>">
 		<div class="card-inner event-card-inner">
 			<?php 
-			$banner = get_event_banner();
-			if(!$banner || !strpos($banner, 'wp-event-manager/assets') ){
-				$banner_url = event_manager_get_resized_image( $banner, 'xs' );
+			$banner = get_post_meta($post->ID,'_event_banner');
+			$banner_fallback = get_field('event_banner_fallback');
+			if( !$banner || !$banner[0] ){
+				$banner_url = get_field('event_banner_fallback_image');
 			} else{
-				$fallback_images = get_field('event_fallback_images', 13);
-				$length = count($fallback_images);
-				$rand = rand(0, ($length - 1) );
-				$banner_url = $fallback_images[$rand]['image']['sizes']['xs'];
+				$banner = get_event_banner();
+				$banner_url = event_manager_get_resized_image( $banner, 'xl_landscape' );
 			}
 			?>
 			<div class="card-image" style="background-image: url('<?php echo $banner_url; ?>');">

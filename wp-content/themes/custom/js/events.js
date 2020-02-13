@@ -23,12 +23,54 @@ var updating = false;
 var adding = false;
 var currentCategory = 'all';
 var currentCountry = 'all';
+var currentStartDate = 'all';
+var currentEndDate = 'all';
 var filtered = false;
-var eventsMap, popup, Popup;
+var eventsMap, popup, Popup, markerCluster;
+var markers = [];
 var mapInitialized = false;
+var picker;
+var pickerInitialized = false;
 
-var emptyMessage = '<div class="col"><div class="error"><h3>No events found with those parameters</h3></div></div>';
-var errorMessage = '<div class="col"><div class="error"><h3>Oops, something went wrong. Please try again.</h3></div></div>';
+var clusterStyles = [
+{
+	textColor: 'white',
+	url: siteUrl + '/wp-content/themes/custom/images/m/m1.svg',
+	height: 50,
+	width: 50
+},
+{
+	textColor: 'white',
+	url: siteUrl + '/wp-content/themes/custom/images/m/m1.svg',
+	height: 50,
+	width: 50
+},
+{
+	textColor: 'white',
+	url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
+	height: 50,
+	width: 50
+},
+{
+	textColor: 'white',
+	url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
+	height: 50,
+	width: 50
+},
+{
+	textColor: 'white',
+	url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
+	height: 50,
+	width: 50
+}
+];
+var mcOptions = {
+	gridSize: 75,
+	styles: clusterStyles
+};
+
+var emptyMessage = '<div class="col"><div class="wod-alert wod-alert-error">No events found with those settings.</div></div>';
+var errorMessage = '<div class="col"><div class="wod-alert wod-alert-error">Oops, something went wrong. Please try again.</div></div>';
 
 
 function events() {
@@ -38,10 +80,10 @@ function events() {
 
 		if( $('body').hasClass('page-id-13') ){
 
-			//console.clear();
-			console.log('----- Initializing events -----');
-
-			initialRequest();
+			//setTimeout( function(){
+				//console.clear();
+				//console.log('----- Initializing events -----');
+			//}, 3000);
 
 			$('.filter-menu-button').click(function() {
 				toggleFilterMenu($(this));
@@ -58,6 +100,7 @@ function events() {
 				filtered = false;
 				$('.filter-menu').removeClass('open');
 				$('.filter-menu-button').removeClass('active');
+				$('#litepicker').removeClass('active').val('Date');
 				updateButtons( $('#filter-button-all-category'), true );
 				updateButtons( $('#filter-button-all-country'), true );
 			});
@@ -68,10 +111,28 @@ function events() {
 				if( !full ){
 					page++;
 					adding = true;
-					getEvents(currentCategory, currentCountry);
+					getEvents(currentCategory, currentCountry, currentStartDate, currentEndDate);
 				}
 
 			});
+
+			picker = new Litepicker({ 
+				element: document.getElementById('litepicker'),
+				singleMode: false,
+				splitView: true,
+				format : 'MMM DD',
+				onSelect : function(date1, date2) { 
+					if(pickerInitialized){
+						pickerSelect(date1, date2);
+					}
+				}
+			});
+			//console.log(picker.options);
+			//picker.setDateRange('2020-02-13','2020-02-15');
+
+			$('#litepicker').val('Date');
+
+			initialRequest();
 
 			//list your event banner
 			$('#list-your-event-banner-close').click(function(e){
@@ -90,7 +151,7 @@ function events() {
 					var category = e.state.category;
 					var country = e.state.country;
 					page = 1;
-					getEvents(category, country);
+					getEvents(category, country, currentStartDate, currentEndDate);
 					updateButtons();
 				}
 
@@ -108,6 +169,8 @@ function events() {
 
 		var category = initialUrlVars.category;
 		var country = initialUrlVars.country;
+		var startDate = initialUrlVars.startDate;
+		var endDate = initialUrlVars.endDate;
 
 		if( !isEmpty(category) ){
 			if( category !== 'all' ){
@@ -115,6 +178,7 @@ function events() {
 				updateButtons( $('.filter-button-category[data-slug="' + category + '"]' ) , true );
 			}
 		}
+
 		if( !isEmpty(country) ){
 			if( country !== 'all' ){
 				filtered = true;
@@ -122,12 +186,50 @@ function events() {
 			}
 		}
 
-		getEvents(category, country);
+		//console.log('from url startDate: ' + startDate);
+		//console.log('from url endDate: ' + endDate);
+
+		if( !isEmpty(startDate) || !isEmpty(endDate) ){
+
+			if( startDate != 'all' || endDate != 'all'){
+				//console.log('at least one is not set to all');
+				filtered = true;
+				updatePickerButton();
+
+				if( startDate == 'all' && endDate !== 'all'){
+					//console.log('start is all, end is not');
+					var today = new Date();
+					startDate = formatDate(today);
+				} else if( startDate !== 'all' && endDate == 'all'){
+					//console.log('end is all, start is not');
+					var today = new Date();
+					endDate = formatDate(today);
+				} else{
+					//console.log('both are not all');
+				}
+
+				var start = new Date(startDate);
+				var end = new Date(endDate);
+				var pickerStartDate = start.setDate(start.getDate()+1);
+				var varpickerEndDate = end.setDate(end.getDate()+1);
+				//console.log('updating picker with: ');
+				//console.log(pickerStartDate, varpickerEndDate);
+				picker.setDateRange(pickerStartDate, varpickerEndDate);
+
+			} else{
+				//console.log('start and end are both all')
+			}
+
+		}
+		pickerInitialized = true;
+
+		getEvents(category, country, startDate, endDate);
 
 	}
 
 
-	function getEvents(category = 'all', country = 'all'){
+
+	function getEvents(category = 'all', country = 'all', startDate = 'all', endDate = 'all'){
 
 		if(!updating){
 			updating = true;
@@ -135,9 +237,11 @@ function events() {
 
 			currentCategory = category;
 			currentCountry = country;
+			currentStartDate = startDate;
+			currentEndDate = endDate;
 			updateUrl();
 
-			var parameters = '?category=' + category + '&country=' + country;
+			var parameters = '?category=' + category + '&country=' + country + '&startDate=' + startDate + '&endDate=' + endDate;
 			var additionalParameters = '&per_page=' + perPage + '&page=' + page;
 			var endpoint = baseUrl + parameters + additionalParameters;
 
@@ -159,9 +263,18 @@ function events() {
 					//console.log(data);
 
 					if( data.data.length > 0 ){
-						initMap(data);
+						if( !mapInitialized ){
+							initMap(data.data);
+						} else{
+							reloadMarkers(data.data);
+						}
 					} else{
 						console.log('no map events found with this request');
+						if( !mapInitialized ){
+							initMap();
+						} else{
+							reloadMarkers();
+						}
 					}
 
 				})
@@ -232,6 +345,57 @@ function events() {
 		}
 
 
+	}
+
+
+
+	function pickerSelect(date1, date2){
+
+		//console.log('onSelect with dates:');
+		//console.log(date1, date2); 
+
+		updatePickerButton();
+
+		var startDate = formatDate(date1);
+		var endDate = formatDate(date2);
+		//console.log(startDate);
+		//console.log(endDate);
+
+		getEvents(currentCategory, currentCountry, startDate, endDate);
+
+	}
+
+
+	function updatePickerButton(){
+
+		//console.log('updatePickerButton');
+		//console.log('filtered: ' + filtered);
+
+		//console.log(picker);
+
+		var pickerInput = $('#litepicker');
+
+		if( pickerInput.hasClass('active') === false ){
+			pickerInput.addClass('active');
+		}
+
+		if(filtered){
+			$('#filter-clear').addClass('on');
+		}
+
+	}
+
+
+	function formatDate(date){
+		var year = date.getFullYear();
+
+		var month = (1 + date.getMonth()).toString();
+		month = month.length > 1 ? month : '0' + month;
+
+		var day = date.getDate().toString();
+		day = day.length > 1 ? day : '0' + day;
+
+		return year + '-' + month + '-' + day;
 	}
 
 
@@ -308,7 +472,7 @@ function events() {
 	}
 
 
-	function updateButtons(button, cosmetic){
+	function updateButtons(button, cosmetic = false){
 
 		page = 1;
 
@@ -322,9 +486,9 @@ function events() {
 
 		if( !cosmetic ){		
 			if( filterType ==='category'){
-				getEvents(slug, currentCountry);
+				getEvents(slug, currentCountry, currentStartDate, currentEndDate);
 			}else if( filterType ==='country'){
-				getEvents(currentCategory, slug);
+				getEvents(currentCategory, slug, currentStartDate, currentEndDate);
 			}
 		}
 
@@ -350,85 +514,22 @@ function events() {
 
 	//map related functions below
 
-	function initMap(mapData) {
+	function initMap(locations) {
 		//console.log('init map');
-
-		var locations = mapData.data; 
-		//console.log(locations);
-
-		locations.forEach( function( location ) {
-			location.marker.position.lat = parseFloat(location.marker.position.lat);
-			location.marker.position.lng = parseFloat(location.marker.position.lng);
-			var popupContent = location.marker.popup.marker_card;
-			location.marker.popup.content = popupContent;
-		});
 
 		var center = {lat: 0, lng: 0};
 
 		eventsMap = new google.maps.Map( document.getElementById('events-map'), {
 			zoom: 2, 
+			maxZoom: 15,
 			center: center,
 			mapTypeControl: false,
 			streetViewControl: false,
 			rotateControl: false
-		} );
+		} );		
 
-		var markers = locations.map(function(location, i) {
-			return new google.maps.Marker({
-				position: location.marker.position,
-				content: location.marker.popup.marker_card//,
-				//icon: siteUrl + '/wp-content/themes/custom/images/marker_v-07.svg'
-			});
-		});
-
-		var clusterStyles = [
-		{
-			textColor: 'white',
-			url: siteUrl + '/wp-content/themes/custom/images/m/m1.svg',
-			height: 50,
-			width: 50
-		},
-		{
-			textColor: 'white',
-			url: siteUrl + '/wp-content/themes/custom/images/m/m1.svg',
-			height: 50,
-			width: 50
-		},
-		{
-			textColor: 'white',
-			url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
-			height: 50,
-			width: 50
-		},
-		{
-			textColor: 'white',
-			url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
-			height: 50,
-			width: 50
-		},
-		{
-			textColor: 'white',
-			url: siteUrl + '/wp-content/themes/custom/images/m/m2.svg',
-			height: 50,
-			width: 50
-		}
-		];
-
-		var mcOptions = {
-			gridSize: 75,
-			styles: clusterStyles
-		};
-
-		var markerCluster = new MarkerClusterer(eventsMap, markers, mcOptions);
-
-		markers.forEach(function (marker) {
-			var infowindow = new google.maps.InfoWindow({
-				content: marker.content
-			});
-			marker.addListener('click', function() {
-				infowindow.open(eventsMap, marker);
-			});
-		});
+		//console.log(locations);
+		setMarkers(locations);
 
 		if(mapInitialized === false){
 			mapInitialized = true;
@@ -436,6 +537,67 @@ function events() {
 
 	}
 
+
+
+	function setMarkers(locations){
+		//console.log('set markers');
+
+		if(!isEmpty(locations)){
+
+			var bounds = new google.maps.LatLngBounds();
+
+			locations.forEach( function( location ) {
+				location.marker.position.lat = parseFloat(location.marker.position.lat);
+				location.marker.position.lng = parseFloat(location.marker.position.lng);
+				var popupContent = location.marker.popup.marker_card;
+				location.marker.popup.content = popupContent;
+
+				var marker = new google.maps.Marker({
+					position: location.marker.position,
+					content: location.marker.popup.marker_card,
+					map: eventsMap
+					//animation: google.maps.Animation.DROP
+				//icon: siteUrl + '/wp-content/themes/custom/images/marker_v-07.svg'
+			});
+
+				marker.addListener('click', function() {
+					infowindow.open(eventsMap, marker);
+				});
+
+				markers.push(marker);
+
+				bounds.extend(marker.getPosition());
+
+				var infowindow = new google.maps.InfoWindow({
+					content: marker.content
+				});
+
+			});
+
+			markerCluster = new MarkerClusterer(eventsMap, markers, mcOptions);
+
+			eventsMap.fitBounds(bounds);
+
+		}
+
+	}
+
+
+
+	function reloadMarkers(locations){
+		//console.log('reload markers');
+
+		for (var i=0; i<markers.length; i++) {
+			markers[i].setMap(null);
+		}
+
+		markers = [];
+
+		markerCluster.clearMarkers();
+
+		setMarkers(locations);
+
+	}
 
 
 
@@ -462,11 +624,13 @@ function events() {
 	function updateUrl(){
 		var stateObj = {
 			category : currentCategory,
-			country : currentCountry
+			country : currentCountry,
+			startDate : currentStartDate,
+			endDate : currentEndDate
 		};
-		var url = '/events/?category=' + currentCategory + '&country=' + currentCountry;
+		var url = '/events/?category=' + currentCategory + '&country=' + currentCountry + '&startDate=' + currentStartDate + '&endDate=' + currentEndDate;
 		if(local){
-			url = '/worldoceansday/events/?category=' + currentCategory + '&country=' + currentCountry;
+			url = '/worldoceansday/events/?category=' + currentCategory + '&country=' + currentCountry + '&startDate=' + currentStartDate + '&endDate=' + currentEndDate;
 		}
 		history.pushState(stateObj, 'Events', url );
 	}

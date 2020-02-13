@@ -16,6 +16,14 @@ add_action( 'rest_api_init', function () {
 } );
 
 
+function theme_name_custom_orderby( $query_args ) {
+    $query_args[ 'orderby' ] = 'meta_value'; //orderby will be according to data stored inside the particular meta key
+    $query_args[ 'order' ] = 'DESC';
+    return $query_args;
+}
+
+
+
 function get_event_list( $request ){
 
 	$html = '';
@@ -25,6 +33,8 @@ function get_event_list( $request ){
 	$country = $request['country'];
 	$per_page = $request['per_page'];
 	$page = $request['page'];
+	$start_date = $request['startDate'];
+	$end_date = $request['endDate'];
 
 	if($category === 'all' || $category === 'All' || $category == false){
 		$terms = get_terms( array(
@@ -48,11 +58,19 @@ function get_event_list( $request ){
 		}
 	}
 
+	if($start_date === 'all' || $start_date === 'All' || $start_date == false){
+		$start_date = date('Y-m-d');
+	}
+	if($end_date === 'all' || $end_date === 'All' || $end_date == false){
+		$end_date = '2099-01-01';
+	}
+
 	$my_query = new WP_Query( array(
 		'post_type' => 'event_listing',
 		'posts_per_page' => $per_page,
 		'paged' => $page,
 		'status' => 'active',
+		'ignore_custom_sort' => TRUE,
 		'meta_key' => '_event_start_date',
 		'order_by' => 'meta_key',
 		'order' => 'ASC',
@@ -67,6 +85,21 @@ function get_event_list( $request ){
 				'taxonomy' => 'event_listing_country',
 				'field' => 'slug',
 				'terms' => $country,
+			)
+		),
+		'meta_query' => array(
+			'relation' => 'AND',
+			array(
+				'key'     => '_event_start_date',
+				'value'   => $start_date,
+				'compare' => '>=',
+				'type'    => 'DATE'
+			),
+			array(
+				'key'     => '_event_start_date',
+				'value'   => $end_date,
+				'compare' => '<=',
+				'type'    => 'DATE'
 			)
 		),
 	) );
@@ -92,10 +125,12 @@ function get_event_list( $request ){
 
 function get_event_map_locations( $request ){
 
+	$mapOptions = array( 'data' => array() );
+
 	$category = $request['category'];
 	$country = $request['country'];
-
-	$mapOptions = array( 'data' => array() );
+	$start_date = $request['startDate'];
+	$end_date = $request['endDate'];
 
 	if($category === 'all' || $category === 'All' || $category == false){
 		$terms = get_terms( array(
@@ -119,10 +154,18 @@ function get_event_map_locations( $request ){
 		}
 	}
 
+	if($start_date === 'all' || $start_date === 'All' || $start_date == false){
+		$start_date = date('Y-m-d');
+	}
+	if($end_date === 'all' || $end_date === 'All' || $end_date == false){
+		$end_date = '2099-01-01';
+	}
+
 	$my_query = new WP_Query( array(
 		'post_type' => 'event_listing',
 		'posts_per_page' => -1,
 		'status' => 'active',
+		'ignore_custom_sort' => TRUE,
 		'meta_key' => '_event_start_date',
 		'order_by' => 'meta_key',
 		'order' => 'ASC',
@@ -137,6 +180,21 @@ function get_event_map_locations( $request ){
 				'taxonomy' => 'event_listing_country',
 				'field' => 'slug',
 				'terms' => $country,
+			)
+		),
+		'meta_query' => array(
+			'relation' => 'AND',
+			array(
+				'key'     => '_event_start_date',
+				'value'   => $start_date,
+				'compare' => '>=',
+				'type'    => 'DATE'
+			),
+			array(
+				'key'     => '_event_start_date',
+				'value'   => $end_date,
+				'compare' => '<=',
+				'type'    => 'DATE'
 			)
 		),
 	) );

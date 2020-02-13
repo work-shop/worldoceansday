@@ -41,12 +41,13 @@ $button-color-default: lighten($brand-tint, 01%);
 	color: $button-color-default;
 	font-size: 16px;
 	transition: all .2s;
-
+	height: 35px;
 
 	@media screen and (max-width: $sm) {
 		padding: 2px 7px;
 		margin-top: 10px;
 		font-size: 12px;
+		height: auto;
 	}
 
 	span{
@@ -71,6 +72,43 @@ $button-color-default: lighten($brand-tint, 01%);
 		background: $brand-secondary;
 		border-color: $brand-secondary;
 		color: white;
+	}
+}
+
+.filter-input{
+	border: 1px solid $button-color-default;
+	border-radius: 8px;
+	padding: 5px 15px;
+	height: 35px;
+	@extend .font-bold;
+	background: none;
+	color: $button-color-default;
+	font-size: 16px;
+	transition: all .2s;
+	//width: auto !important;
+	width: 75px;
+
+	&:hover{
+		transition: all .2s;
+		cursor: pointer;
+		background: $brand-secondary;
+		border-color: $brand-secondary;
+		color: white;
+	}
+
+	&.active{
+		transition: all .2s;
+		background: $brand-secondary;
+		border-color: $brand-secondary;
+		color: white;
+		width: 170px;
+	}
+
+	@media screen and (max-width: $sm) {
+		padding: 2px 7px;
+		margin-top: 10px;
+		font-size: 12px;
+		height: auto;
 	}
 }
 
