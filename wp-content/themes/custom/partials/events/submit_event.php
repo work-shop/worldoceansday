@@ -13,8 +13,8 @@
 				<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 submit-event-intro-logged-in">
 					<h3 class="font-black brand-tint centered mb2">Welcome back!</h3>
 					<div class="submit-event-intro-logged-in-buttons submit-event-buttons">
-						<?php $redirect = get_the_permalink() . '?user-logged-out=true'; ?>
 						<a href="<?php bloginfo('url'); ?>/my-account" class="button">Manage Events</a>
+						<?php $redirect = get_the_permalink() . '?user-logged-out=true'; ?>
 						<a href="<?php echo wp_logout_url($redirect) ?>" class="button">Logout</a> 
 					</div>
 					<div class="submit-event-intro-logged-in-buttons submit-event-buttons mt2 hidden">
@@ -24,7 +24,7 @@
 				<?php else: ?>
 					<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 submit-event-intro-logged-out">
 						<div class="submit-event-buttons centered mb3">
-							<a href="<?php bloginfo('url'); ?>/my-account?referer=<?php the_permalink(); ?>" class="button">Login</a>
+							<a href="<?php bloginfo('url'); ?>/my-account" class="button">Login</a>
 							<a href="#submit-event" class="button jump-submit submit-event-button-create">Create an Account</a>
 							<a href="#submit-event" class="button jump-submit submit-event-button-continue">Continue as a Guest</a>
 						</div>
@@ -58,53 +58,52 @@
 							<a href="<?php bloginfo('url'); ?>/my-account" class="button">Manage Events</a>
 							<a href="<?php echo wp_logout_url($redirect) ?>" class="button">Logout</a> 
 						</div>
-						<?php else: ?>
-							<div class="submit-event-intro-logged-in-buttons submit-event-buttons mt3">
-								<a href="<?php the_permalink(); ?>" class="button">List another Event</a>
-							</div>
-						<?php endif; ?>
+					<?php endif; ?>
+					<div class="submit-event-intro-logged-in-buttons submit-event-buttons mt3">
+						<a href="<?php the_permalink(); ?>" class="button">List another Event</a>
 					</div>
 				</div>
 			</div>
-		</section>
-		<section class="block padded" id="submit-event-badges">
-			<div class="container">
-				<div class="row">
-					<div class="col col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
-						<h3 class="font-black brand centered submit-event-badges-heading">
-							<?php the_field('badges_heading'); ?>
-						</h3>
-						<?php if(get_field('badges_subheading')): ?>
-							<h4 class="font-black brand-tint centered submit-event-badges-subheading">
-								<?php the_field('badges_subheading'); ?>
-							</h4>
-						<?php endif; ?>
-					</div>
-				</div>
-				<div class="row mt4 submit-event-badges">
-					<?php if( have_rows('badges') ): ?>
-						<?php  while ( have_rows('badges') ) : the_row(); ?>
-							<div class="col-4 submit-event-badge">
-								<?php $image = get_sub_field('image');
-								$image = $image['sizes']['md']; ?>
-								<img src="<?php echo $image; ?>">
-								<div class="submit-event-badge-link centered">
-									<a href="<?php echo $image; ?>" target="_blank" download class="button button-small">Download</a>
-								</div>
-							</div>
-						<?php endwhile; ?>
+		</div>
+	</section>
+	<section class="block padded" id="submit-event-badges">
+		<div class="container">
+			<div class="row">
+				<div class="col col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+					<h3 class="font-black brand centered submit-event-badges-heading">
+						<?php the_field('badges_heading'); ?>
+					</h3>
+					<?php if(get_field('badges_subheading')): ?>
+						<h4 class="font-black brand-tint centered submit-event-badges-subheading">
+							<?php the_field('badges_subheading'); ?>
+						</h4>
 					<?php endif; ?>
 				</div>
 			</div>
-		</section>
+			<div class="row mt4 submit-event-badges">
+				<?php if( have_rows('badges') ): ?>
+					<?php  while ( have_rows('badges') ) : the_row(); ?>
+						<div class="col-4 submit-event-badge">
+							<?php $image = get_sub_field('image');
+							$image = $image['sizes']['md']; ?>
+							<img src="<?php echo $image; ?>">
+							<div class="submit-event-badge-link centered">
+								<a href="<?php echo $image; ?>" target="_blank" download class="button button-small">Download</a>
+							</div>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+		</div>
+	</section>
 
-		<section class="block padded padded-bottom" id="submit-event">
-			<div class="container-fluid container-fluid-submit-event">
-				<div class="row">
-					<div class="col-12 submit-event-form-col">
-						<?php echo do_shortcode( '[submit_event_form]'); ?>
-					</div>
+	<section class="block padded padded-bottom" id="submit-event">
+		<div class="container-fluid container-fluid-submit-event">
+			<div class="row">
+				<div class="col-12 submit-event-form-col">
+					<?php echo do_shortcode( '[submit_event_form]'); ?>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 

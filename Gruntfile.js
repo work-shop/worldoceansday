@@ -97,11 +97,11 @@ module.exports = function(grunt) {
                 options: {
                     watch: true,
                     browserifyOptions: {
-                        debug: false // sourcemaps
+                        debug: false // true for sourcemaps
                     },
                     transform: [
                         ['babelify', {presets: 'env'}],
-                         ['uglifyify', {global: true}]
+                         ['uglifyify', {global: true}] //false for unminified
                     ]
                 }
             },

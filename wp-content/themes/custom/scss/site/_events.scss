@@ -97,7 +97,7 @@
 
 	@media screen and (max-width: $sm) {
 		flex: 0 0 100%;
-		height: calc(100vh - #{$nav-height} - 180px);
+		height: 300px;
 		order: initial;
 	}
 }
@@ -135,8 +135,8 @@ $card-event-spacing: 35px;
 			background-size: cover;
 			background-position: center center;
 
-			@media screen and (max-width: $sm) {
-				height: 20vh;
+			@media screen and (max-width: $xs) {
+				height: 16vh;
 				border-radius: 8px 8px 0 0;
 			}
 			

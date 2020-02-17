@@ -1,20 +1,20 @@
 'use strict';
 
-var baseUrl = 'https://worldoceansday.kinsta.cloud/wp-json/wp/v2/';
+var baseUrl = 'https://worldoceansday.org/wp-json/wp/v2/';
 var pagination = 1;
 var currentCategory = 'all';
 var updating = false;
 var full = false;
 
 function news() {
-	console.log('filter-blog.js loaded');
+	console.log('news.js loaded');
 
 	var categoryFiltered = false;
 	var categoryFilteredCurrent = 'all';
 
 	$(document).ready( function() {
 
-		if( $('body').hasClass('page-id-69') ){
+		if( $('body').hasClass('blog') ){
 
 			//initialization
 			console.log('on news ');
@@ -223,12 +223,21 @@ function news() {
 		.addClass('card-image');
 
 		var imageSrc;
-		if( typeof post._embedded['wp:featuredmedia'][0].media_details.sizes.md.source_url === 'undefined' ){
-			if( typeof post._embedded['wp:featuredmedia'][0].source_url !== 'undefined' ){
+		console.log(post._embedded['wp:featuredmedia'][0].media_details.sizes);
+
+		if( isEmpty(post._embedded['wp:featuredmedia'][0].media_details.sizes.lg ) ){
+			if( !isEmpty(post._embedded['wp:featuredmedia'][0].source_url) ){
+				console.log('getting source url');
 				imageSrc = post._embedded['wp:featuredmedia'][0].source_url;
 			}
 		} else{
-			imageSrc = post._embedded['wp:featuredmedia'][0].media_details.sizes.md.source_url;
+			if( !isEmpty(post._embedded['wp:featuredmedia'][0].media_details.sizes.lg ) ){
+				console.log('getting lg url');
+				imageSrc = post._embedded['wp:featuredmedia'][0].media_details.sizes.lg.source_url;
+			} else{
+				console.log('getting source url');
+				imageSrc = post._embedded['wp:featuredmedia'][0].source_url;
+			}
 		}
 		if( !isEmpty(imageSrc)){
 			var image = $('<img>')
@@ -315,9 +324,9 @@ function news() {
 			category: category
 		};
 		if( category === 'all' ){
-			history.pushState(stateObj, category, '/news/' );
+			history.pushState(stateObj, category, '/blog/' );
 		} else{
-			history.pushState(stateObj, category, '/news/?category=' + category );
+			history.pushState(stateObj, category, '/blog/?category=' + category );
 		}
 		
 	}

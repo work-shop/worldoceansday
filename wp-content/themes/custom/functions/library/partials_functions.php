@@ -140,7 +140,7 @@ function get_subscribe_form( $request ){
 	$needle_start = "action='";
 	$needle_end = "#gf_" . $form_id . "'";
 	$results = replace_between($results, $needle_start, $needle_end, $currentPage);
-	$results = str_replace('https', 'http', $results);
+	//$results = str_replace('https', 'http', $results);
 	return $results;
 
 }

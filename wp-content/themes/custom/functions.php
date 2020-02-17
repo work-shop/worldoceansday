@@ -2,8 +2,6 @@
 
 define( '__ROOT__', dirname( __FILE__ ) );
 
-require_once( __ROOT__ . '/functions/library/class-ws-cdn-url.php');
-
 require_once( __ROOT__ . '/functions/class-ws-site-admin.php' );
 require_once( __ROOT__ . '/functions/class-ws-site-init.php' );
 

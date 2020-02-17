@@ -8,9 +8,18 @@
 		$banner_url = event_manager_get_resized_image( $banner, 'xl_landscape' );
 	}
 	$start_date = get_post_meta($post->ID,'_event_start_date');
-	$start_date = DateTime::createFromFormat('Y-m-d', $start_date[0]);
 	$end_date = get_post_meta($post->ID,'_event_end_date');
-	$end_date = DateTime::createFromFormat('Y-m-d', $end_date[0]);
+	if( is_page(11) || get_post_status() == 'pending' || get_post_status() == 'pending_approval' ){
+		$start_time = strtotime($start_date[0]);
+		$start_date = date('Y-m-d', $start_time);
+		$end_time = strtotime($end_date[0]);
+		$end_date = date('Y-m-d', $end_time);
+		$start_date = DateTime::createFromFormat('Y-m-d', $start_date);
+		$end_date = DateTime::createFromFormat('Y-m-d', $end_date);
+	} else{
+		$start_date = DateTime::createFromFormat('Y-m-d', $start_date[0]);
+		$end_date = DateTime::createFromFormat('Y-m-d', $end_date[0]);
+	}
 	if( $end_date > $start_date){
 		$multi_day = true;
 	} else{
@@ -28,7 +37,6 @@
 							An image has been automatically added to your event from our image library. To provide your own image, click "Edit Listing" to return to the event form, then upload an image.
 						</div>
 						<?php else: ?>
-							
 						<?php endif; ?>
 					</div>
 					<div class="col-lg-5 event-single-hero-meta">
@@ -46,13 +54,19 @@
 								$online = get_post_meta($post->ID,'_event_online');
 								if( $online[0] == 'no' ):  ?>
 									<?php $online_event = false; ?>
-									<?php if( $venue[0] ): ?>
-										<h3 class="event-single-meta-heading event-single-meta-heading-location">
-											<?php echo $venue[0]; ?>
-										</h3>
-										<h4 class="event-single-meta-secondary">
-											<?php echo get_event_location(); ?>
-										</h4>
+									<?php if( isset($venue[0] ) ): ?>
+										<?php if( $venue[0] ): ?>
+											<h3 class="event-single-meta-heading event-single-meta-heading-location">
+												<?php echo $venue[0]; ?>
+											</h3>
+											<h4 class="event-single-meta-secondary">
+												<?php echo get_event_location(); ?>
+											</h4>
+											<?php else: ?>
+												<h3 class="event-single-meta-heading event-single-meta-heading-location">
+													<?php echo get_event_location(); ?>
+												</h3>
+										<?php endif; ?>
 										<?php else: ?>
 											<h3 class="event-single-meta-heading event-single-meta-heading-location">
 												<?php echo get_event_location(); ?>
@@ -77,9 +91,9 @@
 										<h3 class="event-single-meta-heading event-single-meta-heading-date">
 											<?php 
 											if( $multi_day ){
-												echo 'Starts &nbsp;&nbsp;' . $start_date->format("Y m d") . ', ' . get_event_start_time() . ' <br>Ends &nbsp;&nbsp;&nbsp;&nbsp;' . $end_date->format("Y m d") . ', ' . get_event_end_time();
+												echo 'Starts &nbsp;&nbsp;' . $start_date->format("Y-m-d") . ', ' . get_event_start_time() . ' <br>Ends &nbsp;&nbsp;&nbsp;&nbsp;' . $end_date->format("Y-m-d") . ', ' . get_event_end_time();
 											} else{
-												echo $start_date->format("Y m d");
+												echo $start_date->format("Y-m-d");
 											}
 											?>
 										</h3>

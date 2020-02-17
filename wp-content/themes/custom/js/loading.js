@@ -59,6 +59,9 @@ function loading( config ){
 
 				target.html(data);
 
+				$('#subscribe #input_1_1').attr('tabindex', 500);
+				$('#footer #input_1_1').attr('tabindex', 1000);
+
 			} else{
 
 			}

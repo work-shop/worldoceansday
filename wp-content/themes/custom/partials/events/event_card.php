@@ -35,22 +35,31 @@
 				<?php 
 				$location = get_post_meta($post->ID,'_event_location');
 				$venue = get_post_meta($post->ID,'_event_venue');
-				if( $location[0] ):  ?>
-					<?php if( $venue[0] ): ?>
-						<h4 class="event-location event-location-not-online">
-							<?php echo $venue[0]; ?>
-						</h4>
-						<?php else: ?>
+				$online = get_post_meta($post->ID,'_event_online');
+				if( $online[0] == 'no' ):  ?>
+					<?php $online_event = false; ?>
+					<?php if( isset($venue[0] ) ): ?>
+						<?php if( $venue[0] ): ?>
 							<h4 class="event-location event-location-not-online">
-								<?php echo get_event_location(); ?>
+								<?php echo $venue[0]; ?>
 							</h4>
-						<?php endif; ?>
-						<?php else: ?>
-							<h4 class="event-location event-location-online">
-								Virtual Event
-							</h4>
-						<?php endif; ?>
+							<?php else: ?>
+								<h4 class="event-location event-location-not-online">
+									<?php echo get_event_location(); ?>
+								</h4>
+							<?php endif; ?>
+							<?php else: ?>
+								<h4 class="event-location event-location-not-online">
+									<?php echo get_event_location(); ?>
+								</h4>
+							<?php endif; ?>
+							<?php else: ?>
+								<?php $online_event = true; ?>
+								<h4 class="event-location event-location-online">
+									Virtual Event
+								</h4>
+							<?php endif; ?>
+						</div>
 					</div>
-				</div>
-			</a>
-		</article>
+				</a>
+			</article>

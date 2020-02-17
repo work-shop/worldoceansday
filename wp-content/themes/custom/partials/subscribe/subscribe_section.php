@@ -1,4 +1,4 @@
-<section class="block vh60" id="subscribe">
+<section class="block vhmin60 padded" id="subscribe">
 	<?php 
 	$background_image = get_field('subscribe_image','33');
 	$background_image = $background_image['sizes']['xl'];

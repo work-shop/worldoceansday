@@ -51,7 +51,7 @@ menuToggle(config.menuToggle);
 
 
 $(document).ready( function() {
-	if( $('body').hasClass('page-id-69')){
+	if( $('body').hasClass('blog')){
 		news();
 	}
 	if( $('body').hasClass('post-type-archive-resources')){

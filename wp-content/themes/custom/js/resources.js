@@ -9,7 +9,7 @@ if(  ( window.location.href.indexOf('localhost') !== -1 ) ){
 	siteUrl = 'http://localhost/worldoceansday';
 	local = true;
 } else{
-	siteUrl = 'https://worldoceansday.kinsta.cloud';
+	siteUrl = 'https://worldoceansday.org';
 	local = false;
 }
 var baseUrl = siteUrl + '/wp-json/wod-resources/v1/resources';
@@ -48,6 +48,7 @@ function resources() {
 
 			$('.filter-button').click(function(e) {
 				e.preventDefault();
+				toggleFilterMenu($(this));
 				updateButtons($(this), false);
 			});
 

@@ -35,7 +35,7 @@
 		}
 
 		@media screen and (max-width: $sm) {
-			font-size: 3.5vw;
+			font-size: 3vw;
 		}
 
 		@media screen and (max-width: $xs) {
@@ -57,7 +57,7 @@
 
 	.block-background{
 		&:after{
-			background: transparentize($brand, .75);
+			background: transparentize($brand, .6);
 		}
 	}
 
@@ -152,6 +152,8 @@
 
 	.home-social-follow{
 
+		//border: 1px solid red;
+
 		a{
 			display: inline-block;
 			padding-right: 12px;
@@ -165,7 +167,7 @@
 			img{
 				width: 30px;
 				position: relative;
-				top: -6px;
+				top: 4px;
 				@media screen and (max-width: $sm) {
 					width: 20px;
 				}
@@ -178,6 +180,9 @@
 
 #home-take-action{
 
+	h3{
+
+	}
 
 }
 
@@ -202,6 +207,10 @@
 	.card-supporter-title{
 		@extend .h4;
 		margin-bottom: 35px;
+
+		@media screen and (max-width: $sm) {
+			margin-bottom: 10px;
+		}
 
 	}
 	.block-background{

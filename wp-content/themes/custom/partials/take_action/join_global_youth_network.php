@@ -15,14 +15,19 @@
 	</div>
 	<div class="container-fluid height-100 subscribe-content">
 		<div class="row subscribe-row">
-			<div class="col">
-				<h2 class="white mb1 bold">
+			<div class="col-lg-8 col-xl-6">
+				<h2 class="white mb1 font-black">
 					<?php echo $background_text; ?>
 				</h2>
+				<?php if( get_field('join_global_youth_movement_subheading')): ?>
+				<h3 class="white mb1 font-black">
+					<?php the_field('join_global_youth_movement_subheading') ?>
+				</h3>
+				<?php endif; ?>
 				<?php 
 				$form_id = get_field('form_to_display', $id); 
 				?>
-				<div id="subscribe-form-target" class="subscribe-form-target" data-form-id="<?php echo $form_id; ?>" data-page="<?php echo basename(get_permalink()); ?>">
+				<div id="subscribe-form-target" class="subscribe-form-target subscribe-form-youth" data-form-id="<?php echo $form_id; ?>" data-page="<?php echo basename(get_permalink()); ?>">
 				</div>
 			</div>
 		</div>

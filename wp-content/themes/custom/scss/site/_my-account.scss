@@ -11,6 +11,8 @@
 	}
 
 
+
+
 	label{
 		margin-top: 0;
 		margin-bottom: 5px;
@@ -123,6 +125,7 @@
 	#user-registration{
 		background: none;
 		display: block;
+		margin: 0 auto;
 	}
 
 	#user-registration .user-registration-MyAccount-content{
@@ -136,11 +139,33 @@
 	}
 
 	&.user_logged_out{
+
+		.user-registration-ur-lost-password{
+			#user-registration{
+				width: 100%;
+				width: 360px;
+			}
+
+			.user-registration-message{
+				border-top: none;
+				border-radius: 8px;
+				margin-bottom: 30px;
+			}
+
+			[type="submit"]{
+				max-width: none !important;
+			}
+		}
 		
 		#my-account-content{
 			display: flex;
 			@extend .flex-center;
 			@extend .padded;
+
+			.my-account-heading{
+				padding-left: 20px;
+				padding-right: 20px;
+			}
 
 			//login form
 			.ur-frontend-form.login{
@@ -210,6 +235,7 @@
 
 	#user-registration-form-20{
 		max-width: 480px;
+		margin: 0 auto;
 		border-radius: 8px;
 		padding: 30px 15px 20px 15px;
 		background: white;
@@ -239,22 +265,6 @@
 		}
 	}
 
-	&.user-registration-ur-lost-password{
-		#user-registration{
-			width: 100%;
-			max-width: 360px;
-		}
-
-		.user-registration-message{
-			border-top: none;
-			border-radius: 8px;
-			margin-bottom: 30px;
-		}
-
-		[type="submit"]{
-			max-width: none !important;
-		}
-	}
 
 	&.user-registration-edit-password{
 

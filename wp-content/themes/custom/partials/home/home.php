@@ -54,15 +54,11 @@
 					<h4 class="white font-black social-text mb2">
 						<?php the_field('social_media_text'); ?>
 					</h4>
-					<h4 class="white font-black uppercase home-social-follow">
-						<?php the_field('social_media_follow_text'); ?>
-						<a href="<?php the_field('facebook_link','option'); ?>" target="_blank">
+					<h4 class="white font-black uppercase home-social-follow"><?php the_field('social_media_follow_text'); ?><a href="<?php the_field('facebook_link','option'); ?>" target="_blank">
 							<img src="<?php bloginfo( 'template_directory' );?>/images/fb.png" class="social-icon fb">
-						</a> 
-						<a href="<?php the_field('twitter_link','option'); ?>" target="_blank">
+						</a> <a href="<?php the_field('twitter_link','option'); ?>" target="_blank">
 							<img src="<?php bloginfo( 'template_directory' );?>/images/tw.png" class="social-icon tw">
-						</a>
-						<a href="<?php the_field('instagram_link','option'); ?>" target="_blank">
+						</a><a href="<?php the_field('instagram_link','option'); ?>" target="_blank">
 							<img src="<?php bloginfo( 'template_directory' );?>/images/ig.png" class="social-icon ig">
 						</a>
 					</h4>
@@ -82,7 +78,7 @@
 	</section>
 
 	<section class="block bg-tan" id="home-take-action">
-		<div class="container-fluid container-fluid-home flex-center-vertical vhfull">
+		<div class="container-fluid container-fluid-home flex-center-vertical vhfull padded">
 			<div class="">
 				<div class="row mb2">
 					<div class="col">

@@ -13,8 +13,6 @@ class WS_Site {
 
         add_filter('show_admin_bar', '__return_false');
 
-        new WS_CDN_Url();
-
     }
 
 
@@ -162,8 +160,9 @@ class WS_Site {
 
             //wp_register_style( 'fonts', get_template_directory_uri() . '/fonts/fonts.css');
             //wp_enqueue_style( 'fonts' );  
-            wp_enqueue_style('main-css', $compiled_resources_uri . $main_css, array(), null);
-            wp_enqueue_script('main-js', $compiled_resources_uri . $main_js, $main_js_ver);
+            $ver = rand(100,99999);
+            wp_enqueue_style('main-css', $compiled_resources_uri . $main_css, array(), $ver);
+            wp_enqueue_script('main-js', $compiled_resources_uri . $main_js, $ver);
             //wp_enqueue_script('instantpage', $instantpage);
 
         }

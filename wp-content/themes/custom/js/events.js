@@ -8,7 +8,7 @@ if(  ( window.location.href.indexOf('localhost') !== -1 ) ){
 	siteUrl = 'http://localhost/worldoceansday';
 	local = true;
 } else{
-	siteUrl = 'https://worldoceansday.kinsta.cloud';
+	siteUrl = 'https://worldoceansday.org';
 	local = false;
 }
 var baseUrl = siteUrl + '/wp-json/wod-events/v1/list';
@@ -91,6 +91,7 @@ function events() {
 
 			$('.filter-button').click(function(e) {
 				e.preventDefault();
+				toggleFilterMenu($(this));
 				updateButtons($(this), false);
 			});
 
@@ -121,6 +122,7 @@ function events() {
 				singleMode: false,
 				splitView: true,
 				format : 'MMM DD',
+				firstDay: 0,
 				onSelect : function(date1, date2) { 
 					if(pickerInitialized){
 						pickerSelect(date1, date2);
@@ -354,6 +356,8 @@ function events() {
 		//console.log('onSelect with dates:');
 		//console.log(date1, date2); 
 
+		filtered = true;
+
 		updatePickerButton();
 
 		var startDate = formatDate(date1);
@@ -522,6 +526,7 @@ function events() {
 		eventsMap = new google.maps.Map( document.getElementById('events-map'), {
 			zoom: 2, 
 			maxZoom: 15,
+			minZoom: 2,
 			center: center,
 			mapTypeControl: false,
 			streetViewControl: false,
@@ -576,7 +581,9 @@ function events() {
 
 			markerCluster = new MarkerClusterer(eventsMap, markers, mcOptions);
 
-			eventsMap.fitBounds(bounds);
+			if (mapInitialized){
+				eventsMap.fitBounds(bounds);
+			}
 
 		}
 
