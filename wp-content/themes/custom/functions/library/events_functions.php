@@ -289,11 +289,11 @@ function my_acf_update_value($post_id, $post, $update ) {
 		$bannerArray = array();
 		$bannerArray[] = $banner_url;
 		update_post_meta($post_id, '_event_banner', $bannerArray);
-		update_field('field_5e43f31f9b260', 1, $post_id); //fallback check
+		update_field('field_5e43f31f9b260', 1, $post_id); //fallback bool
 		update_field('field_5e4403ee81804', $banner_url, $post_id); //fallback image
 	} else{
-		update_field('field_5e43f31f9b260', 0, $post_id);
-		update_field('field_5e4403ee81804', '', $post_id);
+		update_field('field_5e43f31f9b260', 0, $post_id);  //fallback bool
+		update_field('field_5e4403ee81804', '', $post_id); //fallback image
 	}
 
 

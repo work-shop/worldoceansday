@@ -1,71 +1,76 @@
-	<?php 
-	$banner = get_post_meta($post->ID,'_event_banner');
-	$banner_fallback = get_field('event_banner_fallback');
-	if( !$banner || !$banner[0] ){
-		$banner_url = get_field('event_banner_fallback_image');
-	} else{
-		$banner = get_event_banner();
-		$banner_url = event_manager_get_resized_image( $banner, 'xl_landscape' );
+<?php 
+$banner = get_post_meta($post->ID,'_event_banner');
+$banner_fallback = get_field('event_banner_fallback');
+if( !$banner || !$banner[0] ){
+	$banner_url = get_field('event_banner_fallback_image');
+} else{
+	$banner = get_event_banner();
+	$banner_url = event_manager_get_resized_image( $banner, 'xl_landscape' );
+	if($banner_url){
+		$banner_fallback = false;
 	}
-	$start_date = get_post_meta($post->ID,'_event_start_date');
-	$end_date = get_post_meta($post->ID,'_event_end_date');
-	if( is_page(11) || get_post_status() == 'pending' || get_post_status() == 'pending_approval' ){
-		$start_time = strtotime($start_date[0]);
-		$start_date = date('Y-m-d', $start_time);
-		$end_time = strtotime($end_date[0]);
-		$end_date = date('Y-m-d', $end_time);
-		$start_date = DateTime::createFromFormat('Y-m-d', $start_date);
-		$end_date = DateTime::createFromFormat('Y-m-d', $end_date);
-	} else{
-		$start_date = DateTime::createFromFormat('Y-m-d', $start_date[0]);
-		$end_date = DateTime::createFromFormat('Y-m-d', $end_date[0]);
-	}
-	if( $end_date > $start_date){
-		$multi_day = true;
-	} else{
-		$multi_day = false;
-	}
-	?>
-	<div id="event-single-wrapper">
-		<section class="block" id="single-event-hero">	
-			<div class="row">
-				<div class="col-lg-7 event-single-hero-image">
-					<div class="block-background" style="background-image: url('<?php echo $banner_url; ?>');">
+}
+
+$start_date = get_post_meta($post->ID,'_event_start_date');
+$end_date = get_post_meta($post->ID,'_event_end_date');
+if( is_page(11) || get_post_status() == 'pending' || get_post_status() == 'pending_approval' ){
+	$start_time = strtotime($start_date[0]);
+	$start_date = date('Y-m-d', $start_time);
+	$end_time = strtotime($end_date[0]);
+	$end_date = date('Y-m-d', $end_time);
+	$start_date = DateTime::createFromFormat('Y-m-d', $start_date);
+	$end_date = DateTime::createFromFormat('Y-m-d', $end_date);
+} else{
+	$start_date = DateTime::createFromFormat('Y-m-d', $start_date[0]);
+	$end_date = DateTime::createFromFormat('Y-m-d', $end_date[0]);
+}
+if( $end_date > $start_date){
+	$multi_day = true;
+} else{
+	$multi_day = false;
+}
+?>
+<div id="event-single-wrapper">
+	<section class="block" id="single-event-hero">	
+		<div class="row">
+			<div class="col-lg-7 event-single-hero-image">
+				<div class="block-background" style="background-image: url('<?php echo $banner_url; ?>');">
+				</div>
+
+				<?php if( is_page(11) && $banner_fallback ): ?>
+					<div class="event-single-preview-fallback-image-note wod-alert wod-alert-error">
+						An image has been automatically added to your event from our image library. To provide your own image, click "Edit Listing" to return to the event form, then upload an image.
 					</div>
-					<?php if( is_page(11) && $banner_fallback ): ?>
-						<div class="event-single-preview-fallback-image-note wod-alert wod-alert-error">
-							An image has been automatically added to your event from our image library. To provide your own image, click "Edit Listing" to return to the event form, then upload an image.
+					<?php else: ?>
+					<?php endif; ?>
+				</div>
+				<div class="col-lg-5 event-single-hero-meta">
+					<h2 class="event-single-title">
+						<?php the_title(); ?>
+					</h2>
+					<div class="row event-meta-row">
+						<div class="col-2 col-xl-1 event-single-meta-icon">
+							<span class="icon" data-icon=","></span>
 						</div>
-						<?php else: ?>
-						<?php endif; ?>
-					</div>
-					<div class="col-lg-5 event-single-hero-meta">
-						<h2 class="event-single-title">
-							<?php the_title(); ?>
-						</h2>
-						<div class="row event-meta-row">
-							<div class="col-2 col-xl-1 event-single-meta-icon">
-								<span class="icon" data-icon=","></span>
-							</div>
-							<div class="col-10 col-xl-11 event-single-meta-text">
-								<?php 
-								$location = get_post_meta($post->ID,'_event_location');
-								$venue = get_post_meta($post->ID,'_event_venue');
-								$online = get_post_meta($post->ID,'_event_online');
-								if( $online[0] == 'no' ):  ?>
-									<?php $online_event = false; ?>
-									<?php if( isset($venue[0] ) ): ?>
-										<?php if( $venue[0] ): ?>
+						<div class="col-10 col-xl-11 event-single-meta-text">
+							<?php 
+							$location = get_post_meta($post->ID,'_event_location');
+							$venue = get_post_meta($post->ID,'_event_venue');
+							$online = get_post_meta($post->ID,'_event_online');
+							if( $online[0] == 'no' ):  ?>
+								<?php $online_event = false; ?>
+								<?php if( isset($venue[0] ) ): ?>
+									<?php if( $venue[0] ): ?>
+										<h3 class="event-single-meta-heading event-single-meta-heading-location">
+											<?php echo $venue[0]; ?>
+										</h3>
+										<h4 class="event-single-meta-secondary">
+											<?php echo get_event_location(); ?>
+										</h4>
+										<?php else: ?>
 											<h3 class="event-single-meta-heading event-single-meta-heading-location">
-												<?php echo $venue[0]; ?>
-											</h3>
-											<h4 class="event-single-meta-secondary">
 												<?php echo get_event_location(); ?>
-											</h4>
-											<?php else: ?>
-												<h3 class="event-single-meta-heading event-single-meta-heading-location">
-													<?php echo get_event_location(); ?>
-												</h3>
+											</h3>
 										<?php endif; ?>
 										<?php else: ?>
 											<h3 class="event-single-meta-heading event-single-meta-heading-location">

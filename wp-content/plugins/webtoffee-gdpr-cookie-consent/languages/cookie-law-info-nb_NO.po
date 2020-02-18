@@ -1,0 +1,1948 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: GDPR Cookie Consent\n"
+"POT-Creation-Date: 2019-11-11 18:07+0530\n"
+"PO-Revision-Date: 2019-11-11 18:10+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: cookie-law-info.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: admin/class-cookie-law-info-admin.php:197
+#: admin/class-cookie-law-info-admin.php:198
+#: admin/partials/cookie-law-info-admin_settings.php:32
+msgid "Cookie Law Settings"
+msgstr "Innstillinger for informasjonskapsler"
+
+#: admin/class-cookie-law-info-admin.php:205
+#: admin/class-cookie-law-info-admin.php:206
+#: admin/partials/cookie-law-info-privacy_overview.php:37
+#: admin/partials/cookie-law-info-privacy_overview.php:38
+#: admin/partials/cookie-law-info-privacy_overview.php:55
+msgid "Privacy Overview"
+msgstr "Oversikt over personvern"
+
+#: admin/class-cookie-law-info-admin.php:237
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: admin/class-cookie-law-info-admin.php:238
+msgid "Support"
+msgstr "Support"
+
+#: admin/class-cookie-law-info-admin.php:380
+msgid "You do not have sufficient permission to perform this operation"
+msgstr "Du har ikke tilstrekkelig tillatelse til å utføre denne operasjonen"
+
+#: admin/class-cookie-law-info-admin.php:408
+#: admin/partials/cookie-law-info-privacy_overview.php:31
+msgid "Settings Updated."
+msgstr "Innstillinger oppdatert."
+
+#: admin/class-cookie-law-info-admin.php:427
+msgid "ERROR MIGRATING SETTINGS (ERROR: 2)"
+msgstr "FEIL MIGRATING INNSTILLINGER (FEIL: 2)"
+
+#: admin/class-cookie-law-info-admin.php:651
+#: admin/class-cookie-law-info-admin.php:674
+msgid "Category default state"
+msgstr "Kategori standardtilstand"
+
+#: admin/class-cookie-law-info-admin.php:652
+#: admin/class-cookie-law-info-admin.php:676
+#: public/modules/script-blocker/views/admin_script_blocker.php:40
+#: public/views/cookie-law-info_popup_content.php:7
+msgid "Enabled"
+msgstr "Aktivert"
+
+#: admin/class-cookie-law-info-admin.php:653
+#: admin/class-cookie-law-info-admin.php:677
+#: public/views/cookie-law-info_popup_content.php:8
+msgid "Disabled"
+msgstr "Deaktivert"
+
+#: admin/class-cookie-law-info-admin.php:654
+#: admin/class-cookie-law-info-admin.php:678
+msgid ""
+"If you enable this option, the category toggle button will be in the active "
+"state for cookie consent."
+msgstr ""
+"Hvis du aktiverer dette alternativet, vil kategorikontaktsknappen være i "
+"aktiv tilstand for cookie-samtykke."
+
+#: admin/class-cookie-law-info-admin.php:739
+#: admin/class-cookie-law-info-admin.php:757
+#: admin/class-cookie-law-info-admin.php:874
+msgid "Load on start"
+msgstr "Last på start"
+
+#: admin/class-cookie-law-info-admin.php:741
+#: admin/class-cookie-law-info-admin.php:760
+msgid ""
+"If you enable this option, scripts under this category will be rendered "
+"without waiting for user consent on first page visit. Use this option "
+"discreetly, only if you are sure that no user sensitive data is being "
+"obtained via these scripts."
+msgstr ""
+"Hvis du aktiverer dette alternativet, blir skript under denne kategorien "
+"gjengitt uten å vente på brukernes samtykke ved førstesidebesøk. Bruk dette "
+"alternativet diskret, bare hvis du er sikker på at det ikke blir innhentet "
+"brukersensitive data via disse skriptene."
+
+#: admin/class-cookie-law-info-admin.php:814
+#: admin/class-cookie-law-info-admin.php:849
+#: admin/class-cookie-law-info-admin.php:873
+msgid "Priority"
+msgstr "Prioritet"
+
+#: admin/class-cookie-law-info-admin.php:816
+#: admin/class-cookie-law-info-admin.php:853
+msgid "Numeric - Higher the value, higher the priority"
+msgstr "Numerisk - Høyere verdi, høyere prioritet"
+
+#: admin/class-cookie-law-info-admin.php:886
+#: admin/views/admin-settings-buttons.php:25
+#: admin/views/admin-settings-buttons.php:81
+#: admin/views/admin-settings-buttons.php:156
+#: admin/views/admin-settings-buttons.php:321
+#: admin/views/admin-settings-buttons.php:329
+#: admin/views/admin-settings-buttons.php:336
+#: admin/views/admin-settings-general.php:66
+#: admin/views/admin-settings-general.php:97
+#: admin/views/admin-settings-general.php:145
+#: admin/views/admin-settings-general.php:159
+#: admin/views/admin-settings-general.php:173
+#: admin/views/admin-settings-general.php:250
+#: admin/views/admin-settings-general.php:258
+#: admin/views/admin-settings-general.php:265
+#: admin/views/admin-settings-messagebar.php:51
+#: public/modules/script-blocker/views/admin_script_blocker.php:128
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/class-cookie-law-info-admin.php:886
+#: admin/views/admin-settings-buttons.php:26
+#: admin/views/admin-settings-buttons.php:83
+#: admin/views/admin-settings-buttons.php:157
+#: admin/views/admin-settings-buttons.php:322
+#: admin/views/admin-settings-buttons.php:330
+#: admin/views/admin-settings-buttons.php:337
+#: admin/views/admin-settings-general.php:67
+#: admin/views/admin-settings-general.php:98
+#: admin/views/admin-settings-general.php:146
+#: admin/views/admin-settings-general.php:160
+#: admin/views/admin-settings-general.php:174
+#: admin/views/admin-settings-general.php:251
+#: admin/views/admin-settings-general.php:259
+#: admin/views/admin-settings-general.php:266
+#: admin/views/admin-settings-messagebar.php:52
+#: public/modules/script-blocker/views/admin_script_blocker.php:130
+msgid "No"
+msgstr "Nei"
+
+#: admin/modules/cli-policy-generator/classes/class-policy-generator-ajax.php:21
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:27
+msgid "Unable to handle your request."
+msgstr "Kan ikke håndtere forespørselen din."
+
+#: admin/modules/cli-policy-generator/classes/class-policy-generator-ajax.php:90
+#: admin/modules/cli-policy-generator/classes/class-policy-generator-ajax.php:128
+#: admin/modules/cli-policy-generator/cli-policy-generator.php:137
+#: admin/modules/cli-themes/cli-themes.php:805
+#: admin/modules/cookie-scaner/cookie-scaner.php:347
+#: admin/modules/cookie-scaner/views/unable-to-start.php:9
+#: public/modules/visitor-report/visitor-report.php:132
+msgid "Error"
+msgstr "Feil"
+
+#: admin/modules/cli-policy-generator/classes/class-preview-page.php:27
+msgid "Cookie Policy"
+msgstr "Bruk av cookies"
+
+#: admin/modules/cli-policy-generator/classes/class-preview-page.php:83
+msgid "Auto reload preview"
+msgstr "Last inn forhåndsvisning automatisk"
+
+#: admin/modules/cli-policy-generator/cli-policy-generator.php:110
+#: admin/modules/cli-policy-generator/cli-policy-generator.php:111
+msgid "Policy generator"
+msgstr "Policy generator"
+
+#: admin/modules/cli-policy-generator/cli-policy-generator.php:138
+#: admin/modules/cli-themes/cli-themes.php:806
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:82
+#: admin/modules/cookie-scaner/cookie-scaner.php:367
+msgid "Success"
+msgstr "Suksess!"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:21
+msgid "Cookie Policy generator"
+msgstr "Cookie Policy-generator"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:25
+msgid "Sample heading"
+msgstr "Eksempel på overskrift"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:26
+msgid "Sample content"
+msgstr "Prøveinnhold"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:27
+#: public/modules/visitor-report/classes/class-visitor-history.php:101
+msgid "Delete"
+msgstr "Slett"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:49
+msgid "Add new"
+msgstr "Legg til ny"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:53
+msgid "Heading"
+msgstr "Overskrift"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:57
+#: public/modules/script-blocker/views/admin_script_blocker.php:41
+#: public/modules/shortcode/shortcode.php:425
+#: public/modules/shortcode/shortcode.php:537
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:78
+msgid "Update existing Cookie Policy page"
+msgstr "Oppdater eksisterende cookie policy-side"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:84
+msgid "Create Cookie Policy page"
+msgstr "Lag siden Cookie Policy"
+
+#: admin/modules/cli-policy-generator/views/policy-generator.php:88
+#: admin/modules/cli-themes/views/themes_popup.php:99
+msgid "Live preview"
+msgstr "Live forhåndsvisning"
+
+#: admin/modules/cli-themes/cli-themes.php:222
+msgid "Change GDPR cookie preview template"
+msgstr "Endre forhåndsvisningsmal for GDPR-cookie"
+
+#: admin/modules/cli-themes/views/theme_buttons.php:8
+msgid "Save & Publish"
+msgstr "Lagre og publiser"
+
+#: admin/modules/cli-themes/views/theme_buttons.php:18
+msgid "Change Template"
+msgstr "Endre mal"
+
+#: admin/modules/cli-themes/views/theme_buttons.php:23
+#: admin/modules/cli-themes/views/themes_popup.php:103
+#: admin/modules/cookie-scaner/cookie-scaner.php:359
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:8
+msgid "Properties"
+msgstr "Eiendommer"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:15
+#: admin/views/admin-settings-buttons.php:32
+#: admin/views/admin-settings-buttons.php:104
+#: admin/views/admin-settings-buttons.php:175
+#: admin/views/admin-settings-buttons.php:238
+msgid "Text"
+msgstr "Tekst"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:21
+msgid "Text size"
+msgstr "Tekststørrelse"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:26
+msgid "Text color"
+msgstr "Tekstfarge"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:30
+msgid "Font weight"
+msgstr "Fontvekt"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:47
+msgid "Background"
+msgstr "Bakgrunn"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:51
+msgid "Border width"
+msgstr "Bredde på kantlinje"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:55
+msgid "Border Color"
+msgstr "Kantlinjefarge"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:59
+msgid "Corner radius"
+msgstr "Hjørneradius"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:63
+msgid "Text style"
+msgstr "Tekststil"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:66
+msgid "Italic"
+msgstr "Kursiv"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:68
+msgid "Underline"
+msgstr "Understrek"
+
+#: admin/modules/cli-themes/views/theme_property_box.php:82
+msgid "Apply"
+msgstr "Bruk"
+
+#: admin/modules/cli-themes/views/themes.php:28
+msgid "Cookie bar - Design editor"
+msgstr "Cookie bar - Design editor"
+
+#: admin/modules/cli-themes/views/themes.php:35
+msgid "Click on the elements to customize."
+msgstr "Klikk på elementene for å tilpasse."
+
+#: admin/modules/cli-themes/views/themes.php:39
+msgid "Cookie message - Text editor"
+msgstr "Informasjonskapsel - Tekstredigerer"
+
+#: admin/modules/cli-themes/views/themes.php:44
+msgid ""
+"Text on the selected theme may be different. Please update the cookie "
+"message accordingly in the above text view."
+msgstr ""
+"Teksten på det valgte temaet kan være forskjellig. Oppdater cookie-meldingen "
+"tilsvarende i tekstvisningen ovenfor."
+
+#: admin/modules/cli-themes/views/themes_popup.php:12
+#: admin/modules/cli-themes/views/themes_popup.php:23
+#: admin/views/admin-settings-general.php:42
+msgid "Banner"
+msgstr "Banner"
+
+#: admin/modules/cli-themes/views/themes_popup.php:13
+#: admin/modules/cli-themes/views/themes_popup.php:24
+#: admin/views/admin-settings-buttons.php:220
+#: admin/views/admin-settings-buttons.php:223
+#: admin/views/admin-settings-general.php:45
+msgid "Popup"
+msgstr "Popup"
+
+#: admin/modules/cli-themes/views/themes_popup.php:14
+#: admin/modules/cli-themes/views/themes_popup.php:25
+#: admin/views/admin-settings-general.php:48
+msgid "Widget"
+msgstr "Widget"
+
+#: admin/modules/cli-themes/views/themes_popup.php:18
+msgid "Templates"
+msgstr "Maler"
+
+#: admin/modules/cli-themes/views/themes_popup.php:96
+msgid "Customize"
+msgstr "Tilpass"
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:70
+msgid "Sorry..."
+msgstr "Unnskyld..."
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:73
+msgid ""
+"Cookie Scanner API is not available now. Please try again later. <br />Do "
+"you want to report this to developer and get notified?"
+msgstr ""
+"Cookie Scanner API er ikke tilgjengelig nå. Prøv igjen senere. <br /> Vil du "
+"rapportere dette til utvikleren og bli varslet?"
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:115
+msgid "Unable to handle your request"
+msgstr "Kan ikke håndtere forespørselen din"
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:119
+#: admin/modules/csv-export/csv-export.php:61
+#: admin/modules/csv-import/csv-import.php:118
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+"Du har ikke tilstrekkelige tillatelser til å få tilgang til denne siden."
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:205
+msgid "cookies added."
+msgstr "informasjonskapsler lagt til."
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:208
+msgid "cookies skipped."
+msgstr "informasjonskapsler hoppet over."
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:212
+msgid "cookies deleted."
+msgstr "informasjonskapsler slettet."
+
+#: admin/modules/cookie-scaner/classes/class-cookie-scanner-ajax.php:219
+msgid "No cookies found"
+msgstr "Ingen informasjonskapsler funnet"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:30
+msgid "Incomplete"
+msgstr "Ufullstendig"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:31
+msgid "Completed"
+msgstr "Fullført"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:32
+msgid "Stopped"
+msgstr "Stoppet"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:84
+msgid "Cookie scanner URL per request"
+msgstr "URL-adresse for cookie-skanner per forespørsel"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:96
+msgid ""
+"Reduce/control the number of URLs scanned per request depending on the "
+"server limitation. E.g if you see an error \"Unable to connect..retrying \" "
+"during a scan try reducing this number to '2'."
+msgstr ""
+"Reduser / kontroller antall URL-er som skannes per forespørsel, avhengig av "
+"serverbegrensning. F.eks. Hvis du ser en feil \"Kan ikke koble til .. prøve "
+"igjen\" under en skanning, kan du prøve å redusere dette tallet til '2'."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:109
+msgid "Unknown"
+msgstr "Ukjent"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:310
+#: admin/modules/cookie-scaner/cookie-scaner.php:311
+msgid "Cookie Scanner"
+msgstr "Cookiescanner"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:341
+msgid "Scanned"
+msgstr "skannet"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:342
+msgid "Scanning completed."
+msgstr "Skanningen er fullført."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:343
+msgid "Added to cookie list."
+msgstr "Lagt til i cookie-listen."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:344
+msgid "Unable to connect. Retrying..."
+msgstr "Kan ikke koble til. Prøver på nytt ..."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:345
+msgid "Finding pages..."
+msgstr "Finner sider ..."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:346
+msgid "Scanning pages..."
+msgstr "Skanner sider ..."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:348
+msgid "Stop"
+msgstr "Stopp"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:349
+#: admin/modules/cookie-scaner/views/scan-result.php:18
+#: admin/modules/cookie-scaner/views/scan-result.php:128
+msgid "Scan again"
+msgstr "Skann igjen"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:350
+#: admin/modules/cookie-scaner/views/scan-result.php:23
+#: admin/modules/cookie-scaner/views/scan-result.php:133
+msgid "Download cookies as CSV"
+msgstr "Last ned informasjonskapsler som CSV"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:351
+#: admin/modules/cookie-scaner/views/scan-result.php:24
+#: admin/modules/cookie-scaner/views/scan-result.php:134
+msgid "Add to cookie list"
+msgstr "Legg til i cookie-listen"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:352
+msgid "View scan result"
+msgstr "Se skanningsresultat"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:353
+msgid "Import options"
+msgstr "Importer innstillinger"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:354
+msgid "Replace old"
+msgstr "Bytt ut gammel"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:355
+msgid "Merge"
+msgstr "Slå sammen"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:356
+msgid "Recommended"
+msgstr "Anbefalt"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:357
+msgid "Append"
+msgstr "Legg til"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:358
+msgid "Not recommended"
+msgstr "Ikke anbefalt"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:360
+msgid "Start import"
+msgstr "Start import"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:361
+msgid "Importing...."
+msgstr "Importere ...."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:362
+msgid "Refreshing...."
+msgstr "Forfriskende ...."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:363
+msgid "Error !!! Please reload the page to see cookie list."
+msgstr "Feil !!! Last inn siden på nytt for å se informasjonskapslelisten."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:364
+msgid "Stopping..."
+msgstr "Stoppe ..."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:365
+msgid "Scanning stopped."
+msgstr "Skanningen stoppet."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:366
+msgid "Are you sure?"
+msgstr "Er du sikker?"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:368
+msgid "Thank you"
+msgstr "Takk"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:369
+msgid "Checking API"
+msgstr "Kontrollerer API"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:370
+msgid "Sending..."
+msgstr "Sender …"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:371
+msgid "Total URLs scanned"
+msgstr "Totalt skannede nettadresser"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:372
+msgid "Total Cookies found"
+msgstr "Totalt antall informasjonskapsler funnet"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:413
+msgid "Unable to load cookie scanner."
+msgstr "Kunne ikke laste cookie scanner."
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:416
+msgid "Need `GDPR Cookie Consent` plugin version above 2.1.4"
+msgstr "Trenger du plugin-versjonen `GDPR Cookie Consent` ovenfor 2.1.4"
+
+#: admin/modules/cookie-scaner/cookie-scaner.php:420
+msgid "Scanning will not work on local server."
+msgstr "Skanning fungerer ikke på lokal server."
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:21
+#: admin/modules/cookie-scaner/views/unable-to-start.php:7
+msgid "Scan cookies"
+msgstr "Skann informasjonskapsler"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:22
+msgid "Please do not leave this page until the progress bar reaches 100%"
+msgstr "Ikke forlat denne siden før fremdriftslinjen når 100%"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:28
+msgid "Your last scan at"
+msgstr "Din siste skanning kl"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:31
+msgid "View result"
+msgstr "Se resultat"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:35
+msgid "You haven't performed a site scan yet."
+msgstr "Du har ikke utført en stedsskanning ennå."
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:40
+msgid "Scan Now"
+msgstr "Skann nå"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:45
+#: public/modules/script-blocker/views/admin_script_blocker.php:39
+msgid "Name"
+msgstr "Navn"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:46
+#: public/modules/shortcode/shortcode.php:417
+#: public/modules/shortcode/shortcode.php:529
+msgid "Type"
+msgstr "Type"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:47
+#: admin/modules/cookie-scaner/views/scan-result.php:58
+#: public/modules/script-blocker/views/admin_script_blocker.php:42
+msgid "Category"
+msgstr "Kategori"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:48
+#: admin/modules/cookie-scaner/views/scan-result.php:57
+#: public/modules/shortcode/shortcode.php:421
+#: public/modules/shortcode/shortcode.php:533
+msgid "Duration"
+msgstr "Varighet"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:53
+#: public/class-cookie-law-info-public.php:230
+msgid "Cookie List"
+msgstr "Cookie List"
+
+#: admin/modules/cookie-scaner/views/scan-cookies.php:93
+msgid "Your cookie list is empty"
+msgstr "Informasjonskapslisten din er tom"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:15
+msgid "Scan result"
+msgstr "Skanningsresultat"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:35
+msgid "Summary"
+msgstr "Sammendrag"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:38
+msgid "Scan started at"
+msgstr "Skanningen startet kl"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:41
+msgid "Scan status"
+msgstr "Skannestatus"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:44
+msgid "Total URLs"
+msgstr "Totale URLs"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:47
+msgid "Total cookies"
+msgstr "Totalt informasjonskapsel"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:51
+msgid "Cookies"
+msgstr "Informasjonskapsler"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:56
+msgid "Cookie Name"
+msgstr "Informasjonskapselnavn"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:59
+msgid "First found URL"
+msgstr "Først funnet URL"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:82
+msgid "No cookies"
+msgstr "Ingen informasjonskapsler"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:90
+msgid "URLs"
+msgstr "URL"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:95
+#: admin/views/admin-settings-buttons.php:71
+#: admin/views/admin-settings-buttons.php:146
+#: admin/views/admin-settings-buttons.php:270
+#: admin/views/admin-settings-buttons.php:277
+msgid "URL"
+msgstr "URL"
+
+#: admin/modules/cookie-scaner/views/scan-result.php:115
+msgid "No URLs"
+msgstr "Ingen nettadresser"
+
+#: admin/modules/csv-export/csv-export.php:29
+msgid "Download as CSV"
+msgstr "Last ned som CSV"
+
+#: admin/modules/csv-import/csv-import.php:46
+msgid "Import from CSV"
+msgstr "Importer fra CSV"
+
+#: admin/modules/csv-import/csv-import.php:67
+#: admin/modules/csv-import/csv-import.php:68
+msgid "Import Cookie"
+msgstr "Importer informasjonskapsel"
+
+#: admin/modules/csv-import/csv-import.php:304
+#, php-format
+msgid "BEGIN %s"
+msgstr "BEGIN %s"
+
+#: admin/modules/csv-import/csv-import.php:309
+#, php-format
+msgid "[Line %1$s] %2$s"
+msgstr "[Linje%1$s]%2$s"
+
+#: admin/modules/csv-import/views/import_cookies.php:2
+msgid "Import from a CSV file"
+msgstr "Importer fra en CSV-fil"
+
+#: admin/modules/csv-import/views/import_cookies.php:12
+#, php-format
+msgid ""
+"Notice: please make the directory %s writable so that you can see the error "
+"log."
+msgstr ""
+"Merk: Vennligst gjør katalogen %s skrivbar slik at du kan se feilloggen."
+
+#: admin/modules/csv-import/views/import_cookies.php:25
+#, php-format
+msgid ", please <a href=\"%s\">check the error log</a>"
+msgstr ", vennligst <a href=\"%s\">sjekk feilloggen</a>"
+
+#: admin/modules/csv-import/views/import_cookies.php:29
+msgid "Error during file upload."
+msgstr "Feil under filopplasting."
+
+#: admin/modules/csv-import/views/import_cookies.php:32
+msgid "Cannot extract data from uploaded file or no file was uploaded."
+msgstr ""
+"Kan ikke trekke ut data fra opplastet fil, eller ingen fil ble lastet opp."
+
+#: admin/modules/csv-import/views/import_cookies.php:35
+#, php-format
+msgid "No posts was successfully imported%s."
+msgstr "Ingen innlegg ble importert %s."
+
+#: admin/modules/csv-import/views/import_cookies.php:38
+#, php-format
+msgid "Some posts were successfully imported but some were not%s."
+msgstr "Noen innlegg ble importert, men andre var ikke %s."
+
+#: admin/modules/csv-import/views/import_cookies.php:41
+msgid "Post import was successful."
+msgstr "Importen etter posten var vellykket."
+
+#: admin/modules/csv-import/views/import_cookies.php:52
+msgid "CSV file"
+msgstr "CSV-fil"
+
+#: admin/modules/csv-import/views/import_cookies.php:55
+#, php-format
+msgid "You may want to see <a href=\"%s\">the example of the CSV file</a>."
+msgstr "Det kan være lurt å se <a href=\"%s\">eksemplet på CSV-filen</a> ."
+
+#: admin/modules/csv-import/views/import_cookies.php:60
+msgid "Import"
+msgstr "Importer"
+
+#: admin/partials/cookie-law-info-admin_settings.php:24
+msgid "Settings updated."
+msgstr "Innstillinger oppdatert."
+
+#: admin/partials/cookie-law-info-admin_settings.php:25
+msgid "Unable to update Settings."
+msgstr "Kan ikke oppdatere innstillinger."
+
+#: admin/partials/cookie-law-info-admin_settings.php:26
+msgid "Settings reset to defaults."
+msgstr "Innstillingene tilbakestilles til standardinnstillinger."
+
+#: admin/partials/cookie-law-info-admin_settings.php:27
+msgid "Unable to reset settings."
+msgstr "Kan ikke tilbakestille innstillingene."
+
+#: admin/partials/cookie-law-info-admin_settings.php:28
+msgid "Consent has renewed."
+msgstr "Samtykke er fornyet."
+
+#: admin/partials/cookie-law-info-admin_settings.php:29
+msgid "Unable to renew consent."
+msgstr "Kan ikke fornye samtykke."
+
+#: admin/partials/cookie-law-info-admin_settings.php:40
+msgid "Your Cookie Law Info bar is switched on"
+msgstr "Informasjonslinjen for informasjonskapsler er slått på"
+
+#: admin/partials/cookie-law-info-admin_settings.php:48
+msgid "Your Cookie Law Info bar is switched off"
+msgstr "Informasjonslinjen for informasjonskapsler er slått av"
+
+#: admin/partials/cookie-law-info-admin_settings.php:64
+msgid "General"
+msgstr "Generell"
+
+#: admin/partials/cookie-law-info-admin_settings.php:65
+msgid "Customise Cookie Bar"
+msgstr "Tilpass cookie bar"
+
+#: admin/partials/cookie-law-info-admin_settings.php:66
+msgid "Customise Buttons"
+msgstr "Tilpass knapper"
+
+#: admin/partials/cookie-law-info-admin_settings.php:67
+#: admin/views/admin-settings-advanced.php:8
+msgid "Advanced"
+msgstr "Avansert"
+
+#: admin/partials/cookie-law-info-admin_settings.php:68
+msgid "Licence"
+msgstr "Lisens"
+
+#: admin/partials/cookie-law-info-admin_settings.php:69
+msgid "Help Guide"
+msgstr "Hjelpeguide"
+
+#: admin/partials/cookie-law-info-privacy_overview.php:62
+msgid "Privacy Overview Menu Title"
+msgstr "Oversikt over personvern Oversikt Tittel"
+
+#: admin/partials/cookie-law-info-privacy_overview.php:68
+msgid "Privacy Overview Title"
+msgstr "Oversikt over personvern Oversettelse"
+
+#: admin/partials/cookie-law-info-privacy_overview.php:74
+#: admin/partials/cookie-law-info-privacy_overview.php:89
+msgid "This will be shown in the settings visible for user on consent screen."
+msgstr ""
+"Dette vil vises i innstillingene som er synlige for brukeren på "
+"samtykkeskjermen."
+
+#: admin/partials/cookie-law-info-privacy_overview.php:98
+msgid "Save Settings"
+msgstr "Lagre innstillinger"
+
+#: admin/views/admin-settings-advanced.php:9
+msgid ""
+"Sometimes themes apply settings that clash with plugins. If that happens, "
+"try adjusting these settings."
+msgstr ""
+"Noen ganger bruker temaer innstillinger som kolliderer med plugins. Hvis det "
+"skjer, kan du prøve å justere disse innstillingene."
+
+#: admin/views/admin-settings-advanced.php:13
+msgid "Renew user consent"
+msgstr "Forny brukerens samtykke"
+
+#: admin/views/admin-settings-advanced.php:15
+msgid "Renew consent"
+msgstr "Forny samtykke"
+
+#: admin/views/admin-settings-advanced.php:16
+msgid ""
+"Clicking this will renew the existing user consents on your website. The "
+"existing users will be prompted with the consent banner irrespective of "
+"their previous consent."
+msgstr ""
+"Ved å klikke på dette fornyes de eksisterende brukerens samtykker på "
+"nettstedet ditt. De eksisterende brukerne vil bli bedt om med samtykke "
+"banneret uavhengig av deres tidligere samtykke."
+
+#: admin/views/admin-settings-advanced.php:20
+msgid "Reset all values"
+msgstr "Tilbakestill alle verdier"
+
+#: admin/views/admin-settings-advanced.php:22
+msgid "Delete settings and reset"
+msgstr "Slett innstillinger og tilbakestill"
+
+#: admin/views/admin-settings-advanced.php:22
+msgid "Are you sure you want to delete all your settings?"
+msgstr "Er du sikker på at du vil slette alle innstillingene?"
+
+#: admin/views/admin-settings-advanced.php:23
+msgid "Warning: this will actually delete your current settings."
+msgstr "Advarsel: dette vil faktisk slette de nåværende innstillingene."
+
+#: admin/views/admin-settings-buttons.php:10
+msgid "Accept Button"
+msgstr "Godta knappen"
+
+#: admin/views/admin-settings-buttons.php:11
+#: admin/views/admin-settings-buttons.php:101
+msgid "Reject Button"
+msgstr "Avvis-knappen"
+
+#: admin/views/admin-settings-buttons.php:12
+#: admin/views/admin-settings-buttons.php:172
+msgid "Settings Button"
+msgstr "Innstillinger-knapp"
+
+#: admin/views/admin-settings-buttons.php:13
+#: admin/views/admin-settings-buttons.php:234
+msgid "Read More Link"
+msgstr "Les mer kobling"
+
+#: admin/views/admin-settings-buttons.php:19
+msgid "Main Button"
+msgstr "Hovedknapp"
+
+#: admin/views/admin-settings-buttons.php:20
+msgid ""
+"This button/link can be customised to either simply close the cookie bar, or "
+"follow a link. You can also customise the colours and styles, and show it as "
+"a link or a button."
+msgstr ""
+"Denne knappen / lenken kan tilpasses for å ganske enkelt lukke cookie baren, "
+"eller følge en lenke. Du kan også tilpasse farger og stiler, og vise det som "
+"en lenke eller en knapp."
+
+#: admin/views/admin-settings-buttons.php:23
+msgid "Enable accept all feature?"
+msgstr "Vil du aktivere godta alle funksjonene?"
+
+#: admin/views/admin-settings-buttons.php:27
+msgid ""
+"This will enable all cookie categories on clicking the accept button, no "
+"matter whether they are in the enabled or disabled state."
+msgstr ""
+"Dette vil aktivere alle cookie-kategorier ved å klikke på godta-knappen, "
+"uansett om de er i aktivert eller deaktivert tilstand."
+
+#: admin/views/admin-settings-buttons.php:28
+msgid ""
+"Please note that you will not be able to extend the cookie consent bar with "
+"cookie settings once this option is enabled."
+msgstr ""
+"Vær oppmerksom på at du ikke vil kunne utvide samtykkefeltet for "
+"informasjonskapsler med informasjon om informasjonskapsler når dette "
+"alternativet er aktivert."
+
+#: admin/views/admin-settings-buttons.php:38
+#: admin/views/admin-settings-buttons.php:110
+#: admin/views/admin-settings-buttons.php:181
+#: admin/views/admin-settings-buttons.php:244
+msgid "Text colour"
+msgstr "Tekstfarge"
+
+#: admin/views/admin-settings-buttons.php:46
+#: admin/views/admin-settings-buttons.php:118
+#: admin/views/admin-settings-buttons.php:189
+#: admin/views/admin-settings-buttons.php:252
+msgid "Show as"
+msgstr "Vis som"
+
+#: admin/views/admin-settings-buttons.php:48
+#: admin/views/admin-settings-buttons.php:120
+#: admin/views/admin-settings-buttons.php:191
+#: admin/views/admin-settings-buttons.php:254
+msgid "Button"
+msgstr "Knapp"
+
+#: admin/views/admin-settings-buttons.php:50
+#: admin/views/admin-settings-buttons.php:122
+#: admin/views/admin-settings-buttons.php:193
+#: admin/views/admin-settings-buttons.php:256
+msgid "Link"
+msgstr "Lenke"
+
+#: admin/views/admin-settings-buttons.php:54
+#: admin/views/admin-settings-buttons.php:126
+#: admin/views/admin-settings-buttons.php:197
+#: admin/views/admin-settings-buttons.php:260
+msgid "Background colour"
+msgstr "Bakgrunnsfarge"
+
+#: admin/views/admin-settings-buttons.php:63
+#: admin/views/admin-settings-buttons.php:134
+msgid "Action"
+msgstr "Handling"
+
+#: admin/views/admin-settings-buttons.php:74
+#: admin/views/admin-settings-buttons.php:149
+msgid "Button will only link to URL if Action = Open URL"
+msgstr "Knappen vil bare lenke til URL hvis handling = åpen URL"
+
+#: admin/views/admin-settings-buttons.php:79
+#: admin/views/admin-settings-buttons.php:154
+msgid "Open URL in new window?"
+msgstr "Åpne URL i nytt vindu?"
+
+#: admin/views/admin-settings-buttons.php:90
+#: admin/views/admin-settings-buttons.php:161
+#: admin/views/admin-settings-buttons.php:205
+#: admin/views/admin-settings-buttons.php:341
+msgid "Size"
+msgstr "Størrelse"
+
+#: admin/views/admin-settings-buttons.php:214
+msgid "Cookie Settings Layout"
+msgstr "Innstillinger for informasjonskapsler"
+
+#: admin/views/admin-settings-buttons.php:221
+#: admin/views/admin-settings-buttons.php:224
+msgid "Extended Banner / Widget"
+msgstr "Utvidet banner / widget"
+
+#: admin/views/admin-settings-buttons.php:235
+msgid ""
+"This button/link can be used to provide a link out to your Privacy & Cookie "
+"Policy. You can customise it any way you like."
+msgstr ""
+"Denne knappen / lenken kan brukes til å gi en kobling til personvern- og "
+"cookie-policyen. Du kan tilpasse den slik du vil."
+
+#: admin/views/admin-settings-buttons.php:268
+msgid "URL or Page?"
+msgstr "URL eller side?"
+
+#: admin/views/admin-settings-buttons.php:272
+#: admin/views/admin-settings-buttons.php:283
+msgid "Page"
+msgstr "Side"
+
+#: admin/views/admin-settings-buttons.php:286
+msgid "Select One"
+msgstr "Velg en"
+
+#: admin/views/admin-settings-buttons.php:311
+msgid "The currently selected page does not exist. Please select a new page."
+msgstr "Den valgte siden eksisterer ikke. Velg en ny side."
+
+#: admin/views/admin-settings-buttons.php:319
+msgid "No Follow"
+msgstr "Ingen følgere"
+
+#: admin/views/admin-settings-buttons.php:323
+msgid "Tells search engine crawlers not to follow this link"
+msgstr "Ber til søkemotorsøkere om ikke å følge denne lenken"
+
+#: admin/views/admin-settings-buttons.php:327
+msgid "Minimize Cookie Bar in this page/URL?"
+msgstr "Vil du minimere cookie bar på denne siden / URL?"
+
+#: admin/views/admin-settings-buttons.php:334
+msgid "Open in new window?"
+msgstr "Åpne i nytt vindu?"
+
+#: admin/views/admin-settings-general.php:9
+#: admin/views/admin-settings-general.php:15
+#: admin/views/admin-settings-messagebar.php:8
+msgid "Cookie Bar"
+msgstr "Cookie Bar"
+
+#: admin/views/admin-settings-general.php:10
+#: admin/views/admin-settings-general.php:168
+msgid "Show Again Tab"
+msgstr "Vis igjen-fanen"
+
+#: admin/views/admin-settings-general.php:11
+#: admin/views/admin-settings-general.php:235
+msgid "Other"
+msgstr "Andre"
+
+#: admin/views/admin-settings-general.php:18
+msgid "Cookie Bar is currently:"
+msgstr "Cookie Bar er for tiden:"
+
+#: admin/views/admin-settings-general.php:20
+#: admin/views/admin-settings-general.php:28
+#: admin/views/admin-settings-general.php:240
+msgid "On"
+msgstr "På"
+
+#: admin/views/admin-settings-general.php:21
+#: admin/views/admin-settings-general.php:29
+#: admin/views/admin-settings-general.php:241
+msgid "Off"
+msgstr "Av"
+
+#: admin/views/admin-settings-general.php:26
+msgid "Show only for EU Countries ( GeoIP )"
+msgstr "Vis bare for EU-land (GeoIP)"
+
+#: admin/views/admin-settings-general.php:35
+msgid "Cookie bar as"
+msgstr "Cookie bar som"
+
+#: admin/views/admin-settings-general.php:54
+msgid "Position"
+msgstr "Posisjon"
+
+#: admin/views/admin-settings-general.php:64
+msgid "Add overlay?"
+msgstr "Legg til overlegg?"
+
+#: admin/views/admin-settings-general.php:68
+msgid ""
+"When the popup is active, an overlay will block the user from browsing the "
+"site."
+msgstr ""
+"Når popup-en er aktiv, vil et overlegg hindre brukeren i å bla gjennom "
+"nettstedet."
+
+#: admin/views/admin-settings-general.php:69
+msgid "`Accept on scroll` will not work along with this option."
+msgstr "'Godta på rulle' vil ikke fungere sammen med dette alternativet."
+
+#: admin/views/admin-settings-general.php:73
+msgid "Cookie Bar will be shown in:"
+msgstr "Cookie Bar vises i:"
+
+#: admin/views/admin-settings-general.php:79
+#: admin/views/admin-settings-general.php:82
+msgid "Header"
+msgstr "Header"
+
+#: admin/views/admin-settings-general.php:80
+#: admin/views/admin-settings-general.php:83
+msgid "Footer"
+msgstr "Footer"
+
+#: admin/views/admin-settings-general.php:95
+msgid "Fix Cookie Bar to Header?"
+msgstr "Vil du fikse cookie bar til overskriften?"
+
+#: admin/views/admin-settings-general.php:99
+msgid ""
+"If you select \"Header\" then you can optionally stick the cookie bar to the "
+"header. Will not have any effect if you select \"Footer\"."
+msgstr ""
+"Hvis du velger \"Overskrift\", kan du eventuelt feste cookie-linjen i "
+"overskriften. Vil ikke ha noen effekt hvis du velger \"Bunntekst\"."
+
+#: admin/views/admin-settings-general.php:108
+msgid "On load"
+msgstr "På Last"
+
+#: admin/views/admin-settings-general.php:113
+#: admin/views/admin-settings-general.php:117
+#: admin/views/admin-settings-general.php:131
+#: admin/views/admin-settings-general.php:134
+msgid "Animate"
+msgstr "Animere"
+
+#: admin/views/admin-settings-general.php:114
+#: admin/views/admin-settings-general.php:118
+msgid "Sticky"
+msgstr "Festet"
+
+#: admin/views/admin-settings-general.php:125
+msgid "On hide"
+msgstr "På skjul"
+
+#: admin/views/admin-settings-general.php:132
+#: admin/views/admin-settings-general.php:135
+msgid "Disappear"
+msgstr "forsvinne"
+
+#: admin/views/admin-settings-general.php:143
+msgid "Auto-hide(Accept) cookie bar after delay?"
+msgstr "Skjul (godta) cookie-bar automatisk etter forsinkelse?"
+
+#: admin/views/admin-settings-general.php:150
+msgid "Milliseconds until hidden"
+msgstr "Millisekunder til den er skjult"
+
+#: admin/views/admin-settings-general.php:153
+msgid "Specify milliseconds (not seconds)"
+msgstr "Spesifiser millisekunder (ikke sekunder)"
+
+#: admin/views/admin-settings-general.php:153
+msgid "seconds"
+msgstr "sekunder"
+
+#: admin/views/admin-settings-general.php:157
+msgid "Auto-hide cookie bar if the user scrolls ( Accept on Scroll )?"
+msgstr "Skjul cookie-baren automatisk hvis brukeren ruller (Godta på rulle)?"
+
+#: admin/views/admin-settings-general.php:161
+msgid ""
+"As per latest GDPR policies it is required to take an explicit consent for "
+"the cookies. Use this option with discretion especially if you serve EU"
+msgstr ""
+"I henhold til de siste GDPR-retningslinjene er det påkrevd å ta et "
+"eksplisitt samtykke for informasjonskapslene. Bruk dette alternativet med "
+"skjønn, spesielt hvis du tjener EU"
+
+#: admin/views/admin-settings-general.php:162
+msgid "This option will not work along with `Popup overlay`."
+msgstr "Dette alternativet vil ikke fungere sammen med `Popup overlay`."
+
+#: admin/views/admin-settings-general.php:171
+msgid "Use Show Again Tab?"
+msgstr "Bruk Vis igjen-fanen?"
+
+#: admin/views/admin-settings-general.php:179
+#: admin/views/admin-settings-general.php:196
+msgid "Tab Position"
+msgstr "Fanen Posisjon"
+
+#: admin/views/admin-settings-general.php:184
+#: admin/views/admin-settings-general.php:187
+msgid "Right"
+msgstr "Høyre"
+
+#: admin/views/admin-settings-general.php:185
+#: admin/views/admin-settings-general.php:188
+msgid "Left"
+msgstr "Venstre"
+
+#: admin/views/admin-settings-general.php:203
+msgid "Bottom Right"
+msgstr "Bunn høyre"
+
+#: admin/views/admin-settings-general.php:206
+msgid "Bottom Left"
+msgstr "Nederst til venstre"
+
+#: admin/views/admin-settings-general.php:209
+msgid "Top Right"
+msgstr "Øverst til høyre"
+
+#: admin/views/admin-settings-general.php:212
+msgid "Top Left"
+msgstr "Øverst til venstre"
+
+#: admin/views/admin-settings-general.php:220
+msgid "From Left Margin"
+msgstr "Fra venstre marg"
+
+#: admin/views/admin-settings-general.php:223
+msgid "Specify"
+msgstr "Spesifiser"
+
+#: admin/views/admin-settings-general.php:227
+msgid "Show More Text"
+msgstr "Vis mer tekst"
+
+#: admin/views/admin-settings-general.php:238
+msgid "Enable consent logging"
+msgstr "Aktiver samtykkelogging"
+
+#: admin/views/admin-settings-general.php:245
+msgid "Reload after \"scroll accept\" event?"
+msgstr "Vil du laste opp igjen etter \"bla godta\" -hendelsen?"
+
+#: admin/views/admin-settings-general.php:256
+msgid "Reload after Accept button click"
+msgstr "Last inn på nytt etter godkjent-knappeklikk"
+
+#: admin/views/admin-settings-general.php:263
+msgid "Reload after Reject button click"
+msgstr "Last inn på nytt etter å klikke på Avvis-knappen"
+
+#: admin/views/admin-settings-help.php:9
+msgid "Shortcodes"
+msgstr "Hurtigkoder"
+
+#: admin/views/admin-settings-help.php:10
+#: admin/views/admin-settings-help.php:100
+msgid "Help Links"
+msgstr "Hjelp lenker"
+
+#: admin/views/admin-settings-help.php:16
+msgid "Cookie bar shortcodes"
+msgstr "Informasjonskapsler om koden"
+
+#: admin/views/admin-settings-help.php:17
+msgid ""
+"You can enter the shortcodes in the \"message\" field of the Cookie Law Info "
+"bar. They add nicely formatted buttons and/or links into the cookie bar, "
+"without you having to add any HTML."
+msgstr ""
+"Du kan oppgi snarveiene i \"melding\" -feltet i informasjonsfeltet for "
+"informasjonskapsler. De legger til pent formaterte knapper og / eller lenker "
+"i informasjonskapselen, uten at du trenger å legge til noe HTML."
+
+#: admin/views/admin-settings-help.php:18
+#: admin/views/admin-settings-help.php:50
+msgid ""
+"You can use `do_shortcode` function to add shortcodes inside the template "
+"file."
+msgstr ""
+"Du kan bruke funksjonen `do_shortcode` for å legge til snarveier i malfilen."
+
+#: admin/views/admin-settings-help.php:23
+msgid ""
+"If you just want a standard green \"Accept\" button that closes the header "
+"and nothing more, use this shortcode. It is already styled, you don't need "
+"to customise it."
+msgstr ""
+"Hvis du bare vil ha en standard grønn \"Godta\" -knapp som lukker "
+"overskriften og ikke noe mer, bruk denne kortkoden. Det er allerede stylet, "
+"du trenger ikke å tilpasse det."
+
+#: admin/views/admin-settings-help.php:27
+msgid ""
+"Alternatively you can add a colour value. Choose from: red, blue, orange, "
+"yellow, green or pink."
+msgstr ""
+"Alternativt kan du legge til en fargeverdi. Velg mellom: rød, blå, oransje, "
+"gul, grønn eller rosa."
+
+#: admin/views/admin-settings-help.php:27
+msgid "Careful to use the British spelling of \"colour\" for the attribute."
+msgstr ""
+"Forsiktig med å bruke den britiske skrivemåten \"farge\" for attributtet."
+
+#: admin/views/admin-settings-help.php:31
+msgid "This is the \"main button\" you can customise."
+msgstr "Dette er \"hovedknappen\" du kan tilpasse."
+
+#: admin/views/admin-settings-help.php:36
+msgid "This is the cookie settings button rendering shortcode."
+msgstr "Dette er cookie-innstillingsknappen som gir kortnummer."
+
+#: admin/views/admin-settings-help.php:40
+msgid "This is the cookie reject button shortcode."
+msgstr "Dette er kortkoden for cookie-avvisningsknapp."
+
+#: admin/views/admin-settings-help.php:44
+msgid "This is the \"read more\" link you can customise."
+msgstr "Dette er koblingen \"les mer\" du kan tilpasse."
+
+#: admin/views/admin-settings-help.php:48
+msgid "Other shortcodes"
+msgstr "Andre snarveier"
+
+#: admin/views/admin-settings-help.php:49
+msgid ""
+"These shortcodes can be used in pages and posts on your website. It is not "
+"recommended to use these inside the cookie bar itself."
+msgstr ""
+"Disse snarveiene kan brukes på sider og innlegg på nettstedet ditt. Det "
+"anbefales ikke å bruke disse inne i selve cookie baren."
+
+#: admin/views/admin-settings-help.php:56
+msgid ""
+"This prints out a nice table of cookies, in line with the guidance given by "
+"the ICO."
+msgstr ""
+"Dette skriver ut et fint tabell med informasjonskapsler, i tråd med "
+"veiledningen gitt av ICO."
+
+#: admin/views/admin-settings-help.php:56
+msgid ""
+"You need to enter the cookies your website uses via the Cookie Law Info menu "
+"in your WordPress dashboard."
+msgstr ""
+"Du må legge inn informasjonskapslene nettstedet ditt bruker via "
+"informasjonskapselmenyen for informasjonskapsler i WordPress-dashbordet."
+
+#: admin/views/admin-settings-help.php:68
+msgid "This prints out a nice table of cookies by category."
+msgstr ""
+"Dette skriver ut et fint tabell med informasjonskapsler etter kategori."
+
+#: admin/views/admin-settings-help.php:72
+msgid "This prints the settings popup of cookie category."
+msgstr ""
+"Dette skriver ut innstillingsvinduet for kategorien informasjonskapsler."
+
+#: admin/views/admin-settings-help.php:76
+msgid ""
+"This shortcode will display a normal HTML link which when clicked, will "
+"delete the cookie set by Cookie Law Info (this cookie is used to remember "
+"that the cookie bar is closed)."
+msgstr ""
+"Denne kortkoden vil vise en normal HTML-kobling som når du klikker, vil "
+"slette cookie-settet av Cookie Law Info (denne informasjonskapselen brukes "
+"til å huske at informasjonskapselen er lukket)."
+
+#: admin/views/admin-settings-help.php:80
+msgid "Add any text you like useful if you want to add another language"
+msgstr "Legg til tekst du liker nyttig hvis du vil legge til et annet språk"
+
+#: admin/views/admin-settings-help.php:84
+msgid ""
+"Add content after accepting the cookie notice. Category wise checking allowed"
+msgstr ""
+"Legg til innhold etter å ha akseptert informasjon om informasjonskapsler. "
+"Kontroll av kategorimessig tillatt"
+
+#: admin/views/admin-settings-help.php:87
+msgid ""
+"Add content only if the consent has been obtained for the specified category."
+msgstr ""
+"Legg til innhold bare hvis samtykket er innhentet for den spesifiserte "
+"kategorien."
+
+#: admin/views/admin-settings-help.php:90
+msgid ""
+"Add content if consent has been obtained for all/or any of the specified "
+"categories."
+msgstr ""
+"Legg til innhold hvis samtykke er oppnådd for alle / eller noen av de "
+"spesifiserte kategoriene."
+
+#: admin/views/admin-settings-help.php:104
+#: admin/views/admin-settings-help.php:107
+msgid "Documentation"
+msgstr "Dokumentasjon"
+
+#: admin/views/admin-settings-help.php:105
+msgid "Refer to our documentation to set and get started"
+msgstr "Se i dokumentasjonen vår for å angi og komme i gang"
+
+#: admin/views/admin-settings-help.php:112
+msgid "Help and Support"
+msgstr "Hjelp og støtte"
+
+#: admin/views/admin-settings-help.php:113
+msgid "We would love to help you on any queries or issues."
+msgstr "Vi hjelper deg gjerne med spørsmål eller spørsmål."
+
+#: admin/views/admin-settings-help.php:115
+msgid "Contact Us"
+msgstr "Kontakt oss"
+
+#: admin/views/admin-settings-messagebar.php:11
+msgid "Message Heading"
+msgstr "Meldingstittel"
+
+#: admin/views/admin-settings-messagebar.php:14
+msgid "Leave it blank, If you do not need a heading"
+msgstr "La det være tomt. Hvis du ikke trenger en overskrift"
+
+#: admin/views/admin-settings-messagebar.php:19
+msgid "Message"
+msgstr "Melding"
+
+#: admin/views/admin-settings-messagebar.php:25
+msgid "Shortcodes allowed: see the Help guide"
+msgstr "Kortkoder tillatt: se hjelpeguiden"
+
+#: admin/views/admin-settings-messagebar.php:25
+msgid ""
+"Examples: \"We use cookies on this website [cookie_accept] to find out how "
+"to delete cookies [cookie_link].\""
+msgstr ""
+"Eksempler: \"Vi bruker informasjonskapsler på dette nettstedet "
+"[cookie_accept] for å finne ut hvordan vi kan slette cookies [cookie_link].\""
+
+#: admin/views/admin-settings-messagebar.php:29
+msgid "Cookie Bar Colour"
+msgstr "Cookie Bar Color"
+
+#: admin/views/admin-settings-messagebar.php:39
+msgid "Text Colour"
+msgstr "Tekstfarge"
+
+#: admin/views/admin-settings-messagebar.php:49
+msgid "Show Border?"
+msgstr "Vis grense?"
+
+#: admin/views/admin-settings-messagebar.php:56
+msgid "Border Colour"
+msgstr "Kantfarge"
+
+#: admin/views/admin-settings-messagebar.php:66
+msgid "Font"
+msgstr "Font"
+
+#: admin/views/admin-settings-save-button.php:12
+msgid "Update Settings"
+msgstr "Oppdater innstillinger"
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:374
+#, php-format
+msgid ""
+"The license key for %s has expired. You can reactivate or purchase a license "
+"key from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
+msgstr ""
+"Lisensnøkkelen for %s er utløpt. Du re-aktivere eller kjøpe en lisensnøkkel "
+"fra ditt < a href = \" %s\" target = \"_ blank\" >kontrollpanel-</a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:385
+#, php-format
+msgid ""
+"The subscription for %s is on-hold. You can reactivate the subscription from "
+"your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
+msgstr ""
+"Abonnementet for %s er på vent. Du kan re-aktivere abonnementet på din < a "
+"href = \" %s\" target = \"_ blank\" >konto-</a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:396
+#, php-format
+msgid ""
+"The subscription for %s has been cancelled. You can renew the subscription "
+"from your account <a href=\"%s\" target=\"_blank\">dashboard</a>. A new "
+"license key will be emailed to you after your order has been completed."
+msgstr ""
+"Abonnementet for %s er kansellert. Du kan fornye abonnementet fra din < a "
+"href = \" %s\" target = \"_ blank\" >konto-</a>. En ny lisens nøkkel vil bli "
+"sendt til deg etter at bestillingen er fullført."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:407
+#, php-format
+msgid ""
+"The subscription for %s has expired. You can reactivate the subscription "
+"from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
+msgstr ""
+"Abonnementet for %s er utløpt. Du kan re-aktivere abonnementet fra ditt < a "
+"href = \" %s\" target = \"_ blank\" >kontrollpanel-</a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:418
+#, php-format
+msgid ""
+"The subscription for %s has been suspended. You can reactivate the "
+"subscription from your account <a href=\"%s\" target=\"_blank\">dashboard</"
+"a>."
+msgstr ""
+"Abonnementet for %s er deaktivert. Du kan re-aktivere abonnementet på nytt "
+"fra ditt < a href = \" %s\" target = \"_ blank\" >kontrollpanel-</a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:429
+#, php-format
+msgid ""
+"The subscription for %s is still pending. You can check on the status of the "
+"subscription from your account <a href=\"%s\" target=\"_blank\">dashboard</"
+"a>."
+msgstr ""
+"Abonnementet for %s er fortsatt på vent. Du kan kontrollere statusen til "
+"abonnementet fra ditt < a href = \" %s\" target = \"_ blank\" >kontrollpanel "
+"</a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:440
+#, php-format
+msgid ""
+"The subscription for %s has been placed in the trash and will be deleted "
+"soon. You can purchase a new subscription from your account <a href=\"%s\" "
+"target=\"_blank\">dashboard</a>."
+msgstr ""
+"Abonnementet for %s er flyttet til papirkurven, og vil bli slettet snart. Du "
+"kan kjøpe et nytt abonnement fra ditt < a href = \" %s\" target = \"_ blank"
+"\" >kontrollpanel </a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:451
+#, php-format
+msgid ""
+"A subscription for %s could not be found. You can purchase a subscription "
+"from your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
+msgstr ""
+"Finner ikke et abonnement for %s. Du kan kjøpe et abonnement fra ditt < a "
+"href = \" %s\" target = \"_ blank\" > kontrollpanel-</a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:462
+#, php-format
+msgid ""
+"A license key for %s could not be found. Maybe you forgot to enter a license "
+"key when setting up %s, or the key was deactivated in your account. You can "
+"reactivate license key at your plugin <a href=\"%s\" target=\"_blank"
+"\">settings page</a>."
+msgstr ""
+"En lisensnøkkel for %s ble ikke funnet. Kanskje glemte du å oppgi en "
+"lisensnøkkel når du satte opp %s, ellers ble nøkkelen deaktivert i kontoen "
+"din. Du kan aktivere lisensnøkkelen på nytt på <a href=\"%s\" target=\"_blank"
+"\">siden med innstillinger for</a> programtillegg."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:473
+#, php-format
+msgid ""
+"Download permission for %s has been revoked possibly due to a license key or "
+"subscription expiring. You can reactivate or purchase a license key from "
+"your account <a href=\"%s\" target=\"_blank\">dashboard</a>."
+msgstr ""
+"Tillatelse til nedlasting for %s er tilbakekalt, muligens grunnet at "
+"lisensnøkkel eller at abonnement er utløpt. Du kan re-aktivere eller kjøpe "
+"en lisensnøkkel fra < a href = \" %s\" target = \"_ blank\" >kontrollpanelet-"
+"</a>."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:484
+#, php-format
+msgid ""
+"%s has not been activated. Go to the plugin <a href=\"%s\" target=\"_blank"
+"\">settings page</a> and enter the license key and license email to activate "
+"%s."
+msgstr ""
+"%s er ikke aktivert. Gå til plugin <a href=\"%s\" target=\"_blank\">-"
+"innstillinger siden</a> og skriv inn lisensnøkkel og lisens epost for å "
+"aktivere %s."
+
+#: admin/wf_api_manager/class-wc-am-plugin-update.php:495
+#, php-format
+msgid ""
+"You changed the subscription for %s, so you will need to enter your new API "
+"License Key in the settings page. The License Key should have arrived in "
+"your email inbox, if not you can get it by logging into your account <a href="
+"\"%s\" target=\"_blank\">dashboard</a>."
+msgstr ""
+"Du har endret abonnementet for %s, så du må angi den nye API lisensnøkkelen "
+"på innstillinger. Lisensnøkkel burde ha ankommet per e-post, hvis ikke kan "
+"du hente den ved å logge inn på < en href = \" %s\" mål = \"_ blank\" > "
+"kontrollpanelet </a>."
+
+#: admin/wf_api_manager/html/html-wf-activation-window.php:106
+msgid "Licence Activation"
+msgstr "Lisensaktivering"
+
+#: admin/wf_api_manager/html/html-wf-activation-window.php:110
+msgid "API Licence Key:"
+msgstr "API-lisensnøkkel:"
+
+#: admin/wf_api_manager/html/html-wf-activation-window.php:111
+msgid "Licence Key"
+msgstr "Lisensnøkkel"
+
+#: admin/wf_api_manager/html/html-wf-activation-window.php:115
+msgid "Licence Email"
+msgstr "Lisens e-post"
+
+#: admin/wf_api_manager/html/html-wf-activation-window.php:119
+msgid "Activate"
+msgstr "Aktiver"
+
+#: admin/wf_api_manager/html/html-wf-activation-window.php:122
+msgid "Check"
+msgstr "Sjekk"
+
+#: admin/wf_api_manager/html/html-wf-activation-window.php:132
+msgid "Deactive"
+msgstr "deactive"
+
+#: cookie-law-info.php:71
+msgid ""
+"Oops! You tried installing the premium version without deactivating and "
+"deleting the basic version. Kindly deactivate and delete GDPR Cookie Consent "
+"(BASIC) and then try again"
+msgstr ""
+"Oops! Du prøvde å installere premiumversjonen uten å deaktivere og slette "
+"grunnversjonen. Deaktiver og slett GDPR Cookie Consent (BASIC) og prøv "
+"deretter på nytt"
+
+#: cookie-law-info.php:93
+msgid ""
+"The pre-defined script blocker services are enabled by default. Hence "
+"activating the plugin blocks these services which may affect the web layout. "
+"For e.g, if you have embedded any youtube or Vimeo services the plugin will "
+"block these by default since they collect user information. Hence the videos "
+"will not render wherever it is placed. Therefore you may want to review the "
+"website w.r.t the blocked scripts. <a href=\"edit.php?post_type="
+msgstr ""
+"De forhåndsdefinerte skriptblokkeringstjenestene er aktivert som standard. "
+"Dermed blokkerer aktivering av plugin disse tjenestene som kan påvirke "
+"nettoppsettet. For eksempel, hvis du har innebygd noen YouTube- eller Vimeo-"
+"tjenester, vil plugin-en blokkere disse som standard siden de samler inn "
+"brukerinformasjon. Derfor vil videoene ikke gjengis uansett hvor de er "
+"plassert. Derfor kan det være lurt å gå gjennom nettstedet w.r.t de "
+"blokkerte skriptene. <a href = \"edit.php? post_type ="
+
+#: includes/class-cookie-law-info.php:1099
+msgid "Page number"
+msgstr "Sidenummer"
+
+#. Plugin Name of the plugin/theme
+#: public/class-cookie-law-info-public.php:229
+msgid "GDPR Cookie Consent"
+msgstr "GDPR Cookie-samtykke"
+
+#: public/class-cookie-law-info-public.php:231
+#: public/modules/shortcode/shortcode.php:413
+#: public/modules/shortcode/shortcode.php:525
+msgid "Cookie"
+msgstr "Cookie"
+
+#: public/class-cookie-law-info-public.php:232
+msgid "Add New"
+msgstr "Legg til ny"
+
+#: public/class-cookie-law-info-public.php:233
+msgid "Add New Cookie Type"
+msgstr "Legg til ny informasjonskapseltype"
+
+#: public/class-cookie-law-info-public.php:234
+msgid "Edit Cookie Type"
+msgstr "Rediger cookie type"
+
+#: public/class-cookie-law-info-public.php:235
+msgid "New Cookie Type"
+msgstr "Ny cookie-type"
+
+#: public/class-cookie-law-info-public.php:236
+msgid "View Cookie Type"
+msgstr "Vis cookie-type"
+
+#: public/class-cookie-law-info-public.php:237
+msgid "Search Cookies"
+msgstr "Søk i informasjonskapsler"
+
+#: public/class-cookie-law-info-public.php:238
+msgid "Nothing found"
+msgstr "Fant ingenting"
+
+#: public/class-cookie-law-info-public.php:239
+msgid "Nothing found in Trash"
+msgstr "Ingen treff i papirkurven"
+
+#: public/class-cookie-law-info-public.php:281
+#: public/modules/script-blocker/script-blocker.php:411
+msgid "Cookie Category"
+msgstr "Cookie-kategori"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:170
+msgid "Accept consent to view this"
+msgstr "Godta samtykke til å se dette"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:186
+#, php-format
+msgid ""
+"Accept <a class='cli_manage_current_consent'>%s</a> cookies to view the "
+"content."
+msgstr ""
+"Godta <a class='cli_manage_current_consent'> %s</a> informasjonskapsler for "
+"å se innholdet."
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:486
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:501
+msgid "Facebook Pixel Code"
+msgstr "Facebook Pixel Code"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:516
+msgid "Google Tag Manager"
+msgstr "Google Tag Manager"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:524
+msgid "Hotjar"
+msgstr "Hotjar"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:531
+msgid "Google Publisher Tag"
+msgstr "Google Publisher-tagg"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:544
+msgid "Youtube embed"
+msgstr "Youtube embed"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:563
+msgid "Vimeo embed"
+msgstr "Vimeo embed"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:573
+msgid "Libsyn"
+msgstr "Libsyn"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:583
+msgid "Google maps"
+msgstr "Google Maps"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:596
+msgid "Addthis widget"
+msgstr "Legg til denne widgeten"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:603
+msgid "Sharethis widget"
+msgstr "Sharethis widget"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:610
+msgid "Twitter widget"
+msgstr "Twitter Widget"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:618
+msgid "Soundcloud embed"
+msgstr "Soundcloud innebygd"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:631
+msgid "Slideshare embed"
+msgstr "Slideshare innebygd"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:642
+msgid "Linkedin widget/Analytics"
+msgstr "Linkedin widget / Analytics"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:653
+msgid "Instagram embed"
+msgstr "Instagram innebygd"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:664
+msgid "Pinterest widget"
+msgstr "Pinterest widget"
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:674
+#, php-format
+msgid ""
+"Invalid index found in the thirdparties array. Index should be of type "
+"'string'. Index found: %d."
+msgstr ""
+"Ugyldig indeks funnet i tredjepartsgruppen. Indeksen skal være av typen "
+"'streng'. Funnet indeks:% d."
+
+#: public/modules/script-blocker/classes/class-script-blocker.php:997
+msgid "Action is unknown."
+msgstr "Handlingen er ukjent."
+
+#: public/modules/script-blocker/script-blocker.php:133
+msgid "Output buffer type"
+msgstr "Utgangsbuffertype"
+
+#: public/modules/script-blocker/script-blocker.php:135
+msgid "Multi"
+msgstr "multi"
+
+#: public/modules/script-blocker/script-blocker.php:136
+msgid "Single"
+msgstr "Enkel"
+
+#: public/modules/script-blocker/script-blocker.php:137
+msgid "Caution: This may break the site."
+msgstr "Advarsel: Dette kan ødelegge nettstedet."
+
+#: public/modules/script-blocker/script-blocker.php:536
+#: public/modules/script-blocker/script-blocker.php:537
+msgid "Script Blocker"
+msgstr "Skriptblokker"
+
+#: public/modules/script-blocker/views/admin_script_blocker.php:8
+msgid "disable"
+msgstr "deaktiver"
+
+#: public/modules/script-blocker/views/admin_script_blocker.php:8
+msgid "enable"
+msgstr "aktiver"
+
+#: public/modules/script-blocker/views/admin_script_blocker.php:10
+#, php-format
+msgid "Script blocker is currently %s"
+msgstr "Skriptblokkering er for øyeblikket %s"
+
+#: public/modules/script-blocker/views/admin_script_blocker.php:11
+#, php-format
+msgid "<a href=\"javascript: submitform()\">click here</a> to %s "
+msgstr "<a href=\"javascript: submitform()\">Klikk her</a> til %s"
+
+#: public/modules/script-blocker/views/admin_script_blocker.php:14
+msgid "Manage Script Blocking"
+msgstr "Administrer blokkering av skript"
+
+#: public/modules/script-blocker/views/admin_script_blocker.php:38
+msgid "No."
+msgstr "Nr."
+
+#: public/modules/script-blocker/views/admin_script_blocker.php:43
+msgid "Key"
+msgstr "Nøkkel"
+
+#: public/modules/shortcode/shortcode.php:167
+msgid "Your current state:"
+msgstr "Din nåværende tilstand:"
+
+#: public/modules/shortcode/shortcode.php:197
+msgid "Not allowed cookies "
+msgstr "Ikke tillatte informasjonskapsler"
+
+#: public/modules/shortcode/shortcode.php:201
+msgid "Allowed cookies "
+msgstr "Tillatte informasjonskapsler"
+
+#: public/modules/shortcode/shortcode.php:201
+msgid "Allow all cookies "
+msgstr "Tillat alle informasjonskapsler"
+
+#: public/modules/shortcode/shortcode.php:204
+msgid "Consent Accepted. "
+msgstr "Samtykke akseptert."
+
+#: public/modules/shortcode/shortcode.php:207
+msgid "Consent rejected."
+msgstr "Samtykke avvist."
+
+#: public/modules/shortcode/shortcode.php:211
+msgid "No consent given."
+msgstr "Ingen samtykke gitt."
+
+#: public/modules/shortcode/shortcode.php:213
+msgid "Manage your consent."
+msgstr "Administrer ditt samtykke."
+
+#: public/modules/shortcode/shortcode.php:296
+msgid "Delete Cookies"
+msgstr "Slett informasjonskapsler"
+
+#: public/modules/shortcode/shortcode.php:729
+msgid "Close and Accept"
+msgstr "Lukk og aksepter"
+
+#: public/modules/visitor-report/classes/class-visitor-history.php:26
+msgid "No Consent History"
+msgstr "Ingen samtykkehistorie"
+
+#: public/modules/visitor-report/classes/class-visitor-history.php:75
+msgid "IP Address"
+msgstr "IP adresse"
+
+#: public/modules/visitor-report/classes/class-visitor-history.php:76
+msgid "Visited Date"
+msgstr "Besøkt dato"
+
+#: public/modules/visitor-report/classes/class-visitor-history.php:77
+msgid "Cookie Details"
+msgstr "Informasjon om informasjonskapsler"
+
+#: public/modules/visitor-report/classes/class-visitor-history.php:78
+msgid "User ID"
+msgstr "Bruker ID"
+
+#: public/modules/visitor-report/views/visitor_report.php:9
+msgid "GDPR Consent History"
+msgstr "GDPR samtykkehistorie"
+
+#: public/modules/visitor-report/views/visitor_report.php:11
+msgid "Export Report"
+msgstr "Eksporter rapport"
+
+#: public/modules/visitor-report/visitor-report.php:129
+msgid "Event Logged Successfully"
+msgstr "Hendelsen logget vellykket"
+
+#: public/modules/visitor-report/visitor-report.php:138
+msgid "Logging is not enabled"
+msgstr "Logging er ikke aktivert"
+
+#: public/modules/visitor-report/visitor-report.php:152
+#: public/modules/visitor-report/visitor-report.php:153
+msgid "Consent Report"
+msgstr "Samtykke rapport"
+
+#: public/views/cookie-law-info_popup_content.php:6
+msgid "Always Enabled"
+msgstr "Alltid aktivert"
+
+#: public/views/cookie-law-info_popup_content.php:9
+msgid "Show more"
+msgstr "Vis mer"
+
+#: public/views/cookie-law-info_popup_content.php:9
+msgid "Show less"
+msgstr "Vis mindre"
+
+#: public/views/cookie-law-info_popup_content.php:99
+msgid "Save & Accept"
+msgstr "Lagre og godta"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.webtoffee.com/product/gdpr-cookie-consent/"
+msgstr "https://www.webtoffee.com/product/gdpr-cookie-consent/"
+
+#. Description of the plugin/theme
+msgid ""
+"A simple way to show your website complies with the EU Cookie Law / GDPR."
+msgstr ""
+"En enkel måte å vise nettstedet ditt er i samsvar med EUs cookie Law / GDPR."
+
+#. Author of the plugin/theme
+msgid "WebToffee"
+msgstr "WebToffee"
+
+#. Author URI of the plugin/theme
+msgid "http://cookielawinfo.com/"
+msgstr "http://cookielawinfo.com/"

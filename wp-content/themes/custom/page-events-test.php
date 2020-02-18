@@ -1,6 +1,0 @@
-
-<?php get_template_part('partials/header'); ?>
-
-<?php get_template_part('partials/events_test'); ?>
-
-<?php get_template_part('partials/footer' ); ?>

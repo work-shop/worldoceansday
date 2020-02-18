@@ -11,6 +11,7 @@ $search-height: 80px;
     transition: top .5s;
     overflow-x: hidden;
     top: -200px;
+    left: 0;
 
     &.on {
         transition: top .5s;
@@ -41,8 +42,10 @@ $search-height: 80px;
     background: transparentize($brand, .7);
     transition: transform .5s;
     transition: opacity .5s;
+    display: none;
 
     &.on{
+        display: block;
         transition: opacity .5s;
         z-index: 5;
         opacity: 1;

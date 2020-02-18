@@ -1,0 +1,33 @@
+
+.wt-cli-cookie-bar-container{
+
+	#cookie-law-info-bar{
+		background: darken($brand,15%) !important;
+		padding: 10px;
+
+
+		*{
+			color: white;
+		}
+
+		.cli-bar-btn_container{
+
+			.cli_settings_button{
+				text-decoration: none !important;
+				border: 1px solid white !important;
+				padding: 3px 7px;
+				border-radius: 8px;
+				color: white !important;
+				font-size: 12px;
+			}
+
+		.cli-plugin-main-button{
+			background: $brand-secondary !important;
+			border-radius: 8px !important;
+		}
+
+		}
+
+
+	}
+}

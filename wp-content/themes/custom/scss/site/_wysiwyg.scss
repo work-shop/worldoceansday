@@ -45,6 +45,10 @@
 		}
 	}	
 
+	a{
+		font-weight: inherit;
+	}
+
 	p ~ ul{
 		margin-top: 2em;
 		margin-bottom: 3em;
