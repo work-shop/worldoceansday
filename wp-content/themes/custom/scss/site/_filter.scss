@@ -239,6 +239,7 @@ $button-color-default: lighten($brand-tint, 01%);
 	opacity: 0;
 	transition: opacity .2s;
 	display: none;
+	background: $brand;
 
 	&.active{
 		transition: opacity .2s;

@@ -20,13 +20,13 @@ function get_supporters_slideshow( $request ){
 		<?php $count = 1; ?>
 		<?php while ( have_rows('sustaining_partners',105) ) : the_row(); ?>
 			<div class="home-supporters-slide">
-				<?php $link = get_field('link'); ?>
-				<?php if( $link ): ?>
-					<a href="<?php echo $link['url']; ?>" target="<?php echo $link['target']; ?>" class="">
+				<?php $supporter_link = get_sub_field('supporter_link'); ?>
+				<?php if( $supporter_link ): ?>
+					<a href="<?php echo $supporter_link; ?>" target="_blank" class="">
 					<?php endif; ?>
 					<?php $image = get_sub_field('supporter_image'); ?>
 					<img src="<?php echo $image['sizes']['sm']; ?>" alt="<?php echo $image['alt']; ?>" class="">
-					<?php if( $link ): ?>
+					<?php if( $supporter_link ): ?>
 					</a>
 				<?php endif; ?>
 			</div>
@@ -45,6 +45,7 @@ function get_supporters_slideshow( $request ){
 			fade: false,
 			autoplaySpeed: 5000,
 			speed: 700,
+			draggable: false,
 			responsive: [
 			{
 				breakpoint: 993,

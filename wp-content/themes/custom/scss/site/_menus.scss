@@ -25,7 +25,7 @@
 			width: 100%;
 			height: calc(100vh - #{$nav-height-mobile});
 			height: calc((var(--vh, 1vh) * 100) - #{$nav-height-mobile});
-			z-index: 6;
+			z-index: 10009;
 			overflow-y: scroll;
 			-webkit-overflow-scrolling: touch;
 		}
@@ -71,7 +71,7 @@
 
 	@media screen and (max-width: $md) {
 		position: relative;
-		z-index: 6;
+		z-index: 100009;
 		top: 0;
 		opacity: 1;
 		display: none;
@@ -82,7 +82,7 @@
 	}
 
 	&.on{
-		z-index: 6;
+		z-index: 10009;
 		transform: translate(0,0);
 		opacity: 1;
 		transition: opacity .5s, transform .4s; //transition in

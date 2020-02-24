@@ -1,6 +1,13 @@
 <nav class="resources-nav filter-nav" id="resources-nav">
 	<div class="page-nav-inner">
-		<div class="container-fluid container-fluid-tight">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<h5 class="filter-label-heading">
+						Filter Resources
+					</h5>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col">
 					<div class="filter" id="filter-topic">

@@ -1,4 +1,4 @@
-<section class="block padded bg-ultra-light" id="resources">
+<section class="block padded-bottom" id="resources">
 	<div class="container-fluid">
 		<div class="row" id="resources-container">
 		</div>

@@ -9,18 +9,15 @@ add_action( 'rest_api_init', function () {
 		'methods' => WP_REST_Server::ALLMETHODS,
 		'callback' => 'get_event_map_locations',
 	) );
-	register_rest_route( 'wod-events/v1', '/search', array(
-		'methods' => WP_REST_Server::ALLMETHODS,
-		'callback' => 'get_event_search',
-	) );
 } );
 
 
-function theme_name_custom_orderby( $query_args ) {
-    $query_args[ 'orderby' ] = 'meta_value'; //orderby will be according to data stored inside the particular meta key
-    $query_args[ 'order' ] = 'DESC';
-    return $query_args;
-}
+
+
+
+
+
+
 
 
 
@@ -59,7 +56,7 @@ function get_event_list( $request ){
 	}
 
 	if($start_date === 'all' || $start_date === 'All' || $start_date == false){
-		$start_date = date('Y-m-d');
+		$start_date = '2000-01-01';
 	}
 	if($end_date === 'all' || $end_date === 'All' || $end_date == false){
 		$end_date = '2099-01-01';
@@ -69,10 +66,11 @@ function get_event_list( $request ){
 		'post_type' => 'event_listing',
 		'posts_per_page' => $per_page,
 		'paged' => $page,
-		'status' => 'active',
+		'status' => 'Active',
+		'post_status' => 'publish',
 		'ignore_custom_sort' => TRUE,
 		'meta_key' => '_event_start_date',
-		'order_by' => 'meta_key',
+		'orderby' => 'meta_value',
 		'order' => 'ASC',
 		'tax_query' => array(
 			'relation' => 'AND',
@@ -102,6 +100,7 @@ function get_event_list( $request ){
 				'type'    => 'DATE'
 			)
 		),
+
 	) );
 
 	$results['found_posts'] = $my_query->found_posts;
@@ -121,6 +120,28 @@ function get_event_list( $request ){
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function get_event_map_locations( $request ){
@@ -155,7 +176,7 @@ function get_event_map_locations( $request ){
 	}
 
 	if($start_date === 'all' || $start_date === 'All' || $start_date == false){
-		$start_date = date('Y-m-d');
+		$start_date = '2000-01-01';
 	}
 	if($end_date === 'all' || $end_date === 'All' || $end_date == false){
 		$end_date = '2099-01-01';
@@ -163,11 +184,13 @@ function get_event_map_locations( $request ){
 
 	$my_query = new WP_Query( array(
 		'post_type' => 'event_listing',
-		'posts_per_page' => -1,
-		'status' => 'active',
+		'posts_per_page' => $per_page,
+		'paged' => $page,
+		'status' => 'Active',
+		'post_status' => 'publish',
 		'ignore_custom_sort' => TRUE,
 		'meta_key' => '_event_start_date',
-		'order_by' => 'meta_key',
+		'orderby' => 'meta_value',
 		'order' => 'ASC',
 		'tax_query' => array(
 			'relation' => 'AND',
@@ -197,6 +220,7 @@ function get_event_map_locations( $request ){
 				'type'    => 'DATE'
 			)
 		),
+
 	) );
 
 	while ( $my_query->have_posts() ) : $my_query->the_post();
@@ -232,40 +256,6 @@ function get_event_map_locations( $request ){
 	//$mapOptions = json_encode( $mapOptions, JSON_UNESCAPED_SLASHES ); 
 
 	return $mapOptions;
-
-}
-
-
-
-function get_event_search( $request ){
-
-	$html = '';
-	$results = array();
-
-	$my_query = new WP_Query( array(
-		'post_type' => 'event_listing',
-		'status' => 'active',
-		's' => 'carara',
-		'meta_key' => '_event_start_date',
-		'order_by' => 'meta_key',
-		'order' => 'ASC'
-	) );
-
-	$results['found_posts'] = $my_query->found_posts;
-	$results['post_count'] = $my_query->post_count;
-
-	if( $my_query->have_posts() ){
-		while ( $my_query->have_posts() ) { $my_query->the_post();
-			ob_start();
-			get_template_part('partials/events/event_card');
-			$event_html = ob_get_clean();
-			$html .= $event_html;
-		}
-		$results['html'] = $html;
-		return $results;
-	} else{
-		return false;
-	}
 
 }
 

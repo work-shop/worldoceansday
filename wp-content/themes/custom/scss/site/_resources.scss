@@ -1,6 +1,34 @@
 
 
+#resources-nav{
+	border: none;
+	padding-top: 100px;
+	height: auto;
+
+	@media screen and (max-width: $sm) {
+		padding-top: 50px;
+	}
+
+	.filter-label-heading{
+		text-transform: uppercase;
+		color: $brand-tint;
+	}
+}
+
+#resources{
+	padding-top: 50px;	
+
+	@media screen and (max-width: $sm) {
+		padding-top: 25px;
+	}
+}
+
 .post-type-archive-resources,.single-resources{
+
+	.page-nav-inner{
+		width: 100%;
+	}
+
 	#blanket{
 		background: transparentize($brand, .2);
 	}

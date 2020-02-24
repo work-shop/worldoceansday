@@ -13,7 +13,7 @@ if(  ( window.location.href.indexOf('localhost') !== -1 ) ){
 	local = false;
 }
 var baseUrl = siteUrl + '/wp-json/wod-resources/v1/resources';
-var perPage = 10;
+var perPage = 18;
 var page = 1;
 var totalItems = 0;
 var currentItems = 0;
@@ -26,8 +26,8 @@ var currentType = 'all';
 var currentLanguage = 'all';
 var filtered = false;
 
-var emptyMessage = '<div class="col"><div class="error"><h3>No resources found with those parameters</h3></div></div>';
-var errorMessage = '<div class="col"><div class="error"><h3>Oops, something went wrong. Please try again.</h3></div></div>';
+var emptyMessage = '<div class="col"><div class="wod-alert wod-alert-error">No resources found with those parameters</div></div>';
+var errorMessage = '<div class="col"><div class="wod-alert wod-alert-error">Oops, something went wrong. Please try again.</div></div>';
 
 
 function resources() {

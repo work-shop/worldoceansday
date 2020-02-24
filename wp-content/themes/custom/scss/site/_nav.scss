@@ -14,7 +14,7 @@ $text-nav: (
 	height: $nav-height;
 	padding-left: 25px;
 	padding-right: 25px;
-	z-index: 7;
+	z-index: 10010;
 	transition: background 1s;
 	background: $brand-secondary;
 	//background: $brand;
@@ -444,6 +444,7 @@ $text-nav: (
 	width: 28px;
 	z-index: 10;
 	padding-top: 21px;
+	z-index: 10010;
 
 	.hamburger-line{
 		display: block;

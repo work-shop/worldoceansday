@@ -26,11 +26,13 @@ var currentCountry = 'all';
 var currentStartDate = 'all';
 var currentEndDate = 'all';
 var filtered = false;
+var dateFiltered = false;
 var eventsMap, popup, Popup, markerCluster;
 var markers = [];
 var mapInitialized = false;
 var picker;
 var pickerInitialized = false;
+var pickerVisible = false;
 
 var clusterStyles = [
 {
@@ -80,13 +82,19 @@ function events() {
 
 		if( $('body').hasClass('page-id-13') ){
 
-			//setTimeout( function(){
-				//console.clear();
-				//console.log('----- Initializing events -----');
-			//}, 3000);
+			//console.log('----- Initializing events -----');
 
 			$('.filter-menu-button').click(function() {
 				toggleFilterMenu($(this));
+
+				if(dateFiltered == false){
+					$('#litepicker').val('Date');
+				}
+
+				if( pickerVisible ){
+					picker.hide();
+				}
+				
 			});
 
 			$('.filter-button').click(function(e) {
@@ -96,12 +104,15 @@ function events() {
 			});
 
 			$('.filter-clear').click(function() {
-				page = 1;
-				getEvents();
+				picker.clearSelection();
+				$('#litepicker').val('Date');
+				$('#litepicker').removeClass('active');
+				page = 1;				
 				filtered = false;
+				dateFiltered = false;
+				getEvents();
 				$('.filter-menu').removeClass('open');
 				$('.filter-menu-button').removeClass('active');
-				$('#litepicker').removeClass('active').val('Date');
 				updateButtons( $('#filter-button-all-category'), true );
 				updateButtons( $('#filter-button-all-country'), true );
 			});
@@ -127,17 +138,36 @@ function events() {
 					if(pickerInitialized){
 						pickerSelect(date1, date2);
 					}
+				},
+				onShow : function(){
+					pickerVisible = true;
+					if(dateFiltered == false){
+						$('#litepicker').val('Date');
+					}
+				}, 
+				onHide : function(){
+					pickerVisible = false;
+					if(dateFiltered == false){
+						$('#litepicker').val('Date');
+					}
 				}
 			});
-			//console.log(picker.options);
-			//picker.setDateRange('2020-02-13','2020-02-15');
+
 
 			$('#litepicker').val('Date');
+
+			$('#litepicker').click(function(e) {
+				if(dateFiltered == false){
+					$(this).val('Date');
+				}
+				toggleFilterMenu($('.filter-menu-button.active'));
+			});
 
 			initialRequest();
 
 			//list your event banner
 			$('#list-your-event-banner-close').click(function(e){
+				e.preventDefault();
 				$('#list-your-event-banner').slideUp('slow');
 				var cookie = 'wod_show_list_your_event_banner';
 				var d = new Date();
@@ -196,6 +226,7 @@ function events() {
 			if( startDate != 'all' || endDate != 'all'){
 				//console.log('at least one is not set to all');
 				filtered = true;
+				dateFiltered = true;
 				updatePickerButton();
 
 				if( startDate == 'all' && endDate !== 'all'){
@@ -357,6 +388,7 @@ function events() {
 		//console.log(date1, date2); 
 
 		filtered = true;
+		dateFiltered = true;
 
 		updatePickerButton();
 
@@ -384,7 +416,9 @@ function events() {
 		}
 
 		if(filtered){
-			$('#filter-clear').addClass('on');
+			//$('#filter-clear').addClass('on');
+		} else{
+			pickerInput.val('Date');
 		}
 
 	}
@@ -412,6 +446,18 @@ function events() {
 			$('#events-wrapper').removeClass('filter-loading'); 
 		} else{
 			$('#events-wrapper').addClass('filter-loading'); 
+		}
+
+		if(!updating){
+			if(filtered){
+				$('#filter-clear').addClass('on');
+			} else{
+				$('#filter-clear').removeClass('on');
+			}
+
+			if(dateFiltered == false){
+				$('#litepicker').val('Date');
+			}	
 		}
 
 	}
@@ -494,12 +540,6 @@ function events() {
 			}else if( filterType ==='country'){
 				getEvents(currentCategory, slug, currentStartDate, currentEndDate);
 			}
-		}
-
-		if(filtered){
-			$('#filter-clear').addClass('on');
-		} else{
-			$('#filter-clear').removeClass('on');
 		}
 
 		$('.filter-button-' + filterType ).removeClass('active');
