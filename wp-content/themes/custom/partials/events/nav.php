@@ -1,8 +1,8 @@
-<nav class="resources-nav filter-nav" id="events-nav">
+<nav class="filter-nav" id="events-nav">
 	<div class="page-nav-inner">
 		<div class="container-fluid container-fluid-tight">
 			<div class="row">
-				<div class="col">
+				<div class="col-12">
 					<div class="filter" id="filter-category">
 						<button class="filter-menu-button off" id="filter-menu-button-category" data-menu="#filter-menu-category">
 							Category<span class="filter-menu-button-label" id="filter-menu-button-label-category"></span>
@@ -65,12 +65,12 @@
 					<div class="filter" id="filter-clear">
 						<button class="filter-clear-button filter-clear"><span class="icon" data-icon="x"></span> Clear Filters</button>
 					</div>
-					<div id="filter-search" class="filter hidden">
-						<input type="text" id="filter-search-input" placeholder="Search Events">
-					</div>
+
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="filter-screen" id="filter-screen">
 	</div>
 </nav>
 

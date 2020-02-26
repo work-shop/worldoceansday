@@ -22,6 +22,7 @@ body{
 #content{
 	overflow: hidden;
 	padding-top: $nav-height;
+	display: block;
 
 	@media screen and (max-width: $md) {
 		padding-top: $nav-height-mobile;

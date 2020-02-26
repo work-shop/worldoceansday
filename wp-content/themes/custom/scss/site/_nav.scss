@@ -18,8 +18,8 @@ $text-nav: (
 	transition: background 1s;
 	background: $brand-secondary;
 	//background: $brand;
-	display: grid;
-	grid-template-columns: 350px auto;
+	//display: grid;
+	//grid-template-columns: 350px auto;
 	//border-bottom: 1px solid $ultra-light;
 
 	&:hover{
@@ -31,7 +31,7 @@ $text-nav: (
 	}
 
 	@media screen and (max-width: $xl) {
-		grid-template-columns: 250px auto;
+		//grid-template-columns: 250px auto;
 	}
 
 	// @media screen and (max-width: $lg) {
@@ -49,6 +49,8 @@ $text-nav: (
 	.nav-left{
 		//border: 1px solid blue;
 		height: 100%;
+		width: 250px;
+		float: left;
 
 		#logo{
 			//border: 1px solid green;
@@ -79,6 +81,8 @@ $text-nav: (
 
 	.nav-right{
 		//border: 1px solid black;
+		width: calc(100% - 250px);
+		float: right;
 
 		.nav-menu-upper{
 			//border: 1px solid blue;

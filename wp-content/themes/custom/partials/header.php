@@ -81,6 +81,42 @@
 
 	<?php wp_head(); ?>
 
+
+        <?php if( get_bloginfo('url') == 'https://worldoceansday.org'): ?>
+
+          <?php
+          $user = wp_get_current_user();
+          $allowed_roles = array('editor', 'administrator', 'author'); ?>
+          <?php if( array_intersect($allowed_roles, $user->roles ) == false ) :  ?>
+
+            <?php if(true): ?>
+              <!-- Global site tag (gtag.js) - Google Analytics -->
+              <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22692734-2"></script>
+              <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-22692734-2');
+              </script>
+            <?php endif; ?>
+
+          <?php endif; ?>
+
+          <?php else: ?>
+
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43897729-4"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-43897729-4');
+            </script>
+
+          <?php endif; ?>
+
 	<?php
 	//$sitewide_alert_on = get_field('show_sitewide_alert', 'option');
 	$sitewide_alert_class = 'sitewide-alert-off';

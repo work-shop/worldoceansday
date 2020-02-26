@@ -61,11 +61,11 @@
 	opacity: 0;
 	overflow: hidden;
 	transition: opacity .4s, transform .4s; //transition out
-	display: grid;
-	grid-template-columns: 50% 50%;
+	//display: grid;
+	//grid-template-columns: 50% 50%;
 
 	@media screen and (max-width: $lg) {
-		grid-template-columns: 69% 31%;
+		//grid-template-columns: 69% 31%;
 		transition: opacity .3s, transform .4s; //transition out
 	}
 
@@ -103,9 +103,13 @@
 
 	.menu-left{
 		padding: 60px 50px 50px 50px;
+		width: 60%;
+		float: left;
 
 		@media screen and (max-width: $md) {
 			padding: 30px 15px;
+			width: 100%;
+			float: none;
 			background: darken($brand-secondary,6%);
 			*{
 				color: white;
@@ -168,6 +172,8 @@
 		overflow-x: hidden;
 		background: $ultra-light;
 		padding: 60px 50px 50px 50px;
+		width: 40%;
+		float: left;
 
 		@media screen and (max-width: $md) {
 			display: none;

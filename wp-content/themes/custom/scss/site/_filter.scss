@@ -7,11 +7,18 @@ $filter-nav-height: 75px;
 	height: $filter-nav-height;
 	@extend .align-items-center;
 	display: flex;
+	position: relative;
+	transition: opacity .1s;
+
+	.page-nav-inner{
+		width: 100%;
+	}
 
 	@media screen and (max-width: $sm) {
 		height: auto;
 		padding-bottom: 12px;
 	}
+
 }
 
 
@@ -184,7 +191,7 @@ $button-color-default: lighten($brand-tint, 01%);
 #filter-clear{
 	display: none;
 	opacity: 0;
-	transition: all .2s;
+	//transition: all .2s;
 
 	&.on{
 		display: inline-block;
@@ -233,6 +240,22 @@ $button-color-default: lighten($brand-tint, 01%);
 	}
 
 
+}
+
+
+#filter-screen{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	opacity: 0;
+	width: 100%;
+	background: white;
+	z-index: -9999;
+
+	&.on{
+		z-index: 1;
+	}
 }
 
 .load-more-button{

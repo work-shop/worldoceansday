@@ -23,6 +23,7 @@
 	}
 }
 
+
 .list-your-event-banner-2{
 	display: flex;
 	@extend .align-items-center;
@@ -38,18 +39,32 @@
 
 	.events-main{
 		opacity: 1;
-		transition: opacity .0s .2s;
+		transition: opacity .0s .1s;
 	}
 
-	&.filter-loading{
-		.events-main{
-			transition: opacity .0s .2s;
-			opacity: .6;
-		}
 
-		.lds-ring{
-			display: inline-block !important;
-		}
+}
+
+#events-nav{
+	
+	.container-fluid{
+		max-width: none;
+	}
+}
+
+.filter-loading{
+	.events-main{
+		transition: opacity .0s .1s;
+		opacity: .6;
+	}
+
+	.filter-nav{
+		transition: opacity .0s .1s;
+		opacity: .6;
+	}
+
+	.lds-ring{
+		display: inline-block !important;
 	}
 }
 

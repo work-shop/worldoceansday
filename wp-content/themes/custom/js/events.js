@@ -104,9 +104,11 @@ function events() {
 			});
 
 			$('.filter-clear').click(function() {
-				picker.clearSelection();
-				$('#litepicker').val('Date');
-				$('#litepicker').removeClass('active');
+				if( picker != false){
+					picker.clearSelection();
+					$('#litepicker').val('Date');
+					$('#litepicker').removeClass('active');
+				}
 				page = 1;				
 				filtered = false;
 				dateFiltered = false;
@@ -128,40 +130,46 @@ function events() {
 
 			});
 
-			picker = new Litepicker({ 
-				element: document.getElementById('litepicker'),
-				singleMode: false,
-				splitView: true,
-				format : 'MMM DD',
-				firstDay: 0,
-				onSelect : function(date1, date2) { 
-					if(pickerInitialized){
-						pickerSelect(date1, date2);
+			//add condition for if litepicker is defined
+			if( typeof Litepicker !== 'undefined'){
+				picker = new Litepicker({ 
+					element: document.getElementById('litepicker'),
+					singleMode: false,
+					splitView: true,
+					format : 'MMM DD',
+					firstDay: 0,
+					onSelect : function(date1, date2) { 
+						if(pickerInitialized){
+							pickerSelect(date1, date2);
+						}
+					},
+					onShow : function(){
+						pickerVisible = true;
+						if(dateFiltered == false){
+							$('#litepicker').val('Date');
+						}
+					}, 
+					onHide : function(){
+						pickerVisible = false;
+						if(dateFiltered == false){
+							$('#litepicker').val('Date');
+						}
 					}
-				},
-				onShow : function(){
-					pickerVisible = true;
+				});
+
+
+				$('#litepicker').val('Date');
+
+				$('#litepicker').click(function(e) {
 					if(dateFiltered == false){
-						$('#litepicker').val('Date');
+						$(this).val('Date');
 					}
-				}, 
-				onHide : function(){
-					pickerVisible = false;
-					if(dateFiltered == false){
-						$('#litepicker').val('Date');
-					}
-				}
-			});
-
-
-			$('#litepicker').val('Date');
-
-			$('#litepicker').click(function(e) {
-				if(dateFiltered == false){
-					$(this).val('Date');
-				}
-				toggleFilterMenu($('.filter-menu-button.active'));
-			});
+					toggleFilterMenu($('.filter-menu-button.active'));
+				});	
+			} else{
+				picker = false;
+				$('#litepicker').addClass('hidden');
+			}
 
 			initialRequest();
 
@@ -247,14 +255,18 @@ function events() {
 				var varpickerEndDate = end.setDate(end.getDate()+1);
 				//console.log('updating picker with: ');
 				//console.log(pickerStartDate, varpickerEndDate);
-				picker.setDateRange(pickerStartDate, varpickerEndDate);
+				if( picker != false){
+					picker.setDateRange(pickerStartDate, varpickerEndDate);
+				}
 
 			} else{
 				//console.log('start and end are both all')
 			}
 
 		}
-		pickerInitialized = true;
+		if( picker != false){
+			pickerInitialized = true;
+		}
 
 		getEvents(category, country, startDate, endDate);
 
@@ -384,41 +396,49 @@ function events() {
 
 	function pickerSelect(date1, date2){
 
-		//console.log('onSelect with dates:');
-		//console.log(date1, date2); 
+		if( picker != false){
 
-		filtered = true;
-		dateFiltered = true;
+			//console.log('onSelect with dates:');
+			//console.log(date1, date2); 
 
-		updatePickerButton();
+			filtered = true;
+			dateFiltered = true;
 
-		var startDate = formatDate(date1);
-		var endDate = formatDate(date2);
-		//console.log(startDate);
-		//console.log(endDate);
+			updatePickerButton();
 
-		getEvents(currentCategory, currentCountry, startDate, endDate);
+			var startDate = formatDate(date1);
+			var endDate = formatDate(date2);
+			//console.log(startDate);
+			//console.log(endDate);
+
+			getEvents(currentCategory, currentCountry, startDate, endDate);
+
+		}
 
 	}
 
 
 	function updatePickerButton(){
 
-		//console.log('updatePickerButton');
-		//console.log('filtered: ' + filtered);
+		if( picker != false){
 
-		//console.log(picker);
+			//console.log('updatePickerButton');
+			//console.log('filtered: ' + filtered);
 
-		var pickerInput = $('#litepicker');
+			//console.log(picker);
 
-		if( pickerInput.hasClass('active') === false ){
-			pickerInput.addClass('active');
-		}
+			var pickerInput = $('#litepicker');
 
-		if(filtered){
-			//$('#filter-clear').addClass('on');
-		} else{
-			pickerInput.val('Date');
+			if( pickerInput.hasClass('active') === false ){
+				pickerInput.addClass('active');
+			}
+
+			if(filtered){
+				//$('#filter-clear').addClass('on');
+			} else{
+				pickerInput.val('Date');
+			}
+
 		}
 
 	}
@@ -439,22 +459,26 @@ function events() {
 
 
 	function updateView(){
-		
+
 		//console.log('updateView');
 		
-		if($('#events-wrapper').hasClass('filter-loading') ){
-			$('#events-wrapper').removeClass('filter-loading'); 
+		if($('body').hasClass('filter-loading') ){
+			$('body').removeClass('filter-loading'); 
 		} else{
-			$('#events-wrapper').addClass('filter-loading'); 
+			$('body').addClass('filter-loading'); 
 		}
 
-		if(!updating){
+		if(updating){
+			//console.log('in updateView -  updating');
+			$('#filter-screen').addClass('on');
+		}else {
+			$('#filter-screen').removeClass('on');
+			//console.log('in updateView - NOT updating');
 			if(filtered){
 				$('#filter-clear').addClass('on');
 			} else{
 				$('#filter-clear').removeClass('on');
 			}
-
 			if(dateFiltered == false){
 				$('#litepicker').val('Date');
 			}	
@@ -625,6 +649,9 @@ function events() {
 				eventsMap.fitBounds(bounds);
 			}
 
+		} else{
+			markerCluster = new MarkerClusterer(eventsMap, markers, mcOptions);
+			console.log('set markers but locations is empty');
 		}
 
 	}
