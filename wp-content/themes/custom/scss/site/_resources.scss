@@ -86,6 +86,11 @@ $resource-card-spacing: 25px;
 	margin-bottom: 5vh;
 	display: flex;
 
+	@media screen and (max-width: $xs) {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
 	&:hover{
 		.card-inner{
 			@extend .shadowed;
@@ -114,7 +119,7 @@ $resource-card-spacing: 25px;
 			padding-top: 61%;
 
 			@media screen and (max-width: $xs) {
-				padding-top: 40%;
+				padding-top: 100%;
 			}
 		}
 	}
@@ -126,6 +131,10 @@ $resource-card-spacing: 25px;
 			padding: $resource-card-spacing/1.5 $resource-card-spacing/2 $resource-card-spacing/2 $resource-card-spacing/2;
 		}
 
+		@media screen and (max-width: $xs) {
+			padding: $resource-card-spacing/2 $resource-card-spacing/4	 $resource-card-spacing/4	 $resource-card-spacing/4	;
+		}
+
 		.resource-title{
 			line-height: 1.25;
 			margin-bottom: $resource-card-spacing;
@@ -133,7 +142,11 @@ $resource-card-spacing: 25px;
 			@extend .font-black;
 
 			@media screen and (max-width: $sm) {
-				margin-bottom: $resource-card-spacing/1.5;
+				margin-bottom: $resource-card-spacing/2;
+			}
+
+			@media screen and (max-width: $xs) {
+				font-size: 12px;
 			}
 		}
 
@@ -147,7 +160,12 @@ $resource-card-spacing: 25px;
 			}
 
 			@media screen and (max-width: $sm) {
-				margin-bottom: $resource-card-spacing/1.5;
+				margin-bottom: $resource-card-spacing/2;
+			}
+
+			@media screen and (max-width: $xs) {
+				font-size: 9px;
+				//display: none;
 			}
 		}
 	}
@@ -158,13 +176,23 @@ $resource-card-spacing: 25px;
 			@media screen and (max-width: $sm) {
 				margin-right: $resource-card-spacing/2;
 			}
+
+			@media screen and (max-width: $xs) {
+				margin-right: 5px;
+			}
 		}
 
 		a{
 			@extend .button;
 			@extend .button-small;
 			margin-bottom: $resource-card-spacing *.3;
+
+			@media screen and (max-width: $xs) {
+				padding: 7px 10px 5px 10px !important;
+				font-size: 8px;
+			}
 		}
+
 	}
 
 }

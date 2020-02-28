@@ -4,11 +4,20 @@
 var getUrl = window.location;
 var siteUrl = '';
 var local = false;
+var staging = false;
 if(  ( window.location.href.indexOf('localhost') !== -1 ) ){
 	siteUrl = 'http://localhost/worldoceansday';
+	//console.log('local environment');
 	local = true;
-} else{
+} else if(( window.location.href.indexOf('staging.worldoceansday.org') !== -1 )){
+	siteUrl = 'https://staging.worldoceansday.org';
+	//console.log('staging environment');
+	local = false;
+	staging = true;
+}
+else{
 	siteUrl = 'https://worldoceansday.org';
+	//console.log('live environment');
 	local = false;
 }
 var baseUrl = siteUrl + '/wp-json/wod-events/v1/list';
@@ -370,8 +379,9 @@ function events() {
 					console.log('no events found with this request');
 					updating = false;
 					updateView();
-					console.log('no events');
 					$('#events-container').html(emptyMessage);
+					totalPages = 0;
+					updatePagination();
 				}
 
 			})
@@ -489,10 +499,10 @@ function events() {
 
 	function updatePagination(){
 
-		// console.log('page: ' + page);
-		// console.log('totalPages: ' + totalPages);
+		console.log('page: ' + page);
+		console.log('totalPages: ' + totalPages);
 
-		if(page === totalPages){
+		if( (page === totalPages) || totalPages == 0){
 			//console.log('full');
 			full = true;
 			$('.load-more-button').removeClass('active');
@@ -502,13 +512,19 @@ function events() {
 			$('.load-more-button').addClass('active');
 		}
 
-		var currentSpanTop = page * perPage;
-		if( currentSpanTop > totalItems ){ 
-			currentSpanTop = totalItems;
+		if(totalPages > 0){
+			var currentSpanTop = page * perPage;
+			if( currentSpanTop > totalItems ){ 
+				currentSpanTop = totalItems;
+			}
+			//var currentSpanBottom = currentSpanTop - perPage + 1;// use this with real pagination
+			var currentSpanBottom = 1;
+			var summary = currentSpanBottom + ' - ' + currentSpanTop + ' of ' + totalItems + ' Events';
+		} else{
+			var summary = 'No Events Found';
 		}
-		//var currentSpanBottom = currentSpanTop - perPage + 1;// use this with real pagination
-		var currentSpanBottom = 1;
-		var summary = currentSpanBottom + ' - ' + currentSpanTop + ' of ' + totalItems + ' Events';
+
+
 		$('#filter-summary-events').html(summary);
 
 	}
@@ -587,14 +603,26 @@ function events() {
 
 		var center = {lat: 0, lng: 0};
 
+		var zoom = 2;
+		var minZoom = 2;
+		var maxZoom = 15;
+		var gestureHandling = 'cooperative';
+		if( $(window).width() < 768 ){
+			console.log('mobile map settings');
+			zoom = 1;
+			minZoom = 1;
+			gestureHandling = 'greedy';
+		}
+
 		eventsMap = new google.maps.Map( document.getElementById('events-map'), {
-			zoom: 2, 
-			maxZoom: 15,
-			minZoom: 2,
+			zoom: zoom, 
+			maxZoom: maxZoom,
+			minZoom: minZoom,
 			center: center,
 			mapTypeControl: false,
 			streetViewControl: false,
-			rotateControl: false
+			rotateControl: false, 
+			gestureHandling: gestureHandling
 		} );		
 
 		//console.log(locations);

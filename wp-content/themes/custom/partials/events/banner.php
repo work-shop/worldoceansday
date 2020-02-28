@@ -1,7 +1,7 @@
 
 <?php if( get_field('show_list_your_event_banner', 13)): ?>
 	<?php if( !isset($_COOKIE['wod_show_list_your_event_banner']) || $_COOKIE['wod_show_list_your_event_banner'] === false || is_singular('event_listing') ): ?>
-	<section class="block padded-less" id="list-your-event-banner">
+	<section class="block" id="list-your-event-banner">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-10 col-lg-4 offset-lg-2 list-your-event-banner-1">

@@ -19,6 +19,8 @@ function submitEvent() {
 		else{
 			//console.log('on submit page');
 			$('body').addClass('event-submit-submit');
+			$('input#event_start_date').attr('autocomplete','off');
+			$('input#event_end_date').attr('autocomplete','off');
 		}
 
 		//submit event page
@@ -39,6 +41,8 @@ function submitEvent() {
 			$('body').addClass('event-submit-submit-error');
 			activateAccountCreation();
 		}
+
+
 
 
 		//$('.fieldset-create_account_email .field').append(emailMarkup);

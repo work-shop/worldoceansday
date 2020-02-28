@@ -1,6 +1,6 @@
-<article id="<?php echo get_post_field( 'post_name', get_post() ); ?>" class="resource card-resource col-sm-6 col-md-6 col-lg-4 col-xl-4">
+<article id="<?php echo get_post_field( 'post_name', get_post() ); ?>" class="resource card-resource col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
 	<div class="card-inner resource-card-inner">
-		<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'md'); ?>
+		<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'lg'); ?>
 		<div class="card-image" style="background-image: url('<?php echo $featured_img_url; ?>');">
 		</div>
 		<div class="card-text">

@@ -13,7 +13,7 @@
 	?>
 	<div class="block-background subscribe-image" style="background-image: url('<?php echo $background_image; ?>');">
 	</div>
-	<div class="container-fluid height-100 subscribe-content">
+	<div class="container-fluid vhfull padded-less subscribe-content">
 		<div class="row subscribe-row">
 			<div class="col-lg-8 col-xl-6">
 				<h2 class="white mb1 font-black">

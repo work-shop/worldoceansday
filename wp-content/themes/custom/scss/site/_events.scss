@@ -1,6 +1,13 @@
 
 #list-your-event-banner{
 	background: lighten($interactivea, 30%);
+	padding-top: 35px;
+	padding-bottom: 30px;
+
+	@media screen and (max-width: $sm) {
+			padding-top: 19px;
+	padding-bottom: 16px;
+	}
 
 	.button{
 		border-radius: 50px;
@@ -14,6 +21,7 @@
 		line-height: 40px;
 		width: 40px;
 		margin-top: -15px;
+
 
 		a{
 			display: block;
@@ -637,9 +645,15 @@ $card-event-spacing: 35px;
 	.event-single-preview-fallback-image-note{
 		position: absolute;
 		bottom: 15px;
+		left: 15px;
 		width: calc(100% - 40px);
 		z-index: 1;
 		font-size: 16px;
+
+		@media screen and (max-width: $sm) {
+			width: calc(100% - 30px);
+			font-size: 13px;
+		}
 	}
 
 

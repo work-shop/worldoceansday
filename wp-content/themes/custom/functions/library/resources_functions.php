@@ -56,6 +56,7 @@ function get_resources_list( $request ){
 		'post_type' => 'resources',
 		'posts_per_page' => $per_page,
 		'paged' => $page,
+		'order' => 'ASC',
 		'tax_query' => array(
 			'relation' => 'AND',
 			array (

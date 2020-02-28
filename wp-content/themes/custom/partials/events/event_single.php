@@ -34,6 +34,14 @@ if( $end_date > $start_date){
 	$multi_day = false;
 }
 
+if( $end_date < $start_date){
+	$endLessThanStart = true;
+	//var_dump($end_date);
+	//var_dump($start_date);
+} else{
+	$endLessThanStart = false;
+}
+
 
 $online = get_post_meta($post->ID,'_event_online');
 
@@ -126,12 +134,23 @@ $google_maps_api_key = 'AIzaSyCUZ88sqTgo2gkvg-5q6xxawt9wZkTRCv8';
 
 <div id="event-single-wrapper">
 	<section class="block" id="single-event-hero">	
+		<?php if( is_page(11) && $endLessThanStart ): ?>
+			<div class="container-fluid">
+				<div class="row mt2 mb2">
+					<div class="col">
+						<div class="event-single-date-note wod-alert wod-alert-error">
+							The end date you entered is before the start date you entered. Please click "Edit Listing" above and choose an end date that is not before the start date.
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
 		<div class="row">
 			<div class="col-lg-7 event-single-hero-image">
 				<div class="block-background" style="background-image: url('<?php echo $banner_url; ?>');">
 				</div>
 				<?php if( is_page(11) && $banner_fallback ): ?>
-					<div class="event-single-preview-fallback-image-note wod-alert wod-alert-error">
+					<div class="event-single-preview-fallback-image-note wod-alert wod-alert-warning">
 						An image has been automatically added to your event from our image library. To provide your own image, click "Edit Listing" to return to the event form, then upload an image.
 					</div>
 				<?php endif; ?>
@@ -196,7 +215,28 @@ $google_maps_api_key = 'AIzaSyCUZ88sqTgo2gkvg-5q6xxawt9wZkTRCv8';
 										<?php echo get_event_start_time(); ?> - <?php echo get_event_end_time(); ?>
 									</h4>
 								<?php endif; ?>
-								<h4 class="event-single-meta-link">
+								<h4 class="event-single-meta-link add-to-calendar-container" id="event-single-add-to-calendar-container"
+								data-start-date="<?php echo get_event_start_date(); ?>"
+								data-start-time="<?php echo get_event_start_time(); ?>"
+								data-end-date="<?php echo get_event_end_date(); ?>"
+								data-end-time="<?php echo get_event_end_time(); ?>"
+								data-time-zone="<?php 
+								$timezone = get_post_meta($post->ID,'_event_timezone');
+								if( isset($timezone[0]) ): 
+								echo $timezone[0];
+								endif;
+								?>"
+								data-title="<?php the_title(); ?>"
+								data-online="<?php the_title(); ?>"
+								data-address="<?php
+								if( $online_event == false ): 					
+								echo get_event_location();
+								else:
+								echo 'Virtual Event';
+								endif; 
+								?>"
+								>
+								<?php if(false): ?>
 									<a href="#event-single-map" class="addeventatc" data-styling="none">Add to Calendar
 										<span class="start">
 											<?php echo get_event_start_date(); ?> <?php echo get_event_start_time(); ?>
@@ -225,108 +265,130 @@ $google_maps_api_key = 'AIzaSyCUZ88sqTgo2gkvg-5q6xxawt9wZkTRCv8';
 											?>
 										</span>
 									</a>
-								</h4>
-							</div>
-						</div>
-						<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
-						<div class="row event-meta-row">								
-							<div class="col-2 event-single-meta-icon">
-								<span class="icon" data-icon="♁"></span>
-							</div>
-							<div class="col-10 event-single-meta-text">
-								<h3 class="event-single-meta-heading event-single-meta-heading-date">
-									Organized by <?php echo get_organizer_name(); ?>
-								</h3>
-								<h4 class="event-single-meta-link">
-									<a href="#event-single-organizer" class="jump-submit">Learn More about this Organizer</a>
-								</h4>
-							</div>
-						</div>
-						<?php if( !is_page(11) && !$banner_fallback ): ?>
-							<div class="row mt2">
-								<div class="col-10 col-xl-11">
-									<div class="event-single-back-button">
-										<a class="button button-small" href="<?php bloginfo('url');?>/events"><span class="icon mr1" data-icon="‰"></span>Back to Events</a>
-									</div>
-								</div>
-							</div>
-						<?php endif; ?>
-					</div>
-				</section>
-				<section class="block padded-top" id="single-event-description">
-					<div class="container">
-
-						<div class="row">
-							<div class="col-lg-7 single-event-description">
-								<div class="wysiwyg">
-									<?php
-									if($description):
-										echo $description;
-									endif;
-									?>
-								</div>
-							</div>
-							<div class="col-lg-4 offset-lg-1 single-event-description-sidebar">
-								<div class="single-event-categories">
-									<?php 
-									$terms = get_the_terms( get_the_ID(), 'event_listing_category' );
-									if ( $terms && ! is_wp_error( $terms ) ) : 
-										$categories = array();
-										foreach ( $terms as $term ) {
-											$categories[] = '<a href="' . get_bloginfo('url') . '/events?category=' . $term->slug . '" class="single-event-category-button button button-small button-bordered">' . $term->name . '</a>';
-										}
-										$categories = join( "", $categories );
-										echo $categories;
-									endif; ?>
-								</div>
-								<div class="single-event-website">
-									<?php if( $event_website ): ?>
-										<a href="<?php echo $event_website; ?>" target="_blank">
-											Event Website
-										</a>
-									<?php endif; ?>
-								</div>
-							</div>
-							<div class="col-12 single-event-separator-col">
-								<div class="single-event-separator"></div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="block padded-top" id="single-event-organizer">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-4 single-event-organized-by">
-								<?php if( get_organizer_logo() ): ?>
-									<div class="single-event-organizer-logo">
-										<?php display_organizer_logo('xs'); ?>
-									</div>
 								<?php endif; ?>
-								<h5 class="single-event-organizer-label">
-									Organized By
-								</h5>
-								<?php 
+							</h4>
+						</div>
+					</div>
+					<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/ouical.js" async defer></script>
+					<?php if(false): ?><script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script><?php endif; ?>
+					<div class="row event-meta-row">								
+						<div class="col-2 event-single-meta-icon">
+							<span class="icon" data-icon="♁"></span>
+						</div>
+						<div class="col-10 event-single-meta-text">
+							<h3 class="event-single-meta-heading event-single-meta-heading-date">
+								Organized by <?php echo get_organizer_name(); ?>
+							</h3>
+							<h4 class="event-single-meta-link">
+								<a href="#event-single-organizer" class="jump-submit">Learn More about this Organizer</a>
+							</h4>
+						</div>
+					</div>
+					<?php if( !is_page(11) && !$banner_fallback ): ?>
+						<div class="row mt2">
+							<div class="col-10 col-xl-11">
+								<div class="event-single-back-button">
+									<a class="button button-small" href="<?php bloginfo('url');?>/events"><span class="icon mr1" data-icon="‰"></span>Back to Events</a>
+								</div>
+							</div>
+						</div>
+					<?php endif; ?>
+				</div>
+			</section>
+			<section class="block padded-top" id="single-event-description">
+				<div class="container">
 
-								if($organizer_website): ?>
-									<a href="<?php echo $organizer_website; ?>" target="_blank">
-									<?php endif; ?>
-									<h3 class="event-single-meta-heading">
-										<?php echo $organizer_name; ?>
-									</h3>
-									<?php if($organizer_website): ?>
-										<h4 class="event-single-meta-link">
-											<?php echo $organizer_website; ?>
-										</h4>
+					<div class="row">
+						<div class="col-lg-7 single-event-description">
+							<div class="wysiwyg">
+								<?php
+								if($description):
+									echo $description;
+								endif;
+								?>
+							</div>
+						</div>
+						<div class="col-lg-4 offset-lg-1 single-event-description-sidebar">
+							<div class="single-event-categories">
+								<?php 
+								$terms = get_the_terms( get_the_ID(), 'event_listing_category' );
+								if ( $terms && ! is_wp_error( $terms ) ) : 
+									$categories = array();
+									foreach ( $terms as $term ) {
+										$categories[] = '<a href="' . get_bloginfo('url') . '/events?category=' . $term->slug . '" class="single-event-category-button button button-small button-bordered">' . $term->name . '</a>';
+									}
+									$categories = join( "", $categories );
+									echo $categories;
+								endif; ?>
+							</div>
+							<div class="single-event-website">
+								<?php if( $event_website ): ?>
+									<a href="<?php echo $event_website; ?>" target="_blank">
+										Event Website
 									</a>
 								<?php endif; ?>
 							</div>
-							<div class="col-lg-7 offset-lg-1 single-event-organization-description">
-								<?php 
-								if($organizer_description): ?>
-									<div class="wysiwyg">
-										<?php echo $organizer_description; ?>
-									</div>
+						</div>
+						<div class="col-12 single-event-separator-col">
+							<div class="single-event-separator"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="block padded-top" id="single-event-organizer">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 single-event-organized-by">
+							<?php if( get_organizer_logo() ): ?>
+								<div class="single-event-organizer-logo">
+									<?php display_organizer_logo('xs'); ?>
+								</div>
+							<?php endif; ?>
+							<h5 class="single-event-organizer-label">
+								Organized By
+							</h5>
+							<?php 
+
+							if($organizer_website): ?>
+								<a href="<?php echo $organizer_website; ?>" target="_blank">
 								<?php endif; ?>
+								<h3 class="event-single-meta-heading">
+									<?php echo $organizer_name; ?>
+								</h3>
+								<?php if($organizer_website): ?>
+									<h4 class="event-single-meta-link">
+										<?php echo $organizer_website; ?>
+									</h4>
+								</a>
+							<?php endif; ?>
+						</div>
+						<div class="col-lg-7 offset-lg-1 single-event-organization-description">
+							<?php 
+							if($organizer_description): ?>
+								<div class="wysiwyg">
+									<?php echo $organizer_description; ?>
+								</div>
+							<?php endif; ?>
+						</div>
+						<div class="col-12 single-event-separator-col">
+							<div class="single-event-separator"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<?php if( $online_event == false): ?>
+				<section class="block padded-top" id="single-event-map">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 single-event-map-heading mb1">
+								<h3 class="event-single-meta-heading">
+									<?php echo $location; ?>
+								</h3>
+							</div>
+							<div class="col-12 single-event-map-container">
+								<div id="single-event-map-map">
+									<iframe class="" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<?php echo $location; ?>&key=<?php echo $google_maps_api_key; ?>" allowfullscreen></iframe>
+								</div>
 							</div>
 							<div class="col-12 single-event-separator-col">
 								<div class="single-event-separator"></div>
@@ -334,43 +396,23 @@ $google_maps_api_key = 'AIzaSyCUZ88sqTgo2gkvg-5q6xxawt9wZkTRCv8';
 						</div>
 					</div>
 				</section>
-				<?php if( $online_event == false): ?>
-					<section class="block padded-top" id="single-event-map">
-						<div class="container">
-							<div class="row">
-								<div class="col-12 single-event-map-heading mb1">
-									<h3 class="event-single-meta-heading">
-										<?php echo $location; ?>
-									</h3>
-								</div>
-								<div class="col-12 single-event-map-container">
-									<div id="single-event-map-map">
-										<iframe class="" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<?php echo $location; ?>&key=<?php echo $google_maps_api_key; ?>" allowfullscreen></iframe>
-									</div>
-								</div>
-								<div class="col-12 single-event-separator-col">
-									<div class="single-event-separator"></div>
-								</div>
-							</div>
+			<?php endif; ?>
+			<section class="block padded" id="single-event-share">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 centered">
+							<h3 class="event-single-meta-heading">
+								Share this Event
+							</h3>
 						</div>
-					</section>
-				<?php endif; ?>
-				<section class="block padded" id="single-event-share">
-					<div class="container">
-						<div class="row">
-							<div class="col-12 centered">
-								<h3 class="event-single-meta-heading">
-									Share this Event
-								</h3>
-							</div>
-							<div class="col-12 event-single-share-container">
-								<!-- Go to www.addthis.com/dashboard to customize your tools --> 
-								<div class="addthis_inline_share_toolbox_84zx"></div>
-							</div>
+						<div class="col-12 event-single-share-container">
+							<!-- Go to www.addthis.com/dashboard to customize your tools --> 
+							<div class="addthis_inline_share_toolbox_84zx"></div>
 						</div>
 					</div>
-				</section>
-			</div>
+				</div>
+			</section>
+		</div>
 
 
 

@@ -24,6 +24,7 @@ import { scrollSpy } from './scroll-spy.js';
 import { events } from './events.js';
 import { resources } from './resources.js';
 import { submitEvent } from './submit-event.js';
+import { addToCalendar } from './add-to-calendar.js';
 
 //optional
 import { stickyNav } from './sticky-nav.js';
@@ -48,6 +49,7 @@ vh();
 stickyNav(config.stickyNav);
 dropdowns(config.dropdowns);
 menuToggle(config.menuToggle);
+addToCalendar();
 
 
 $(document).ready( function() {

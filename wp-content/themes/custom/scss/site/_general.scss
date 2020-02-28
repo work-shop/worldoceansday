@@ -667,11 +667,15 @@ $text-button-small: (
 	@extend .font-medium;
 	line-height: 1.4;
 
+	@media screen and (max-width: $sm) {
+		padding: 10px;
+		font-size: 13px;
+	}
+
 	&.wod-alert-success{
 		color: darken(#d4edda, 55%);
 		background: #d4edda;
 		border-color: darken(#d4edda, 55%);
-
 	}
 
 	&.wod-alert-error{
@@ -679,6 +683,13 @@ $text-button-small: (
 		background: lighten($error,30%);
 		border-color: darken($error, 25%);
 
+	}
+
+	$warning: darken($tan,11%);
+	&.wod-alert-warning{
+		color: darken($warning, 30%);
+		background: lighten($warning,13%);
+		border-color: darken($warning, 35%);
 	}
 
 }

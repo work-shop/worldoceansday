@@ -14,13 +14,6 @@ add_action( 'rest_api_init', function () {
 
 
 
-
-
-
-
-
-
-
 function get_event_list( $request ){
 
 	$html = '';
@@ -120,26 +113,6 @@ function get_event_list( $request ){
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -288,7 +261,17 @@ function my_acf_update_value($post_id, $post, $update ) {
 
 
 	$online = get_post_meta($post_id,'_event_online');
-	$online = $online[0];
+
+	if( !is_wp_error($online[0]) ): 
+		if($online[0] == 'yes'):
+			$online = 'yes';
+		else:
+			$online = false;
+		endif;
+	else:
+		$online = false;
+	endif;
+
 	$original_value = get_field('location');
 
 
