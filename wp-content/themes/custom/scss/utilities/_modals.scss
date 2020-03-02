@@ -6,7 +6,7 @@
 	//height: 100%;
 	top: 0;
 	left: -100vw;
-	z-index: 12;
+	z-index: 10013;
 	opacity: .5;
 	transition:  opacity $modal-transition ease-in-out, left 0s linear $modal-transition;
 	background: $brand;
@@ -47,7 +47,7 @@
 	right: -100px;
 	height: 40px;
 	width: 40px;
-	z-index: 13;
+	z-index: 10014;
 	text-align: center;
 	opacity: 0;
 	transition: opacity $modal-transition, right 0s linear $modal-transition;
@@ -73,7 +73,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 11;
+	z-index: 10012;
 	left: 200%;
 	@include transition(opacity .1s);
 	opacity: 0;
@@ -85,7 +85,7 @@
 	overflow: hidden;
 
 	#modal-close{
-		transition: opacity $modal-transition*5;
+		transition: opacity $modal-transition;
 		right: 60px;
 		opacity: 1;
 

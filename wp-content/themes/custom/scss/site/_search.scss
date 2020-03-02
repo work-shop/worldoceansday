@@ -6,7 +6,7 @@ $search-height: 80px;
     padding: 0px;
     width: 100%;
     height: $search-height;
-    z-index: 6;
+    z-index: 12;
     transform: translateX(0);
     transition: top .5s;
     overflow-x: hidden;

@@ -20,8 +20,10 @@ function addToCalendar() {
 					var title = $(this).data('title');
 					var online = $(this).data('online');
 					var address = $(this).data('address');
-					console.log($(this));
-					console.log(startDate + ' ' +  startTime);
+					var timeZone = $(this).data('time-zone');
+					
+					//console.log($(this));
+					//console.log(startDate + ' ' +  startTime);
 
 
 					var button = createCalendar({
